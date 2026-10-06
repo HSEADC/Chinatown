@@ -13,5 +13,31 @@
       <li><a href="pages/map.html">карта</a></li>
       <li><a href="pages/merch.html">мерч</a></li>
     </ul>
+    <!-- modify this form HTML and place wherever you want your form -->
+    <div data-fs-success>Thanks for your submission!</div>
+    <div data-fs-error>Oops! There was a problem submitting your form.</div>
+    <form id="my-form">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" data-fs-field />
+      <span data-fs-error="email"></span>
+      <label for="message">Message:</label>
+      <input type="text" id="message" name="message" data-fs-field />
+      <span data-fs-error="message"></span>
+      <button type="submit" data-fs-submit-btn>Submit</button>
+    </form>
+
+    <!-- Place these scripts at the end of the body tag -->
+    <script>
+      window.formspree =
+        window.formspree ||
+        function () {
+          (formspree.q = formspree.q || []).push(arguments);
+        };
+      formspree("initForm", {
+        formElement: "#my-form",
+        formId: "mdekylvy",
+      });
+    </script>
+    <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
   </body>
 </html>
