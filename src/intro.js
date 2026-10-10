@@ -29,6 +29,12 @@ function isOverHeadline(event) {
     && event.clientY >= rect.top && event.clientY <= rect.bottom;
 }
 
+function updateCopyHover(event) {
+  intro.classList.toggle('is-copy-hovered', finePointer.matches && event.pointerType !== 'touch'
+    && !sphere.classList.contains('is-dragging')
+    && !event.target.closest('button, .intro__about') && isOverHeadline(event));
+}
+
 async function copySiteUrl() {
   if (copyPending) return;
   copyPending = true;
@@ -53,18 +59,24 @@ intro.addEventListener('pointermove', (event) => {
   if (pointerStart?.id === event.pointerId) {
     pointerMoved ||= Math.hypot(event.clientX - pointerStart.x, event.clientY - pointerStart.y) > 6;
   }
-  intro.classList.toggle('is-copy-hovered', finePointer.matches && isOverHeadline(event));
+  updateCopyHover(event);
 });
 intro.addEventListener('pointerdown', (event) => {
+  updateCopyHover(event);
   if (event.pointerType === 'touch' || event.button !== 0) return;
   pointerStart = { id: event.pointerId, x: event.clientX, y: event.clientY };
   pointerMoved = false;
 });
 intro.addEventListener('pointerup', (event) => {
+  updateCopyHover(event);
   if (event.pointerId !== pointerStart?.id) return;
   pointerStart = null;
 });
-intro.addEventListener('pointercancel', () => { pointerStart = null; pointerMoved = true; });
+intro.addEventListener('pointercancel', () => {
+  pointerStart = null;
+  pointerMoved = true;
+  intro.classList.remove('is-copy-hovered');
+});
 intro.addEventListener('pointerleave', () => intro.classList.remove('is-copy-hovered'));
 intro.addEventListener('click', (event) => {
   if (!finePointer.matches || event.detail === 0 || event.button !== 0
