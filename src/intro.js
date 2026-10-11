@@ -1,7 +1,6 @@
 import { mountVideoSphere } from './video-sphere.js';
 import { mountHeadlineGlitch } from './headline-glitch.js';
 
-const SITE_URL = 'https://chinatown.ru';
 const intro = document.querySelector('#intro');
 const sphere = document.querySelector('#intro-sphere');
 const headline = document.querySelector('#intro-headline');
@@ -39,7 +38,7 @@ async function copySiteUrl() {
   if (copyPending) return;
   copyPending = true;
   try {
-    await navigator.clipboard.writeText(SITE_URL);
+    await navigator.clipboard.writeText(siteLink.href);
     copyStatus.textContent = '';
   } catch {
     copyStatus.textContent = 'Не удалось скопировать ссылку.';
