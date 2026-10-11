@@ -39,7 +39,7 @@ function renderCursor() {
   // win regardless of which nested element happens to be underneath the mouse.
   const overText = intro && !target.closest('button, .intro__about')
     && isInside(copyArea, pointer.x, pointer.y);
-  const requestedMode = draggingSphere ? 'grabbing' : overText ? 'copy'
+  const requestedMode = draggingSphere ? 'grabbing' : intro?.classList.contains('is-copy-pressed') || overText ? 'copy'
     : getComputedStyle(target).getPropertyValue('--site-cursor-mode').trim();
   const mode = glyphs.has(requestedMode) ? requestedMode : 'default';
   if (mode !== activeMode) {

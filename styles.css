@@ -362,6 +362,13 @@ body.intro-active { overflow: hidden; }
 .intro__site-link::after { content: ''; position: absolute; left: 0; right: 0; bottom: max(0px, calc(.1em - 2px)); height: 4px; background: currentColor; pointer-events: none; transform: scaleX(0); transform-origin: left; transition: transform .3s ease-out; }
 .intro.is-copy-hovered .intro__site-link::after,
 .intro__site-link:focus-visible::after { transform: scaleX(1); }
+.intro.is-copied .intro__site-link::after { transform: scaleX(1); animation: intro-copy-underline .6s ease-out; }
+
+@keyframes intro-copy-underline {
+  0%, 100% { background: currentColor; }
+  30% { background: #fc5cff; box-shadow: 0 0 12px rgba(252, 92, 255, .5); }
+}
+
 .intro__site-link:focus-visible { outline: 3px solid #fff; outline-offset: 8px; }
 .intro__bottom { position: absolute; left: var(--intro-inset-start); right: var(--intro-inset-end); bottom: var(--intro-inset-block); display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; transition: transform var(--intro-motion-duration) var(--intro-motion-ease); }
 .intro--compact .intro__bottom { transform: translateY(calc(var(--intro-inset-block) - var(--intro-compact-inset-block))); }
@@ -594,7 +601,14 @@ body[data-page="detail"] #player-expand { display: none; }
 .subscribe-modal__submit > img { width: min(3.333333vw, 5.925926svh); height: auto; }
 .intro__whitelist:hover, .subscribe-modal__submit:hover { background: #e743ea; }
 .intro__whitelist:active, .subscribe-modal__submit:active { background: #c832cb; }
-.intro__copy-status { bottom: calc(var(--intro-inset-block) + 72px); }
+.intro__copy-status { position: fixed; z-index: 3; top: 0; right: auto; bottom: auto; left: 0; max-width: calc(100vw - 32px); padding: 10px 14px; border: 1px solid rgba(255, 255, 255, .3); background: #111; color: #fff; font: 600 clamp(12px, 1vw, 16px)/1.4 "Giga Sans", sans-serif; opacity: 0; transform: translateY(6px); pointer-events: none; transition: opacity .16s ease, transform .16s ease; }
+.intro__copy-status.is-visible { opacity: 1; transform: translateY(0); }
+.intro__copy-status[data-state='success']::before { content: '✓'; margin-right: 8px; color: #fc5cff; }
+
+@media (prefers-reduced-motion: reduce) {
+  .intro.is-copied .intro__site-link::after { animation: none; }
+  .intro__copy-status { transition: none; }
+}
 
 .subscribe-modal[hidden] { display: none; }
 .subscribe-modal { position: fixed; z-index: 200; inset: 0; color: #fff; }
