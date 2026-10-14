@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { quoteReadingLayout, quoteScrollState } from '../src/quote-scroll-state.js';
+import { quoteReadingLayout, quoteScrollState, quoteScrollStickiness, smoothQuoteTravel } from '../src/quote-scroll-state.js';
 
 const scene = { height: 1000, ...quoteReadingLayout(1000, [0, 200]), exit: 680 };
 
@@ -20,7 +20,7 @@ test('every original lyric line has a short stop, including the middle lines', (
     }
   }
   for (const stop of reading.stops.slice(1, -1)) {
-    assert.ok(stop.end - stop.start >= 40 && stop.end - stop.start <= 80);
+    assert.ok(stop.end - stop.start >= 24 && stop.end - stop.start <= 48);
   }
 });
 
@@ -54,12 +54,45 @@ test('uneven and wrapped lyric lines progress continuously and reverse without j
 
 test('the last phrase reaches the reading position before the background fades', () => {
   assert.equal(quoteScrollState(140, scene).travel, 0);
-  assert.equal(quoteScrollState(340, scene).travel, 200);
-  assert.equal(quoteScrollState(340, scene).mediaOpacity, 1);
-  assert.equal(quoteScrollState(480, scene).mediaOpacity, 1);
-  assert.equal(quoteScrollState(820, scene).mediaOpacity, .5);
-  assert.equal(quoteScrollState(1160, scene).mediaOpacity, 0);
+  assert.equal(quoteScrollState(370, scene).travel, 200);
+  assert.equal(quoteScrollState(370, scene).mediaOpacity, 1);
+  assert.equal(quoteScrollState(scene.runway, scene).mediaOpacity, 1);
+  assert.equal(quoteScrollState(scene.runway + 340, scene).mediaOpacity, .5);
+  assert.equal(quoteScrollState(scene.runway + 680, scene).mediaOpacity, 0);
   assert.equal(quoteScrollState(1600, scene).mediaOpacity, 0);
+});
+
+test('visual smoothing follows the same timing at different frame rates', () => {
+  const follow = step => {
+    let position = 0;
+    for (let elapsed = 0; elapsed < 120; elapsed += step) position = smoothQuoteTravel(position, 150, step);
+    return position;
+  };
+  assert.ok(Math.abs(follow(10) - follow(20)) < .000001);
+});
+
+test('fast scrolling bypasses every reading stop and follows input immediately', () => {
+  const reading = { height: 844, ...quoteReadingLayout(844, [0, 130, 300, 460]), exit: 600 };
+  const strength = quoteScrollStickiness(2);
+  assert.equal(strength, 0);
+  assert.equal(quoteScrollStickiness(.2), 1);
+  assert.ok(quoteScrollStickiness(.8) > 0 && quoteScrollStickiness(.8) < 1);
+  for (const stop of reading.stops) {
+    const start = quoteScrollState(stop.start, reading, strength);
+    const end = quoteScrollState(stop.end, reading, strength);
+    assert.ok(end.travel > start.travel);
+    assert.equal(end.mediaOpacity, 1);
+    assert.equal(smoothQuoteTravel(start.travel, end.travel, 16, strength), end.travel);
+  }
+});
+
+test('visual smoothing changes direction immediately, settles, and never overshoots', () => {
+  let position = smoothQuoteTravel(0, 150, 16);
+  assert.ok(position > 0 && position < 150);
+  const reversed = smoothQuoteTravel(position, 0, 16);
+  assert.ok(reversed >= 0 && reversed < position);
+  for (let frame = 0; frame < 60; frame++) position = smoothQuoteTravel(position, 150, 16);
+  assert.equal(position, 150);
 });
 
 test('lyrics clear before the following article is fully revealed, including reverse scroll', () => {
