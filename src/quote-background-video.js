@@ -61,18 +61,14 @@ export function mountQuoteBackgroundVideo(media) {
     try {
       const YouTube = await loadYouTubePlayer();
       if (disposed) return;
-      const frame = document.createElement('iframe');
-      const url = new URL(`https://www.youtube.com/embed/${videoId}`);
-      const parameters = { enablejsapi: 1, origin: location.origin, start, autoplay: 0, mute: 1, playsinline: 1, controls: 0, disablekb: 1, fs: 0, rel: 0 };
-      for (const [key, value] of Object.entries(parameters)) url.searchParams.set(key, value);
-      frame.src = url.href;
-      frame.title = 'Выступление madk1d — фоновое видео без звука';
-      frame.allow = 'autoplay; encrypted-media';
-      frame.referrerPolicy = 'strict-origin-when-cross-origin';
-      frame.tabIndex = -1;
-      host.append(frame);
+      const placeholder = document.createElement('div');
+      host.append(placeholder);
       readyTimeout = setTimeout(() => { if (!disposed && !ready) fallback('unavailable'); }, 15000);
-      player = new YouTube.Player(frame, { events: {
+      player = new YouTube.Player(placeholder, {
+        host: 'https://www.youtube-nocookie.com',
+        videoId,
+        playerVars: { origin: location.origin, widget_referrer: location.href, start, autoplay: 0, mute: 1, playsinline: 1, controls: 0, disablekb: 1, fs: 0, rel: 0 },
+        events: {
         onReady(event) {
           if (disposed) return;
           clearTimeout(readyTimeout);
@@ -95,7 +91,13 @@ export function mountQuoteBackgroundVideo(media) {
         },
         onError: event => { clearTimeout(readyTimeout); if (!disposed) fallback(`error-${event.data}`); },
         onAutoplayBlocked: () => { if (!disposed) fallback('autoplay-blocked'); },
-      } });
+        },
+      });
+      const frame = player.getIframe();
+      frame.title = 'Выступление madk1d — фоновое видео без звука';
+      frame.allow = 'autoplay; encrypted-media';
+      frame.referrerPolicy = 'strict-origin-when-cross-origin';
+      frame.tabIndex = -1;
     } catch {
       clearTimeout(readyTimeout);
       if (!disposed) fallback('unavailable');
