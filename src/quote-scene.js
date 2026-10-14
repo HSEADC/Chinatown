@@ -1,4 +1,4 @@
-import { quoteTiming, quoteScrollState } from './quote-scroll-state.js';
+import { quoteTiming, quoteReadingLayout, quoteScrollState } from './quote-scroll-state.js';
 import { mountQuoteBackgroundVideo } from './quote-background-video.js';
 
 /** Fade in the concert, scroll its lyrics, and reveal the following article. */
@@ -12,7 +12,7 @@ export function mountQuoteScenes(page, onActiveChange) {
     continuation: element.nextElementSibling,
     video: mountQuoteBackgroundVideo(element.querySelector('.story-quote-scene__media')),
     lines: [...element.querySelectorAll('[data-quote-line]')],
-    offsets: [], current: -1, height: 0, top: 0, travel: 0, runway: 0, exit: 0,
+    offsets: [], stops: [], current: -1, height: 0, top: 0, travel: 0, runway: 0, exit: 0,
   }));
   if (!scenes.length) return () => {};
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
@@ -49,8 +49,7 @@ export function mountQuoteScenes(page, onActiveChange) {
       }
       scene.height = scene.stage.offsetHeight;
       scene.offsets = scene.lines.map(line => line.offsetTop - scene.lines[0].offsetTop);
-      scene.travel = scene.offsets.at(-1);
-      scene.runway = scene.travel + scene.height * (quoteTiming.firstHold + quoteTiming.lastHold);
+      Object.assign(scene, quoteReadingLayout(scene.height, scene.offsets));
       const height = `${Math.ceil(scene.height + scene.runway)}px`;
       if (scene.scroll.style.getPropertyValue('--quote-scroll-height') !== height) {
         scene.scroll.style.setProperty('--quote-scroll-height', height);
