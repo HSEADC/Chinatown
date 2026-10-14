@@ -29,7 +29,8 @@ export function mountArticleHeader(header, onChange) {
   const searchAnimations = new Set();
   const trailAnimations = new Set();
   let searchOpen = false;
-  let navOpen = false;
+  let navOpen = !mobile.matches;
+  let wasMobile = mobile.matches;
   let searchRevision = 0;
 
   function cancelAnimations(group) {
@@ -49,12 +50,15 @@ export function mountArticleHeader(header, onChange) {
   }
 
   function syncNavigation() {
-    const expanded = !searchOpen && (!mobile.matches || navOpen);
+    const expanded = !searchOpen && navOpen;
     header.classList.toggle('is-nav-open', mobile.matches && navOpen && !searchOpen);
+    header.dataset.nodeId = searchOpen ? '269:409' : '269:423';
     menu.inert = !expanded;
     brand.setAttribute('aria-expanded', String(expanded));
     menuToggle.setAttribute('aria-expanded', String(expanded));
-    menuToggle.setAttribute('aria-label', expanded ? 'Повторить след звезды' : 'Открыть навигацию');
+    menuToggle.setAttribute('aria-label', expanded ? 'Закрыть навигацию' : 'Открыть навигацию');
+    menuToggle.querySelector('.story-menu-toggle__open').hidden = expanded;
+    menuToggle.querySelector('.story-menu-toggle__close').hidden = !expanded;
     trail.style.height = `${header.querySelector('.story-header__bar').offsetHeight}px`;
     onChange();
   }
@@ -100,6 +104,8 @@ export function mountArticleHeader(header, onChange) {
     const revision = ++searchRevision;
     cancelAnimations(searchAnimations);
     searchOpen = open;
+    if (open) navOpen = false;
+    else if (!mobile.matches) navOpen = true;
     header.classList.toggle('is-search-open', open);
     form.inert = !open;
     results.inert = !open;
@@ -145,7 +151,7 @@ export function mountArticleHeader(header, onChange) {
   }
 
   function replayTrail() {
-    const visible = !searchOpen && (!mobile.matches || navOpen);
+    const visible = !searchOpen && navOpen;
     const outgoing = visible ? items.map(node => ({
       node,
       rect: node.getBoundingClientRect(),
@@ -200,15 +206,16 @@ export function mountArticleHeader(header, onChange) {
 
   brand.addEventListener('click', replayTrail, options);
   menuToggle.addEventListener('click', () => {
-    if (mobile.matches && navOpen && !searchOpen) {
+    if (navOpen && !searchOpen) {
       cancelAnimations(trailAnimations);
       trail.replaceChildren();
-      navOpen = false;
-      syncNavigation();
+      if (mobile.matches) {
+        navOpen = false;
+        syncNavigation();
+      } else setSearch(true, { focus: true });
     } else replayTrail();
   }, options);
   searchToggle.addEventListener('click', () => setSearch(!searchOpen, { focus: true }), options);
-  form.querySelector('.story-search__close').addEventListener('click', () => setSearch(false, { focus: true }), options);
   input.addEventListener('input', renderSearch, options);
   form.addEventListener('submit', event => {
     event.preventDefault();
@@ -225,7 +232,8 @@ export function mountArticleHeader(header, onChange) {
 
   function close() {
     setSearch(false);
-    if (navOpen) { navOpen = false; syncNavigation(); }
+    navOpen = !mobile.matches;
+    syncNavigation();
   }
   document.addEventListener('click', event => {
     if (!header.contains(event.target)) close();
@@ -236,6 +244,10 @@ export function mountArticleHeader(header, onChange) {
     else if (navOpen && mobile.matches) { close(); brand.focus(); event.preventDefault(); }
   }, options);
   function resetMotion() {
+    if (wasMobile !== mobile.matches) {
+      wasMobile = mobile.matches;
+      if (!searchOpen) navOpen = !mobile.matches;
+    }
     cancelAnimations(trailAnimations);
     trail.replaceChildren();
     cancelAnimations(searchAnimations);
