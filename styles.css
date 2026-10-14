@@ -1,3 +1,31 @@
+@font-face { font-family: "Giga Sans"; src: url("./assets/fonts/GigaSans-Thin.otf") format("opentype"); font-weight: 100; font-style: normal; font-display: swap; }
+@font-face { font-family: "Giga Sans"; src: url("./assets/fonts/GigaSans-ExtraLight.otf") format("opentype"); font-weight: 200; font-style: normal; font-display: swap; }
+@font-face { font-family: "Giga Sans"; src: url("./assets/fonts/GigaSans-Light.otf") format("opentype"); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: "Giga Sans"; src: url("./assets/fonts/GigaSans-Regular.otf") format("opentype"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Giga Sans"; src: url("./assets/fonts/GigaSans-Medium.otf") format("opentype"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Giga Sans"; src: url("./assets/fonts/GigaSans-SemiBold.otf") format("opentype"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "Giga Sans"; src: url("./assets/fonts/GigaSans-Bold.otf") format("opentype"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Giga Sans"; src: url("./assets/fonts/GigaSans-ExtraBold.otf") format("opentype"); font-weight: 800; font-style: normal; font-display: swap; }
+@font-face { font-family: "Giga Sans"; src: url("./assets/fonts/GigaSans-Black.otf") format("opentype"); font-weight: 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "Giga Sans"; src: url("./assets/fonts/GigaSans-ThinItalic.otf") format("opentype"); font-weight: 100; font-style: italic; font-display: swap; }
+@font-face { font-family: "Giga Sans"; src: url("./assets/fonts/GigaSans-ExtraLightItalic.otf") format("opentype"); font-weight: 200; font-style: italic; font-display: swap; }
+@font-face { font-family: "Giga Sans"; src: url("./assets/fonts/GigaSans-LightItalic.otf") format("opentype"); font-weight: 300; font-style: italic; font-display: swap; }
+@font-face { font-family: "Giga Sans"; src: url("./assets/fonts/GigaSans-Italic.otf") format("opentype"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Giga Sans"; src: url("./assets/fonts/GigaSans-MediumItalic.otf") format("opentype"); font-weight: 500; font-style: italic; font-display: swap; }
+@font-face { font-family: "Giga Sans"; src: url("./assets/fonts/GigaSans-SemiBoldItalic.otf") format("opentype"); font-weight: 600; font-style: italic; font-display: swap; }
+@font-face { font-family: "Giga Sans"; src: url("./assets/fonts/GigaSans-BoldItalic.otf") format("opentype"); font-weight: 700; font-style: italic; font-display: swap; }
+@font-face { font-family: "Giga Sans"; src: url("./assets/fonts/GigaSans-ExtraBoldItalic.otf") format("opentype"); font-weight: 800; font-style: italic; font-display: swap; }
+@font-face { font-family: "Giga Sans"; src: url("./assets/fonts/GigaSans-BlackItalic.otf") format("opentype"); font-weight: 900; font-style: italic; font-display: swap; }
+@font-face { font-family: Benzin; src: url("./assets/fonts/Benzin-Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: Benzin; src: url("./assets/fonts/Benzin-Medium.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+@font-face { font-family: Benzin; src: url("./assets/fonts/Benzin-Semibold.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+@font-face { font-family: Benzin; src: url("./assets/fonts/Benzin-Bold.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+@font-face { font-family: Benzin; src: url("./assets/fonts/Benzin-ExtraBold.woff2") format("woff2"); font-weight: 800; font-display: swap; }
+@font-face { font-family: "Benzin Input"; src: url("./assets/fonts/Benzin-Input-Bold.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Benzin Input Mobile"; src: url("./assets/fonts/Benzin-Input-Mobile-Bold.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Elion Italic"; src: url("./assets/fonts/Elion-Italic.otf") format("opentype"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "East Gates"; src: url("./assets/fonts/EastGates-Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Sigma Boy"; src: url("./assets/fonts/SigmaBoy-Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
 :root {
   font-family: "Giga Sans", system-ui, sans-serif;
   color: #222;
@@ -14,15 +42,6 @@
   --intro-inset-end: clamp(24px, 5vw, 96px);
 }
 
-@font-face { font-family: "Giga Sans"; src: url("./assets/fonts/GigaSans-Regular.otf") format("opentype"); font-weight: 400; font-display: swap; }
-@font-face { font-family: "Giga Sans"; src: url("./assets/fonts/GigaSans-SemiBold.otf") format("opentype"); font-weight: 600; font-display: swap; }
-@font-face { font-family: "Giga Sans"; src: url("./assets/fonts/GigaSans-Black.otf") format("opentype"); font-weight: 900; font-display: swap; }
-@font-face { font-family: Benzin; src: url("./assets/fonts/Benzin-Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
-@font-face { font-family: Benzin; src: url("./assets/fonts/Benzin-Bold.woff2") format("woff2"); font-weight: 700; font-display: swap; }
-@font-face { font-family: Benzin; src: url("./assets/fonts/Benzin-ExtraBold.woff2") format("woff2"); font-weight: 800; font-display: swap; }
-@font-face { font-family: "Elion Italic"; src: url("./assets/fonts/Elion-Italic.otf") format("opentype"); font-weight: 400; font-style: normal; font-display: swap; }
-@font-face { font-family: "East Gates"; src: url("./assets/fonts/EastGates-Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
-@font-face { font-family: "Sigma Boy"; src: url("./assets/fonts/SigmaBoy-Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
 
 * { box-sizing: border-box; }
 body { min-width: 280px; margin: 0; }
@@ -31,6 +50,8 @@ button { font: inherit; cursor: pointer; }
 
 .heading-1 { margin: 0; font-family: var(--font-display); font-size: var(--font-size-h1); font-weight: 700; line-height: var(--line-height-h1); letter-spacing: var(--letter-spacing-display); text-transform: uppercase; text-box-trim: trim-both; text-box-edge: cap alphabetic; }
 .headline-glitch__run { position: relative; }
+.headline-glitch--multiline { position: relative; }
+.headline-glitch--multiline .headline-glitch__run { position: static; }
 .headline-glitch__accessible { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .headline-glitch__source { transition: color 90ms ease; }
 .headline-glitch__source.is-glitched { color: transparent; }

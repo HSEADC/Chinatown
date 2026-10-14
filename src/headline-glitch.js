@@ -6,7 +6,7 @@ const MAX_ACTIVE = 3;
 
 // The source stays in Benzin. Plain inline spans preserve the shaped text run;
 // only the paint changes, and SVG replacements never participate in layout.
-export function mountHeadlineGlitch(headline, { scroll = false } = {}) {
+export function mountHeadlineGlitch(headline, { scroll = false, multiline = false } = {}) {
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   const mouseInput = matchMedia('(min-width: 1025px) and (hover: hover) and (pointer: fine)');
   const runs = [];
@@ -80,17 +80,22 @@ export function mountHeadlineGlitch(headline, { scroll = false } = {}) {
     restore();
     for (const run of runs) {
       const style = getComputedStyle(run.node);
-      const rect = run.node.getBoundingClientRect();
+      const rect = (multiline ? headline : run.node).getBoundingClientRect();
       const matrix = getComputedStyle(headline).transform;
       const scale = matrix === 'none' ? 1 : new DOMMatrixReadOnly(matrix).a || 1;
       const size = parseFloat(style.fontSize);
       const baseline = (run.baseline.getBoundingClientRect().top - rect.top) / scale;
+      const lastSourceTop = run.lastSource.getBoundingClientRect().top;
       run.svg.setAttribute('width', rect.width / scale);
       run.svg.setAttribute('height', rect.height / scale);
       context.font = font(size, style.fontFamily, style.fontWeight);
       const capHeight = context.measureText('Н').actualBoundingBoxAscent;
       for (const letter of run.letters) {
         const sourceRect = letter.source.getBoundingClientRect();
+        // Wrapped runs share one overlay anchored to the heading. Keep each
+        // replacement on its own line, using the run's final baseline as a
+        // reference; the inline source spans preserve the original shaping.
+        const letterBaseline = baseline + (sourceRect.top - lastSourceTop) / scale;
         context.font = font(size, style.fontFamily, style.fontWeight);
         const base = context.measureText(letter.character);
         const inkCenter = (base.actualBoundingBoxRight - base.actualBoundingBoxLeft) / 2;
@@ -112,7 +117,7 @@ export function mountHeadlineGlitch(headline, { scroll = false } = {}) {
             family,
             size: replacementSize,
             x: origin + inkCenter - (metrics.actualBoundingBoxRight - metrics.actualBoundingBoxLeft) / 2,
-            y: baseline,
+            y: letterBaseline,
           };
         });
       }
@@ -282,6 +287,7 @@ export function mountHeadlineGlitch(headline, { scroll = false } = {}) {
         source.setAttribute('aria-hidden', 'true');
         source.textContent = character;
         node.append(source);
+        run.lastSource = source;
         // Keep spaces and domain punctuation in the original font.
         if (!/^\p{L}$/u.test(character)) continue;
         const glyph = document.createElementNS(SVG_NS, 'text');
@@ -308,6 +314,7 @@ export function mountHeadlineGlitch(headline, { scroll = false } = {}) {
     createRuns();
     ready = true;
     headline.classList.add('headline-glitch');
+    if (multiline) headline.classList.add('headline-glitch--multiline');
     measure();
     resizeObserver.observe(headline);
     scheduleAmbient();
@@ -361,7 +368,7 @@ export function mountHeadlineGlitch(headline, { scroll = false } = {}) {
         const text = [...run.node.querySelectorAll('.headline-glitch__source')].map((source) => source.textContent).join('');
         run.node.replaceWith(document.createTextNode(text));
       }
-      headline.classList.remove('headline-glitch', 'headline-glitch--soft');
+      headline.classList.remove('headline-glitch', 'headline-glitch--soft', 'headline-glitch--multiline');
     },
   };
 }
