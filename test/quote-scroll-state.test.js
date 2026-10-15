@@ -57,8 +57,8 @@ test('the last phrase reaches the reading position before the background fades',
   assert.equal(quoteScrollState(370, scene).travel, 200);
   assert.equal(quoteScrollState(370, scene).mediaOpacity, 1);
   assert.equal(quoteScrollState(scene.runway, scene).mediaOpacity, 1);
-  assert.equal(quoteScrollState(scene.runway + 340, scene).mediaOpacity, .5);
-  assert.equal(quoteScrollState(scene.runway + 680, scene).mediaOpacity, 0);
+  assert.equal(quoteScrollState(scene.runway + 170, scene).mediaOpacity, .5);
+  assert.equal(quoteScrollState(scene.runway + 340, scene).mediaOpacity, 0);
   assert.equal(quoteScrollState(1600, scene).mediaOpacity, 0);
 });
 

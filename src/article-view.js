@@ -2,58 +2,46 @@ const artwork = './assets/figma/article/';
 const icons = `${artwork}header/`;
 const trackUrl = 'https://www.shazam.com/de-de/song/1802942825/так-похуй';
 
-export const searchSuggestions = [
-  'Творческая карта музыкантов',
-  'Гид по неформальным артистам',
-  'Карта неформальных музыкальных событий',
-  'Путеводитель по артистам альтернативной сцены',
-  'Музыкальная карта независимых исполнителей',
-  'Карта событий для уличных музыкантов',
-];
-
 export const articleTitle = 'madk1d: слишком громко, чтобы было всё равно';
 
 /** The complete article, shared by the static page and client-side navigation. */
 export function articleView() {
   return `<div class="story-page" data-node-id="250:107">
     <a class="story-skip" href="#article-content">Перейти к статье</a>
-    <header class="story-header" data-node-id="269:423">
+    <header class="story-header" data-node-id="272:111">
       <div class="story-header__bar">
-        <div class="story-header__identity" data-node-id="269:424">
-          <button class="story-icon story-brand" type="button" aria-label="Навигация Чайнатаун — след звезды" aria-controls="article-menu" aria-expanded="true" data-node-id="269:425">
+        <div class="story-header__identity" data-node-id="272:112">
+          <button class="story-icon story-brand" type="button" aria-label="Навигация Чайнатаун" aria-controls="article-menu" aria-expanded="true" data-node-id="272:113">
             <img src="${icons}star.svg" alt="" width="53.1136" height="53.3759">
           </button>
-          <span class="story-header__divider" aria-hidden="true" data-node-id="269:428"></span>
-          <button class="story-icon story-search-toggle" type="button" aria-label="Открыть поиск" aria-expanded="false" aria-controls="article-search-form article-search-results" data-node-id="269:429">
-            <img src="${icons}search.svg" alt="" width="32" height="32">
-          </button>
         </div>
-        <nav class="story-menu" id="article-menu" aria-label="Навигация Чайнатаун" data-node-id="269:432">
-          <button class="story-menu__item" type="button" aria-disabled="true" title="Раздел готовится" data-node-id="269:434">Карта артистов</button>
-          <button class="story-menu__item" type="button" aria-disabled="true" title="Раздел готовится" data-node-id="269:435">Карта артистов</button>
-          <a class="story-menu__item" href="#article-content" data-node-id="269:436">Статьи</a>
-          <button class="story-menu__item" type="button" aria-disabled="true" title="Раздел готовится" data-node-id="269:437">Тесты</button>
-          <button class="story-menu__item" type="button" aria-disabled="true" title="Раздел готовится" data-node-id="269:438">Мерч</button>
+        <nav class="story-menu" id="article-menu" aria-label="Навигация Чайнатаун" data-node-id="272:116">
+          <button class="story-menu__item" type="button" aria-disabled="true" title="Раздел готовится" data-node-id="272:118">Карта артистов</button>
+          <button class="story-menu__item" type="button" aria-disabled="true" title="Раздел готовится" data-node-id="272:119">Карта артистов</button>
+          <a class="story-menu__item" href="#article-content" data-node-id="272:120">Статьи</a>
+          <button class="story-menu__item" type="button" aria-disabled="true" title="Раздел готовится" data-node-id="272:121">Тесты</button>
+          <button class="story-menu__item" type="button" aria-disabled="true" title="Раздел готовится" data-node-id="272:122">Мерч</button>
         </nav>
-        <form class="story-search" id="article-search-form" role="search" aria-label="Поиск по статье" data-node-id="269:415" inert>
-          <button class="story-icon story-search__submit" type="submit" aria-label="Найти в статье" data-node-id="269:416">
+        <form class="story-search" id="article-search-form" role="search" aria-label="Поиск по статье" data-node-id="272:103" inert>
+          <button class="story-icon story-search__submit" type="submit" aria-label="Найти в статье" data-node-id="272:104">
             <img src="${icons}search.svg" alt="" width="32" height="32">
           </button>
           <label class="story-visually-hidden" for="article-search">О чем скучаешь? Найти в статье</label>
-          <input id="article-search" name="q" type="search" placeholder="О чем скучаешь?" autocomplete="off" aria-controls="article-search-results" data-node-id="269:420">
+          <input id="article-search" name="q" type="search" placeholder="О чем скучаешь?" autocomplete="off" aria-controls="article-search-results" data-node-id="272:108">
         </form>
-        <div class="story-header__controls" data-node-id="269:439">
-          <button class="story-icon story-menu-toggle" type="button" aria-label="Закрыть навигацию" aria-expanded="true" aria-controls="article-menu">
-            <img class="story-menu-toggle__open" src="${icons}menu.svg" alt="" width="32" height="32" data-node-id="269:422" hidden>
-            <img class="story-menu-toggle__close" src="${icons}close.svg" alt="" width="32" height="32" data-node-id="269:440">
+        <div class="story-header__controls" data-node-id="272:123">
+          <button class="story-icon story-search-toggle" type="button" aria-label="Открыть поиск" aria-expanded="false" aria-controls="article-search-form article-search-results" data-node-id="272:124">
+            <img src="${icons}search.svg" alt="" width="32" height="32">
+          </button>
+          <button class="story-icon story-menu-toggle" type="button" aria-label="Открыть навигацию" aria-expanded="false" aria-controls="article-menu" hidden>
+            <img src="${icons}menu.svg" alt="" width="32" height="32" data-node-id="272:110">
           </button>
         </div>
       </div>
-      <div class="story-header__trail" aria-hidden="true"></div>
       <div class="story-search__results" id="article-search-results" data-node-id="263:254" hidden>
         <div class="story-search__inner">
           <p class="story-search__status" role="status" aria-live="polite" hidden></p>
-          <ul>${searchSuggestions.map(label => `<li><button type="button" data-search-suggestion>${label}</button></li>`).join('')}</ul>
+          <ul></ul>
         </div>
       </div>
     </header>

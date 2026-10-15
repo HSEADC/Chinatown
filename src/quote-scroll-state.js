@@ -1,4 +1,4 @@
-export const quoteTiming = { enter: .45, firstHold: .14, lineHold: .045, transitionDistance: 1.15, responseMs: 80, lastHold: .14, overlap: .32, lyricsExit: .45 };
+export const quoteTiming = { enter: .45, firstHold: .14, lineHold: .045, transitionDistance: 1.15, responseMs: 80, lastHold: .14, overlap: .32, fadeOut: .5, lyricsExit: .45 };
 const clamp = value => Math.min(1, Math.max(0, value));
 const ease = value => value * value * (3 - 2 * value);
 
@@ -49,7 +49,7 @@ export function quoteScrollState(distance, { height, stops, travel, runway, exit
   const leave = clamp((distance - runway) / exit);
   return {
     travel: travel * clamp(distance / runway) * (1 - stickiness) + readingTravel(distance, stops) * stickiness,
-    mediaOpacity: enter * (1 - leave),
+    mediaOpacity: enter * (1 - clamp(leave / quoteTiming.fadeOut)),
     lyricsOpacity: 1 - clamp(leave / quoteTiming.lyricsExit),
   };
 }

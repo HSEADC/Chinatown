@@ -1,13 +1,11 @@
-import { searchSuggestions } from './article-view.js';
-
 const motion = {
   searchDuration: 420,
-  trailDuration: 540,
-  trailStagger: 44,
+  menuDuration: 540,
+  menuStagger: 44,
   easeOut: 'cubic-bezier(.16, 1, .3, 1)',
 };
 
-/** The Figma header, with interruptible search and star-trail transitions. */
+/** The Figma header, with interruptible search and navigation transitions. */
 export function mountArticleHeader(header, onChange) {
   const page = header.closest('.story-page');
   const brand = header.querySelector('.story-brand');
@@ -20,18 +18,44 @@ export function mountArticleHeader(header, onChange) {
   const results = header.querySelector('.story-search__results');
   const status = results.querySelector('[role="status"]');
   const list = results.querySelector('ul');
-  const trail = header.querySelector('.story-header__trail');
   const sections = [...page.querySelectorAll('[data-search-section]')];
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   const mobile = matchMedia('(max-width: 760px)');
   const controller = new AbortController();
   const options = { signal: controller.signal };
   const searchAnimations = new Set();
-  const trailAnimations = new Set();
+  const menuAnimations = new Set();
   let searchOpen = false;
   let navOpen = !mobile.matches;
   let wasMobile = mobile.matches;
   let searchRevision = 0;
+  let lastScrollY = Math.max(0, window.scrollY);
+  let scrollDirection = 0;
+  let scrollDistance = 0;
+
+  function revealHeader() {
+    header.classList.remove('is-auto-hidden');
+    scrollDistance = 0;
+  }
+
+  function followScroll() {
+    const y = Math.max(0, window.scrollY);
+    const delta = y - lastScrollY;
+    lastScrollY = y;
+    if (!delta) return;
+    const direction = Math.sign(delta);
+    if (direction !== scrollDirection) scrollDistance = 0;
+    scrollDirection = direction;
+    scrollDistance += Math.abs(delta);
+    const keyboardFocus = header.contains(document.activeElement) && document.activeElement.matches(':focus-visible');
+    if (y <= header.offsetHeight || searchOpen || mobile.matches && navOpen || keyboardFocus || header.matches(':hover')) {
+      revealHeader();
+    } else if (direction < 0 && scrollDistance >= 8) {
+      revealHeader();
+    } else if (direction > 0 && scrollDistance >= 32) {
+      header.classList.add('is-auto-hidden');
+    }
+  }
 
   function cancelAnimations(group) {
     for (const animation of group) animation.cancel();
@@ -52,34 +76,28 @@ export function mountArticleHeader(header, onChange) {
   function syncNavigation() {
     const expanded = !searchOpen && navOpen;
     header.classList.toggle('is-nav-open', mobile.matches && navOpen && !searchOpen);
-    header.dataset.nodeId = searchOpen ? '269:409' : '269:423';
+    header.dataset.nodeId = searchOpen ? '272:98' : '272:111';
     menu.inert = !expanded;
     brand.setAttribute('aria-expanded', String(expanded));
     menuToggle.setAttribute('aria-expanded', String(expanded));
-    menuToggle.setAttribute('aria-label', expanded ? 'Закрыть навигацию' : 'Открыть навигацию');
-    menuToggle.querySelector('.story-menu-toggle__open').hidden = expanded;
-    menuToggle.querySelector('.story-menu-toggle__close').hidden = !expanded;
-    trail.style.height = `${header.querySelector('.story-header__bar').offsetHeight}px`;
+    searchToggle.hidden = searchOpen;
+    menuToggle.hidden = !searchOpen;
     onChange();
   }
 
-  function renderSearch() {
-    const query = input.value.trim().toLocaleLowerCase('ru');
+  function clearResults() {
+    results.hidden = true;
+    results.inert = true;
     list.replaceChildren();
-    status.hidden = !query;
-    results.classList.toggle('has-query', Boolean(query));
-    if (!query) {
-      for (const label of searchSuggestions) {
-        const item = document.createElement('li');
-        const button = document.createElement('button');
-        button.type = 'button';
-        button.dataset.searchSuggestion = '';
-        button.textContent = label;
-        item.append(button);
-        list.append(item);
-      }
-      return;
-    }
+    status.hidden = true;
+    status.textContent = '';
+    results.classList.remove('has-query');
+  }
+
+  function renderSearch() {
+    clearResults();
+    const query = input.value.trim().toLocaleLowerCase('ru');
+    if (!searchOpen || !query) return;
     const matches = sections.filter(section => section.textContent.toLocaleLowerCase('ru').includes(query));
     status.textContent = matches.length ? `Найдено разделов: ${matches.length}` : 'Ничего не найдено. Попробуй другое слово.';
     for (const section of matches) {
@@ -90,6 +108,10 @@ export function mountArticleHeader(header, onChange) {
       item.append(link);
       list.append(item);
     }
+    results.hidden = false;
+    results.inert = false;
+    status.hidden = false;
+    results.classList.add('has-query');
   }
 
   function setSearch(open, { focus = false, animated = true } = {}) {
@@ -108,20 +130,17 @@ export function mountArticleHeader(header, onChange) {
     else if (!mobile.matches) navOpen = true;
     header.classList.toggle('is-search-open', open);
     form.inert = !open;
-    results.inert = !open;
+    clearResults();
     searchToggle.inert = open;
     searchToggle.setAttribute('aria-expanded', String(open));
     if (open) {
-      cancelAnimations(trailAnimations);
-      trail.replaceChildren();
-      results.hidden = false;
-      renderSearch();
+      revealHeader();
+      cancelAnimations(menuAnimations);
     }
     syncNavigation();
     const shouldAnimate = animated && !reducedMotion.matches;
     header.classList.toggle('is-search-animating', shouldAnimate);
     if (!shouldAnimate) {
-      results.hidden = !open;
       if (focus) (open ? input : searchToggle).focus({ preventScroll: true });
       return;
     }
@@ -138,83 +157,36 @@ export function mountArticleHeader(header, onChange) {
       if (revision !== searchRevision) return;
       header.classList.remove('is-search-animating');
     });
-    animate(results, open ? [
-      { opacity: 0, transform: 'translateY(-8px)' },
-      { opacity: 1, transform: 'translateY(0)' },
-    ] : [
-      { opacity: getComputedStyle(results).opacity, transform: 'translateY(0)' },
-      { opacity: 0, transform: 'translateY(-8px)' },
-    ], { duration: open ? 180 : 90, delay: open ? 100 : 0, easing: motion.easeOut }, searchAnimations, () => {
-      if (revision === searchRevision && !searchOpen) results.hidden = true;
-    });
     if (focus) (open ? input : searchToggle).focus({ preventScroll: true });
   }
 
-  function replayTrail() {
-    const visible = !searchOpen && navOpen;
-    const outgoing = visible ? items.map(node => ({
-      node,
-      rect: node.getBoundingClientRect(),
-      opacity: getComputedStyle(node).opacity,
-    })) : [];
-    cancelAnimations(trailAnimations);
-    trail.replaceChildren();
+  function showNavigation({ animated = false } = {}) {
+    revealHeader();
+    cancelAnimations(menuAnimations);
     setSearch(false);
     navOpen = true;
     syncNavigation();
-    if (reducedMotion.matches) return;
-    const headerRect = header.getBoundingClientRect();
-    const starRect = brand.getBoundingClientRect();
-    const origin = { x: starRect.left + starRect.width / 2, y: starRect.top + starRect.height / 2 };
-    // Clones carry the outgoing trail; the real, accessible navigation is the
-    // new wave born at the star. Both waves can be replaced on the next click.
-    for (const [index, snapshot] of outgoing.entries()) {
-      const ghost = document.createElement('span');
-      ghost.className = 'story-trail-ghost';
-      ghost.textContent = snapshot.node.textContent;
-      const style = getComputedStyle(snapshot.node);
-      Object.assign(ghost.style, {
-        left: `${snapshot.rect.left - headerRect.left}px`,
-        top: `${snapshot.rect.top - headerRect.top}px`,
-        width: `${snapshot.rect.width}px`,
-        height: `${snapshot.rect.height}px`,
-        font: style.font,
-        letterSpacing: style.letterSpacing,
-      });
-      trail.append(ghost);
-      animate(ghost, [
-        { transform: 'translateX(0)', opacity: snapshot.opacity },
-        { transform: `translateX(${innerWidth - snapshot.rect.left + 64}px)`, opacity: 0 },
-      ], { duration: 300, delay: index * 22, easing: 'cubic-bezier(.4, 0, 1, 1)' }, trailAnimations, () => ghost.remove());
-    }
-    for (const [index, node] of items.entries()) {
+    if (!animated || reducedMotion.matches) return;
+    // Reveal from the right edge, starting with the rightmost navigation item.
+    for (const [index, node] of [...items].reverse().entries()) {
       const rect = node.getBoundingClientRect();
-      const x = origin.x - rect.left;
-      const y = origin.y - rect.top - rect.height / 2;
+      const distance = innerWidth - rect.left + 32;
       animate(node, [
-        { transform: `translate(${x}px, ${y}px)`, opacity: 0, offset: 0 },
+        { transform: `translateX(${distance}px)`, opacity: 0, offset: 0 },
         { opacity: .5, offset: .12 },
-        { transform: 'translate(0, 0)', opacity: 1, offset: 1 },
-      ], { duration: motion.trailDuration, delay: index * motion.trailStagger, easing: motion.easeOut }, trailAnimations);
+        { transform: 'translateX(0)', opacity: 1, offset: 1 },
+      ], { duration: motion.menuDuration, delay: index * motion.menuStagger, easing: motion.easeOut }, menuAnimations);
     }
-    animate(brand, [
-      { transform: 'rotate(0) scale(1)' },
-      { transform: 'rotate(-12deg) scale(1.07)', offset: .3 },
-      { transform: 'rotate(0) scale(1)' },
-    ], { duration: 360, easing: motion.easeOut }, trailAnimations);
   }
 
-  brand.addEventListener('click', replayTrail, options);
-  menuToggle.addEventListener('click', () => {
-    if (navOpen && !searchOpen) {
-      cancelAnimations(trailAnimations);
-      trail.replaceChildren();
-      if (mobile.matches) {
-        navOpen = false;
-        syncNavigation();
-      } else setSearch(true, { focus: true });
-    } else replayTrail();
+  brand.addEventListener('click', () => {
+    if (mobile.matches && navOpen && !searchOpen) {
+      cancelAnimations(menuAnimations);
+      navOpen = false;
+      syncNavigation();
+    } else showNavigation();
   }, options);
+  menuToggle.addEventListener('click', () => showNavigation({ animated: true }), options);
   searchToggle.addEventListener('click', () => setSearch(!searchOpen, { focus: true }), options);
   input.addEventListener('input', renderSearch, options);
   form.addEventListener('submit', event => {
@@ -222,15 +194,9 @@ export function mountArticleHeader(header, onChange) {
     renderSearch();
     list.querySelector('a')?.focus();
   }, options);
-  results.addEventListener('click', event => {
-    const suggestion = event.target.closest('[data-search-suggestion]');
-    if (!suggestion) return;
-    input.value = suggestion.textContent;
-    renderSearch();
-    input.focus({ preventScroll: true });
-  }, options);
 
   function close() {
+    cancelAnimations(menuAnimations);
     setSearch(false);
     navOpen = !mobile.matches;
     syncNavigation();
@@ -248,14 +214,23 @@ export function mountArticleHeader(header, onChange) {
       wasMobile = mobile.matches;
       if (!searchOpen) navOpen = !mobile.matches;
     }
-    cancelAnimations(trailAnimations);
-    trail.replaceChildren();
+    cancelAnimations(menuAnimations);
     cancelAnimations(searchAnimations);
     ++searchRevision;
     header.classList.remove('is-search-animating');
-    results.hidden = !searchOpen;
+    if (!searchOpen) clearResults();
+    revealHeader();
     syncNavigation();
   }
+  header.addEventListener('focusin', revealHeader, options);
+  document.addEventListener('pointermove', event => {
+    if (event.pointerType !== 'touch' && event.clientY <= 24) revealHeader();
+  }, { ...options, passive: true });
+  window.addEventListener('scroll', followScroll, { ...options, passive: true });
+  window.addEventListener('pageshow', () => {
+    lastScrollY = Math.max(0, window.scrollY);
+    revealHeader();
+  }, options);
   window.addEventListener('resize', resetMotion, options);
   reducedMotion.addEventListener('change', resetMotion, options);
   syncNavigation();
@@ -264,8 +239,8 @@ export function mountArticleHeader(header, onChange) {
     dispose() {
       controller.abort();
       cancelAnimations(searchAnimations);
-      cancelAnimations(trailAnimations);
-      trail.replaceChildren();
+      cancelAnimations(menuAnimations);
+      header.classList.remove('is-auto-hidden');
     },
   };
 }

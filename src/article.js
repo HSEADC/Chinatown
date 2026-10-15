@@ -21,7 +21,6 @@ export function mountArticle(page) {
   const disposeQuotes = mountQuoteScenes(page, active => {
     quoteActive = active;
     if (active) headerControls.close();
-    header.inert = active;
     if (player) player.inert = active || originalPlayerInert;
     page.classList.toggle('is-quote-active', active);
     document.body.classList.toggle('is-story-quote-active', active);

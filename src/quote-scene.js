@@ -67,7 +67,7 @@ export function mountQuoteScenes(page, onActiveChange) {
       scene.top = scene.scroll.getBoundingClientRect().top + window.scrollY;
       scene.element.style.setProperty('--quote-overlap', `${scene.height * quoteTiming.overlap}px`);
       const continuationTop = scene.continuation?.getBoundingClientRect().top + window.scrollY;
-      // Finish the fade when the next heading reaches its normal reading position.
+      // Measure the full handoff; the video fades over its first half.
       scene.exit = Number.isFinite(continuationTop)
         ? Math.max(scene.height * .4, continuationTop - scene.top - scene.runway - headerHeight - 24)
         : scene.height * (1 - quoteTiming.overlap);
