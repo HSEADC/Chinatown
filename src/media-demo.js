@@ -6,6 +6,14 @@ import { mountSceneRail } from './scene-rail.js';
 import { mountEditorialVideos } from './editorial-video.js';
 
 const content = document.querySelector('#media-content');
+const headerRoot = document.createElement('div');
+headerRoot.className = 'media-site-header';
+content.before(headerRoot);
+function syncHeaderHeight() {
+  document.body.style.setProperty('--media-header-height', `${headerRoot.offsetHeight}px`);
+}
+const headerSize = new ResizeObserver(syncHeaderHeight);
+headerSize.observe(headerRoot);
 const root = new URL('../', import.meta.url);
 const routeUrls = new Set([new URL('about.html', root).pathname, new URL('article.html', root).pathname]);
 const player = mountYandexPlayer(document.querySelector('#music-player'));
@@ -18,9 +26,12 @@ function renderPage({ focus = false } = {}) {
   disposeVideos();
   const isArticle = window.location.pathname === new URL('article.html', root).pathname;
   content.innerHTML = isArticle ? articleView() : homeView();
+  const header = content.querySelector('.story-header, .media-header');
+  headerRoot.replaceChildren(header);
+  syncHeaderHeight();
   document.body.dataset.mediaPage = isArticle ? 'article' : 'home';
   document.title = isArticle ? `${articleTitle} — CHINATOWN.RU` : 'Музыка — CHINATOWN.RU';
-  disposeArticle = mountArticle(content.querySelector('.story-page'));
+  disposeArticle = mountArticle(content.querySelector('.story-page'), header);
   disposeVideos = mountEditorialVideos(content);
   const heading = content.querySelector('h1');
   heading.tabIndex = -1;

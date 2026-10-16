@@ -4,9 +4,8 @@ import { mountQuoteScenes } from './quote-scene.js';
 import { mountStoryClub } from './story-club.js';
 
 /** Attach article anchors and the shared headline effect. */
-export function mountArticle(page) {
+export function mountArticle(page, header = page?.querySelector('.story-header')) {
   if (!page) return () => {};
-  const header = page.querySelector('.story-header');
   const title = page.querySelector('#article-title');
   const controller = new AbortController();
   const headlineGlitch = mountHeadlineGlitch(title, { scroll: true, multiline: true });
@@ -20,7 +19,7 @@ export function mountArticle(page) {
     club.setSuspended(overlayOpen || quoteActive);
   }
 
-  const headerControls = mountArticleHeader(header, syncHeadline);
+  const headerControls = mountArticleHeader(header, syncHeadline, page);
   const disposeQuotes = mountQuoteScenes(page, active => {
     quoteActive = active;
     if (active) headerControls.close();
@@ -35,7 +34,7 @@ export function mountArticle(page) {
       if (!controller.signal.aborted) disposeLightEditor = mountClubEditor(page, club);
     });
   }
-  page.addEventListener('click', event => {
+  function followAnchor(event) {
     const link = event.target.closest('a[href^="#"]');
     if (!link || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     const target = page.querySelector(link.hash);
@@ -48,7 +47,9 @@ export function mountArticle(page) {
     const focusTarget = target.querySelector('h2, h3') || target;
     if (!focusTarget.matches('a, button, input')) focusTarget.tabIndex = -1;
     focusTarget.focus({ preventScroll: true });
-  }, { signal: controller.signal });
+  }
+  page.addEventListener('click', followAnchor, { signal: controller.signal });
+  header.addEventListener('click', followAnchor, { signal: controller.signal });
 
   return () => {
     controller.abort();

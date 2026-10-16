@@ -1,5 +1,5 @@
 /* Five-column editorial grid. Header: Figma 272:111 / 272:98. */
-.story-page {
+.story-page, .media-site-header {
   --story-bg: #131313;
   --story-muted: #b7b7b7;
   --story-gutter: 32px;
@@ -14,7 +14,7 @@
   color: #fff;
   background: var(--story-bg);
 }
-.story-page :where(h1, h2, h3, p, figure, blockquote) { margin: 0; }
+.story-page :where(h1, h2, h3, p, figure, blockquote), .media-site-header :where(h1, h2, h3, p, figure, blockquote) { margin: 0; }
 .story-page :where(a, button, input) { -webkit-tap-highlight-color: transparent; }
 .story-page :where([id]) { scroll-margin-top: calc(var(--story-header-height) + 24px); }
 .story-visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
@@ -287,7 +287,7 @@
   .story-menu__item { font-size: 10px; }
 }
 @media (max-width: 760px) {
-  .story-page { --story-gutter: 20px; }
+  .story-page, .media-site-header { --story-gutter: 20px; }
   .story-header__bar { grid-template-columns: 48px minmax(0, 1fr) 44px; grid-template-rows: 56px auto; column-gap: 12px; row-gap: 16px; align-content: start; }
   .story-header__controls { grid-column: 3; }
   .story-header :is(.story-menu-toggle, .story-search-toggle) { width: 44px; height: 44px; }

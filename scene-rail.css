@@ -1,10 +1,15 @@
 /* The video owns its space; the article and its fixed layers end at its left edge. */
-.has-scene-rail { --scene-rail-width: clamp(192px, 24vw, 420px); --scene-motion: 480ms cubic-bezier(.22, 1, .36, 1); }
+.has-scene-rail { --scene-rail-width: clamp(192px, 24vw, 420px); --scene-motion: 480ms cubic-bezier(.22, 1, .36, 1); --scene-rail-top: var(--media-header-height, 0px); }
+.has-scene-rail:has(.story-header.is-auto-hidden) { --scene-rail-top: 0px; }
 .has-scene-rail[data-scene-emphasis="ambient"] { --scene-rail-width: clamp(144px, 16vw, 280px); }
 .has-scene-rail[data-scene-emphasis="featured"] { --scene-rail-width: clamp(280px, 38vw, 640px); }
 #media-content { container: editorial / inline-size; }
+.media-site-header { position: sticky; z-index: 60; top: 0; width: 100%; background: transparent; }
+.media-site-header > .story-header { position: relative; }
+.media-site-header > .media-header { padding-inline: clamp(20px, 3.333333vw, 64px); background: #131313; }
+.media-site-header + #media-content .story-cover { margin-top: 0; padding-top: 80px; }
 .has-scene-rail #media-content { margin-right: var(--scene-rail-width); transition: margin-right var(--scene-motion); }
-.scene-rail { position: fixed; z-index: 45; inset: 0 0 0 auto; width: var(--scene-rail-width, 0px); overflow: clip; background: #181818; color: #fff; border-left: 1px solid #ffffff24; transition: width var(--scene-motion); }
+.scene-rail { position: fixed; z-index: 45; inset: var(--scene-rail-top, 0px) 0 0 auto; width: var(--scene-rail-width, 0px); overflow: clip; background: #181818; color: #fff; border-left: 1px solid #ffffff24; transition: width var(--scene-motion), top 220ms cubic-bezier(.16, 1, .3, 1); }
 .scene-rail__video, .scene-rail__shade { position: absolute; inset: 0; width: 100%; height: 100%; }
 .scene-rail__video { display: block; object-fit: cover; }
 .scene-rail__shade { pointer-events: none; background: linear-gradient(180deg, #0009, transparent 30%, transparent 60%, #000b); }
@@ -36,8 +41,6 @@
 }
 @container editorial (max-width: 1100px) {
   .story-page { --story-copy-span: 4; --story-wide-span: 4; }
-  .story-menu { gap: 12px; }
-  .story-menu__item { font-size: 10px; }
   .mood-grid { grid-template-columns: 1fr; }
   .mood-card { min-height: 220px; }
   .media-section-heading { flex-wrap: wrap; gap: 8px; }
@@ -45,18 +48,6 @@
 }
 @container editorial (max-width: 760px) {
   .story-page { --story-gutter: 20px; }
-  .story-header__bar { grid-template-columns: 48px minmax(0, 1fr) 44px; grid-template-rows: 56px auto; column-gap: 12px; row-gap: 16px; align-content: start; }
-  .story-header__controls { grid-column: 3; }
-  .story-menu { grid-column: 1 / -1; grid-row: 2; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 16px; height: auto; padding: 0; opacity: 0; visibility: hidden; pointer-events: none; }
-  .story-menu__item { display: flex; align-items: center; min-height: 36px; font-size: 12px; white-space: normal; overflow-wrap: anywhere; }
-  .is-nav-open .story-header__bar { height: 228px; }
-  .is-nav-open .story-menu { opacity: 1; visibility: visible; pointer-events: auto; }
-  .story-search { grid-column: 2; gap: 8px; padding-inline: 8px; }
-  .story-search input { height: 32px; padding: 0; font: 600 clamp(10px, 3cqw, 14px)/16px var(--font-body); }
-  .story-search__results { min-height: 0; padding: 16px 20px 32px; }
-  .story-search__inner { display: block; }
-  .story-search__status { margin: 0 0 16px !important; }
-  .story-search__results :is(a, button) { min-height: 48px; padding: 12px 8px; font-size: 12px; }
   .story-content { display: block; padding-block: 48px; }
   .story-intro, .story-analysis, .story-artwork { display: block; }
   .story-category { margin-bottom: 24px !important; font-size: 11px; }
@@ -69,8 +60,6 @@
   .story-quote { margin-block: 48px; }
   .story-quote-scene .story-quote-scene__lyrics { width: 100%; --quote-size: clamp(22px, 5.5cqw, 36px); }
   .story-quote-scene { --quote-inset: 20px; --quote-gap: 48px; }
-  .media-header__note { display: none; }
-  .media-brand { font-size: clamp(11px, 4cqw, 18px); }
   .media-home__intro { padding-block: 48px; }
   .media-home__intro h1 { overflow-wrap: anywhere; }
   .media-home__lead { font-size: 18px; }

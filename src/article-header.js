@@ -6,8 +6,7 @@ const motion = {
 };
 
 /** The Figma header, with interruptible search and navigation transitions. */
-export function mountArticleHeader(header, onChange) {
-  const page = header.closest('.story-page');
+export function mountArticleHeader(header, onChange, page = header.closest('.story-page')) {
   const brand = header.querySelector('.story-brand');
   const menu = header.querySelector('.story-menu');
   const items = [...menu.querySelectorAll('.story-menu__item')];
@@ -20,7 +19,7 @@ export function mountArticleHeader(header, onChange) {
   const list = results.querySelector('ul');
   const sections = [...page.querySelectorAll('[data-search-section]')];
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
-  const mobile = { get matches() { return page.clientWidth <= 760; } };
+  const mobile = { get matches() { return header.clientWidth <= 760; } };
   const controller = new AbortController();
   const options = { signal: controller.signal };
   const searchAnimations = new Set();
@@ -233,13 +232,13 @@ export function mountArticleHeader(header, onChange) {
   }, options);
   window.addEventListener('resize', resetMotion, options);
   reducedMotion.addEventListener('change', resetMotion, options);
-  let pageWidth = page.clientWidth;
+  let headerWidth = header.clientWidth;
   const resizeObserver = new ResizeObserver(() => {
-    if (page.clientWidth === pageWidth) return;
-    pageWidth = page.clientWidth;
+    if (header.clientWidth === headerWidth) return;
+    headerWidth = header.clientWidth;
     if (wasMobile !== mobile.matches) resetMotion();
   });
-  resizeObserver.observe(page);
+  resizeObserver.observe(header);
   syncNavigation();
   return {
     close,
