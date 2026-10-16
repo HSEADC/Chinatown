@@ -180,6 +180,3 @@
 }
 @media (max-width: 360px) { .mood-card__title { font-size: 19px; } }
 @media (prefers-reduced-motion: reduce) { .music-demo *, .music-demo *::before, .music-demo *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
-
-/* The article and music views share the current editorial type scale. */
-.music-demo { --font-body: "Giga Sans", system-ui, sans-serif; --baseline-step: 16px; --font-size-display: 128px; --font-size-title: 64px; --font-size-heading: 36px; --font-size-label: 14px; --font-size-body: 20px; --font-size-caption: 14px; --line-height-caption: 16px; --line-height-body: 32px; --line-height-heading: 48px; --line-height-title: 64px; --line-height-quote: 64px; --line-height-display: 128px; font-synthesis: none; }

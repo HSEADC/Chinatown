@@ -89,7 +89,7 @@
 .story-quote-scene__photo, .story-quote-scene__shade { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
 .story-quote-scene__photo { object-fit: cover; }
 .story-quote-scene__video { position: absolute; inset: 0; overflow: clip; opacity: 0; transition: opacity 180ms ease-out; }
-.story-quote-scene__video iframe { position: absolute; top: 50%; left: 50%; width: max(100%, 177.777778svh); height: max(100%, 56.25vw); border: 0; transform: translate(-50%, -50%); }
+.story-quote-scene__video video { display: block; width: 100%; height: 100%; object-fit: cover; }
 .is-video-playing .story-quote-scene__video { opacity: 1; }
 .story-quote-scene__shade { background: radial-gradient(ellipse at center, transparent 0%, #0009 100%); }
 .story-quote-scene .story-quote-scene__lyrics { position: relative; display: grid; gap: var(--quote-gap); width: min(56.25vw, 1080px); max-width: 100%; font: 700 var(--quote-size)/round(up, calc(var(--quote-size) * 1.2), var(--baseline-step)) var(--font-display); letter-spacing: .02em; text-wrap: initial; }
@@ -129,6 +129,148 @@
 .story-listen__link span { font-family: "Giga Sans", sans-serif; transition: transform .18s ease; }
 .story-listen__link:hover span { transform: translateX(5px); }
 .story-footer { margin: 0 var(--story-gutter) !important; padding-block: 32px; }
+
+/* A neighbouring room: grey paper, a permanent light leak, slow moving beams. */
+.story-club {
+  display: none;
+  position: fixed;
+  z-index: 2;
+  inset: 0 0 0 auto;
+  width: min(var(--club-width, 46vw), var(--club-max-width, 880px));
+  overflow: clip;
+  pointer-events: none;
+  user-select: none;
+  mix-blend-mode: screen;
+  filter: brightness(var(--club-brightness, 1));
+  opacity: var(--club-presence, 0);
+  visibility: hidden;
+  transition: opacity 600ms ease-out, visibility 600ms;
+  contain: strict;
+}
+.has-club-light .story-club { display: block; }
+.is-club-lit .story-club { visibility: visible; }
+.story-club > div { position: absolute; inset: -12% 0; animation-play-state: paused; }
+.is-club-lit .story-club > div { animation-play-state: running; }
+.story-club__haze {
+  filter: blur(var(--club-softness, 0px)) brightness(var(--club-ambient, 1));
+  background:
+    radial-gradient(ellipse at 110% var(--club-source-y, 50%), rgba(var(--club-color, 255, 57, 155), .26), rgba(var(--club-color, 255, 57, 155), .08) 43%, transparent 72%),
+    linear-gradient(270deg, rgba(var(--club-color, 255, 57, 155), .094), transparent 50%);
+}
+.story-club__bloom {
+  background: radial-gradient(ellipse at 110% var(--club-source-y, 50%), rgba(var(--club-color, 255, 57, 155), .58), rgba(var(--club-color, 255, 57, 155), .18) 29%, rgba(var(--club-color, 255, 57, 155), .05) 52%, transparent 70%);
+  filter: blur(var(--club-softness, 0px)) brightness(var(--club-bloom, 1));
+  transform-origin: right center;
+  animation: club-breathe var(--club-pulse-duration, 5.8s) ease-in-out infinite;
+}
+.story-club__beam {
+  filter: blur(var(--club-beam-softness, 0px));
+  rotate: var(--club-beam-angle, 0deg);
+  transform-origin: 100% 50%;
+  mask-image: linear-gradient(90deg, transparent, #000 38%, #000);
+}
+.story-club__beam--pink {
+  display: var(--club-pink-display, block);
+  background: conic-gradient(at 100% var(--club-source-y, 50%), transparent 0deg 252deg, rgba(var(--club-color, 255, 57, 155), .03) 254deg, rgba(var(--club-color, 255, 57, 155), .36) 256deg, rgba(var(--club-highlight, 255, 225, 242), .6) 256.4deg, rgba(var(--club-color, 255, 57, 155), .13) 257.3deg, transparent 259deg 278deg, rgba(var(--club-color, 255, 57, 155), .13) 280deg, rgba(var(--club-highlight, 255, 225, 242), .42) 280.5deg, transparent 282deg);
+  animation: club-pink-beams var(--club-pink-duration, 9.4s) ease-in-out infinite;
+}
+.story-club__beam--blue {
+  display: var(--club-blue-display, block);
+  background: conic-gradient(at 100% calc(var(--club-source-y, 50%) + 7%), transparent 0deg 266deg, rgba(var(--club-blue, 101, 128, 255), .067) 268deg, rgba(var(--club-blue, 101, 128, 255), .55) 268.6deg, rgba(var(--club-blue, 101, 128, 255), .15) 269.5deg, transparent 272deg);
+  animation: club-blue-beam var(--club-blue-duration, 13.2s) ease-in-out infinite;
+}
+.story-club__beam--green {
+  display: var(--club-green-display, block);
+  background: conic-gradient(at 100% calc(var(--club-source-y, 50%) - 8%), transparent 0deg 281deg, rgba(var(--club-green, 81, 255, 152), .13) 282deg, rgba(var(--club-green, 81, 255, 152), .52) 282.3deg, rgba(var(--club-green, 81, 255, 152), .08) 283deg, transparent 285deg);
+  animation: club-green-beam var(--club-green-duration, 17.6s) ease-in-out infinite;
+}
+.story-club > .story-club__seam {
+  display: var(--club-seam-display, block);
+  inset: 0 0 0 auto;
+  width: var(--club-seam-width, 2px);
+  background: linear-gradient(180deg, rgba(var(--club-color, 255, 57, 155), .04), rgba(var(--club-color, 255, 57, 155), .44) 22%, rgba(var(--club-highlight, 255, 214, 238), .77) 49%, rgba(var(--club-color, 255, 57, 155), .48) 75%, rgba(var(--club-color, 255, 57, 155), .04));
+  box-shadow: -3px 0 16px 2px rgba(var(--club-color, 255, 57, 155), .33), -10px 0 48px 8px rgba(var(--club-color, 255, 57, 155), .15);
+  animation: club-seam 7.1s ease-in-out infinite paused;
+}
+@keyframes club-breathe {
+  0%, 100% { opacity: calc(1 - var(--club-pulse-depth, .5)); transform: scaleY(calc(1 - var(--club-pulse-depth, .5) * .16)); }
+  38% { opacity: calc(1 - var(--club-pulse-depth, .5) * .1); transform: scaleY(calc(1 + var(--club-pulse-depth, .5) * .12)); }
+  64% { opacity: calc(1 - var(--club-pulse-depth, .5) * .7); transform: scaleY(calc(1 - var(--club-pulse-depth, .5) * .04)); }
+  78% { opacity: calc(1 - var(--club-pulse-depth, .5) * .36); transform: scaleY(calc(1 + var(--club-pulse-depth, .5) * .04)); }
+}
+@keyframes club-pink-beams {
+  0%, 100% { opacity: calc(.16 * var(--club-beam-strength, 1)); transform: rotate(-9deg); }
+  30% { opacity: calc(.72 * var(--club-beam-strength, 1)); }
+  52% { opacity: calc(.26 * var(--club-beam-strength, 1)); transform: rotate(8deg); }
+  76% { opacity: calc(.6 * var(--club-beam-strength, 1)); }
+}
+@keyframes club-blue-beam {
+  0%, 22%, 65%, 100% { opacity: 0; transform: rotate(12deg); }
+  35% { opacity: calc(.72 * var(--club-beam-strength, 1)); }
+  49% { opacity: calc(.2 * var(--club-beam-strength, 1)); transform: rotate(-12deg); }
+  55% { opacity: calc(.5 * var(--club-beam-strength, 1)); }
+}
+@keyframes club-green-beam {
+  0%, 48%, 87%, 100% { opacity: 0; transform: rotate(-12deg); }
+  59% { opacity: calc(.55 * var(--club-beam-strength, 1)); }
+  70% { opacity: calc(.12 * var(--club-beam-strength, 1)); transform: rotate(8deg); }
+  77% { opacity: calc(.4 * var(--club-beam-strength, 1)); }
+}
+@keyframes club-seam {
+  0%, 100% { opacity: calc(1 - var(--club-pulse-depth, .5)); }
+  42% { opacity: 1; }
+  72% { opacity: calc(1 - var(--club-pulse-depth, .5) * .72); }
+}
+.story-next {
+  display: var(--club-teaser-display, block);
+  grid-column: 2 / -1;
+  align-self: start;
+  padding: 32px 0 32px 24px;
+  border-left: 1px solid #ed76ac66;
+  color: #f2dce6;
+}
+.story-next__eyebrow { color: #e3a0bd; font: 800 10px/16px var(--font-body); letter-spacing: .14em; text-transform: uppercase; }
+.story-next__title { margin-top: 16px !important; font: 800 clamp(24px, 1.8vw, 36px)/1.35 var(--font-display); letter-spacing: .02em; text-transform: uppercase; }
+.story-next__copy { margin-top: 20px !important; color: #c5abb7; font: 400 13px/24px var(--font-body); }
+.story-next__direction { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 32px; font: 400 12px/20px var(--font-body); }
+.story-next__direction small { display: block; margin-top: 4px; color: #b096a2; font: 400 10px/16px var(--font-body); }
+.story-next__direction svg { flex: none; width: 48px; height: 32px; color: #ffb3d3; }
+@media (min-width: 1101px) {
+  .has-club-light .story-next {
+    position: fixed;
+    z-index: 3;
+    top: 38%;
+    right: var(--story-gutter);
+    width: calc((100vw - 2 * var(--story-gutter) - 4 * var(--story-grid-gap)) / 5);
+    padding: 0;
+    border: 0;
+    pointer-events: none;
+    opacity: var(--club-presence, 0);
+    visibility: hidden;
+    transform: translateX(calc((1 - var(--club-presence, 0)) * 12px));
+    transition: opacity 600ms ease-out, transform 600ms ease-out, visibility 600ms;
+  }
+  .has-club-light .story-next__title { font-size: clamp(20px, 1.8vw, 36px); }
+  .is-club-lit .story-next { visibility: visible; }
+}
+@media (max-width: 1100px) {
+  .story-club { width: var(--club-tablet-width, 28vw); }
+  .story-next { position: relative; z-index: 3; }
+}
+@media (max-width: 760px) {
+  .story-club { width: var(--club-mobile-width, 96px); }
+  .story-club__beam { mask-image: linear-gradient(90deg, transparent, #000 85%); }
+  .story-club__haze { opacity: .6; }
+  .story-club__bloom { background: radial-gradient(ellipse at 125% var(--club-source-y, 50%), rgba(var(--club-color, 255, 57, 155), .47), rgba(var(--club-color, 255, 57, 155), .13) 29%, transparent 65%); }
+  .story-next { margin-top: 64px; padding: 28px 0 28px 20px; }
+  .story-next__title { font-size: 28px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .story-club > div { animation: none !important; }
+  .story-club__beam { display: none; }
+  .story-club__bloom { opacity: .55; }
+  .has-club-light .story-next { transform: none; }
+}
 
 @media (min-width: 761px) and (max-width: 1365px) {
   .story-page { --story-copy-span: 3; }

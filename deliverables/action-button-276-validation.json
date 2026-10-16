@@ -1,0 +1,282 @@
+[
+  {
+    "buttons": [
+      {
+        "centerOffset": -0.00390625,
+        "fits": true,
+        "fontSize": "24px",
+        "form": null,
+        "groupWidth": 492.7421875,
+        "height": 64,
+        "icon": {
+          "height": 64,
+          "loaded": true,
+          "width": 64
+        },
+        "label": "ПОПАСТЬ В ВАЙТ-ЛИСТ",
+        "nativeType": "button",
+        "width": 1478.40625
+      },
+      {
+        "centerOffset": 0,
+        "fits": true,
+        "fontSize": "24px",
+        "form": "subscribe-form",
+        "groupWidth": 344.203125,
+        "height": 64,
+        "icon": {
+          "height": 64,
+          "loaded": true,
+          "width": 64
+        },
+        "label": "ПОДПИСАТЬСЯ",
+        "nativeType": "submit",
+        "width": 723.203125
+      }
+    ],
+    "viewport": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "buttons": [
+      {
+        "centerOffset": 0,
+        "fits": true,
+        "fontSize": "24px",
+        "form": null,
+        "groupWidth": 492.7421875,
+        "height": 64,
+        "icon": {
+          "height": 64,
+          "loaded": true,
+          "width": 64
+        },
+        "label": "ПОПАСТЬ В ВАЙТ-ЛИСТ",
+        "nativeType": "button",
+        "width": 1108.8046875
+      },
+      {
+        "centerOffset": -0.00390625,
+        "fits": true,
+        "fontSize": "24px",
+        "form": "subscribe-form",
+        "groupWidth": 344.203125,
+        "height": 64,
+        "icon": {
+          "height": 64,
+          "loaded": true,
+          "width": 64
+        },
+        "label": "ПОДПИСАТЬСЯ",
+        "nativeType": "submit",
+        "width": 542.3984375
+      }
+    ],
+    "viewport": [
+      1440,
+      900
+    ]
+  },
+  {
+    "buttons": [
+      {
+        "centerOffset": -0.00390625,
+        "fits": true,
+        "fontSize": "24px",
+        "form": null,
+        "groupWidth": 492.7421875,
+        "height": 64,
+        "icon": {
+          "height": 64,
+          "loaded": true,
+          "width": 64
+        },
+        "label": "ПОПАСТЬ В ВАЙТ-ЛИСТ",
+        "nativeType": "button",
+        "width": 788.484375
+      },
+      {
+        "centerOffset": 0,
+        "fits": true,
+        "fontSize": "16px",
+        "form": "subscribe-form",
+        "groupWidth": 258.8046875,
+        "height": 64,
+        "icon": {
+          "height": 64,
+          "loaded": true,
+          "width": 64
+        },
+        "label": "ПОДПИСАТЬСЯ",
+        "nativeType": "submit",
+        "width": 385.7109375
+      }
+    ],
+    "viewport": [
+      1024,
+      768
+    ]
+  },
+  {
+    "buttons": [
+      {
+        "centerOffset": -0.00390625,
+        "fits": true,
+        "fontSize": "24px",
+        "form": null,
+        "groupWidth": 492.7421875,
+        "height": 64,
+        "icon": {
+          "height": 64,
+          "loaded": true,
+          "width": 64
+        },
+        "label": "ПОПАСТЬ В ВАЙТ-ЛИСТ",
+        "nativeType": "button",
+        "width": 586.234375
+      },
+      {
+        "centerOffset": -0.00390625,
+        "fits": true,
+        "fontSize": "24px",
+        "form": "subscribe-form",
+        "groupWidth": 344.203125,
+        "height": 64,
+        "icon": {
+          "height": 64,
+          "loaded": true,
+          "width": 64
+        },
+        "label": "ПОДПИСАТЬСЯ",
+        "nativeType": "submit",
+        "width": 586.2421875
+      }
+    ],
+    "viewport": [
+      768,
+      1024
+    ]
+  },
+  {
+    "buttons": [
+      {
+        "centerOffset": 0,
+        "fits": true,
+        "fontSize": "12px",
+        "form": null,
+        "groupWidth": 266.375,
+        "height": 64,
+        "icon": {
+          "height": 48,
+          "loaded": true,
+          "width": 48
+        },
+        "label": "ПОПАСТЬ В ВАЙТ-ЛИСТ",
+        "nativeType": "button",
+        "width": 284
+      },
+      {
+        "centerOffset": -0.00390625,
+        "fits": true,
+        "fontSize": "12px",
+        "form": "subscribe-form",
+        "groupWidth": 192.1015625,
+        "height": 64,
+        "icon": {
+          "height": 48,
+          "loaded": true,
+          "width": 48
+        },
+        "label": "ПОДПИСАТЬСЯ",
+        "nativeType": "submit",
+        "width": 358
+      }
+    ],
+    "viewport": [
+      390,
+      844
+    ]
+  },
+  {
+    "buttons": [
+      {
+        "centerOffset": 0,
+        "fits": true,
+        "fontSize": "10px",
+        "form": null,
+        "groupWidth": 212.640625,
+        "height": 64,
+        "icon": {
+          "height": 32,
+          "loaded": true,
+          "width": 32
+        },
+        "label": "ПОПАСТЬ В ВАЙТ-ЛИСТ",
+        "nativeType": "button",
+        "width": 228
+      },
+      {
+        "centerOffset": -0.00390625,
+        "fits": true,
+        "fontSize": "12px",
+        "form": "subscribe-form",
+        "groupWidth": 192.1015625,
+        "height": 64,
+        "icon": {
+          "height": 48,
+          "loaded": true,
+          "width": 48
+        },
+        "label": "ПОДПИСАТЬСЯ",
+        "nativeType": "submit",
+        "width": 288
+      }
+    ],
+    "viewport": [
+      320,
+      568
+    ]
+  },
+  {
+    "buttons": [
+      {
+        "centerOffset": 0,
+        "fits": true,
+        "fontSize": "9px",
+        "form": null,
+        "groupWidth": 191.78125,
+        "height": 64,
+        "icon": {
+          "height": 32,
+          "loaded": true,
+          "width": 32
+        },
+        "label": "ПОПАСТЬ В ВАЙТ-ЛИСТ",
+        "nativeType": "button",
+        "width": 196
+      },
+      {
+        "centerOffset": 0,
+        "fits": true,
+        "fontSize": "10px",
+        "form": "subscribe-form",
+        "groupWidth": 150.75,
+        "height": 64,
+        "icon": {
+          "height": 32,
+          "loaded": true,
+          "width": 32
+        },
+        "label": "ПОДПИСАТЬСЯ",
+        "nativeType": "submit",
+        "width": 248
+      }
+    ],
+    "viewport": [
+      280,
+      568
+    ]
+  }
+]

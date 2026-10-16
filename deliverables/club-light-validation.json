@@ -1,0 +1,146 @@
+{
+  "errors": [],
+  "checks": [
+    "Static HTML exactly matches the shared article view; quoted lyrics and analysis are unchanged.",
+    {
+      "name": "Full light and teaser appear on normal reading; decorative light cannot intercept pointer events; teaser is not a dead link.",
+      "animations": [
+        {
+          "name": "club-breathe",
+          "state": "running",
+          "duration": 5800
+        },
+        {
+          "name": "club-pink-beams",
+          "state": "running",
+          "duration": 9400
+        },
+        {
+          "name": "club-blue-beam",
+          "state": "running",
+          "duration": 13200
+        },
+        {
+          "name": "club-green-beam",
+          "state": "running",
+          "duration": 17600
+        },
+        {
+          "name": "club-seam",
+          "state": "running",
+          "duration": 7100
+        }
+      ]
+    },
+    "Search suspends the light and pauses every animation; Escape restores reading and light.",
+    "The concert quote takes over the viewport; normal article light returns after leaving it and works in reverse scroll.",
+    "Hidden-document visibility events pause the light and restoration resumes it.",
+    "No horizontal overflow from 320 to 1920 px; the desktop teaser stays outside the text and margin note.",
+    "Mobile navigation temporarily suspends the light.",
+    "Reduced motion keeps a static pink glow without beams or any light animations.",
+    "Without JavaScript, the full teaser remains in the reading flow.",
+    "Client navigation disposes old light state; back/forward remounts one light and one teaser."
+  ],
+  "widths": [
+    {
+      "width": 320,
+      "scrollWidth": 320,
+      "position": "relative",
+      "titleOverflow": 0,
+      "teaserRight": 300,
+      "teaserLeft": 20,
+      "noteRight": 300,
+      "lightWidth": 96
+    },
+    {
+      "width": 390,
+      "scrollWidth": 390,
+      "position": "relative",
+      "titleOverflow": 0,
+      "teaserRight": 370,
+      "teaserLeft": 20,
+      "noteRight": 370,
+      "lightWidth": 96
+    },
+    {
+      "width": 760,
+      "scrollWidth": 760,
+      "position": "relative",
+      "titleOverflow": 0,
+      "teaserRight": 740,
+      "teaserLeft": 20,
+      "noteRight": 740,
+      "lightWidth": 96
+    },
+    {
+      "width": 768,
+      "scrollWidth": 768,
+      "position": "relative",
+      "titleOverflow": 0,
+      "teaserRight": 735.984375,
+      "teaserLeft": 179.1875,
+      "noteRight": 735.984375,
+      "lightWidth": 215.03125
+    },
+    {
+      "width": 1024,
+      "scrollWidth": 1024,
+      "position": "relative",
+      "titleOverflow": 0,
+      "teaserRight": 991.984375,
+      "teaserLeft": 230.390625,
+      "noteRight": 793.59375,
+      "lightWidth": 286.71875
+    },
+    {
+      "width": 1100,
+      "scrollWidth": 1100,
+      "position": "relative",
+      "titleOverflow": 0,
+      "teaserRight": 1068,
+      "teaserLeft": 245.59375,
+      "noteRight": 854.390625,
+      "lightWidth": 308
+    },
+    {
+      "width": 1101,
+      "scrollWidth": 1101,
+      "position": "fixed",
+      "titleOverflow": 0,
+      "teaserRight": 1069,
+      "teaserLeft": 887.203125,
+      "noteRight": 855.1875,
+      "lightWidth": 506.453125
+    },
+    {
+      "width": 1280,
+      "scrollWidth": 1280,
+      "position": "fixed",
+      "titleOverflow": 0,
+      "teaserRight": 1248,
+      "teaserLeft": 1030.40625,
+      "noteRight": 998.390625,
+      "lightWidth": 588.796875
+    },
+    {
+      "width": 1440,
+      "scrollWidth": 1440,
+      "position": "fixed",
+      "titleOverflow": 0,
+      "teaserRight": 1408,
+      "teaserLeft": 1158.40625,
+      "noteRight": 1126.390625,
+      "lightWidth": 662.390625
+    },
+    {
+      "width": 1920,
+      "scrollWidth": 1920,
+      "position": "fixed",
+      "titleOverflow": 0,
+      "teaserRight": 1888,
+      "teaserLeft": 1542.40625,
+      "noteRight": 1510.390625,
+      "lightWidth": 880
+    }
+  ]
+}

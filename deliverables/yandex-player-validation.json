@@ -1,0 +1,50 @@
+{
+  "status": "integration_passed",
+  "checks": [
+    "No local audio or MP3 requests",
+    "Official Yandex iframe from previous catalog",
+    "Same iframe on repeated selection",
+    "Collapse keeps iframe",
+    "Home/article navigation and Back/Forward keep iframe",
+    "Changing release replaces iframe",
+    "Close unloads iframe and returns focus",
+    "Retired MP3 excluded from build"
+  ],
+  "layouts": [
+    {
+      "width": 320,
+      "overflow": false,
+      "playerWidth": 304,
+      "frames": 1
+    },
+    {
+      "width": 375,
+      "overflow": false,
+      "playerWidth": 359,
+      "frames": 1
+    },
+    {
+      "width": 768,
+      "overflow": false,
+      "playerWidth": 736,
+      "frames": 1
+    },
+    {
+      "width": 1280,
+      "overflow": false,
+      "playerWidth": 900,
+      "frames": 1
+    },
+    {
+      "width": 1920,
+      "overflow": false,
+      "playerWidth": 900,
+      "frames": 1
+    }
+  ],
+  "errors": [],
+  "widgetText": "",
+  "widgetPlayback": "not_verified",
+  "widgetNetworkError": "net::ERR_SOCKET_NOT_CONNECTED",
+  "endpointHttpStatus": 200
+}

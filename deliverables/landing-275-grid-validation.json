@@ -1,0 +1,394 @@
+{
+  "figmaNodes": [
+    "275:43",
+    "275:59"
+  ],
+  "desktop1920x1080": {
+    "columns": 5,
+    "gutter": 32,
+    "gap": 32,
+    "whitelist": {
+      "column": "2 / span 4",
+      "x": 409.59375,
+      "y": 984.0078125,
+      "width": 1478.40625,
+      "height": 63.9921875
+    },
+    "subscription": {
+      "column": "2 / span 2",
+      "x": 409.59375,
+      "width": 723.203125,
+      "panelHeight": 424
+    }
+  },
+  "viewportSamples": [
+    {
+      "body": {
+        "client": 542,
+        "h": 360,
+        "scroll": 542,
+        "w": 542.3984375,
+        "x": 307.1953125,
+        "y": 508
+      },
+      "button": {
+        "client": 1109,
+        "h": 47.9921875,
+        "scroll": 1109,
+        "w": 1108.8046875,
+        "x": 307.1953125,
+        "y": 828.0078125
+      },
+      "documentOverflow": false,
+      "grid": "259.195px 259.195px 259.195px 259.195px 259.203px",
+      "headline": {
+        "client": 1392,
+        "h": 263.0390625,
+        "scroll": 1392,
+        "w": 1392,
+        "x": 24,
+        "y": 44
+      },
+      "input": {
+        "client": 538,
+        "h": 64,
+        "scroll": 538,
+        "w": 542.3984375,
+        "x": 307.1953125,
+        "y": 716
+      },
+      "panel": {
+        "client": 1440,
+        "h": 424,
+        "scroll": 1440,
+        "w": 1440,
+        "x": 0,
+        "y": 476
+      },
+      "submit": {
+        "client": 542,
+        "h": 64,
+        "scroll": 542,
+        "w": 542.3984375,
+        "x": 307.1953125,
+        "y": 804
+      },
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "body": {
+        "client": 386,
+        "h": 360,
+        "scroll": 386,
+        "w": 385.7109375,
+        "x": 218.4453125,
+        "y": 376
+      },
+      "button": {
+        "client": 788,
+        "h": 44,
+        "scroll": 788,
+        "w": 788.484375,
+        "x": 218.4453125,
+        "y": 706.9375
+      },
+      "documentOverflow": false,
+      "grid": "184.32px 184.32px 184.32px 184.32px 184.32px",
+      "headline": {
+        "client": 990,
+        "h": 187.046875,
+        "scroll": 990,
+        "w": 989.8671875,
+        "x": 17.0625,
+        "y": 37.0625
+      },
+      "input": {
+        "client": 382,
+        "h": 64,
+        "scroll": 382,
+        "w": 385.7109375,
+        "x": 218.4453125,
+        "y": 584
+      },
+      "panel": {
+        "client": 1024,
+        "h": 424,
+        "scroll": 1024,
+        "w": 1024,
+        "x": 0,
+        "y": 344
+      },
+      "submit": {
+        "client": 386,
+        "h": 64,
+        "scroll": 386,
+        "w": 385.7109375,
+        "x": 218.4453125,
+        "y": 672
+      },
+      "viewport": [
+        1024,
+        768
+      ]
+    },
+    {
+      "body": {
+        "client": 586,
+        "h": 360,
+        "scroll": 586,
+        "w": 586.2421875,
+        "x": 165.7578125,
+        "y": 632
+      },
+      "button": {
+        "client": 586,
+        "h": 44,
+        "scroll": 586,
+        "w": 586.234375,
+        "x": 165.7578125,
+        "y": 964
+      },
+      "documentOverflow": false,
+      "grid": "136.961px 136.961px 136.961px 136.961px 136.961px",
+      "headline": {
+        "client": 736,
+        "h": 140.296875,
+        "scroll": 853,
+        "w": 735.9921875,
+        "x": 16,
+        "y": 36
+      },
+      "input": {
+        "client": 582,
+        "h": 56,
+        "scroll": 582,
+        "w": 586.2421875,
+        "x": 165.7578125,
+        "y": 856
+      },
+      "panel": {
+        "client": 768,
+        "h": 456,
+        "scroll": 768,
+        "w": 768,
+        "x": 0,
+        "y": 568
+      },
+      "submit": {
+        "client": 586,
+        "h": 56,
+        "scroll": 586,
+        "w": 586.2421875,
+        "x": 165.7578125,
+        "y": 936
+      },
+      "viewport": [
+        768,
+        1024
+      ]
+    },
+    {
+      "body": {
+        "client": 358,
+        "h": 360,
+        "scroll": 358,
+        "w": 358,
+        "x": 16,
+        "y": 452
+      },
+      "button": {
+        "client": 284,
+        "h": 56,
+        "scroll": 284,
+        "w": 284,
+        "x": 90,
+        "y": 772
+      },
+      "documentOverflow": false,
+      "grid": "62px 62px 62px 62px 62px",
+      "headline": {
+        "client": 358,
+        "h": 53.4296875,
+        "scroll": 358,
+        "w": 358,
+        "x": 16,
+        "y": 96
+      },
+      "input": {
+        "client": 354,
+        "h": 56,
+        "scroll": 354,
+        "w": 358,
+        "x": 16,
+        "y": 676
+      },
+      "panel": {
+        "client": 390,
+        "h": 456,
+        "scroll": 390,
+        "w": 390,
+        "x": 0,
+        "y": 388
+      },
+      "submit": {
+        "client": 358,
+        "h": 56,
+        "scroll": 358,
+        "w": 358,
+        "x": 16,
+        "y": 756
+      },
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "body": {
+        "client": 288,
+        "h": 380,
+        "scroll": 288,
+        "w": 288,
+        "x": 16,
+        "y": 156
+      },
+      "button": {
+        "client": 228,
+        "h": 64.8828125,
+        "scroll": 228,
+        "w": 228,
+        "x": 76,
+        "y": 487.1171875
+      },
+      "documentOverflow": false,
+      "grid": "48px 48px 48px 48px 48px",
+      "headline": {
+        "client": 288,
+        "h": 49.3203125,
+        "scroll": 288,
+        "w": 288,
+        "x": 16,
+        "y": 96
+      },
+      "input": {
+        "client": 284,
+        "h": 56,
+        "scroll": 284,
+        "w": 288,
+        "x": 16,
+        "y": 400
+      },
+      "panel": {
+        "client": 320,
+        "h": 476,
+        "scroll": 320,
+        "w": 320,
+        "x": 0,
+        "y": 92
+      },
+      "submit": {
+        "client": 288,
+        "h": 56,
+        "scroll": 288,
+        "w": 288,
+        "x": 16,
+        "y": 480
+      },
+      "viewport": [
+        320,
+        568
+      ]
+    },
+    {
+      "body": {
+        "client": 635,
+        "h": 360,
+        "scroll": 635,
+        "w": 635,
+        "x": 16,
+        "y": 88
+      },
+      "button": {
+        "client": 506,
+        "h": 56,
+        "scroll": 506,
+        "w": 505.6015625,
+        "x": 145.3984375,
+        "y": 303
+      },
+      "documentOverflow": false,
+      "grid": "117.398px 117.398px 117.398px 117.398px 117.398px",
+      "headline": {
+        "client": 635,
+        "h": 91.375,
+        "scroll": 635,
+        "w": 635,
+        "x": 16,
+        "y": 96
+      },
+      "input": {
+        "client": 631,
+        "h": 56,
+        "scroll": 631,
+        "w": 635,
+        "x": 16,
+        "y": 312
+      },
+      "panel": {
+        "client": 667,
+        "h": 351,
+        "scroll": 667,
+        "w": 667,
+        "x": 0,
+        "y": 24
+      },
+      "submit": {
+        "client": 635,
+        "h": 56,
+        "scroll": 635,
+        "w": 635,
+        "x": 16,
+        "y": 392
+      },
+      "viewport": [
+        667,
+        375
+      ]
+    }
+  ],
+  "settledTablet768": {
+    "sourceLinesOverflow": false,
+    "elementsOutsideViewport": [],
+    "note": "An immediate resize sample included the previous SVG glyph overlay width; a later check found no overflowing elements."
+  },
+  "keyboard": {
+    "shiftTabFromEmail": "subscribe-close",
+    "tabFromClose": "subscribe-email",
+    "escapeRestoresFocus": "intro-whitelist",
+    "invalidEmailShowsError": true
+  },
+  "landscape667x375": {
+    "panelClientHeight": 351,
+    "panelScrollHeight": 456,
+    "panelScrollTopWhenSubmitFocused": 105,
+    "submitVisible": true
+  },
+  "assets": {
+    "allLoaded": true,
+    "desktopStar": {
+      "width": 673.125,
+      "height": 676.4453125,
+      "x": -199.0625,
+      "y": 575.015625
+    },
+    "temporaryFigmaRuntimeUrls": false
+  },
+  "verification": {
+    "testsPassed": 40,
+    "build": "passed",
+    "browserWarningsAndErrors": []
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "geometry": {
+    "headerHeight": "88px",
+    "height": 720,
+    "nextTop": 2554.265625,
+    "scrollHeight": "1446px",
+    "scrollY": 0,
+    "stageHeight": 720,
+    "top": 1234.6640625,
+    "width": 1280
+  },
+  "mid": {
+    "lyricsOpacity": "0.4099",
+    "mediaOpacity": "0.46891",
+    "phase": "leaving",
+    "scrollY": 2088
+  },
+  "after": {
+    "lyricsOpacity": "0",
+    "mediaOpacity": "0",
+    "phase": "after",
+    "scrollY": 2232
+  }
+}

@@ -6,7 +6,10 @@
     <meta name="theme-color" content="#111111" />
     <title>CHINATOWN.SITE — медиа о нефорах</title>
     <link rel="preload" href="./assets/fonts/Benzin-Bold.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="./assets/fonts/Benzin-Input-Bold.woff2" as="font" type="font/woff2" media="(min-width: 1001px)" crossorigin />
+    <link rel="preload" href="./assets/fonts/Benzin-Input-Mobile-Bold.woff2" as="font" type="font/woff2" media="(max-width: 1000px)" crossorigin />
     <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./src/components/action-button.css" />
   </head>
   <body data-page="catalog">
     <section class="intro intro--revealed" id="intro" aria-label="CHINATOWN.SITE — скоро">
@@ -27,10 +30,10 @@
           <span class="intro__line"><a class="intro__site-link" href="https://chinatown.site" target="_blank" rel="noopener noreferrer" aria-description="Enter — открыть сайт. Пробел — скопировать ссылку." aria-keyshortcuts="Space">chinatown.site</a><span class="intro__faded"> –</span></span>
           <span class="intro__line intro__faded"><span class="intro__accent">медиа</span> о нефорах</span>
         </h1>
-        <a class="text-button intro__about" id="intro-about" href="./about.html"><span>О НАС</span><img src="./assets/figma/north-east.svg" alt="" aria-hidden="true" /></a>
+        <a class="text-button intro__about" id="intro-about" href="./about.html"><span>О НАС</span><img src="./assets/figma/intro-north-east.svg" alt="" aria-hidden="true" /></a>
         <div class="intro__bottom">
-          <div class="intro__socials" aria-label="Социальные сети"><span>ТИКТОК</span><a href="https://t.me/chinatownsite" target="_blank" rel="noopener noreferrer">ТГ-КАНАЛ</a></div>
-          <button class="text-button intro__whitelist" id="intro-whitelist" type="button" aria-haspopup="dialog" aria-controls="subscribe-modal"><span>ПОПАСТЬ В ВАЙТ-ЛИСТ</span><img src="./assets/icons/intro-navigate-next.svg" alt="" aria-hidden="true" /></button>
+          <div class="intro__socials" aria-label="Социальные сети"><a href="https://t.me/chinatownsite" target="_blank" rel="noopener noreferrer">ТГ-КАНАЛ</a><span>ТИКТОК</span></div>
+          <button class="action-button intro__whitelist" data-action-button id="intro-whitelist" type="button" aria-haspopup="dialog" aria-controls="subscribe-modal">ПОПАСТЬ В ВАЙТ-ЛИСТ</button>
         </div>
         <p class="intro__copy-status" id="intro-copy-status" role="status" aria-live="polite"></p>
       </div>
@@ -39,28 +42,21 @@
       <div class="subscribe-modal__backdrop" data-close-modal></div>
       <section class="subscribe-modal__panel" role="dialog" aria-modal="true" aria-labelledby="subscribe-title" aria-describedby="subscribe-description">
         <div class="subscribe-modal__deco" aria-hidden="true">
-          <span class="subscribe-modal__word subscribe-modal__word--yo"><span>ЙОУ</span></span>
-          <span class="subscribe-modal__word subscribe-modal__word--need"><span>НУЖ</span></span>
-          <span class="subscribe-modal__word subscribe-modal__word--left-na">НА</span>
-          <span class="subscribe-modal__word subscribe-modal__word--bang"><span>!</span></span>
-          <span class="subscribe-modal__word subscribe-modal__word--tee"><span>ТИ</span></span>
-          <span class="subscribe-modal__word subscribe-modal__word--sha"><span>Ш</span></span>
-          <span class="subscribe-modal__word subscribe-modal__word--ka">КА</span>
-          <span class="subscribe-modal__word subscribe-modal__word--question"><span>?</span></span>
+          <img src="./assets/figma/subscribe-star.svg" alt="" width="673.132" height="676.456" />
         </div>
         <div class="subscribe-modal__body">
           <div>
             <h2 id="subscribe-title">держим связь</h2>
-            <p id="subscribe-description"><strong>подпишись на нас, чтобы учавствовать в розыгрыше мерча,</strong> а также быть в курсе новостей медиа и тусовок на&nbsp;китай-городе.</p>
+            <p id="subscribe-description"><strong>подпишись на нас, чтобы учавствовать в розыгрыше мерча,</strong> а&nbsp;также&nbsp;быть в курсе новостей медиа и тусовок на&nbsp;китай-городе.</p>
           </div>
           <form class="subscribe-modal__form" id="subscribe-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
             <label class="visually-hidden" for="subscribe-email">Электропочта</label>
             <input id="subscribe-email" name="email" type="email" placeholder="ЭЛЕКТРОПОЧТА" autocomplete="email" inputmode="email" aria-describedby="subscribe-status" required />
-            <button class="text-button subscribe-modal__submit" type="submit"><span>ПОДПИСАТЬСЯ</span><img src="./assets/icons/intro-navigate-next.svg" alt="" aria-hidden="true" /></button>
+            <button class="action-button" data-action-button type="submit">ПОДПИСАТЬСЯ</button>
             <p class="subscribe-modal__status" id="subscribe-status" role="status" aria-live="polite"></p>
           </form>
         </div>
-        <button class="subscribe-modal__close" id="subscribe-close" type="button" aria-label="Закрыть окно"><img src="./assets/figma/clear.svg" alt="" aria-hidden="true" /></button>
+        <button class="subscribe-modal__close" id="subscribe-close" type="button" aria-label="Закрыть окно"><img src="./assets/figma/subscribe-close.svg" alt="" aria-hidden="true" /></button>
       </section>
     </div>
     <header class="site-header">

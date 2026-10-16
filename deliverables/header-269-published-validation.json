@@ -1,0 +1,65 @@
+{
+  "workflow_run": 38599602467,
+  "attempt": 2,
+  "conclusion": "success",
+  "commit": "f8d21acb261b245abac2396a2f08ef659848b4fa",
+  "live_url": "https://pentaoo.github.io/media/article.html",
+  "checks": [
+    {
+      "path": "article.html",
+      "status": 200,
+      "bytes": 17540,
+      "matches_commit": true,
+      "last_modified": "Wed, 14 Oct 2026 17:03:17 GMT"
+    },
+    {
+      "path": "article.css",
+      "status": 200,
+      "bytes": 19498,
+      "matches_commit": true,
+      "last_modified": "Wed, 14 Oct 2026 17:03:17 GMT"
+    },
+    {
+      "path": "src/article-view.js",
+      "status": 200,
+      "bytes": 16190,
+      "matches_commit": true,
+      "last_modified": "Wed, 14 Oct 2026 17:03:17 GMT"
+    },
+    {
+      "path": "src/article-header.js",
+      "status": 200,
+      "bytes": 11075,
+      "matches_commit": true,
+      "last_modified": "Wed, 14 Oct 2026 17:03:17 GMT"
+    },
+    {
+      "path": "assets/figma/article/header/star.svg",
+      "status": 200,
+      "bytes": 3699,
+      "matches_commit": true,
+      "last_modified": "Wed, 14 Oct 2026 17:03:17 GMT"
+    },
+    {
+      "path": "assets/figma/article/header/search.svg",
+      "status": 200,
+      "bytes": 898,
+      "matches_commit": true,
+      "last_modified": "Wed, 14 Oct 2026 17:03:17 GMT"
+    },
+    {
+      "path": "assets/figma/article/header/menu.svg",
+      "status": 200,
+      "bytes": 454,
+      "matches_commit": true,
+      "last_modified": "Wed, 14 Oct 2026 17:03:17 GMT"
+    },
+    {
+      "path": "assets/figma/article/header/close.svg",
+      "status": 200,
+      "bytes": 529,
+      "matches_commit": true,
+      "last_modified": "Wed, 14 Oct 2026 17:03:17 GMT"
+    }
+  ]
+}

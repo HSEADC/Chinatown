@@ -20,7 +20,7 @@ export function mountArticleHeader(header, onChange) {
   const list = results.querySelector('ul');
   const sections = [...page.querySelectorAll('[data-search-section]')];
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
-  const mobile = matchMedia('(max-width: 760px)');
+  const mobile = { get matches() { return page.clientWidth <= 760; } };
   const controller = new AbortController();
   const options = { signal: controller.signal };
   const searchAnimations = new Set();
@@ -233,11 +233,19 @@ export function mountArticleHeader(header, onChange) {
   }, options);
   window.addEventListener('resize', resetMotion, options);
   reducedMotion.addEventListener('change', resetMotion, options);
+  let pageWidth = page.clientWidth;
+  const resizeObserver = new ResizeObserver(() => {
+    if (page.clientWidth === pageWidth) return;
+    pageWidth = page.clientWidth;
+    if (wasMobile !== mobile.matches) resetMotion();
+  });
+  resizeObserver.observe(page);
   syncNavigation();
   return {
     close,
     dispose() {
       controller.abort();
+      resizeObserver.disconnect();
       cancelAnimations(searchAnimations);
       cancelAnimations(menuAnimations);
       header.classList.remove('is-auto-hidden');

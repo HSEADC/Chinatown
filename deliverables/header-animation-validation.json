@@ -1,0 +1,253 @@
+{
+  "errors": [],
+  "widths": [
+    {
+      "width": 320,
+      "fieldWidth": 176,
+      "menuWidth": 280,
+      "noOverflow": true
+    },
+    {
+      "width": 390,
+      "fieldWidth": 238,
+      "menuWidth": 350,
+      "noOverflow": true
+    },
+    {
+      "width": 760,
+      "fieldWidth": 608,
+      "menuWidth": 720,
+      "noOverflow": true
+    },
+    {
+      "width": 768,
+      "fieldWidth": 428.796875,
+      "menuWidth": 428.796875,
+      "noOverflow": true
+    },
+    {
+      "width": 1024,
+      "fieldWidth": 582.390625,
+      "menuWidth": 582.390625,
+      "noOverflow": true
+    },
+    {
+      "width": 1440,
+      "fieldWidth": 822.390625,
+      "menuWidth": 822.390625,
+      "noOverflow": true
+    },
+    {
+      "width": 1920,
+      "fieldWidth": 1100.796875,
+      "menuWidth": 1100.796875,
+      "noOverflow": true
+    }
+  ],
+  "checks": [
+    {
+      "name": "Search icon and field enter together from the right edge",
+      "keyframes": [
+        {
+          "offset": null,
+          "easing": "linear",
+          "composite": "auto",
+          "transform": "translateX(1510px)",
+          "opacity": "0",
+          "computedOffset": 0
+        },
+        {
+          "offset": null,
+          "easing": "linear",
+          "composite": "auto",
+          "transform": "translateX(0px)",
+          "opacity": "1",
+          "computedOffset": 1
+        }
+      ]
+    },
+    {
+      "name": "Search and unobscured anchor navigation work"
+    },
+    {
+      "name": "Outgoing labels coexist with a staggered new wave from the star",
+      "ghosts": 4,
+      "items": [
+        {
+          "label": "Карта артистов",
+          "keyframes": [
+            {
+              "offset": 0,
+              "easing": "linear",
+              "composite": "auto",
+              "transform": "translate(-345.773px, 0px)",
+              "opacity": "0",
+              "computedOffset": 0
+            },
+            {
+              "offset": 0.12,
+              "easing": "linear",
+              "composite": "auto",
+              "opacity": "0.5",
+              "computedOffset": 0.12
+            },
+            {
+              "offset": 1,
+              "easing": "linear",
+              "composite": "auto",
+              "transform": "translate(0px, 0px)",
+              "opacity": "1",
+              "computedOffset": 1
+            }
+          ],
+          "delay": 0
+        },
+        {
+          "label": "Статьи",
+          "keyframes": [
+            {
+              "offset": 0,
+              "easing": "linear",
+              "composite": "auto",
+              "transform": "translate(-758.508px, 0px)",
+              "opacity": "0",
+              "computedOffset": 0
+            },
+            {
+              "offset": 0.12,
+              "easing": "linear",
+              "composite": "auto",
+              "opacity": "0.5",
+              "computedOffset": 0.12
+            },
+            {
+              "offset": 1,
+              "easing": "linear",
+              "composite": "auto",
+              "transform": "translate(0px, 0px)",
+              "opacity": "1",
+              "computedOffset": 1
+            }
+          ],
+          "delay": 44
+        },
+        {
+          "label": "Тесты",
+          "keyframes": [
+            {
+              "offset": 0,
+              "easing": "linear",
+              "composite": "auto",
+              "transform": "translate(-1083.49px, 0px)",
+              "opacity": "0",
+              "computedOffset": 0
+            },
+            {
+              "offset": 0.12,
+              "easing": "linear",
+              "composite": "auto",
+              "opacity": "0.5",
+              "computedOffset": 0.12
+            },
+            {
+              "offset": 1,
+              "easing": "linear",
+              "composite": "auto",
+              "transform": "translate(0px, 0px)",
+              "opacity": "1",
+              "computedOffset": 1
+            }
+          ],
+          "delay": 88
+        },
+        {
+          "label": "Мерч",
+          "keyframes": [
+            {
+              "offset": 0,
+              "easing": "linear",
+              "composite": "auto",
+              "transform": "translate(-1400.68px, 0px)",
+              "opacity": "0",
+              "computedOffset": 0
+            },
+            {
+              "offset": 0.12,
+              "easing": "linear",
+              "composite": "auto",
+              "opacity": "0.5",
+              "computedOffset": 0.12
+            },
+            {
+              "offset": 1,
+              "easing": "linear",
+              "composite": "auto",
+              "transform": "translate(0px, 0px)",
+              "opacity": "1",
+              "computedOffset": 1
+            }
+          ],
+          "delay": 132
+        }
+      ],
+      "width": 1920
+    },
+    {
+      "name": "Rapid search reversals and repeated star clicks settle cleanly; Escape restores focus"
+    },
+    {
+      "name": "Reduced motion changes both states without animation"
+    }
+  ],
+  "assets": [
+    {
+      "src": "./assets/figma/article/navigation/star.svg",
+      "loaded": true,
+      "node": "263:306",
+      "width": 70.8125,
+      "height": 71.15625
+    },
+    {
+      "src": "./assets/figma/article/navigation/search-toggle.svg",
+      "loaded": true,
+      "node": "264:326",
+      "width": 64,
+      "height": 64
+    },
+    {
+      "src": "./assets/figma/article/navigation/menu-trail.svg",
+      "loaded": true,
+      "node": "263:316",
+      "width": 64,
+      "height": 64
+    },
+    {
+      "src": "./assets/figma/article/navigation/star.svg",
+      "loaded": true,
+      "node": "263:306",
+      "width": 70.8125,
+      "height": 71.15625
+    },
+    {
+      "src": "./assets/figma/article/navigation/search-toggle.svg",
+      "loaded": true,
+      "node": "263:281",
+      "width": 64,
+      "height": 64
+    },
+    {
+      "src": "./assets/figma/article/navigation/search-toggle.svg",
+      "loaded": true,
+      "node": "264:326",
+      "width": 64,
+      "height": 64
+    },
+    {
+      "src": "./assets/figma/article/navigation/menu-trail.svg",
+      "loaded": true,
+      "node": "263:316",
+      "width": 64,
+      "height": 64
+    }
+  ]
+}

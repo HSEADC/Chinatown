@@ -1,0 +1,42 @@
+{
+  "desktop": {
+    "fontSize": 24,
+    "lineHeight": 32,
+    "beforeGlyphBounds": [
+      42,
+      32,
+      307,
+      51
+    ],
+    "afterGlyphBounds": [
+      42,
+      32,
+      307,
+      51
+    ],
+    "caretPixels": [
+      29,
+      50
+    ],
+    "caretCenter": 40,
+    "fieldCenter": 40,
+    "glyphPositionUnchanged": true
+  },
+  "glyphAndHorizontalMetricsUnchanged": true,
+  "mobile": {
+    "fontSize": 16,
+    "lineHeight": 32,
+    "caretPixels": [
+      28,
+      43
+    ],
+    "caretCenter": 36,
+    "fieldCenter": 36
+  },
+  "nativeEditing": {
+    "nativeEmailInput": true,
+    "focused": true,
+    "focusReturned": true,
+    "valueInspection": "Browser inspection redacts email values; visible text checked in screenshot."
+  }
+}

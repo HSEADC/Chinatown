@@ -219,10 +219,12 @@ export function mountVideoSphere(intro) {
     const poster = new Image();
     poster.onload = () => {
       if (destroyed) return;
-      ratios[index] = poster.naturalWidth / poster.naturalHeight;
-      upload(index, poster);
+      // A late poster must not replace a video frame already in the texture.
+      if (lastVideoTimes[index] < 0) {
+        ratios[index] = poster.naturalWidth / poster.naturalHeight;
+        upload(index, poster);
+      }
       posterCount += 1;
-      if (posterCount === VIDEO_SOURCES.length) showScene();
       requestFrame();
     };
     poster.src = source.poster;
@@ -314,6 +316,12 @@ export function mountVideoSphere(intro) {
     gl.uniform1f(uniforms.fov, fov);
     gl.uniform3fv(uniforms.ratios, ratios);
     gl.drawArrays(gl.TRIANGLES, 0, 6);
+    // Reveal only after every source has been uploaded and drawn. Reduced
+    // motion uses the posters so the static sphere can still be rotated.
+    const sceneReady = reducedMotion.matches
+      ? posterCount === VIDEO_SOURCES.length
+      : lastVideoTimes.every((videoTime) => videoTime >= 0);
+    if (sceneReady) showScene();
     if (!reducedMotion.matches || dragging) requestFrame();
   }
 

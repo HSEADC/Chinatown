@@ -70,13 +70,6 @@ async function copySiteUrl(point) {
   }
 }
 
-function revealSphere() {
-  intro.classList.add('intro--interacted');
-}
-
-sphere.addEventListener('pointerdown', revealSphere);
-sphere.addEventListener('wheel', revealSphere, { passive: true });
-sphere.addEventListener('keydown', revealSphere);
 intro.addEventListener('pointermove', (event) => {
   if (pointerStart?.id === event.pointerId) {
     pointerMoved ||= Math.hypot(event.clientX - pointerStart.x, event.clientY - pointerStart.y) > 6;

@@ -1,3 +1,7 @@
+import { mountActionButtons } from './components/action-button.js';
+
+mountActionButtons();
+
 const PROMPT_DELAY_MS = 45_000;
 const PROMPT_SHOWN_KEY = 'chinatown:subscribe-prompt-shown';
 

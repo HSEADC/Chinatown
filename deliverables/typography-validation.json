@@ -1,0 +1,467 @@
+{
+  "figmaNode": "268:408",
+  "baselineStep": 16,
+  "fontFilesVerified": 26,
+  "audits": [
+    {
+      "label": "article-desktop",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "documentWidth": 1920,
+      "textCount": 79,
+      "violations": [],
+      "samples": [
+        {
+          "className": "story-lead",
+          "family": "\"Giga Sans\", system-ui, sans-serif",
+          "id": "",
+          "line": "32px",
+          "size": "20px",
+          "style": "normal",
+          "tag": "P",
+          "weight": "400"
+        },
+        {
+          "className": "story-meta",
+          "family": "\"Giga Sans\", system-ui, sans-serif",
+          "id": "",
+          "line": "16px",
+          "size": "14px",
+          "style": "normal",
+          "tag": "P",
+          "weight": "400"
+        },
+        {
+          "className": "",
+          "family": "\"Giga Sans\", system-ui, sans-serif",
+          "id": "artist-title",
+          "line": "48px",
+          "size": "36px",
+          "style": "normal",
+          "tag": "H2",
+          "weight": "800"
+        },
+        {
+          "className": "",
+          "family": "\"Giga Sans\", system-ui, sans-serif",
+          "id": "",
+          "line": "16px",
+          "size": "14px",
+          "style": "normal",
+          "tag": "FIGCAPTION",
+          "weight": "400"
+        },
+        {
+          "className": "",
+          "family": "\"Giga Sans\", system-ui, sans-serif",
+          "id": "chorus-title",
+          "line": "48px",
+          "size": "36px",
+          "style": "normal",
+          "tag": "H2",
+          "weight": "800"
+        },
+        {
+          "className": "",
+          "family": "\"Giga Sans\", system-ui, sans-serif",
+          "id": "delivery-title",
+          "line": "16px",
+          "size": "14px",
+          "style": "normal",
+          "tag": "H3",
+          "weight": "800"
+        },
+        {
+          "className": "",
+          "family": "\"Giga Sans\", system-ui, sans-serif",
+          "id": "",
+          "line": "16px",
+          "size": "14px",
+          "style": "normal",
+          "tag": "FIGCAPTION",
+          "weight": "400"
+        }
+      ]
+    },
+    {
+      "label": "article-mobile",
+      "viewport": [
+        390,
+        844
+      ],
+      "documentWidth": 390,
+      "textCount": 75,
+      "violations": [],
+      "samples": [
+        {
+          "className": "story-lead",
+          "family": "\"Giga Sans\", system-ui, sans-serif",
+          "id": "",
+          "line": "32px",
+          "size": "20px",
+          "style": "normal",
+          "tag": "P",
+          "weight": "400"
+        },
+        {
+          "className": "story-meta",
+          "family": "\"Giga Sans\", system-ui, sans-serif",
+          "id": "",
+          "line": "16px",
+          "size": "14px",
+          "style": "normal",
+          "tag": "P",
+          "weight": "400"
+        },
+        {
+          "className": "",
+          "family": "\"Giga Sans\", system-ui, sans-serif",
+          "id": "artist-title",
+          "line": "32px",
+          "size": "28px",
+          "style": "normal",
+          "tag": "H2",
+          "weight": "800"
+        },
+        {
+          "className": "",
+          "family": "\"Giga Sans\", system-ui, sans-serif",
+          "id": "",
+          "line": "16px",
+          "size": "14px",
+          "style": "normal",
+          "tag": "FIGCAPTION",
+          "weight": "400"
+        },
+        {
+          "className": "",
+          "family": "\"Giga Sans\", system-ui, sans-serif",
+          "id": "chorus-title",
+          "line": "32px",
+          "size": "28px",
+          "style": "normal",
+          "tag": "H2",
+          "weight": "800"
+        },
+        {
+          "className": "",
+          "family": "\"Giga Sans\", system-ui, sans-serif",
+          "id": "delivery-title",
+          "line": "16px",
+          "size": "14px",
+          "style": "normal",
+          "tag": "H3",
+          "weight": "800"
+        },
+        {
+          "className": "",
+          "family": "\"Giga Sans\", system-ui, sans-serif",
+          "id": "",
+          "line": "16px",
+          "size": "14px",
+          "style": "normal",
+          "tag": "FIGCAPTION",
+          "weight": "400"
+        }
+      ]
+    },
+    {
+      "label": "intro-mobile",
+      "viewport": [
+        390,
+        844
+      ],
+      "documentWidth": 390,
+      "textCount": 46,
+      "violations": [],
+      "samples": []
+    },
+    {
+      "label": "subscribe-mobile",
+      "viewport": [
+        390,
+        844
+      ],
+      "documentWidth": 390,
+      "textCount": 52,
+      "violations": [],
+      "samples": [
+        {
+          "className": "",
+          "family": "\"Giga Sans\", system-ui, sans-serif",
+          "id": "subscribe-title",
+          "line": "48px",
+          "size": "36px",
+          "style": "normal",
+          "tag": "H2",
+          "weight": "700"
+        },
+        {
+          "className": "",
+          "family": "Benzin, sans-serif",
+          "id": "subscribe-email",
+          "line": "32px",
+          "size": "16px",
+          "style": "normal",
+          "tag": "INPUT",
+          "weight": "700"
+        }
+      ]
+    },
+    {
+      "label": "intro-laptop",
+      "viewport": [
+        1280,
+        720
+      ],
+      "documentWidth": 1280,
+      "textCount": 46,
+      "violations": [],
+      "samples": []
+    },
+    {
+      "label": "subscribe-laptop",
+      "viewport": [
+        1280,
+        720
+      ],
+      "documentWidth": 1280,
+      "textCount": 60,
+      "violations": [],
+      "samples": [
+        {
+          "className": "",
+          "family": "\"Giga Sans\", system-ui, sans-serif",
+          "id": "subscribe-title",
+          "line": "48px",
+          "size": "42.6667px",
+          "style": "normal",
+          "tag": "H2",
+          "weight": "700"
+        },
+        {
+          "className": "",
+          "family": "Benzin, sans-serif",
+          "id": "subscribe-email",
+          "line": "32px",
+          "size": "16px",
+          "style": "normal",
+          "tag": "INPUT",
+          "weight": "700"
+        }
+      ]
+    },
+    {
+      "label": "intro-desktop",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "documentWidth": 1920,
+      "textCount": 46,
+      "violations": [],
+      "samples": []
+    },
+    {
+      "label": "subscribe-desktop",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "documentWidth": 1920,
+      "textCount": 60,
+      "violations": [],
+      "samples": [
+        {
+          "className": "",
+          "family": "\"Giga Sans\", system-ui, sans-serif",
+          "id": "subscribe-title",
+          "line": "64px",
+          "size": "64px",
+          "style": "normal",
+          "tag": "H2",
+          "weight": "700"
+        },
+        {
+          "className": "",
+          "family": "Benzin, sans-serif",
+          "id": "subscribe-email",
+          "line": "32px",
+          "size": "24px",
+          "style": "normal",
+          "tag": "INPUT",
+          "weight": "700"
+        }
+      ]
+    },
+    {
+      "label": "music-desktop",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "documentWidth": 1920,
+      "textCount": 52,
+      "violations": [],
+      "samples": [
+        {
+          "className": "",
+          "family": "Benzin, \"Giga Sans\", sans-serif",
+          "id": "landing-title",
+          "line": "112px",
+          "size": "112px",
+          "style": "normal",
+          "tag": "H1",
+          "weight": "800"
+        },
+        {
+          "className": "",
+          "family": "\"Giga Sans\", system-ui, sans-serif",
+          "id": "moods-title",
+          "line": "48px",
+          "size": "36px",
+          "style": "normal",
+          "tag": "H2",
+          "weight": "800"
+        },
+        {
+          "className": "",
+          "family": "\"Giga Sans\", system-ui, sans-serif",
+          "id": "selection-title",
+          "line": "48px",
+          "size": "36px",
+          "style": "normal",
+          "tag": "H2",
+          "weight": "800"
+        },
+        {
+          "className": "",
+          "family": "Benzin, \"Giga Sans\", sans-serif",
+          "id": "",
+          "line": "48px",
+          "size": "40px",
+          "style": "normal",
+          "tag": "H2",
+          "weight": "800"
+        }
+      ]
+    },
+    {
+      "label": "music-mobile",
+      "viewport": [
+        390,
+        844
+      ],
+      "documentWidth": 390,
+      "textCount": 48,
+      "violations": [],
+      "samples": [
+        {
+          "className": "",
+          "family": "Benzin, \"Giga Sans\", sans-serif",
+          "id": "landing-title",
+          "line": "48px",
+          "size": "34px",
+          "style": "normal",
+          "tag": "H1",
+          "weight": "800"
+        },
+        {
+          "className": "",
+          "family": "\"Giga Sans\", system-ui, sans-serif",
+          "id": "moods-title",
+          "line": "48px",
+          "size": "36px",
+          "style": "normal",
+          "tag": "H2",
+          "weight": "800"
+        },
+        {
+          "className": "",
+          "family": "\"Giga Sans\", system-ui, sans-serif",
+          "id": "selection-title",
+          "line": "48px",
+          "size": "36px",
+          "style": "normal",
+          "tag": "H2",
+          "weight": "800"
+        },
+        {
+          "className": "",
+          "family": "Benzin, \"Giga Sans\", sans-serif",
+          "id": "",
+          "line": "32px",
+          "size": "24px",
+          "style": "normal",
+          "tag": "H2",
+          "weight": "800"
+        }
+      ]
+    },
+    {
+      "label": "sketch-mobile",
+      "viewport": [
+        390,
+        844
+      ],
+      "documentWidth": 390,
+      "textCount": 24,
+      "violations": [],
+      "samples": [
+        {
+          "className": "",
+          "family": "Benzin, sans-serif",
+          "id": "",
+          "line": "64px",
+          "size": "50px",
+          "style": "normal",
+          "tag": "H1",
+          "weight": "800"
+        },
+        {
+          "className": "",
+          "family": "\"Giga Sans\", system-ui, sans-serif",
+          "id": "sketch-title",
+          "line": "32px",
+          "size": "17px",
+          "style": "normal",
+          "tag": "INPUT",
+          "weight": "400"
+        },
+        {
+          "className": "",
+          "family": "\"Giga Sans\", system-ui, sans-serif",
+          "id": "sketch-drafts-heading",
+          "line": "48px",
+          "size": "36px",
+          "style": "normal",
+          "tag": "H2",
+          "weight": "800"
+        },
+        {
+          "className": "",
+          "family": "\"Giga Sans\", system-ui, sans-serif",
+          "id": "",
+          "line": "16px",
+          "size": "14px",
+          "style": "normal",
+          "tag": "H3",
+          "weight": "800"
+        }
+      ]
+    },
+    {
+      "label": "glitch-mobile",
+      "viewport": [
+        390,
+        844
+      ],
+      "documentWidth": 390,
+      "textCount": 23,
+      "violations": [],
+      "samples": []
+    }
+  ]
+}

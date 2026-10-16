@@ -1,0 +1,90 @@
+[
+  {
+    "active": true,
+    "current": 0,
+    "headerInert": true,
+    "state": "first",
+    "y": 1496
+  },
+  {
+    "active": true,
+    "current": 1,
+    "headerInert": true,
+    "stageTop": 0,
+    "state": "second",
+    "y": 1816
+  },
+  {
+    "current": 0,
+    "state": "reverse",
+    "y": 1496
+  },
+  {
+    "active": false,
+    "chorusTop": 152,
+    "headerInert": false,
+    "headerOpacity": "1",
+    "state": "after"
+  },
+  {
+    "headerInert": true,
+    "height": 844,
+    "lyrics": [
+      {
+        "font": "700 25px / 32.5px Benzin, \"Giga Sans\", sans-serif",
+        "opacity": "1",
+        "rect": {
+          "bottom": 253.5546875,
+          "height": 51,
+          "left": 20,
+          "right": 370,
+          "top": 202.5546875,
+          "width": 350,
+          "x": 20,
+          "y": 202.5546875
+        }
+      },
+      {
+        "font": "700 25px / 32.5px Benzin, \"Giga Sans\", sans-serif",
+        "opacity": "0.401871",
+        "rect": {
+          "bottom": 320.0546875,
+          "height": 18.5,
+          "left": 20,
+          "right": 370,
+          "top": 301.5546875,
+          "width": 350,
+          "x": 20,
+          "y": 301.5546875
+        }
+      }
+    ],
+    "overflow": false,
+    "stage": {
+      "bottom": 844,
+      "height": 844,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "state": "mobile-first",
+    "width": 390
+  },
+  {
+    "active": true,
+    "current": 1,
+    "stageTop": 0,
+    "state": "mobile-second"
+  },
+  {
+    "headerInert": true,
+    "lyricsWidth": 280,
+    "overflow": false,
+    "stageWidth": 320,
+    "state": "320",
+    "width": 320
+  }
+]

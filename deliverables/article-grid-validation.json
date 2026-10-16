@@ -1,0 +1,48 @@
+[
+  {
+    "gap": "32px",
+    "layout": "grid",
+    "padding": "32px",
+    "removedBanner": true,
+    "scrollWidth": 1440,
+    "textWidth": 531.203125,
+    "tracks": "249.594px 249.602px 249.602px 249.602px 249.602px",
+    "width": 1440
+  },
+  {
+    "gap": "32px",
+    "layout": "grid",
+    "padding": "32px",
+    "removedBanner": true,
+    "scrollWidth": 1024,
+    "textWidth": 563.1953125,
+    "tracks": "166.398px 166.398px 166.398px 166.398px 166.398px",
+    "width": 1024
+  },
+  {
+    "gap": "32px",
+    "layout": "grid",
+    "padding": "32px",
+    "removedBanner": true,
+    "scrollWidth": 768,
+    "textWidth": 556.796875,
+    "tracks": "115.195px 115.195px 115.195px 115.195px 115.195px",
+    "width": 768
+  },
+  {
+    "headerHeight": 76,
+    "layout": "block",
+    "padding": "20px",
+    "removedBanner": true,
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "headerHeight": 76,
+    "layout": "block",
+    "padding": "20px",
+    "removedBanner": true,
+    "scrollWidth": 320,
+    "width": 320
+  }
+]

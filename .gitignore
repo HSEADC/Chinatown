@@ -5,3 +5,5 @@ dist/
 .env.*
 !.env.example
 *.log
+video-originals/
+config/video-cuts.local.json

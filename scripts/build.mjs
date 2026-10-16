@@ -5,7 +5,7 @@ const dist = new URL('../dist/', import.meta.url);
 
 await rm(dist, { recursive: true, force: true });
 await mkdir(dist, { recursive: true });
-for (const file of ['index.html', 'about.html', 'article.html', 'new-sketch.html', 'glitch-test.html', 'styles.css', 'media.css', 'article.css']) {
+for (const file of ['index.html', 'about.html', 'article.html', 'new-sketch.html', 'glitch-test.html', 'styles.css', 'media.css', 'article.css', 'scene-rail.css', 'light-editor.css']) {
   await cp(new URL(`../${file}`, import.meta.url), new URL(`../dist/${file}`, import.meta.url));
 }
 await cp(new URL('../src/', import.meta.url), new URL('../dist/src/', import.meta.url), { recursive: true });

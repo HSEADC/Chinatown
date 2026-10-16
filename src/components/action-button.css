@@ -1,0 +1,83 @@
+/* Figma 276:101 is the single source for this button.
+   Page styles control placement and available width only. */
+.action-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  container-type: inline-size;
+  width: 100%;
+  min-width: 0;
+  height: 64px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: #fc5cff;
+  color: #fff;
+  font: 700 24px/32px Benzin, sans-serif;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 120ms ease;
+}
+
+.action-button > .action-button__content {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  height: 64px;
+  margin: 0;
+  padding: 0;
+}
+
+.action-button__content > .action-button__label {
+  display: block;
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 20px 0 12px 24px;
+  font: 700 24px/32px Benzin, sans-serif;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  text-box-trim: none;
+  white-space: nowrap;
+}
+
+.action-button__content > .action-button__icon {
+  display: block;
+  flex: 0 0 auto;
+  width: 64px;
+  height: 64px;
+  margin: 0;
+  padding: 0;
+}
+
+.action-button:hover { background: #e743ea; }
+.action-button:active { background: #c832cb; }
+.action-button:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
+.action-button:disabled { opacity: .4; cursor: default; }
+
+/* The component adapts to its own width, independently of page breakpoints.
+   Its height and the centered text-and-icon group remain unchanged. */
+@container (max-width: 480px) {
+  .action-button__content > .action-button__label { font-size: 16px; }
+}
+
+@container (max-width: 360px) {
+  .action-button__content > .action-button__label { padding-left: 16px; font-size: 12px; }
+  .action-button__content > .action-button__icon { width: 48px; height: 48px; }
+}
+
+@container (max-width: 260px) {
+  .action-button__content > .action-button__label { padding-left: 12px; font-size: 10px; }
+  .action-button__content > .action-button__icon { width: 32px; height: 32px; }
+}
+
+@container (max-width: 220px) {
+  .action-button__content > .action-button__label { padding-left: 8px; font-size: 9px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .action-button { transition: none; }
+}

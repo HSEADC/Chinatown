@@ -1,0 +1,481 @@
+{
+  "figmaNodes": [
+    "269:423",
+    "269:409"
+  ],
+  "functionalChecks": {
+    "searchByArticleText": true,
+    "submitFocusesResult": true,
+    "desktopCloseOpensSearch": true,
+    "hamburgerRestoresNavigation": true,
+    "escapeClosesSearch": true
+  },
+  "viewports": [
+    {
+      "documentWidth": 280,
+      "headerHeight": 88,
+      "items": [
+        {
+          "bottom": 124,
+          "left": 20,
+          "right": 128,
+          "scrollWidth": 108,
+          "text": "Карта артистов",
+          "top": 88,
+          "width": 108
+        },
+        {
+          "bottom": 124,
+          "left": 152,
+          "right": 260,
+          "scrollWidth": 108,
+          "text": "Карта артистов",
+          "top": 88,
+          "width": 108
+        },
+        {
+          "bottom": 168,
+          "left": 20,
+          "right": 128,
+          "scrollWidth": 108,
+          "text": "Статьи",
+          "top": 132,
+          "width": 108
+        },
+        {
+          "bottom": 168,
+          "left": 152,
+          "right": 260,
+          "scrollWidth": 108,
+          "text": "Тесты",
+          "top": 132,
+          "width": 108
+        },
+        {
+          "bottom": 212,
+          "left": 20,
+          "right": 128,
+          "scrollWidth": 108,
+          "text": "Мерч",
+          "top": 176,
+          "width": 108
+        }
+      ],
+      "navBounds": {
+        "left": 20,
+        "right": 260
+      },
+      "navExpanded": "false",
+      "width": 280
+    },
+    {
+      "documentWidth": 320,
+      "headerHeight": 88,
+      "items": [
+        {
+          "bottom": 124,
+          "left": 20,
+          "right": 148,
+          "scrollWidth": 128,
+          "text": "Карта артистов",
+          "top": 88,
+          "width": 128
+        },
+        {
+          "bottom": 124,
+          "left": 172,
+          "right": 300,
+          "scrollWidth": 128,
+          "text": "Карта артистов",
+          "top": 88,
+          "width": 128
+        },
+        {
+          "bottom": 168,
+          "left": 20,
+          "right": 148,
+          "scrollWidth": 128,
+          "text": "Статьи",
+          "top": 132,
+          "width": 128
+        },
+        {
+          "bottom": 168,
+          "left": 172,
+          "right": 300,
+          "scrollWidth": 128,
+          "text": "Тесты",
+          "top": 132,
+          "width": 128
+        },
+        {
+          "bottom": 212,
+          "left": 20,
+          "right": 148,
+          "scrollWidth": 128,
+          "text": "Мерч",
+          "top": 176,
+          "width": 128
+        }
+      ],
+      "navBounds": {
+        "left": 20,
+        "right": 300
+      },
+      "navExpanded": "false",
+      "width": 320
+    },
+    {
+      "documentWidth": 390,
+      "headerHeight": 88,
+      "items": [
+        {
+          "bottom": 124,
+          "left": 20,
+          "right": 183,
+          "scrollWidth": 163,
+          "text": "Карта артистов",
+          "top": 88,
+          "width": 163
+        },
+        {
+          "bottom": 124,
+          "left": 207,
+          "right": 370,
+          "scrollWidth": 163,
+          "text": "Карта артистов",
+          "top": 88,
+          "width": 163
+        },
+        {
+          "bottom": 168,
+          "left": 20,
+          "right": 183,
+          "scrollWidth": 163,
+          "text": "Статьи",
+          "top": 132,
+          "width": 163
+        },
+        {
+          "bottom": 168,
+          "left": 207,
+          "right": 370,
+          "scrollWidth": 163,
+          "text": "Тесты",
+          "top": 132,
+          "width": 163
+        },
+        {
+          "bottom": 212,
+          "left": 20,
+          "right": 183,
+          "scrollWidth": 163,
+          "text": "Мерч",
+          "top": 176,
+          "width": 163
+        }
+      ],
+      "navBounds": {
+        "left": 20,
+        "right": 370
+      },
+      "navExpanded": "false",
+      "width": 390
+    },
+    {
+      "documentWidth": 760,
+      "headerHeight": 88,
+      "items": [
+        {
+          "bottom": 124,
+          "left": 20,
+          "right": 368,
+          "scrollWidth": 348,
+          "text": "Карта артистов",
+          "top": 88,
+          "width": 348
+        },
+        {
+          "bottom": 124,
+          "left": 392,
+          "right": 740,
+          "scrollWidth": 348,
+          "text": "Карта артистов",
+          "top": 88,
+          "width": 348
+        },
+        {
+          "bottom": 168,
+          "left": 20,
+          "right": 368,
+          "scrollWidth": 348,
+          "text": "Статьи",
+          "top": 132,
+          "width": 348
+        },
+        {
+          "bottom": 168,
+          "left": 392,
+          "right": 740,
+          "scrollWidth": 348,
+          "text": "Тесты",
+          "top": 132,
+          "width": 348
+        },
+        {
+          "bottom": 212,
+          "left": 20,
+          "right": 368,
+          "scrollWidth": 348,
+          "text": "Мерч",
+          "top": 176,
+          "width": 348
+        }
+      ],
+      "navBounds": {
+        "left": 20,
+        "right": 740
+      },
+      "navExpanded": "false",
+      "width": 760
+    },
+    {
+      "documentWidth": 761,
+      "headerHeight": 88,
+      "items": [
+        {
+          "bottom": 48,
+          "left": 177.796875,
+          "right": 284.1484375,
+          "scrollWidth": 106,
+          "text": "Карта артистов",
+          "top": 32,
+          "width": 106.3515625
+        },
+        {
+          "bottom": 48,
+          "left": 303.1640625,
+          "right": 409.515625,
+          "scrollWidth": 106,
+          "text": "Карта артистов",
+          "top": 32,
+          "width": 106.3515625
+        },
+        {
+          "bottom": 48,
+          "left": 428.5390625,
+          "right": 473.359375,
+          "scrollWidth": 45,
+          "text": "Статьи",
+          "top": 32,
+          "width": 44.8203125
+        },
+        {
+          "bottom": 48,
+          "left": 492.375,
+          "right": 531.65625,
+          "scrollWidth": 39,
+          "text": "Тесты",
+          "top": 32,
+          "width": 39.28125
+        },
+        {
+          "bottom": 48,
+          "left": 550.671875,
+          "right": 583.1953125,
+          "scrollWidth": 33,
+          "text": "Мерч",
+          "top": 32,
+          "width": 32.5234375
+        }
+      ],
+      "navBounds": {
+        "left": 177.796875,
+        "right": 583.1953125
+      },
+      "navExpanded": "true",
+      "width": 761
+    },
+    {
+      "documentWidth": 1024,
+      "headerHeight": 88,
+      "items": [
+        {
+          "bottom": 48,
+          "left": 230.3984375,
+          "right": 358.0234375,
+          "scrollWidth": 128,
+          "text": "Карта артистов",
+          "top": 32,
+          "width": 127.625
+        },
+        {
+          "bottom": 48,
+          "left": 400.0234375,
+          "right": 527.6484375,
+          "scrollWidth": 128,
+          "text": "Карта артистов",
+          "top": 32,
+          "width": 127.625
+        },
+        {
+          "bottom": 48,
+          "left": 569.640625,
+          "right": 623.4296875,
+          "scrollWidth": 54,
+          "text": "Статьи",
+          "top": 32,
+          "width": 53.7890625
+        },
+        {
+          "bottom": 48,
+          "left": 665.4296875,
+          "right": 712.5703125,
+          "scrollWidth": 47,
+          "text": "Тесты",
+          "top": 32,
+          "width": 47.140625
+        },
+        {
+          "bottom": 48,
+          "left": 754.5625,
+          "right": 793.59375,
+          "scrollWidth": 39,
+          "text": "Мерч",
+          "top": 32,
+          "width": 39.03125
+        }
+      ],
+      "navBounds": {
+        "left": 230.3984375,
+        "right": 793.59375
+      },
+      "navExpanded": "true",
+      "width": 1024
+    },
+    {
+      "documentWidth": 1200,
+      "headerHeight": 88,
+      "items": [
+        {
+          "bottom": 48,
+          "left": 265.59375,
+          "right": 393.21875,
+          "scrollWidth": 128,
+          "text": "Карта артистов",
+          "top": 32,
+          "width": 127.625
+        },
+        {
+          "bottom": 48,
+          "left": 461.6171875,
+          "right": 589.2421875,
+          "scrollWidth": 128,
+          "text": "Карта артистов",
+          "top": 32,
+          "width": 127.625
+        },
+        {
+          "bottom": 48,
+          "left": 657.640625,
+          "right": 711.4296875,
+          "scrollWidth": 54,
+          "text": "Статьи",
+          "top": 32,
+          "width": 53.7890625
+        },
+        {
+          "bottom": 48,
+          "left": 779.828125,
+          "right": 826.96875,
+          "scrollWidth": 47,
+          "text": "Тесты",
+          "top": 32,
+          "width": 47.140625
+        },
+        {
+          "bottom": 48,
+          "left": 895.3671875,
+          "right": 934.3984375,
+          "scrollWidth": 39,
+          "text": "Мерч",
+          "top": 32,
+          "width": 39.03125
+        }
+      ],
+      "navBounds": {
+        "left": 265.59375,
+        "right": 934.3984375
+      },
+      "navExpanded": "true",
+      "width": 1200
+    },
+    {
+      "documentWidth": 1920,
+      "headerHeight": 88,
+      "items": [
+        {
+          "bottom": 48,
+          "left": 409.59375,
+          "right": 558.484375,
+          "scrollWidth": 149,
+          "text": "Карта артистов",
+          "top": 32,
+          "width": 148.890625
+        },
+        {
+          "bottom": 48,
+          "left": 718.421875,
+          "right": 867.3125,
+          "scrollWidth": 149,
+          "text": "Карта артистов",
+          "top": 32,
+          "width": 148.890625
+        },
+        {
+          "bottom": 48,
+          "left": 1027.25,
+          "right": 1090,
+          "scrollWidth": 63,
+          "text": "Статьи",
+          "top": 32,
+          "width": 62.75
+        },
+        {
+          "bottom": 48,
+          "left": 1249.9375,
+          "right": 1304.9296875,
+          "scrollWidth": 55,
+          "text": "Тесты",
+          "top": 32,
+          "width": 54.9921875
+        },
+        {
+          "bottom": 48,
+          "left": 1464.8671875,
+          "right": 1510.3984375,
+          "scrollWidth": 46,
+          "text": "Мерч",
+          "top": 32,
+          "width": 45.53125
+        }
+      ],
+      "navBounds": {
+        "left": 409.59375,
+        "right": 1510.3984375
+      },
+      "navExpanded": "true",
+      "width": 1920
+    }
+  ],
+  "narrowSearch": {
+    "form": {
+      "left": 90,
+      "right": 208,
+      "width": 118
+    },
+    "inputWidth": 62,
+    "pageWidth": 280,
+    "width": 280
+  }
+}

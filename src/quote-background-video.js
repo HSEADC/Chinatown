@@ -1,120 +1,91 @@
-const apiUrl = 'https://www.youtube.com/iframe_api';
-let apiPromise;
+const manifestUrl = new URL('../assets/video/editorial/manifest.json', import.meta.url);
 
-function loadYouTubePlayer() {
-  if (window.YT?.Player) return Promise.resolve(window.YT);
-  if (apiPromise) return apiPromise;
-  apiPromise = new Promise((resolve, reject) => {
-    const script = document.createElement('script');
-    const previous = window.onYouTubeIframeAPIReady;
-    const timeout = setTimeout(fail, 15000);
-    function restoreCallback() {
-      if (window.onYouTubeIframeAPIReady === ready) window.onYouTubeIframeAPIReady = previous;
-    }
-    function fail() {
-      clearTimeout(timeout);
-      restoreCallback();
-      script.remove();
-      apiPromise = undefined;
-      reject(new Error('YouTube API unavailable'));
-    }
-    function ready() {
-      clearTimeout(timeout);
-      restoreCallback();
-      try { previous?.(); } finally { resolve(window.YT); }
-    }
-    window.onYouTubeIframeAPIReady = ready;
-    script.src = apiUrl;
-    script.async = true;
-    script.onerror = fail;
-    document.head.append(script);
-  });
-  return apiPromise;
-}
-
-/** A muted background embed; the supplied photograph remains the fallback. */
+/** A local, silent cut loads near the quote; the photograph remains the fallback. */
 export function mountQuoteBackgroundVideo(media) {
-  const videoId = media.dataset.youtubeId;
-  const start = Number(media.dataset.videoStart) || 0;
+  const clipId = media.dataset.videoClip;
   const host = media.querySelector('.story-quote-scene__video');
-  let player;
-  let ready = false;
+  const controller = new AbortController();
+  const options = { signal: controller.signal };
+  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  let video;
   let loading = false;
   let wanted = false;
-  let disposed = false;
-  let readyTimeout = 0;
 
   function fallback(state) {
     media.classList.remove('is-video-playing');
     media.dataset.videoState = state;
   }
-  function syncPlayback() {
-    if (!ready || disposed) return;
-    player.mute();
-    if (wanted) player.playVideo();
-    else player.pauseVideo();
+
+  async function syncPlayback() {
+    if (!video || controller.signal.aborted) return;
+    if (!wanted || document.hidden || reducedMotion.matches) { video.pause(); return; }
+    if (!video.paused) return;
+    try {
+      await video.play();
+      if (!wanted || document.hidden || reducedMotion.matches || controller.signal.aborted) video.pause();
+    } catch (error) {
+      if (!controller.signal.aborted && wanted && !document.hidden && !reducedMotion.matches && error.name !== 'AbortError') {
+        fallback(error.name === 'NotAllowedError' ? 'autoplay-blocked' : 'unavailable');
+      }
+    }
   }
+
   async function preload() {
-    if (loading || disposed || !/^[\w-]{11}$/.test(videoId || '')) return;
+    if (loading || !clipId || controller.signal.aborted || reducedMotion.matches || document.hidden) return;
     loading = true;
     media.dataset.videoState = 'loading';
     try {
-      const YouTube = await loadYouTubePlayer();
-      if (disposed) return;
-      const placeholder = document.createElement('div');
-      host.append(placeholder);
-      readyTimeout = setTimeout(() => { if (!disposed && !ready) fallback('unavailable'); }, 15000);
-      player = new YouTube.Player(placeholder, {
-        host: 'https://www.youtube-nocookie.com',
-        videoId,
-        playerVars: { origin: location.origin, widget_referrer: location.href, start, autoplay: 0, mute: 1, playsinline: 1, controls: 0, disablekb: 1, fs: 0, rel: 0 },
-        events: {
-        onReady(event) {
-          if (disposed) return;
-          clearTimeout(readyTimeout);
-          player = event.target;
-          ready = true;
-          media.dataset.videoState = 'ready';
-          syncPlayback();
-        },
-        onStateChange(event) {
-          if (disposed) return;
-          if (event.data === YouTube.PlayerState.PLAYING) {
-            if (!wanted) { player.pauseVideo(); return; }
-            media.classList.add('is-video-playing');
-            media.dataset.videoState = 'playing';
-          } else if (event.data === YouTube.PlayerState.ENDED && wanted) {
-            player.seekTo(start, true);
-            player.playVideo();
-          } else if (event.data === YouTube.PlayerState.PAUSED) media.dataset.videoState = 'paused';
-          else if (event.data === YouTube.PlayerState.BUFFERING) media.dataset.videoState = 'buffering';
-        },
-        onError: event => { clearTimeout(readyTimeout); if (!disposed) fallback(`error-${event.data}`); },
-        onAutoplayBlocked: () => { if (!disposed) fallback('autoplay-blocked'); },
-        },
-      });
-      const frame = player.getIframe();
-      frame.title = 'Выступление madk1d — фоновое видео без звука';
-      frame.allow = 'autoplay; encrypted-media';
-      frame.referrerPolicy = 'strict-origin-when-cross-origin';
-      frame.tabIndex = -1;
+      const response = await fetch(manifestUrl, options);
+      if (!response.ok) throw new Error('Video manifest unavailable');
+      const manifest = await response.json();
+      if (controller.signal.aborted || reducedMotion.matches) { loading = false; return; }
+      const clip = manifest.clips.find(item => item.id === clipId);
+      if (!clip?.article) throw new Error('Quote cut unavailable');
+      video = document.createElement('video');
+      video.muted = true;
+      video.defaultMuted = true;
+      video.loop = true;
+      video.playsInline = true;
+      video.preload = 'auto';
+      video.tabIndex = -1;
+      video.setAttribute('aria-hidden', 'true');
+      video.addEventListener('loadeddata', () => {
+        media.dataset.videoState = 'ready';
+        syncPlayback();
+      }, options);
+      video.addEventListener('playing', () => {
+        if (!wanted || document.hidden || reducedMotion.matches) { video.pause(); return; }
+        media.classList.add('is-video-playing');
+        media.dataset.videoState = 'playing';
+      }, options);
+      video.addEventListener('pause', () => {
+        if (!video.error && media.dataset.videoState !== 'autoplay-blocked') media.dataset.videoState = 'paused';
+      }, options);
+      video.addEventListener('waiting', () => { media.dataset.videoState = 'buffering'; }, options);
+      video.addEventListener('error', () => fallback('unavailable'), options);
+      video.src = new URL(clip.article, manifestUrl).href;
+      host.append(video);
+      syncPlayback();
     } catch {
-      clearTimeout(readyTimeout);
-      if (!disposed) fallback('unavailable');
+      if (!controller.signal.aborted) fallback('unavailable');
     }
   }
+
   return {
     preload,
     setActive(active) {
-      if (active) preload();
       if (wanted === active) return;
       wanted = active;
+      if (active) preload();
       syncPlayback();
     },
     dispose() {
-      disposed = true;
-      clearTimeout(readyTimeout);
-      player?.destroy();
+      controller.abort();
+      if (video) {
+        video.pause();
+        video.removeAttribute('src');
+        video.load();
+      }
       host.replaceChildren();
       fallback('idle');
     },

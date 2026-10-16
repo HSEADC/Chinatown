@@ -2,24 +2,31 @@ import { homeView, articleView } from './media-views.js';
 import { mountYandexPlayer } from './media-yandex-player.js';
 import { mountArticle } from './article.js';
 import { articleTitle } from './article-view.js';
+import { mountSceneRail } from './scene-rail.js';
+import { mountEditorialVideos } from './editorial-video.js';
 
 const content = document.querySelector('#media-content');
 const root = new URL('../', import.meta.url);
 const routeUrls = new Set([new URL('about.html', root).pathname, new URL('article.html', root).pathname]);
 const player = mountYandexPlayer(document.querySelector('#music-player'));
+const sceneRail = mountSceneRail(content);
 let disposeArticle = () => {};
+let disposeVideos = () => {};
 
 function renderPage({ focus = false } = {}) {
   disposeArticle();
+  disposeVideos();
   const isArticle = window.location.pathname === new URL('article.html', root).pathname;
   content.innerHTML = isArticle ? articleView() : homeView();
   document.body.dataset.mediaPage = isArticle ? 'article' : 'home';
   document.title = isArticle ? `${articleTitle} — CHINATOWN.RU` : 'Музыка — CHINATOWN.RU';
   disposeArticle = mountArticle(content.querySelector('.story-page'));
+  disposeVideos = mountEditorialVideos(content);
   const heading = content.querySelector('h1');
   heading.tabIndex = -1;
   if (focus) heading.focus({ preventScroll: true });
   player.refresh();
+  sceneRail.refresh();
 }
 
 document.addEventListener('click', (event) => {
