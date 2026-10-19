@@ -140,6 +140,7 @@
 .story-footnote-ref { position: relative; }
 .story-footnote-ref::after { position: absolute; content: ''; top: 50%; left: 50%; width: 24px; height: 28px; transform: translate(-50%, -50%); }
 .story-section .article-context-material[hidden] + p { margin-top: 24px; }
+.has-article-context [data-context-material][hidden] { display: none !important; }
 .has-article-context .article-context-backlink, .scene-rail .article-context-backlink, .article-context-screen .article-context-backlink { display: none; }
 .scene-rail__context .article-context-material, .article-context-screen .article-context-material { margin: 0; padding: 0; border: 0; }
 .scene-rail__context .story-next { margin: 0; padding: 0; border: 0; }

@@ -15,6 +15,12 @@ export const madk1dContext = {
       paragraphs: ['Иногда фраза о безразличии выдаёт, сколько внимания человек всё ещё занимает.'],
     },
     {
+      id: 'sexyswag-artwork',
+      kind: 'card',
+      mobile: 'inline',
+      paragraphs: [],
+    },
+    {
       id: 'madk1d-live',
       kind: 'card',
       mobile: 'screen',
@@ -34,7 +40,7 @@ export const madk1dContext = {
     { id: 'chorus', materialId: 'address-note' },
     { id: 'quote' },
     { id: 'chorus-freedom' },
-    { id: 'delivery' },
+    { id: 'delivery', materialId: 'sexyswag-artwork' },
   ],
   next: {
     status: 'upcoming',

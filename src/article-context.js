@@ -78,20 +78,28 @@ export function mountArticleContext(page, sceneRail) {
     if (controller.signal.aborted) return;
     // Hiding the header must not move the reading line across a chapter boundary.
     const top = parseFloat(getComputedStyle(document.body).getPropertyValue('--media-header-height')) || 0;
-    const readingY = window.scrollY + top + (innerHeight - top) / 3;
-    chapterId = contextAtPosition(chapters.map((chapter, index) => {
-      const endNode = chapters[index + 1]?.node || end;
+    const readingOffset = top + (innerHeight - top) / 3;
+    const readingY = window.scrollY + readingOffset;
+    const chapterPositions = chapters.map(chapter => ({ ...chapter, start: chapter.node.getBoundingClientRect().top + window.scrollY }));
+    const lastChapter = chapterPositions.at(-1);
+    if (lastChapter?.materialId) {
+      // A short final chapter can fit below the reading line even at the page end.
+      // Give its card a reachable entry point before the last scroll position.
+      const lastReadingY = document.documentElement.scrollHeight - innerHeight + readingOffset;
+      lastChapter.start = Math.min(lastChapter.start, Math.max(chapterPositions.at(-2)?.start || 0, lastReadingY - 64));
+    }
+    chapterId = contextAtPosition(chapterPositions.map((chapter, index) => {
       return {
         id: chapter.id,
-        start: chapter.node.getBoundingClientRect().top + window.scrollY,
-        end: endNode ? endNode.getBoundingClientRect().top + window.scrollY : Infinity,
+        start: chapter.start,
+        end: chapterPositions[index + 1]?.start ?? (end ? end.getBoundingClientRect().top + window.scrollY : Infinity),
       };
     }), readingY, chapterId);
     const automaticId = chapters.find(chapter => chapter.id === chapterId)?.materialId || null;
     const endTop = end?.getBoundingClientRect().top;
     const remainingScroll = document.documentElement.scrollHeight - innerHeight - window.scrollY;
     const endVisible = !!end && (endTop + window.scrollY <= readingY
-      || endTop < innerHeight && remainingScroll <= (displayedState.type === 'next' ? 48 : 24));
+      || !automaticId && endTop < innerHeight && remainingScroll <= (displayedState.type === 'next' ? 48 : 24));
     const interactionId = wide.matches && !manual && isInteracting()
       ? displayedState.id || (displayedState.type === 'next' ? 'next' : null) : null;
     const state = selectContextState({ manualId: manual?.id, interactionId, automaticId, endVisible, hasNext: !!next });
