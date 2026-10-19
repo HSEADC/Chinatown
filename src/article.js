@@ -2,9 +2,12 @@ import { mountArticleHeader } from './article-header.js';
 import { mountHeadlineGlitch } from './headline-glitch.js';
 import { mountQuoteScenes } from './quote-scene.js';
 import { mountStoryClub } from './story-club.js';
+import { mountArticleContext } from './article-context.js';
+import { mountSectionHeadings } from './section-headings.js';
+import { mountDevTools } from './dev-tools.js';
 
 /** Attach article anchors and the shared headline effect. */
-export function mountArticle(page, header = page?.querySelector('.story-header')) {
+export function mountArticle(page, header = page?.querySelector('.story-header'), sceneRail) {
   if (!page) return () => {};
   const title = page.querySelector('#article-title');
   const controller = new AbortController();
@@ -12,14 +15,20 @@ export function mountArticle(page, header = page?.querySelector('.story-header')
   const player = document.querySelector('.media-yandex-player');
   const originalPlayerInert = player?.inert;
   let quoteActive = false;
+  let sectionHeadings;
   const club = mountStoryClub(page);
+  const context = mountArticleContext(page, sceneRail);
   function syncHeadline() {
     const overlayOpen = header.classList.contains('is-search-open') || header.classList.contains('is-nav-open');
     headlineGlitch.setSuspended(overlayOpen || quoteActive);
     club.setSuspended(overlayOpen || quoteActive);
+    context.setSuspended(overlayOpen || quoteActive);
+    // Section titles belong to the article flow, including the concert's fade-out.
+    sectionHeadings?.setSuspended(overlayOpen);
   }
 
   const headerControls = mountArticleHeader(header, syncHeadline, page);
+  sectionHeadings = mountSectionHeadings(page, header);
   const disposeQuotes = mountQuoteScenes(page, active => {
     quoteActive = active;
     if (active) headerControls.close();
@@ -28,15 +37,10 @@ export function mountArticle(page, header = page?.querySelector('.story-header')
     document.body.classList.toggle('is-story-quote-active', active);
     syncHeadline();
   });
-  let disposeLightEditor = () => {};
-  if (['localhost', '127.0.0.1', '[::1]'].includes(location.hostname) || new URLSearchParams(location.search).has('light-editor')) {
-    import('./story-club-editor.js').then(({ mountClubEditor }) => {
-      if (!controller.signal.aborted) disposeLightEditor = mountClubEditor(page, club);
-    });
-  }
+  const disposeDevTools = mountDevTools({ page, club });
   function followAnchor(event) {
     const link = event.target.closest('a[href^="#"]');
-    if (!link || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    if (!link || link.hasAttribute('data-context-ref') || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     const target = page.querySelector(link.hash);
     if (!target) return;
     event.preventDefault();
@@ -53,10 +57,14 @@ export function mountArticle(page, header = page?.querySelector('.story-header')
 
   return () => {
     controller.abort();
-    disposeLightEditor();
+    disposeDevTools();
     club.dispose();
     disposeQuotes();
+    sectionHeadings.dispose();
     headerControls.dispose();
     headlineGlitch.destroy();
+    context.dispose();
+    document.body.classList.remove('is-story-quote-active');
+    if (player) player.inert = originalPlayerInert;
   };
 }

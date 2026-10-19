@@ -1,0 +1,1000 @@
+{
+  "results": [
+    {
+      "viewport": [
+        1440,
+        900
+      ],
+      "initial": {
+        "viewport": [
+          1440,
+          900
+        ],
+        "cover": {
+          "x": 0,
+          "y": 88,
+          "width": 1440,
+          "height": 810,
+          "bottom": 898,
+          "right": 1440
+        },
+        "title": {
+          "x": 32,
+          "y": 477,
+          "width": 1376,
+          "height": 288,
+          "bottom": 765,
+          "right": 1408
+        },
+        "intro": {
+          "x": 32,
+          "y": 789,
+          "width": 893.09375,
+          "height": 64,
+          "bottom": 853,
+          "right": 925.09375
+        },
+        "rail": {
+          "hidden": true,
+          "display": "none"
+        },
+        "video": {
+          "paused": true,
+          "src": null
+        },
+        "overflow": false
+      },
+      "reading": {
+        "viewport": [
+          1440,
+          900
+        ],
+        "cover": {
+          "x": 0,
+          "y": -850,
+          "width": 1440,
+          "height": 810,
+          "bottom": -40,
+          "right": 1440
+        },
+        "title": {
+          "x": 32,
+          "y": -461,
+          "width": 1376,
+          "height": 288,
+          "bottom": -173,
+          "right": 1408
+        },
+        "intro": {
+          "x": 32,
+          "y": -149,
+          "width": 893.09375,
+          "height": 64,
+          "bottom": -85,
+          "right": 925.09375
+        },
+        "rail": {
+          "hidden": false,
+          "display": "block"
+        },
+        "video": {
+          "paused": true,
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4"
+        },
+        "overflow": false
+      },
+      "returned": {
+        "viewport": [
+          1440,
+          900
+        ],
+        "cover": {
+          "x": 0,
+          "y": 88,
+          "width": 1440,
+          "height": 810,
+          "bottom": 898,
+          "right": 1440
+        },
+        "title": {
+          "x": 32,
+          "y": 477,
+          "width": 1376,
+          "height": 288,
+          "bottom": 765,
+          "right": 1408
+        },
+        "intro": {
+          "x": 32,
+          "y": 789,
+          "width": 893.09375,
+          "height": 64,
+          "bottom": 853,
+          "right": 925.09375
+        },
+        "rail": {
+          "hidden": true,
+          "display": "none"
+        },
+        "video": {
+          "paused": true,
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4"
+        },
+        "overflow": false
+      },
+      "errors": []
+    },
+    {
+      "viewport": [
+        1920,
+        1080
+      ],
+      "initial": {
+        "viewport": [
+          1920,
+          1080
+        ],
+        "cover": {
+          "x": 0,
+          "y": 88,
+          "width": 1920,
+          "height": 972,
+          "bottom": 1060,
+          "right": 1920
+        },
+        "title": {
+          "x": 32,
+          "y": 588,
+          "width": 1856,
+          "height": 336,
+          "bottom": 924,
+          "right": 1888
+        },
+        "intro": {
+          "x": 32,
+          "y": 948,
+          "width": 893.09375,
+          "height": 64,
+          "bottom": 1012,
+          "right": 925.09375
+        },
+        "rail": {
+          "hidden": true,
+          "display": "none"
+        },
+        "video": {
+          "paused": true,
+          "src": null
+        },
+        "overflow": false
+      },
+      "reading": {
+        "viewport": [
+          1920,
+          1080
+        ],
+        "cover": {
+          "x": 0,
+          "y": -1012,
+          "width": 1920,
+          "height": 972,
+          "bottom": -40,
+          "right": 1920
+        },
+        "title": {
+          "x": 32,
+          "y": -512,
+          "width": 1856,
+          "height": 336,
+          "bottom": -176,
+          "right": 1888
+        },
+        "intro": {
+          "x": 32,
+          "y": -152,
+          "width": 893.09375,
+          "height": 64,
+          "bottom": -88,
+          "right": 925.09375
+        },
+        "rail": {
+          "hidden": false,
+          "display": "block"
+        },
+        "video": {
+          "paused": true,
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4"
+        },
+        "overflow": false
+      },
+      "returned": {
+        "viewport": [
+          1920,
+          1080
+        ],
+        "cover": {
+          "x": 0,
+          "y": 88,
+          "width": 1920,
+          "height": 972,
+          "bottom": 1060,
+          "right": 1920
+        },
+        "title": {
+          "x": 32,
+          "y": 588,
+          "width": 1856,
+          "height": 336,
+          "bottom": 924,
+          "right": 1888
+        },
+        "intro": {
+          "x": 32,
+          "y": 948,
+          "width": 893.09375,
+          "height": 64,
+          "bottom": 1012,
+          "right": 925.09375
+        },
+        "rail": {
+          "hidden": true,
+          "display": "none"
+        },
+        "video": {
+          "paused": true,
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4"
+        },
+        "overflow": false
+      },
+      "errors": []
+    },
+    {
+      "viewport": [
+        1200,
+        800
+      ],
+      "initial": {
+        "viewport": [
+          1200,
+          800
+        ],
+        "cover": {
+          "x": 0,
+          "y": 88,
+          "width": 1200,
+          "height": 720,
+          "bottom": 808,
+          "right": 1200
+        },
+        "title": {
+          "x": 32,
+          "y": 440,
+          "width": 1136,
+          "height": 240,
+          "bottom": 680,
+          "right": 1168
+        },
+        "intro": {
+          "x": 32,
+          "y": 704,
+          "width": 893.09375,
+          "height": 64,
+          "bottom": 768,
+          "right": 925.09375
+        },
+        "rail": {
+          "hidden": true,
+          "display": "none"
+        },
+        "video": {
+          "paused": true,
+          "src": null
+        },
+        "overflow": false
+      },
+      "reading": {
+        "viewport": [
+          1200,
+          800
+        ],
+        "cover": {
+          "x": 0,
+          "y": -760,
+          "width": 1200,
+          "height": 720,
+          "bottom": -40,
+          "right": 1200
+        },
+        "title": {
+          "x": 32,
+          "y": -408,
+          "width": 1136,
+          "height": 240,
+          "bottom": -168,
+          "right": 1168
+        },
+        "intro": {
+          "x": 32,
+          "y": -144,
+          "width": 893.09375,
+          "height": 64,
+          "bottom": -80,
+          "right": 925.09375
+        },
+        "rail": {
+          "hidden": false,
+          "display": "block"
+        },
+        "video": {
+          "paused": true,
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4"
+        },
+        "overflow": false
+      },
+      "returned": {
+        "viewport": [
+          1200,
+          800
+        ],
+        "cover": {
+          "x": 0,
+          "y": 88,
+          "width": 1200,
+          "height": 720,
+          "bottom": 808,
+          "right": 1200
+        },
+        "title": {
+          "x": 32,
+          "y": 440,
+          "width": 1136,
+          "height": 240,
+          "bottom": 680,
+          "right": 1168
+        },
+        "intro": {
+          "x": 32,
+          "y": 704,
+          "width": 893.09375,
+          "height": 64,
+          "bottom": 768,
+          "right": 925.09375
+        },
+        "rail": {
+          "hidden": true,
+          "display": "none"
+        },
+        "video": {
+          "paused": true,
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4"
+        },
+        "overflow": false
+      },
+      "errors": []
+    },
+    {
+      "viewport": [
+        1199,
+        800
+      ],
+      "initial": {
+        "viewport": [
+          1199,
+          800
+        ],
+        "cover": {
+          "x": 0,
+          "y": 88,
+          "width": 1199,
+          "height": 720,
+          "bottom": 808,
+          "right": 1199
+        },
+        "title": {
+          "x": 32,
+          "y": 440,
+          "width": 1135,
+          "height": 240,
+          "bottom": 680,
+          "right": 1167
+        },
+        "intro": {
+          "x": 32,
+          "y": 704,
+          "width": 893.09375,
+          "height": 64,
+          "bottom": 768,
+          "right": 925.09375
+        },
+        "rail": {
+          "hidden": true,
+          "display": "none"
+        },
+        "video": {
+          "paused": true,
+          "src": null
+        },
+        "overflow": false
+      },
+      "reading": {
+        "viewport": [
+          1199,
+          800
+        ],
+        "cover": {
+          "x": 0,
+          "y": -760,
+          "width": 1199,
+          "height": 720,
+          "bottom": -40,
+          "right": 1199
+        },
+        "title": {
+          "x": 32,
+          "y": -408,
+          "width": 1135,
+          "height": 240,
+          "bottom": -168,
+          "right": 1167
+        },
+        "intro": {
+          "x": 32,
+          "y": -144,
+          "width": 893.09375,
+          "height": 64,
+          "bottom": -80,
+          "right": 925.09375
+        },
+        "rail": {
+          "hidden": false,
+          "display": "none"
+        },
+        "video": {
+          "paused": true,
+          "src": null
+        },
+        "overflow": false
+      },
+      "returned": {
+        "viewport": [
+          1199,
+          800
+        ],
+        "cover": {
+          "x": 0,
+          "y": 88,
+          "width": 1199,
+          "height": 720,
+          "bottom": 808,
+          "right": 1199
+        },
+        "title": {
+          "x": 32,
+          "y": 440,
+          "width": 1135,
+          "height": 240,
+          "bottom": 680,
+          "right": 1167
+        },
+        "intro": {
+          "x": 32,
+          "y": 704,
+          "width": 893.09375,
+          "height": 64,
+          "bottom": 768,
+          "right": 925.09375
+        },
+        "rail": {
+          "hidden": true,
+          "display": "none"
+        },
+        "video": {
+          "paused": true,
+          "src": null
+        },
+        "overflow": false
+      },
+      "errors": []
+    },
+    {
+      "viewport": [
+        768,
+        1024
+      ],
+      "initial": {
+        "viewport": [
+          768,
+          1024
+        ],
+        "cover": {
+          "x": 0,
+          "y": 88,
+          "width": 768,
+          "height": 921.59375,
+          "bottom": 1009.59375,
+          "right": 768
+        },
+        "title": {
+          "x": 32,
+          "y": 617.59375,
+          "width": 704,
+          "height": 256,
+          "bottom": 873.59375,
+          "right": 736
+        },
+        "intro": {
+          "x": 32,
+          "y": 897.59375,
+          "width": 704,
+          "height": 64,
+          "bottom": 961.59375,
+          "right": 736
+        },
+        "rail": {
+          "hidden": true,
+          "display": "none"
+        },
+        "video": {
+          "paused": true,
+          "src": null
+        },
+        "overflow": false
+      },
+      "reading": {
+        "viewport": [
+          768,
+          1024
+        ],
+        "cover": {
+          "x": 0,
+          "y": -962,
+          "width": 768,
+          "height": 921.59375,
+          "bottom": -40.40625,
+          "right": 768
+        },
+        "title": {
+          "x": 32,
+          "y": -432.40625,
+          "width": 704,
+          "height": 256,
+          "bottom": -176.40625,
+          "right": 736
+        },
+        "intro": {
+          "x": 32,
+          "y": -152.40625,
+          "width": 704,
+          "height": 64,
+          "bottom": -88.40625,
+          "right": 736
+        },
+        "rail": {
+          "hidden": false,
+          "display": "none"
+        },
+        "video": {
+          "paused": true,
+          "src": null
+        },
+        "overflow": false
+      },
+      "returned": {
+        "viewport": [
+          768,
+          1024
+        ],
+        "cover": {
+          "x": 0,
+          "y": 88,
+          "width": 768,
+          "height": 921.59375,
+          "bottom": 1009.59375,
+          "right": 768
+        },
+        "title": {
+          "x": 32,
+          "y": 617.59375,
+          "width": 704,
+          "height": 256,
+          "bottom": 873.59375,
+          "right": 736
+        },
+        "intro": {
+          "x": 32,
+          "y": 897.59375,
+          "width": 704,
+          "height": 64,
+          "bottom": 961.59375,
+          "right": 736
+        },
+        "rail": {
+          "hidden": true,
+          "display": "none"
+        },
+        "video": {
+          "paused": true,
+          "src": null
+        },
+        "overflow": false
+      },
+      "errors": []
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "initial": {
+        "viewport": [
+          390,
+          844
+        ],
+        "cover": {
+          "x": 0,
+          "y": 88,
+          "width": 390,
+          "height": 759.59375,
+          "bottom": 847.59375,
+          "right": 390
+        },
+        "title": {
+          "x": 20,
+          "y": 507.59375,
+          "width": 350,
+          "height": 160,
+          "bottom": 667.59375,
+          "right": 370
+        },
+        "intro": {
+          "x": 20,
+          "y": 687.59375,
+          "width": 350,
+          "height": 128,
+          "bottom": 815.59375,
+          "right": 370
+        },
+        "rail": {
+          "hidden": true,
+          "display": "none"
+        },
+        "video": {
+          "paused": true,
+          "src": null
+        },
+        "overflow": false
+      },
+      "reading": {
+        "viewport": [
+          390,
+          844
+        ],
+        "cover": {
+          "x": 0,
+          "y": -800,
+          "width": 390,
+          "height": 759.59375,
+          "bottom": -40.40625,
+          "right": 390
+        },
+        "title": {
+          "x": 20,
+          "y": -380.40625,
+          "width": 350,
+          "height": 160,
+          "bottom": -220.40625,
+          "right": 370
+        },
+        "intro": {
+          "x": 20,
+          "y": -200.40625,
+          "width": 350,
+          "height": 128,
+          "bottom": -72.40625,
+          "right": 370
+        },
+        "rail": {
+          "hidden": false,
+          "display": "none"
+        },
+        "video": {
+          "paused": true,
+          "src": null
+        },
+        "overflow": false
+      },
+      "returned": {
+        "viewport": [
+          390,
+          844
+        ],
+        "cover": {
+          "x": 0,
+          "y": 88,
+          "width": 390,
+          "height": 759.59375,
+          "bottom": 847.59375,
+          "right": 390
+        },
+        "title": {
+          "x": 20,
+          "y": 507.59375,
+          "width": 350,
+          "height": 160,
+          "bottom": 667.59375,
+          "right": 370
+        },
+        "intro": {
+          "x": 20,
+          "y": 687.59375,
+          "width": 350,
+          "height": 128,
+          "bottom": 815.59375,
+          "right": 370
+        },
+        "rail": {
+          "hidden": true,
+          "display": "none"
+        },
+        "video": {
+          "paused": true,
+          "src": null
+        },
+        "overflow": false
+      },
+      "errors": []
+    },
+    {
+      "viewport": [
+        320,
+        568
+      ],
+      "initial": {
+        "viewport": [
+          320,
+          568
+        ],
+        "cover": {
+          "x": 0,
+          "y": 88,
+          "width": 320,
+          "height": 511.1875,
+          "bottom": 599.1875,
+          "right": 320
+        },
+        "title": {
+          "x": 20,
+          "y": 195.1875,
+          "width": 280,
+          "height": 192,
+          "bottom": 387.1875,
+          "right": 300
+        },
+        "intro": {
+          "x": 20,
+          "y": 407.1875,
+          "width": 280,
+          "height": 160,
+          "bottom": 567.1875,
+          "right": 300
+        },
+        "rail": {
+          "hidden": true,
+          "display": "none"
+        },
+        "video": {
+          "paused": true,
+          "src": null
+        },
+        "overflow": false
+      },
+      "reading": {
+        "viewport": [
+          320,
+          568
+        ],
+        "cover": {
+          "x": 0,
+          "y": -551,
+          "width": 320,
+          "height": 511.1875,
+          "bottom": -39.8125,
+          "right": 320
+        },
+        "title": {
+          "x": 20,
+          "y": -443.8125,
+          "width": 280,
+          "height": 192,
+          "bottom": -251.8125,
+          "right": 300
+        },
+        "intro": {
+          "x": 20,
+          "y": -231.8125,
+          "width": 280,
+          "height": 160,
+          "bottom": -71.8125,
+          "right": 300
+        },
+        "rail": {
+          "hidden": false,
+          "display": "none"
+        },
+        "video": {
+          "paused": true,
+          "src": null
+        },
+        "overflow": false
+      },
+      "returned": {
+        "viewport": [
+          320,
+          568
+        ],
+        "cover": {
+          "x": 0,
+          "y": 88,
+          "width": 320,
+          "height": 511.1875,
+          "bottom": 599.1875,
+          "right": 320
+        },
+        "title": {
+          "x": 20,
+          "y": 195.1875,
+          "width": 280,
+          "height": 192,
+          "bottom": 387.1875,
+          "right": 300
+        },
+        "intro": {
+          "x": 20,
+          "y": 407.1875,
+          "width": 280,
+          "height": 160,
+          "bottom": 567.1875,
+          "right": 300
+        },
+        "rail": {
+          "hidden": true,
+          "display": "none"
+        },
+        "video": {
+          "paused": true,
+          "src": null
+        },
+        "overflow": false
+      },
+      "errors": []
+    },
+    {
+      "viewport": [
+        844,
+        390
+      ],
+      "initial": {
+        "viewport": [
+          844,
+          390
+        ],
+        "cover": {
+          "x": 0,
+          "y": 88,
+          "width": 844,
+          "height": 351,
+          "bottom": 439,
+          "right": 844
+        },
+        "title": {
+          "x": 32,
+          "y": 183,
+          "width": 780,
+          "height": 144,
+          "bottom": 327,
+          "right": 812
+        },
+        "intro": {
+          "x": 32,
+          "y": 351,
+          "width": 780,
+          "height": 64,
+          "bottom": 415,
+          "right": 812
+        },
+        "rail": {
+          "hidden": true,
+          "display": "none"
+        },
+        "video": {
+          "paused": true,
+          "src": null
+        },
+        "overflow": false
+      },
+      "reading": {
+        "viewport": [
+          844,
+          390
+        ],
+        "cover": {
+          "x": 0,
+          "y": -391,
+          "width": 844,
+          "height": 351,
+          "bottom": -40,
+          "right": 844
+        },
+        "title": {
+          "x": 32,
+          "y": -296,
+          "width": 780,
+          "height": 144,
+          "bottom": -152,
+          "right": 812
+        },
+        "intro": {
+          "x": 32,
+          "y": -128,
+          "width": 780,
+          "height": 64,
+          "bottom": -64,
+          "right": 812
+        },
+        "rail": {
+          "hidden": false,
+          "display": "none"
+        },
+        "video": {
+          "paused": true,
+          "src": null
+        },
+        "overflow": false
+      },
+      "returned": {
+        "viewport": [
+          844,
+          390
+        ],
+        "cover": {
+          "x": 0,
+          "y": 88,
+          "width": 844,
+          "height": 351,
+          "bottom": 439,
+          "right": 844
+        },
+        "title": {
+          "x": 32,
+          "y": 183,
+          "width": 780,
+          "height": 144,
+          "bottom": 327,
+          "right": 812
+        },
+        "intro": {
+          "x": 32,
+          "y": 351,
+          "width": 780,
+          "height": 64,
+          "bottom": 415,
+          "right": 812
+        },
+        "rail": {
+          "hidden": true,
+          "display": "none"
+        },
+        "video": {
+          "paused": true,
+          "src": null
+        },
+        "overflow": false
+      },
+      "errors": []
+    }
+  ],
+  "staticPage": "passed",
+  "navigation": "passed",
+  "reducedMotion": "passed",
+  "contextLink": "passed"
+}

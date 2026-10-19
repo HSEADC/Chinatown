@@ -25,8 +25,8 @@
   --letter-spacing-display: .02em;
   --color-on-media: #fff;
   --landing-accent: #fc5cff;
-  --landing-gutter: clamp(16px, 1.666667vw, 32px);
-  --landing-grid-gap: clamp(12px, 1.666667vw, 32px);
+  --landing-gutter: var(--dev-landing-margin, clamp(16px, 1.666667vw, 32px));
+  --landing-grid-gap: var(--dev-landing-gap, clamp(12px, 1.666667vw, 32px));
   --landing-columns: repeat(5, minmax(0, 1fr));
   --landing-control-size: clamp(44px, 3.333333vw, 64px);
   --landing-label-size: clamp(14px, 1.25vw, 24px);

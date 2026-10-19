@@ -20,6 +20,7 @@ const player = mountYandexPlayer(document.querySelector('#music-player'));
 const sceneRail = mountSceneRail(content);
 let disposeArticle = () => {};
 let disposeVideos = () => {};
+let renderedRoute = '';
 
 function renderPage({ focus = false } = {}) {
   disposeArticle();
@@ -30,14 +31,15 @@ function renderPage({ focus = false } = {}) {
   headerRoot.replaceChildren(header);
   syncHeaderHeight();
   document.body.dataset.mediaPage = isArticle ? 'article' : 'home';
+  renderedRoute = location.pathname + location.search;
   document.title = isArticle ? `${articleTitle} — CHINATOWN.RU` : 'Музыка — CHINATOWN.RU';
-  disposeArticle = mountArticle(content.querySelector('.story-page'), header);
+  sceneRail.refresh();
+  disposeArticle = mountArticle(content.querySelector('.story-page'), header, sceneRail);
   disposeVideos = mountEditorialVideos(content);
   const heading = content.querySelector('h1');
   heading.tabIndex = -1;
   if (focus) heading.focus({ preventScroll: true });
   player.refresh();
-  sceneRail.refresh();
 }
 
 document.addEventListener('click', (event) => {
@@ -48,9 +50,13 @@ document.addEventListener('click', (event) => {
   const url = new URL(link.href);
   if (url.origin !== window.location.origin || !routeUrls.has(url.pathname) || link.target || link.hasAttribute('download')) return;
   event.preventDefault();
-  history.pushState({}, '', url);
+  if (history.state?.articleContext) history.replaceState({}, '', url);
+  else history.pushState({}, '', url);
   renderPage({ focus: true });
   window.scrollTo({ top: 0, behavior: 'instant' });
 });
-window.addEventListener('popstate', () => { renderPage({ focus: true }); });
+window.addEventListener('popstate', () => {
+  // Local context and anchor entries belong to the article, not to the router.
+  if (renderedRoute !== location.pathname + location.search) renderPage({ focus: true });
+});
 renderPage();

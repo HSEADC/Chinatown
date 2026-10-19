@@ -14,7 +14,7 @@
 .light-tool button:hover { background: #ffffff12; border-color: #ffffff40; }
 .light-tool :is(button, input, textarea, summary):focus-visible { outline: 2px solid #ffa2cc; outline-offset: 3px; }
 .light-tool button:disabled, .light-tool input:disabled { opacity: .45; }
-.light-tool__launcher { display: flex; align-items: center; gap: 10px; background: #252126 !important; box-shadow: 0 6px 24px #0004; }
+.light-tool__launcher { position: fixed; right: 16px; bottom: 16px; display: flex; align-items: center; gap: 10px; background: #252126 !important; box-shadow: 0 6px 24px #0004; }
 .light-tool__launcher span { color: #ff91bf; font-size: 18px; }
 .light-editor { display: flex; flex-direction: column; width: 320px; max-height: calc(100dvh - 120px); overflow: hidden; border: 1px solid #54404b; border-radius: 10px; background: #201d21; box-shadow: 0 12px 48px #0005; }
 .light-editor__header { display: flex; flex: none; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 18px; border-bottom: 1px solid #ffffff16; }

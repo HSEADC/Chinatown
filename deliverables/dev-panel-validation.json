@@ -1,0 +1,43 @@
+{
+  "checkedAt": "2026-10-18T18:26:31.749Z",
+  "checks": [
+    "Article spacing changes the real content and detached header; guides use each grid’s own width.",
+    "Article settings and guide visibility survive a reload.",
+    "Mobile and desktop profiles are independent; mobile article shows one real column and disables gutter input.",
+    "Light preview works at the article start, controls and pause work, Escape restores normal end-triggered light and leaves the editor reopenable.",
+    "Reset restores responsive defaults; dev=0 prevents both the panel and stored grid overrides.",
+    "Landing spacing reaches the subscription sheet; both existing CTA buttons fit, the sheet opens and form submission succeeds with a mocked response.",
+    "Landing mobile spacing is saved independently; both CTA buttons still fit.",
+    "At 320px the page has no horizontal overflow and the panel remains inside the viewport.",
+    "SPA navigation and browser history dispose and remount a single panel."
+  ],
+  "desktopButtons": [
+    {
+      "width": 1069.59375,
+      "height": 64,
+      "overflow": false,
+      "centerDelta": 0
+    },
+    {
+      "width": 520.796875,
+      "height": 64,
+      "overflow": false,
+      "centerDelta": 0
+    }
+  ],
+  "mobileButtons": [
+    {
+      "width": 277.609375,
+      "height": 64,
+      "overflow": false,
+      "centerDelta": 0.0078125
+    },
+    {
+      "width": 350,
+      "height": 64,
+      "overflow": false,
+      "centerDelta": 0.0078125
+    }
+  ],
+  "pageErrors": []
+}

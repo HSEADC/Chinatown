@@ -1,0 +1,165 @@
+[
+  {
+    "name": "layout 1440",
+    "passed": true,
+    "details": {
+      "scrollWidth": 1440,
+      "width": 1440,
+      "margin": "340px",
+      "railWidth": 340,
+      "railDisplay": "block",
+      "inlineNote": true,
+      "src": "http://localhost:4173/dist/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+      "duplicateIds": []
+    }
+  },
+  {
+    "name": "layout 1280",
+    "passed": true,
+    "details": {
+      "scrollWidth": 1280,
+      "width": 1280,
+      "margin": "340px",
+      "railWidth": 340,
+      "railDisplay": "block",
+      "inlineNote": true,
+      "src": "http://localhost:4173/dist/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+      "duplicateIds": []
+    }
+  },
+  {
+    "name": "layout 1200",
+    "passed": true,
+    "details": {
+      "scrollWidth": 1200,
+      "width": 1200,
+      "margin": "340px",
+      "railWidth": 340,
+      "railDisplay": "block",
+      "inlineNote": true,
+      "src": "http://localhost:4173/dist/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+      "duplicateIds": []
+    }
+  },
+  {
+    "name": "layout 1199",
+    "passed": true,
+    "details": {
+      "scrollWidth": 1199,
+      "width": 1199,
+      "margin": "0px",
+      "railWidth": 0,
+      "railDisplay": "none",
+      "inlineNote": true,
+      "src": null,
+      "duplicateIds": []
+    }
+  },
+  {
+    "name": "layout 1024",
+    "passed": true,
+    "details": {
+      "scrollWidth": 1024,
+      "width": 1024,
+      "margin": "0px",
+      "railWidth": 0,
+      "railDisplay": "none",
+      "inlineNote": true,
+      "src": null,
+      "duplicateIds": []
+    }
+  },
+  {
+    "name": "layout 390",
+    "passed": true,
+    "details": {
+      "scrollWidth": 390,
+      "width": 390,
+      "margin": "0px",
+      "railWidth": 0,
+      "railDisplay": "none",
+      "inlineNote": true,
+      "src": null,
+      "duplicateIds": []
+    }
+  },
+  {
+    "name": "layout 320",
+    "passed": true,
+    "details": {
+      "scrollWidth": 320,
+      "width": 320,
+      "margin": "0px",
+      "railWidth": 0,
+      "railDisplay": "none",
+      "inlineNote": true,
+      "src": null,
+      "duplicateIds": []
+    }
+  },
+  {
+    "name": "desktop states, constant geometry, manual priority, focus and reverse scroll",
+    "passed": true,
+    "details": {
+      "x": 245.59375,
+      "width": 822.40625,
+      "rail": 340,
+      "content": 1100
+    }
+  },
+  {
+    "name": "automatic context holds focus and has independent scrolling",
+    "passed": true
+  },
+  {
+    "name": "video pause, same element and selected clip, scene and search layering",
+    "passed": true,
+    "details": {
+      "visibility": "visibilitychange simulated in browser"
+    }
+  },
+  {
+    "name": "mobile footnote, modal button Escape Back and Forward, scroll and focus",
+    "passed": true
+  },
+  {
+    "name": "resizing a manual context keeps selection and releases modal background",
+    "passed": true
+  },
+  {
+    "name": "unavailable manifest preserves text context",
+    "passed": true
+  },
+  {
+    "name": "unavailable video preserves text context",
+    "passed": true
+  },
+  {
+    "name": "route reuse and music player 1440",
+    "passed": true
+  },
+  {
+    "name": "route reuse and music player 390",
+    "passed": true
+  },
+  {
+    "name": "reduced motion and save-data never start ambient media automatically",
+    "passed": true
+  },
+  {
+    "name": "no-JavaScript built article exposes materials and reciprocal footnote anchors",
+    "passed": true
+  },
+  {
+    "name": "published next story navigates; omitted next story has no block",
+    "passed": true
+  },
+  {
+    "name": "direct material anchors restore the paragraph; keyboard and route Back work",
+    "passed": true
+  },
+  {
+    "name": "built site served at domain root has working local files and route transitions",
+    "passed": true
+  }
+]

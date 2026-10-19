@@ -18,7 +18,7 @@ function toggle(key, label) {
   return `<label class="light-editor__toggle"><span>${label}</span><input type="checkbox" data-light-setting="${key}"></label>`;
 }
 
-export function mountClubEditor(page, club) {
+export function mountClubEditor(page, club, { container } = {}) {
   const controller = new AbortController();
   const options = { signal: controller.signal };
   let settings;
@@ -37,7 +37,7 @@ export function mountClubEditor(page, club) {
     document.head.append(stylesheet);
   }
   const host = document.createElement('div');
-  host.className = 'light-tool';
+  host.className = container ? 'light-tool light-tool--embedded' : 'light-tool';
   host.innerHTML = `<button class="light-tool__launcher" type="button" aria-expanded="false" aria-controls="light-editor"><span aria-hidden="true">◉</span> Настроить свет</button>
     <section class="light-editor" id="light-editor" aria-labelledby="light-editor-title" hidden>
       <header class="light-editor__header"><div><span>CHINATOWN / LAB</span><h2 id="light-editor-title">Свет за стеной</h2></div><button type="button" data-light-action="close" aria-label="Свернуть настройки света">−</button></header>
@@ -53,7 +53,7 @@ export function mountClubEditor(page, club) {
       </div>
       <footer class="light-editor__footer"><div><button class="light-editor__primary" type="button" data-light-action="design">Данные для дизайна ⧉</button><button type="button" data-light-action="css">CSS</button></div><button class="light-editor__download" type="button" data-light-action="download">Скачать .json ↓</button><p role="status" aria-live="polite" data-light-status>Цвета, размеры и тайминги · JSON</p></footer>
     </section>`;
-  document.body.append(host);
+  (container || document.body).append(host);
   const panel = host.querySelector('.light-editor');
   const launcher = host.querySelector('.light-tool__launcher');
   const pauseButton = host.querySelector('[data-light-action="pause"]');
@@ -112,15 +112,13 @@ export function mountClubEditor(page, club) {
     panel.hidden = false;
     launcher.hidden = true;
     launcher.setAttribute('aria-expanded', 'true');
-    club.setPreview(true);
-    page.querySelector('#chorus').scrollIntoView({ block: 'start', behavior: 'instant' });
+    page.querySelector('[data-article-end]').scrollIntoView({ block: 'center', behavior: 'instant' });
     panel.querySelector('[data-light-action="close"]').focus({ preventScroll: true });
   }
   function close() {
     panel.hidden = true;
     launcher.hidden = false;
     launcher.setAttribute('aria-expanded', 'false');
-    club.setPreview(false);
     page.classList.remove('is-club-clean');
     host.querySelector('[data-light-clean]').checked = false;
     (lastFocus?.isConnected ? lastFocus : launcher).focus({ preventScroll: true });
@@ -206,7 +204,7 @@ export function mountClubEditor(page, club) {
     }
   }, options);
   document.addEventListener('keydown', event => {
-    if (event.key === 'Escape' && !panel.hidden) { event.preventDefault(); close(); }
+    if (!container && event.key === 'Escape' && !panel.hidden) { event.preventDefault(); close(); }
   }, options);
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   function syncMotionNote() {
@@ -219,7 +217,10 @@ export function mountClubEditor(page, club) {
   reducedMotion.addEventListener('change', syncMotionNote, options);
   syncMotionNote();
   syncInputs();
-  if (new URLSearchParams(location.search).has('light-editor')) open();
+  if (container) {
+    panel.hidden = false;
+    launcher.hidden = true;
+  } else if (new URLSearchParams(location.search).has('light-editor')) open();
   return () => {
     disposed = true;
     controller.abort();

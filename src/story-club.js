@@ -1,11 +1,10 @@
 import { applyClubSettings, loadClubSettings } from './story-club-settings.js';
 
-/** Light spilling into the article from the next, still unopened story. */
+/** Light in the right window appears when the reader reaches the article end. */
 export function mountStoryClub(page) {
   const light = page.querySelector('[data-story-club]');
-  const cover = page.querySelector('.story-cover');
-  const footer = page.querySelector('.story-footer');
-  if (!light || !cover || !footer) return { setSuspended() {}, dispose() {} };
+  const end = page.querySelector('[data-article-end]');
+  if (!light || !end) return { setSuspended() {}, setPreview() {}, dispose() {} };
 
   const controller = new AbortController();
   const options = { signal: controller.signal };
@@ -16,13 +15,9 @@ export function mountStoryClub(page) {
 
   function render() {
     frame = 0;
-    const height = window.innerHeight;
-    const coverBottom = cover.getBoundingClientRect().bottom;
-    const footerTop = footer.getBoundingClientRect().top;
-    // The cover gives way to grey paper before the neighbouring room appears.
-    const entrance = Math.min(1, Math.max(0, (height * .64 - coverBottom) / (height * .34)));
-    const exit = Math.min(1, Math.max(0, footerTop / (height * .28)));
-    const amount = suspended || document.hidden ? 0 : preview ? 1 : entrance * exit;
+    // Use the same real end marker as the continuation card, not page progress.
+    const reachedEnd = end.getBoundingClientRect().top < window.innerHeight - 24;
+    const amount = suspended || document.hidden || (!preview && !reachedEnd) ? 0 : 1;
     page.style.setProperty('--club-presence', amount.toFixed(3));
     page.classList.toggle('is-club-lit', amount > 0);
   }
@@ -42,7 +37,7 @@ export function mountStoryClub(page) {
 
   return {
     setPreview(value) {
-      preview = value;
+      preview = Boolean(value);
       schedule();
     },
     setSuspended(value) {
