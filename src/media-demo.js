@@ -1,5 +1,4 @@
 import { homeView, articleView } from './media-views.js';
-import { mountYandexPlayer } from './media-yandex-player.js';
 import { mountArticle } from './article.js';
 import { articleTitle } from './article-view.js';
 import { mountSceneRail } from './scene-rail.js';
@@ -16,7 +15,6 @@ const headerSize = new ResizeObserver(syncHeaderHeight);
 headerSize.observe(headerRoot);
 const root = new URL('../', import.meta.url);
 const routeUrls = new Set([new URL('about.html', root).pathname, new URL('article.html', root).pathname]);
-const player = mountYandexPlayer(document.querySelector('#music-player'));
 const sceneRail = mountSceneRail(content);
 let disposeArticle = () => {};
 let disposeVideos = () => {};
@@ -32,24 +30,16 @@ function renderPage({ focus = false } = {}) {
   syncHeaderHeight();
   document.body.dataset.mediaPage = isArticle ? 'article' : 'home';
   renderedRoute = location.pathname + location.search;
-  document.title = isArticle ? `${articleTitle} — CHINATOWN.RU` : 'Музыка — CHINATOWN.RU';
+  document.title = isArticle ? `${articleTitle} — CHINATOWN.RU` : 'О нас — CHINATOWN.RU';
   sceneRail.refresh();
   disposeArticle = mountArticle(content.querySelector('.story-page'), header, sceneRail);
   disposeVideos = mountEditorialVideos(content);
   const heading = content.querySelector('h1');
   heading.tabIndex = -1;
   if (focus) heading.focus({ preventScroll: true });
-  player.refresh();
 }
 
 document.addEventListener('click', (event) => {
-  const release = event.target.closest('[data-yandex-release]');
-  if (release) {
-    if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-    event.preventDefault();
-    player.open(release.dataset.yandexRelease);
-    return;
-  }
   const link = event.target.closest('a[data-media-route]');
   if (!link || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
   const url = new URL(link.href);

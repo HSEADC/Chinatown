@@ -1,0 +1,91 @@
+{
+  "checkedAt": "2026-10-21T15:29:09.729Z",
+  "checks": [
+    {
+      "check": "352:410-expanded-default-layout-assets-and-type",
+      "passed": true
+    },
+    {
+      "check": "352:373-hover-shifts-only-header-and-reveals-chevron",
+      "passed": true
+    },
+    {
+      "check": "352:335-visible-40px-strip-and-centered-original-chevron",
+      "passed": true
+    },
+    {
+      "check": "352:337-72px-half-opacity-content-32px-inset",
+      "passed": true
+    },
+    {
+      "check": "leave-retracts-and-click-restores-the-same-content",
+      "passed": true
+    },
+    {
+      "check": "cover-keeps-the-existing-image-viewer",
+      "passed": true
+    },
+    {
+      "check": "keyboard-and-reduced-motion",
+      "passed": true
+    },
+    {
+      "check": "narrow-layout-keeps-original-inline-caption",
+      "passed": true
+    }
+  ],
+  "expanded": {
+    "width": 376,
+    "height": 768,
+    "top": 0,
+    "background": "rgb(23, 23, 23)",
+    "border": "0px",
+    "title": {
+      "x": 16,
+      "y": 16,
+      "width": 344,
+      "height": 30
+    },
+    "titleStyle": {
+      "font": "Benzin, \"Giga Sans\", sans-serif",
+      "weight": "700",
+      "padding": "0px"
+    },
+    "cover": {
+      "x": 16,
+      "y": 62,
+      "width": 344,
+      "height": 344
+    },
+    "artist": {
+      "x": 16,
+      "y": 422,
+      "width": 344,
+      "height": 32
+    },
+    "name": {
+      "x": 16,
+      "y": 458,
+      "width": 344,
+      "height": 16
+    },
+    "icon": {
+      "x": 16,
+      "y": 19,
+      "width": 24,
+      "height": 24
+    },
+    "image": {
+      "src": "./assets/figma/article/rail/sexyswag.png",
+      "naturalWidth": 642,
+      "naturalHeight": 634
+    },
+    "overflow": 0,
+    "main": 1536,
+    "history": 2
+  },
+  "widths": {
+    "rest": 40,
+    "hover": 72
+  }
+}

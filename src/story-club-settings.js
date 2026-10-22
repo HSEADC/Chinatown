@@ -5,7 +5,7 @@ export const clubDefaults = Object.freeze({
   brightness: 100, ambient: 100, bloom: 100, width: 46, maxWidth: 880, mobileWidth: 96,
   sourceY: 50, softness: 0, pulseDepth: 50, pulseDuration: 5.8,
   beamStrength: 100, beamSoftness: 0, beamAngle: 0, beamSpeed: 1, seamWidth: 2,
-  blueEnabled: true, greenEnabled: true, beamsEnabled: true, showTeaser: true,
+  blueEnabled: true, greenEnabled: true, beamsEnabled: true,
 });
 
 export const clubRanges = Object.freeze({
@@ -52,7 +52,6 @@ export function clubVariables(input) {
     '--club-blue-display': s.beamsEnabled && s.blueEnabled ? 'block' : 'none',
     '--club-green-display': s.beamsEnabled && s.greenEnabled ? 'block' : 'none',
     '--club-pink-display': s.beamsEnabled ? 'block' : 'none',
-    '--club-teaser-display': s.showTeaser ? 'block' : 'none',
   };
 }
 

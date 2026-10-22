@@ -1,0 +1,20 @@
+/* Native email control. Mobile reference: Figma 388:756 (315 × 34). */
+.email-field {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  height: var(--input-height);
+  padding: var(--input-padding);
+  border: var(--input-border) solid #fff;
+  border-radius: 0;
+  outline: 0;
+  background: transparent;
+  color: #fff;
+  font: 700 var(--font-size-button)/var(--line-height-button) var(--font-input);
+  letter-spacing: var(--button-tracking);
+  text-transform: uppercase;
+}
+.email-field::placeholder { color: rgb(255 255 255 / .3); opacity: 1; }
+.email-field:focus-visible { border-color: var(--landing-accent, #fc5cff); }
+.email-field[aria-invalid='true'] { border-color: #ff7b8b; }

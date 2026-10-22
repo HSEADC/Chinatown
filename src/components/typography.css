@@ -1,0 +1,16 @@
+/* Shared semantic text roles; values live in ../design-tokens.css. */
+.type-display, .type-h1, .type-h2, .type-h3, .type-body, .type-caption, .type-quote {
+  margin: 0;
+  min-width: 0;
+  color: inherit;
+  overflow-wrap: anywhere;
+  font-style: normal;
+}
+.type-display { font: 800 var(--font-size-display)/var(--line-height-display) var(--font-display); letter-spacing: var(--type-display-tracking); }
+.type-h1 { font: 800 var(--font-size-title)/var(--line-height-title) var(--font-display); letter-spacing: var(--type-title-tracking); }
+.type-h2 { font: 800 var(--font-size-heading)/var(--line-height-heading) var(--font-body); letter-spacing: var(--type-heading-tracking); }
+.type-h3 { font: 800 var(--font-size-label)/var(--line-height-label) var(--font-body); letter-spacing: var(--type-label-tracking); text-transform: uppercase; }
+.type-body { font: 400 var(--font-size-body)/var(--line-height-body) var(--font-body); letter-spacing: 0; }
+.type-caption { font: 400 var(--font-size-caption)/var(--line-height-caption) var(--font-body); letter-spacing: 0; }
+.type-quote { font: 700 var(--font-size-quote)/var(--line-height-quote) var(--font-display); letter-spacing: var(--type-quote-tracking); text-box-trim: trim-both; text-box-edge: cap alphabetic; }
+.type-accent { color: #fc5cff; }

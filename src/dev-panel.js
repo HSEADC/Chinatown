@@ -67,8 +67,7 @@ export function mountDevPanel({ page, club } = {}) {
   gridToggle.checked = settings.visible;
 
   function profileKey() {
-    const width = page ? page.getBoundingClientRect().width : window.innerWidth;
-    return `${surface}-${width <= (page ? 760 : 680) ? 'mobile' : 'desktop'}`;
+    return `${surface}-${window.innerWidth <= 760 ? 'mobile' : 'desktop'}`;
   }
   function targetGrid() {
     return page?.querySelector('.story-content')

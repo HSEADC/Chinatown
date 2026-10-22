@@ -1,0 +1,47 @@
+{
+  "forward": {
+    "active": "track-tak-pohuy",
+    "activeTransform": "matrix(1, 0, 0, 1, 282, 0)",
+    "direction": "forward",
+    "outgoing": "artist-madk1d",
+    "outgoingHidden": "true",
+    "outgoingTransform": "matrix(1, 0, 0, 1, 0, 0)"
+  },
+  "fastForward": {
+    "active": "sexyswag-artwork",
+    "activeTransform": "matrix(1, 0, 0, 1, 252.754, 0)",
+    "direction": "forward",
+    "outgoing": "track-tak-pohuy",
+    "outgoingTransform": "matrix(1, 0, 0, 1, -29.2461, 0)"
+  },
+  "reversal": {
+    "active": "track-tak-pohuy",
+    "activeTransform": "matrix(1, 0, 0, 1, -74.2621, 0)",
+    "ariaHidden": "true",
+    "direction": "backward",
+    "inert": "",
+    "outgoing": "sexyswag-artwork",
+    "outgoingTransform": "matrix(1, 0, 0, 1, 207.738, 0)"
+  },
+  "returnToChapter": {
+    "active": "madk1d-live",
+    "direction": "backward",
+    "outgoing": "track-tak-pohuy"
+  },
+  "chapterForward": {
+    "active": "address-note",
+    "direction": "forward",
+    "outgoing": "madk1d-live"
+  },
+  "chapterBackward": {
+    "active": "madk1d-live",
+    "direction": "backward",
+    "outgoing": "address-note"
+  },
+  "mobileBack": "pass",
+  "imageViewerAcrossResize": "pass",
+  "routeCleanup": "pass",
+  "collapsePreservesSelection": "pass",
+  "singleMaterialNodes": "pass",
+  "pageErrors": []
+}

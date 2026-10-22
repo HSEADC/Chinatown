@@ -1,5 +1,6 @@
+import { editorialDataView } from './components/editorial-data.js';
 import { madk1dContext as context } from './article-context-data.js';
-import { contextMaterialView, contextEntryView, nextArticleView } from './article-context-view.js';
+import { contextMaterialView, contextEntryView } from './article-context-view.js';
 import { entityReferenceView } from './components/editorial-typography.js';
 import { articleCopy, articleSources } from './article-copy.js';
 const material = id => context.materials.find(item => item.id === id);
@@ -51,12 +52,11 @@ function sectionView(id, copyId, { analysis = false, afterParagraph = {}, after 
 
 function timelineView() {
   const timeline = articleCopy.timeline;
-  const dates = ['2025-03-27', '2025-04-03', '2025-04-10'];
-  return `<figure class="story-timeline" aria-labelledby="spread-timeline-title">
-    <h3 id="spread-timeline-title">${escape(timeline.title)}</h3>
-    <ol class="story-timeline__points">${timeline.points.map((point, index) => `<li class="story-timeline__point"><time datetime="${dates[index]}">${escape(point.date)}</time><strong>${escape(point.position)}</strong></li>`).join('')}</ol>
-    <figcaption>${escape(timeline.caption)}${sourcesView(['kworb'])}</figcaption>
-  </figure>
+  return `${editorialDataView({
+    id: 'spread-timeline', title: timeline.title, scope: '«Так похуй» · Spotify · Украина · недельный чарт',
+    points: timeline.points.map(point => ({ ...point, label: point.position })),
+    caption: timeline.caption, sources: [{ label: articleSources.kworb.label, href: articleSources.kworb.url }],
+  })}
   ${contextEntryView({ ...material('spread-method'), title: 'Источник и методика' })}
   ${contextMaterialView(material('spread-method'))}
   ${paragraphView('timeline', 0)}`;
@@ -180,11 +180,6 @@ export function articleView() {
           <p class="article-context-sources">${material('sexyswag-artwork').sources.map(source => `<a href="${escape(source.href)}">${escape(source.label)}</a>`).join(' · ')}</p>
         </figure>
         ${sectionView('return', 'return')}
-        <div class="story-listen" id="listen">
-          <a class="action-button story-listen__link" data-action-button href="${escape(articleSources.listen.url)}" target="_blank" rel="noopener noreferrer">Слушать «Так похуй»</a>
-          <span class="article-context-end" id="article-end" data-article-end aria-hidden="true"></span>
-        </div>
-        ${nextArticleView(context.next)}
       </div>
     </article>
   </div>`.replace(/[ \t]+$/gm, '');

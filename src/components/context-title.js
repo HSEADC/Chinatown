@@ -36,7 +36,7 @@ export function mountContextTitles(root) {
 
   function refresh() {
     cancelAnimationFrame(frame);
-    const current = new Set(root.querySelectorAll('.scene-rail__context-content > :is([data-context-material], [data-context-next]) > h2'));
+    const current = new Set(root.querySelectorAll('.scene-rail__context-content > [data-context-material] > h2'));
     for (const [title, entry] of titles) if (!current.has(title)) restore(title, entry);
     for (const title of current) {
       if (titles.has(title)) continue;

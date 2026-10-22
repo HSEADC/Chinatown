@@ -1,21 +1,21 @@
-/* Figma 276:101 is the single source for this button.
+/* Desktop: Figma 276:101. Mobile: 388:748 (primary), 388:752 (secondary).
    Page styles control placement and available width only. */
 .action-button {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  container-type: inline-size;
   width: 100%;
   min-width: 0;
-  height: 64px;
+  height: var(--button-height);
   margin: 0;
   padding: 0;
   border: 0;
   border-radius: 0;
   background: #fc5cff;
   color: #fff;
-  font: 700 24px/32px Benzin, sans-serif;
-  letter-spacing: .02em;
+  font: 700 var(--font-size-button)/var(--line-height-button) var(--font-display);
+  letter-spacing: var(--button-tracking);
   text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
@@ -28,7 +28,7 @@
   align-items: center;
   justify-content: center;
   width: max-content;
-  height: 64px;
+  height: var(--button-height);
   margin: 0;
   padding: 0;
 }
@@ -37,9 +37,9 @@
   display: block;
   flex: 0 0 auto;
   margin: 0;
-  padding: 20px 0 12px 24px;
-  font: 700 24px/32px Benzin, sans-serif;
-  letter-spacing: .02em;
+  padding: var(--button-label-padding);
+  font: 700 var(--font-size-button)/var(--line-height-button) var(--font-display);
+  letter-spacing: var(--button-tracking);
   text-transform: uppercase;
   text-box-trim: none;
   white-space: nowrap;
@@ -48,42 +48,28 @@
 .action-button__content > .action-button__icon {
   display: block;
   flex: 0 0 auto;
-  width: 64px;
-  height: 64px;
+  width: var(--button-icon-size);
+  height: var(--button-height);
   margin: 0;
   padding: 0;
   transition: transform 180ms cubic-bezier(.22, 1, .36, 1);
 }
+.action-button__icon > img { display: block; width: 100%; height: 100%; max-width: none; }
 
 .action-button:hover { background: #e743ea; }
 .action-button:active { background: #c832cb; }
 .action-button:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
 .action-button:disabled { opacity: .4; cursor: default; }
+.action-button--secondary,
+.action-button--secondary:is(:hover, :active) { background: transparent; }
 
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
   .action-button:not(:disabled):hover > .action-button__content > .action-button__icon { transform: translateX(4px); }
   .action-button:not(:disabled):active > .action-button__content > .action-button__icon { transform: translateX(2px); }
 }
 
-/* The component adapts to its own width, independently of page breakpoints.
-   Its height and the centered text-and-icon group remain unchanged. */
-@container (max-width: 480px) {
-  .action-button__content > .action-button__label { font-size: 16px; }
-}
-
-@container (max-width: 360px) {
-  .action-button__content > .action-button__label { padding-left: 16px; font-size: 12px; }
-  .action-button__content > .action-button__icon { width: 48px; height: 48px; }
-}
-
-@container (max-width: 260px) {
-  .action-button__content > .action-button__label { padding-left: 12px; font-size: 10px; }
-  .action-button__content > .action-button__icon { width: 32px; height: 32px; }
-}
-
-@container (max-width: 220px) {
-  .action-button__content > .action-button__label { padding-left: 8px; font-size: 9px; }
-}
+/* 44px phone hit area with the original 32px visual; desktop adds no inset. */
+.action-button::after { position: absolute; inset: var(--button-hit-extension) 0; content: ''; }
 
 @media (prefers-reduced-motion: reduce) {
   .action-button { transition: none; }

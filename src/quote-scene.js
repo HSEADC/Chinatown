@@ -133,7 +133,7 @@ export function mountQuoteScenes(page, onActiveChange) {
         });
         scene.current = current;
       }
-      nextActive ||= distance >= -headerHeight && state.mediaOpacity > 0;
+      nextActive ||= state.mediaOpacity > 0;
     }
     setActive(nextActive);
     lastScrollY = y;

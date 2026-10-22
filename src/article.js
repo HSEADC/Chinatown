@@ -15,19 +15,16 @@ export function mountArticle(page, header = page?.querySelector('.story-header')
   const title = page.querySelector('#article-title');
   const controller = new AbortController();
   const headlineGlitch = mountHeadlineGlitch(title, { scroll: true, multiline: true });
-  const player = document.querySelector('.media-yandex-player');
-  const originalPlayerInert = player?.inert;
   let quoteActive = false;
   let sectionHeadings;
   const club = mountStoryClub(page);
   let context;
   const images = mountArticleImages(page, { onOpenChange: value => context?.setFrozen(value) });
-  context = mountArticleContext(page, sceneRail);
   function syncHeadline() {
     const overlayOpen = header.classList.contains('is-search-open') || header.classList.contains('is-nav-open');
     headlineGlitch.setSuspended(overlayOpen || quoteActive);
     club.setSuspended(overlayOpen || quoteActive);
-    context.setSuspended(overlayOpen || quoteActive);
+    context?.setSuspended(overlayOpen || quoteActive);
     // Section titles belong to the article flow, including the concert's fade-out.
     sectionHeadings?.setSuspended(overlayOpen);
   }
@@ -37,11 +34,14 @@ export function mountArticle(page, header = page?.querySelector('.story-header')
   const disposeQuotes = mountQuoteScenes(page, active => {
     quoteActive = active;
     if (active) headerControls.close();
-    if (player) player.inert = active || originalPlayerInert;
     page.classList.toggle('is-quote-active', active);
     document.body.classList.toggle('is-story-quote-active', active);
     syncHeadline();
   });
+  // Register lyric phase updates before the context scroll listener, so a scene
+  // hides the rail before that same frame can select its video fallback.
+  context = mountArticleContext(page, sceneRail, { suspended: quoteActive });
+  syncHeadline();
   const disposeDevTools = mountDevTools({ page, club });
   function followAnchor(event) {
     const link = event.target.closest('a[href^="#"]');
@@ -71,6 +71,5 @@ export function mountArticle(page, header = page?.querySelector('.story-header')
     images.dispose();
     context.dispose();
     document.body.classList.remove('is-story-quote-active');
-    if (player) player.inert = originalPlayerInert;
   };
 }

@@ -12,23 +12,11 @@ export function contextMaterialView(material) {
     ${entity?.subtitle ? `<p class="entity-card__subtitle">${escape(entity.subtitle)}</p>` : ''}
     ${entity?.details?.length ? `<dl class="entity-card__details">${entity.details.map(item => `<div><dt>${escape(item.label)}</dt><dd>${escape(item.value)}</dd></div>`).join('')}</dl>` : ''}
     ${paragraphs.map(text => `<p>${escape(text)}</p>`).join('')}
-    ${sources?.length ? `<p class="article-context-sources">${sources.map(source => `<a href="${safeUrl(source.href)}"${source.releaseId ? ` data-yandex-release="${escape(source.releaseId)}" aria-controls="media-yandex-frame" aria-expanded="false"` : ''}>${escape(source.label)}</a>`).join(entity ? '' : ' · ')}</p>` : ''}
+    ${sources?.length ? `<p class="article-context-sources">${sources.map(source => `<a href="${safeUrl(source.href)}">${escape(source.label)}</a>`).join(entity ? '' : ' · ')}</p>` : ''}
     ${backTo ? `<a class="article-context-backlink" href="#${escape(backTo)}" role="doc-backlink">К тексту ↑</a>` : ''}
   </aside>`;
 }
 
 export function contextEntryView(material) {
   return `<p class="article-context-entry"><a href="#${escape(material.id)}" data-context-ref="${escape(material.id)}">${escape(material.title)} <span aria-hidden="true">↗</span></a></p>`;
-}
-
-export function nextArticleView(next) {
-  if (!next || !['published', 'upcoming'].includes(next.status)) return '';
-  const href = next.status === 'published' ? safeUrl(next.href) : '';
-  if (next.status === 'published' && !href) return '';
-  return `<aside class="story-next" data-context-next aria-labelledby="story-next-title">
-    ${next.image ? `<img src="${safeUrl(next.image.src)}" alt="${escape(next.image.alt || '')}" loading="lazy">` : ''}
-    <h2 class="story-next__title" id="story-next-title">${escape(next.title)}</h2>
-    <p class="story-next__copy">${escape(next.description)}</p>
-    ${href ? `<a class="story-next__link" href="${href}">Читать →</a>` : '<p class="story-next__status">Скоро</p>'}
-  </aside>`;
 }

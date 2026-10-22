@@ -1,0 +1,28 @@
+/* Local font files; sizes and responsive profiles live in design-tokens.css. */
+@font-face { font-family: "Giga Sans"; src: url("../assets/fonts/GigaSans-Thin.otf") format("opentype"); font-weight: 100; font-style: normal; font-display: swap; }
+@font-face { font-family: "Giga Sans"; src: url("../assets/fonts/GigaSans-ExtraLight.otf") format("opentype"); font-weight: 200; font-style: normal; font-display: swap; }
+@font-face { font-family: "Giga Sans"; src: url("../assets/fonts/GigaSans-Light.otf") format("opentype"); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: "Giga Sans"; src: url("../assets/fonts/GigaSans-Regular.otf") format("opentype"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Giga Sans"; src: url("../assets/fonts/GigaSans-Medium.otf") format("opentype"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Giga Sans"; src: url("../assets/fonts/GigaSans-SemiBold.otf") format("opentype"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "Giga Sans"; src: url("../assets/fonts/GigaSans-Bold.otf") format("opentype"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Giga Sans"; src: url("../assets/fonts/GigaSans-ExtraBold.otf") format("opentype"); font-weight: 800; font-style: normal; font-display: swap; }
+@font-face { font-family: "Giga Sans"; src: url("../assets/fonts/GigaSans-Black.otf") format("opentype"); font-weight: 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "Giga Sans"; src: url("../assets/fonts/GigaSans-ThinItalic.otf") format("opentype"); font-weight: 100; font-style: italic; font-display: swap; }
+@font-face { font-family: "Giga Sans"; src: url("../assets/fonts/GigaSans-ExtraLightItalic.otf") format("opentype"); font-weight: 200; font-style: italic; font-display: swap; }
+@font-face { font-family: "Giga Sans"; src: url("../assets/fonts/GigaSans-LightItalic.otf") format("opentype"); font-weight: 300; font-style: italic; font-display: swap; }
+@font-face { font-family: "Giga Sans"; src: url("../assets/fonts/GigaSans-Italic.otf") format("opentype"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Giga Sans"; src: url("../assets/fonts/GigaSans-MediumItalic.otf") format("opentype"); font-weight: 500; font-style: italic; font-display: swap; }
+@font-face { font-family: "Giga Sans"; src: url("../assets/fonts/GigaSans-SemiBoldItalic.otf") format("opentype"); font-weight: 600; font-style: italic; font-display: swap; }
+@font-face { font-family: "Giga Sans"; src: url("../assets/fonts/GigaSans-BoldItalic.otf") format("opentype"); font-weight: 700; font-style: italic; font-display: swap; }
+@font-face { font-family: "Giga Sans"; src: url("../assets/fonts/GigaSans-ExtraBoldItalic.otf") format("opentype"); font-weight: 800; font-style: italic; font-display: swap; }
+@font-face { font-family: "Giga Sans"; src: url("../assets/fonts/GigaSans-BlackItalic.otf") format("opentype"); font-weight: 900; font-style: italic; font-display: swap; }
+@font-face { font-family: Benzin; src: url("../assets/fonts/Benzin-Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: Benzin; src: url("../assets/fonts/Benzin-Medium.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+@font-face { font-family: Benzin; src: url("../assets/fonts/Benzin-Semibold.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+@font-face { font-family: Benzin; src: url("../assets/fonts/Benzin-Bold.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+@font-face { font-family: Benzin; src: url("../assets/fonts/Benzin-ExtraBold.woff2") format("woff2"); font-weight: 800; font-display: swap; }
+@font-face { font-family: "Benzin Input"; src: url("../assets/fonts/Benzin-Input-Bold.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Elion Italic"; src: url("../assets/fonts/Elion-Italic.otf") format("opentype"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "East Gates"; src: url("../assets/fonts/EastGates-Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Sigma Boy"; src: url("../assets/fonts/SigmaBoy-Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }

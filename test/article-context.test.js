@@ -1,8 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { contextAtPosition, selectContextState, contextTransitionDirection } from '../src/article-context-state.js';
-import { nextArticleView, contextMaterialView } from '../src/article-context-view.js';
-import { madk1dContext } from '../src/article-context-data.js';
+import { contextMaterialView } from '../src/article-context-view.js';
 
 const ranges = [{ id: 'artist', start: 100, end: 400 }, { id: 'note', start: 700, end: 900 }];
 
@@ -50,39 +49,24 @@ test('a layout change remeasures ranges and overlap priority follows editorial o
   assert.equal(contextAtPosition([], 200, 'removed'), null);
 });
 
-test('manual context overrides ranges, interaction and the article end until closed', () => {
-  const state = { automaticId: 'note', endVisible: true, hasNext: true, interactionId: 'artist', manualId: 'footnote-1' };
+test('manual context overrides ranges, interaction through chapter changes until closed', () => {
+  const state = { automaticId: 'note', interactionId: 'artist', manualId: 'footnote-1' };
   assert.deepEqual(selectContextState(state), { type: 'material', id: 'footnote-1', manual: true });
   assert.deepEqual(selectContextState({ ...state, manualId: 'other-note' }), { type: 'material', id: 'other-note', manual: true });
-  assert.deepEqual(selectContextState({ ...state, manualId: null, interactionId: null }), { type: 'next' });
-  assert.deepEqual(selectContextState({ ...state, manualId: null, interactionId: null, endVisible: false }), { type: 'material', id: 'note', manual: false });
+  assert.deepEqual(selectContextState({ ...state, manualId: null, interactionId: null }), { type: 'material', id: 'note', manual: false });
 });
 
 test('interaction holds automatic material until blur or selection ends, then catches up immediately', () => {
-  assert.deepEqual(selectContextState({ interactionId: 'artist', automaticId: 'note', endVisible: true, hasNext: true }), { type: 'material', id: 'artist', manual: false });
-  assert.deepEqual(selectContextState({ interactionId: 'next' }), { type: 'next' });
+  assert.deepEqual(selectContextState({ interactionId: 'artist', automaticId: 'note' }), { type: 'material', id: 'artist', manual: false });
   assert.deepEqual(selectContextState({ automaticId: 'note' }), { type: 'material', id: 'note', manual: false });
-  assert.deepEqual(selectContextState({ endVisible: true, hasNext: false }), { type: 'video' });
   assert.deepEqual(selectContextState(), { type: 'video' });
 });
 
 test('entity previews are temporary and cannot replace a manually pinned card', () => {
-  const state = { previewId: 'artist-madk1d', automaticId: 'madk1d-live', interactionId: 'sexyswag-artwork', endVisible: true, hasNext: true };
+  const state = { previewId: 'artist-madk1d', automaticId: 'madk1d-live', interactionId: 'sexyswag-artwork' };
   assert.deepEqual(selectContextState(state), { type: 'material', id: 'artist-madk1d', manual: false });
   assert.deepEqual(selectContextState({ ...state, manualId: 'track-tak-pohuy' }), { type: 'material', id: 'track-tak-pohuy', manual: true });
   assert.deepEqual(selectContextState({ ...state, previewId: null }), { type: 'material', id: 'sexyswag-artwork', manual: false });
-});
-
-test('the next story renders a real published link or a plain upcoming announcement', () => {
-  const upcoming = nextArticleView(madk1dContext.next);
-  assert(!/<a[\s>]/.test(upcoming) && !upcoming.includes('<button') && !upcoming.includes('→'));
-  assert(upcoming.includes('Скоро'));
-  const published = nextArticleView({ status: 'published', title: 'О нас', description: 'Знакомство с редакцией', href: './about.html' });
-  assert(published.includes('href="./about.html"'));
-  assert(!published.includes('Скоро'));
-  assert.equal(nextArticleView(null), '');
-  assert.equal(nextArticleView({ status: 'published', href: '' }), '');
-  assert.equal(nextArticleView({ status: 'published', href: 'javascript:alert(1)' }), '');
 });
 
 test('editorial material supports several paragraphs, source links, image credit and safe text', () => {

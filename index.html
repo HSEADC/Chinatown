@@ -7,12 +7,11 @@
     <meta name="theme-color" content="#111111" />
     <title>CHINATOWN.SITE — медиа о нефорах</title>
     <link rel="preload" href="./assets/fonts/Benzin-Bold.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="./assets/fonts/Benzin-Input-Bold.woff2" as="font" type="font/woff2" media="(min-width: 1001px)" crossorigin />
-    <link rel="preload" href="./assets/fonts/Benzin-Input-Mobile-Bold.woff2" as="font" type="font/woff2" media="(max-width: 1000px)" crossorigin />
+    <link rel="preload" href="./assets/fonts/Benzin-Input-Bold.woff2" as="font" type="font/woff2" media="(min-width: 761px)" crossorigin />
     <link rel="stylesheet" href="./styles.css" />
     <link rel="stylesheet" href="./src/components/action-button.css" />
   </head>
-  <body data-page="catalog">
+  <body>
     <section class="intro intro--revealed" id="intro" aria-label="CHINATOWN.SITE — скоро">
       <div class="intro__wall" aria-hidden="true">
         <img src="./assets/video/concert.jpg" alt="" />
@@ -52,7 +51,7 @@
           </div>
           <form class="subscribe-modal__form" id="subscribe-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
             <label class="visually-hidden" for="subscribe-email">Электропочта</label>
-            <input id="subscribe-email" name="email" type="email" placeholder="ЭЛЕКТРОПОЧТА" autocomplete="email" inputmode="email" aria-describedby="subscribe-status" required />
+            <input class="email-field" id="subscribe-email" name="email" type="email" placeholder="ЭЛЕКТРОПОЧТА" autocomplete="email" inputmode="email" aria-describedby="subscribe-status" required />
             <button class="action-button" data-action-button type="submit">ПОДПИСАТЬСЯ</button>
             <p class="subscribe-modal__status" id="subscribe-status" role="status" aria-live="polite"></p>
           </form>
@@ -60,29 +59,6 @@
         <button class="subscribe-modal__close" id="subscribe-close" type="button" aria-label="Закрыть окно"><img src="./assets/figma/subscribe-close.svg" alt="" aria-hidden="true" /></button>
       </section>
     </div>
-    <header class="site-header">
-      <a href="./" data-home-link>Pocket Jam</a>
-      <nav aria-label="Основная навигация"><a href="./new-sketch.html">Новый набросок ↗</a></nav>
-    </header>
-
-    <main id="app"></main>
-
-    <aside class="player" id="player" aria-label="Плеер Яндекс Музыки" hidden>
-      <div class="player__head">
-        <div class="player__identity">
-          <strong id="player-title"></strong>
-        </div>
-        <a id="player-external" class="player__external" target="_blank" rel="noopener noreferrer" aria-label="Открыть в Яндекс Музыке">
-          <span class="player__external-text">Открыть в Яндекс Музыке</span>
-        </a>
-        <button class="player__control" id="player-expand" type="button" aria-label="Развернуть плеер" aria-expanded="false">Развернуть</button>
-        <button class="player__control" id="player-close" type="button" aria-label="Закрыть плеер">Закрыть</button>
-      </div>
-      <div class="player__frame-wrap" id="player-frame-wrap"></div>
-      <p class="player__note">Если виджет не загрузился, проверьте сетевое подключение или откройте релиз по ссылке выше.</p>
-    </aside>
-
-    <script type="module" src="./src/app.js"></script>
     <script type="module" src="./src/intro.js"></script>
     <script type="module" src="./src/subscribe-modal.js"></script>
     <script type="module" src="./src/site-cursor.js"></script>

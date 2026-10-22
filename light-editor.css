@@ -61,7 +61,6 @@
 .light-editor__sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
 .is-club-paused .story-club > div { animation-play-state: paused !important; }
 .is-club-clean :is(.story-header, .story-cover, .story-content, .story-footer) { visibility: hidden; }
-.is-club-clean .story-next { visibility: visible; }
 @media (max-width: 760px) {
   .light-tool { top: auto; bottom: 12px; left: 12px; }
   .light-tool__launcher { min-height: 44px !important; }

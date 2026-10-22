@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="ru">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Мобильные элементы · проверка Figma</title>
+<style>body{margin:0;padding:20px;background:#1f1f1f;color:white;font:12px system-ui}main{display:flex;flex-wrap:wrap;gap:20px}:root{--preview-width:390px}section{width:var(--preview-width)}h1{font-size:20px;margin:0 0 24px}h2{font-size:12px;font-weight:400;color:#aaa;margin:0 0 12px}iframe{display:block;border:1px solid #444;width:var(--preview-width);height:260px}p{color:#aaa}</style></head><body>
+<script>if(new URLSearchParams(location.search).get('width')==='320')document.documentElement.style.setProperty('--preview-width','320px');</script><h1>Мобильные элементы из Figma</h1><main>
+<section><h2>388:748 · Основная кнопка / 32 px</h2><iframe title="Основная кнопка на телефоне" src="../../component-preview.html?family=action&variant=whitelist&dev=0"></iframe></section>
+<section><h2>388:752 · Без фона / 32 px</h2><iframe title="Кнопка без фона на телефоне" src="../../component-preview.html?family=action&variant=secondary&dev=0"></iframe></section>
+<section><h2>388:756 · Электропочта / 34 px</h2><iframe title="Электропочта на телефоне" src="../../component-preview.html?family=email&variant=empty&dev=0"></iframe></section>
+</main><p>Живые экземпляры общих компонентов. Десктопный вариант основной кнопки сохраняет высоту 64 px.</p>
+<script>
+window.addEventListener('message', event => {
+  if(event.origin !== location.origin || event.data?.type !== 'chinatown:component-preview') return;
+  const frame = [...document.querySelectorAll('iframe')].find(item => item.contentWindow === event.source);
+  if(frame) { frame.dataset.metrics = JSON.stringify(event.data); frame.dataset.state = event.data.state; }
+});
+</script></body></html>

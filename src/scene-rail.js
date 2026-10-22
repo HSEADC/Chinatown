@@ -95,7 +95,7 @@ export function mountSceneRail(content) {
         layer.inert = textVisible || suspended;
       }
       const material = node || outgoingNode;
-      rail.dataset.contextState = material ? material.dataset.contextMaterial ? 'material' : 'next' : 'video';
+      rail.dataset.contextState = material ? 'material' : 'video';
       syncPlayback();
     },
   });

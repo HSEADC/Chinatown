@@ -1,0 +1,165 @@
+{
+  "checkedAt": "2026-10-21T14:14:31.118Z",
+  "results": [
+    {
+      "check": "geometry-1200",
+      "passed": true,
+      "before": {
+        "y": 1026,
+        "top": 120,
+        "width": 668.796875,
+        "height": 224,
+        "history": 2,
+        "overflow": 0
+      },
+      "closed": {
+        "y": 1026,
+        "top": 120,
+        "width": 668.796875,
+        "height": 224,
+        "history": 2,
+        "overflow": 0
+      },
+      "reopened": {
+        "y": 1026,
+        "top": 120,
+        "width": 668.796875,
+        "height": 224,
+        "history": 2,
+        "overflow": 0
+      },
+      "maxMotionGap": 0
+    },
+    {
+      "check": "geometry-1280",
+      "passed": true,
+      "before": {
+        "y": 1030,
+        "top": 120,
+        "width": 716.796875,
+        "height": 224,
+        "history": 2,
+        "overflow": 0
+      },
+      "closed": {
+        "y": 1030,
+        "top": 120,
+        "width": 716.796875,
+        "height": 224,
+        "history": 2,
+        "overflow": 0
+      },
+      "reopened": {
+        "y": 1030,
+        "top": 120,
+        "width": 716.796875,
+        "height": 224,
+        "history": 2,
+        "overflow": 0
+      },
+      "maxMotionGap": 0
+    },
+    {
+      "check": "geometry-1440",
+      "passed": true,
+      "before": {
+        "y": 1036,
+        "top": 120,
+        "width": 812.796875,
+        "height": 192,
+        "history": 2,
+        "overflow": 0
+      },
+      "closed": {
+        "y": 1036,
+        "top": 120,
+        "width": 812.796875,
+        "height": 192,
+        "history": 2,
+        "overflow": 0
+      },
+      "reopened": {
+        "y": 1036,
+        "top": 120,
+        "width": 812.796875,
+        "height": 192,
+        "history": 2,
+        "overflow": 0
+      },
+      "maxMotionGap": 0
+    },
+    {
+      "check": "geometry-1920",
+      "passed": true,
+      "before": {
+        "y": 1044,
+        "top": 120,
+        "width": 723.1875,
+        "height": 224,
+        "history": 2,
+        "overflow": 0
+      },
+      "closed": {
+        "y": 1044,
+        "top": 120,
+        "width": 723.1875,
+        "height": 224,
+        "history": 2,
+        "overflow": 0
+      },
+      "reopened": {
+        "y": 1044,
+        "top": 120,
+        "width": 723.1875,
+        "height": 224,
+        "history": 2,
+        "overflow": 0
+      },
+      "maxMotionGap": 0
+    },
+    {
+      "check": "manual-card-dom-scroll-and-cross",
+      "passed": true
+    },
+    {
+      "check": "footnote-expands-one-click",
+      "passed": true
+    },
+    {
+      "check": "viewer-freezes-placement-during-resize",
+      "passed": true
+    },
+    {
+      "check": "rapid-keyboard-reversal-focus",
+      "passed": true
+    },
+    {
+      "check": "reduced-motion-mid-transition",
+      "passed": true
+    },
+    {
+      "check": "session-cover-and-spa-navigation",
+      "passed": true
+    },
+    {
+      "check": "video-pause-src-and-player-identity",
+      "passed": true
+    },
+    {
+      "check": "no-rail-on-placeholder",
+      "passed": true
+    },
+    {
+      "check": "mobile-no-rail-about.html",
+      "passed": true
+    },
+    {
+      "check": "mobile-no-rail-article.html",
+      "passed": true
+    },
+    {
+      "check": "blocked-storage-fallback",
+      "passed": true
+    }
+  ]
+}

@@ -2,7 +2,7 @@ import { articleContexts } from './article-context-data.js';
 import { contextAtPosition, selectContextState, contextTransitionDirection } from './article-context-state.js';
 
 /** Enhance the existing static nodes: each material has one DOM copy in every layout. */
-export function mountArticleContext(page, sceneRail) {
+export function mountArticleContext(page, sceneRail, { suspended: initiallySuspended = false } = {}) {
   const data = articleContexts[page.dataset.articleId];
   if (!data || !sceneRail) return { setSuspended() {}, setFrozen() {}, dispose() {} };
   const controller = new AbortController();
@@ -11,14 +11,12 @@ export function mountArticleContext(page, sceneRail) {
   const finePointer = matchMedia('(hover: hover) and (pointer: fine)');
   const refs = [...page.querySelectorAll('[data-context-ref]')];
   const materials = new Map(data.materials.map(item => [item.id, { ...item, node: page.querySelector(`[data-context-material="${item.id}"]`) }]).filter(([, item]) => item.node));
-  const next = page.querySelector('[data-context-next]');
-  const nodes = [...materials.values()].map(item => item.node).filter(Boolean).concat(next ? [next] : []);
+  const nodes = [...materials.values()].map(item => item.node).filter(Boolean);
   const homes = new Map(nodes.map(node => {
-    const marker = document.createComment(`context: ${node.id || 'next'}`);
+    const marker = document.createComment(`context: ${node.id}`);
     node.before(marker);
     return [node, marker];
   }));
-  const end = page.querySelector('[data-article-end]');
   const chapters = data.chapters.map(chapter => ({ ...chapter, node: page.querySelector(`#${chapter.id}`) })).filter(chapter => chapter.node);
   // Capture article order before any material moves into the rail or a dialog.
   // Unlike Y coordinates, this also distinguishes mentions on the same text line.
@@ -39,7 +37,7 @@ export function mountArticleContext(page, sceneRail) {
   let placement = '';
   let frame = 0;
   let hashFrame = 0;
-  let suspended = false;
+  let suspended = initiallySuspended;
   let frozen = false;
   let pointerDown = false;
   let scrollLock = null;
@@ -87,7 +85,7 @@ export function mountArticleContext(page, sceneRail) {
 
   function render() {
     frame = 0;
-    if (controller.signal.aborted || frozen) return;
+    if (controller.signal.aborted || frozen || suspended) return;
     // Hiding the header must not move the reading line across a chapter boundary.
     const top = parseFloat(getComputedStyle(document.body).getPropertyValue('--media-header-height')) || 0;
     const readingOffset = top + (innerHeight - top) / 3;
@@ -104,22 +102,17 @@ export function mountArticleContext(page, sceneRail) {
       return {
         id: chapter.id,
         start: chapter.start,
-        end: chapterPositions[index + 1]?.start ?? (end ? end.getBoundingClientRect().top + window.scrollY : Infinity),
+        end: chapterPositions[index + 1]?.start ?? Infinity,
       };
     }), readingY, chapterId);
     const automaticId = chapters.find(chapter => chapter.id === chapterId)?.materialId || null;
-    const endTop = end?.getBoundingClientRect().top;
-    const remainingScroll = document.documentElement.scrollHeight - innerHeight - window.scrollY;
-    const endVisible = !!end && (endTop + window.scrollY <= readingY
-      || !automaticId && endTop < innerHeight && remainingScroll <= (displayedState.type === 'next' ? 48 : 24));
-    const interactionId = wide.matches && !manual && isInteracting()
-      ? displayedState.id || (displayedState.type === 'next' ? 'next' : null) : null;
-    const state = selectContextState({ manualId: manual?.id, previewId: preview?.id, interactionId, automaticId, endVisible, hasNext: !!next });
+    const interactionId = wide.matches && !manual && isInteracting() ? displayedState.id || null : null;
+    const state = selectContextState({ manualId: manual?.id, previewId: preview?.id, interactionId, automaticId });
     updateRefs();
     const selected = materials.get(manual?.id);
     const screen = !wide.matches && !suspended && manual && (selected?.mobile === 'screen' || selected?.entity);
-    const id = state.type === 'next' ? 'next' : state.id || 'video';
-    const source = state.type === 'next' ? end : manual?.trigger || preview?.trigger || chapters.find(chapter => chapter.id === chapterId)?.node;
+    const id = state.id || 'video';
+    const source = manual?.trigger || preview?.trigger || chapters.find(chapter => chapter.id === chapterId)?.node;
     const nextSource = { id, order: interactionId && !manual && !preview ? displayedSource?.order : sourceOrder.get(source) };
     const direction = contextTransitionDirection(displayedSource, nextSource);
     displayedSource = nextSource;
@@ -135,7 +128,7 @@ export function mountArticleContext(page, sceneRail) {
         sceneRail.setContext(null, { animate: false });
         restoreNodes();
       }
-      const node = state.type === 'next' ? next : materials.get(state.id)?.node;
+      const node = materials.get(state.id)?.node;
       if (node) node.hidden = false;
       sceneRail.setContext(node || null, { direction, animate: wasWide, release: restoreNode });
       if (node?.contains(focused)) focused.focus({ preventScroll: true });
@@ -147,7 +140,6 @@ export function mountArticleContext(page, sceneRail) {
       item.node.hidden = !(item.mobile === 'inline' || item.kind === 'footnote' && manual?.id === item.id);
       if (item.kind === 'footnote' && manual?.id === item.id) manual.trigger?.closest('p')?.after(item.node);
     }
-    if (next) next.hidden = false;
     if (!screen && !focused.hidden && nodes.some(node => !node.hidden && node.contains(focused))) focused.focus({ preventScroll: true });
     if (screen) {
       const item = materials.get(manual.id);
@@ -294,6 +286,7 @@ export function mountArticleContext(page, sceneRail) {
   const observer = new ResizeObserver(schedule);
   observer.observe(page);
   document.fonts.ready.then(schedule);
+  sceneRail.setSuspended(suspended);
   render();
   // A direct fallback anchor should also open the enhanced explanation.
   followHash();

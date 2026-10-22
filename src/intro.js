@@ -7,16 +7,9 @@ const headline = document.querySelector('#intro-headline');
 const siteLink = headline.querySelector('.intro__site-link');
 const copyStatus = document.querySelector('#intro-copy-status');
 const finePointer = matchMedia('(hover: hover) and (pointer: fine)');
-const pageBelow = [
-  document.querySelector('.site-header'),
-  document.querySelector('#app'),
-  document.querySelector('#player'),
-];
-
 mountVideoSphere(intro);
-mountHeadlineGlitch(headline);
+mountHeadlineGlitch(headline, { multiline: true });
 document.body.classList.add('intro-active');
-for (const item of pageBelow) if (item) item.inert = true;
 
 let pointerStart = null;
 let pointerMoved = false;

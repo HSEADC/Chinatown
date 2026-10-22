@@ -1,0 +1,25 @@
+{
+  "blocks": 14,
+  "cards": 10,
+  "widths": [
+    320,
+    390,
+    736,
+    1024
+  ],
+  "manualSelectionSurvivesSceneAndEnd": true,
+  "autoContextRestores": true,
+  "tabsWork": true,
+  "timelinePoints": 3,
+  "horizontalOverflow": false,
+  "runtimeErrors": [],
+  "scope": "Editorial preview only; site build not run",
+  "existingProjectFilesChecked": 194,
+  "existingProjectFilesChanged": [],
+  "songLyricQuotesInEditorialCopy": 0,
+  "articleWords": 1347,
+  "speedWordsPerMinute": 200,
+  "readingSeconds": 404,
+  "sceneStatus": "Awaiting separately supplied editorial fragment",
+  "previewBytes": 588433
+}
