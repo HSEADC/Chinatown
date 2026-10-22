@@ -40,7 +40,7 @@ async function checkPhone(width, height) {
   await page.goto(url);
   await page.evaluate(() => document.fonts.ready);
   await settle();
-  assert.equal(await page.evaluate(() => getComputedStyle(document.documentElement).overflowY), 'auto');
+  assert(!['hidden', 'clip'].includes(await page.evaluate(() => getComputedStyle(document.documentElement).overflowY)));
   assert.equal(await page.evaluate(() => getComputedStyle(document.body).overflow), 'visible');
   assert.equal(await articleY(), 0);
   const coverSwipe = await assertArticleSwipe(height * .65, height * .25);

@@ -6,9 +6,9 @@
     "y": 0,
     "height": 713,
     "visualHeight": 713.4545288085938,
-    "rootOverflowY": "auto",
+    "rootOverflowY": "visible",
     "bodyOverflow": "visible",
-    "touchAction": "pan-y pinch-zoom",
+    "touchAction": "auto",
     "coverTop": 0
   },
   "swipes": [
@@ -18,39 +18,39 @@
         "y": 0,
         "height": 713,
         "visualHeight": 713.4545288085938,
-        "rootOverflowY": "auto",
+        "rootOverflowY": "visible",
         "bodyOverflow": "visible",
-        "touchAction": "pan-y pinch-zoom",
+        "touchAction": "auto",
         "coverTop": 0
       },
       "after": {
-        "y": 481.81817626953125,
+        "y": 486.5454406738281,
         "height": 777,
         "visualHeight": 777.4545288085938,
-        "rootOverflowY": "auto",
+        "rootOverflowY": "visible",
         "bodyOverflow": "visible",
-        "touchAction": "pan-y pinch-zoom",
-        "coverTop": -481.8182067871094
+        "touchAction": "auto",
+        "coverTop": -486.54547119140625
       }
     },
     {
       "direction": "backward",
       "before": {
-        "y": 481.81817626953125,
+        "y": 486.5454406738281,
         "height": 777,
         "visualHeight": 777.0908813476562,
-        "rootOverflowY": "auto",
+        "rootOverflowY": "visible",
         "bodyOverflow": "visible",
-        "touchAction": "pan-y pinch-zoom",
-        "coverTop": -481.8182067871094
+        "touchAction": "auto",
+        "coverTop": -486.54547119140625
       },
       "after": {
         "y": 0,
         "height": 713,
         "visualHeight": 713.4545288085938,
-        "rootOverflowY": "auto",
+        "rootOverflowY": "visible",
         "bodyOverflow": "visible",
-        "touchAction": "pan-y pinch-zoom",
+        "touchAction": "auto",
         "coverTop": 0
       }
     },
@@ -60,61 +60,61 @@
         "y": 0,
         "height": 713,
         "visualHeight": 713.4545288085938,
-        "rootOverflowY": "auto",
+        "rootOverflowY": "visible",
         "bodyOverflow": "visible",
-        "touchAction": "pan-y pinch-zoom",
+        "touchAction": "auto",
         "coverTop": 0
       },
       "after": {
-        "y": 476.7272644042969,
+        "y": 490.9090881347656,
         "height": 777,
         "visualHeight": 777.4545288085938,
-        "rootOverflowY": "auto",
+        "rootOverflowY": "visible",
         "bodyOverflow": "visible",
-        "touchAction": "pan-y pinch-zoom",
-        "coverTop": -476.727294921875
+        "touchAction": "auto",
+        "coverTop": -490.90911865234375
       }
     },
     {
       "direction": "forward",
       "before": {
-        "y": 476.7272644042969,
+        "y": 490.9090881347656,
         "height": 777,
         "visualHeight": 777.4545288085938,
-        "rootOverflowY": "auto",
+        "rootOverflowY": "visible",
         "bodyOverflow": "visible",
-        "touchAction": "pan-y pinch-zoom",
-        "coverTop": -476.727294921875
+        "touchAction": "auto",
+        "coverTop": -490.90911865234375
       },
       "after": {
-        "y": 981.0908813476562,
+        "y": 997.4545288085938,
         "height": 777,
         "visualHeight": 777.4545288085938,
-        "rootOverflowY": "auto",
+        "rootOverflowY": "visible",
         "bodyOverflow": "visible",
-        "touchAction": "pan-y pinch-zoom",
-        "coverTop": -981.0909423828125
+        "touchAction": "auto",
+        "coverTop": -997.45458984375
       }
     },
     {
       "direction": "forward",
       "before": {
-        "y": 981.0908813476562,
+        "y": 997.4545288085938,
         "height": 777,
         "visualHeight": 777.4545288085938,
-        "rootOverflowY": "auto",
+        "rootOverflowY": "visible",
         "bodyOverflow": "visible",
-        "touchAction": "pan-y pinch-zoom",
-        "coverTop": -981.0909423828125
+        "touchAction": "auto",
+        "coverTop": -997.45458984375
       },
       "after": {
-        "y": 1486.9090576171875,
+        "y": 1497.45458984375,
         "height": 777,
         "visualHeight": 777.4545288085938,
-        "rootOverflowY": "auto",
+        "rootOverflowY": "visible",
         "bodyOverflow": "visible",
-        "touchAction": "pan-y pinch-zoom",
-        "coverTop": -1486.9091796875
+        "touchAction": "auto",
+        "coverTop": -1497.45458984375
       }
     }
   ],

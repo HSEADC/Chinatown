@@ -33,6 +33,7 @@
 .has-scene-rail[data-media-page="article"] .story-cover { width: 100vw; }
 .is-story-cover-active .story-club { visibility: hidden; pointer-events: none; }
 @media (min-width: 761px) {
+  .has-scene-rail[data-media-page="article"] { overflow-x: clip; }
   .has-scene-rail .story-quote-scene { --quote-inset: clamp(20px, 13.333333cqw, 256px); }
   .has-scene-rail .story-quote-scene__lyrics { width: min(70cqw, 1080px); }
 }
@@ -84,7 +85,6 @@
 .has-scene-rail[data-media-page="article"] {
   --scene-rail-full-width: calc((100vw - 2 * var(--story-gutter) - 4 * var(--story-grid-gap)) / 5 + var(--story-gutter));
   --scene-motion: 0s;
-  overflow-x: clip;
 }
 .has-scene-rail[data-media-page="article"] #media-content { transition: none; }
 @media (min-width: 1200px) {
@@ -152,11 +152,6 @@
   .has-scene-rail[data-media-page="article"] .story-club { display: none; }
 }
 @media (max-width: 760px) {
-  /* Keep the viewport as the native scroll owner in Android custom tabs.
-     The desktop rail is absent here, so the document needs no overflow clip. */
-  html:has(body[data-media-page="article"]) { overflow-y: auto; }
-  .has-scene-rail[data-media-page="article"] { overflow: visible; }
-  .has-mobile-shell #media-content { touch-action: pan-y pinch-zoom; }
   [data-media-page="article"] .article-context-material { font-size: var(--font-size-body); }
 }
 @media (prefers-reduced-motion: reduce) {

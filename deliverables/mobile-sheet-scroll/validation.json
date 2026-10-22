@@ -6,30 +6,30 @@
       "height": 510,
       "previewHeight": 88,
       "expandedHeight": 462,
-      "coverSwipe": 246,
-      "articleSwipe": 220,
-      "reverseSwipe": -210,
-      "swipeStartingOnPreview": 350
+      "coverSwipe": 189,
+      "articleSwipe": 213,
+      "reverseSwipe": -214,
+      "swipeStartingOnPreview": 355
     },
     {
       "width": 390,
       "height": 844,
       "previewHeight": 88,
       "expandedHeight": 796,
-      "coverSwipe": 448,
-      "articleSwipe": 393,
-      "reverseSwipe": -385,
-      "swipeStartingOnPreview": 340
+      "coverSwipe": 440,
+      "articleSwipe": 389,
+      "reverseSwipe": -391,
+      "swipeStartingOnPreview": 381
     },
     {
       "width": 760,
       "height": 360,
       "previewHeight": 88,
       "expandedHeight": 312,
-      "coverSwipe": 163,
-      "articleSwipe": 144,
+      "coverSwipe": 164,
+      "articleSwipe": 143,
       "reverseSwipe": -138,
-      "swipeStartingOnPreview": 343
+      "swipeStartingOnPreview": 371
     }
   ],
   "errors": []

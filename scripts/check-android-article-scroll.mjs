@@ -46,7 +46,7 @@ try {
   await page.waitForTimeout(500);
   const initial = await read();
   assert.equal(initial.y, 0);
-  assert.equal(initial.rootOverflowY, 'auto');
+  assert(!['hidden', 'clip'].includes(initial.rootOverflowY));
   assert.equal(initial.bodyOverflow, 'visible');
   await swipe('forward');
   assert((await read()).coverTop < -40, 'The cover itself must move, not just the browser toolbar');
@@ -61,7 +61,7 @@ try {
     assert.equal(await page.evaluate(() => document.documentElement.style.overflow), 'hidden');
     await page.goBack();
     await page.waitForTimeout(500);
-    assert.equal((await read()).rootOverflowY, 'auto');
+    assert(!['hidden', 'clip'].includes((await read()).rootOverflowY));
     await swipe('forward');
     if (await collapse.isVisible()) await collapse.click();
   }
