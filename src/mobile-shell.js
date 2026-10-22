@@ -48,6 +48,7 @@ export function mountMobileShell(page, { onOverlayChange = () => {}, onVisibilit
       <div class="mobile-shell__pages"><div class="mobile-shell__content"></div></div>
       <div class="mobile-city-video" hidden></div>
       <div class="mobile-shell__format"><button type="button" data-city-toggle>Смотреть Китай-город ↗</button></div>
+      <button class="mobile-shell__preview-toggle" type="button" aria-label="Развернуть дополнительный материал" hidden></button>
     </section>
     <section class="mobile-shell__menu-surface" role="dialog" aria-modal="true" aria-label="Меню сайта" hidden>
       <button class="mobile-fab mobile-shell__menu-close" type="button" aria-label="Закрыть меню"><span>${img('arrow-down', 32)}</span></button>
@@ -74,6 +75,7 @@ export function mountMobileShell(page, { onOverlayChange = () => {}, onVisibilit
   const handle = root.querySelector('[data-sheet-handle]');
   const title = root.querySelector('.mobile-shell__title');
   const grab = root.querySelector('.mobile-shell__grab');
+  const previewToggle = root.querySelector('.mobile-shell__preview-toggle');
   const pages = root.querySelector('.mobile-shell__pages');
   const contextHost = root.querySelector('.mobile-shell__content');
   const format = root.querySelector('.mobile-shell__format');
@@ -142,6 +144,8 @@ export function mountMobileShell(page, { onOverlayChange = () => {}, onVisibilit
     const videoVisible = contentOpen && (!context.id || showVideo);
     sheet.inert = !contentOpen || frozen;
     sheet.setAttribute('aria-hidden', String(!contentOpen));
+    previewToggle.hidden = !contentOpen || state.snap !== 'preview';
+    contextHost.inert = state.snap === 'preview';
     fabs.hidden = contentOpen || overlay;
     backdrop.hidden = !overlay;
     menu.hidden = !phone.matches || state.mode !== 'menu';
@@ -194,11 +198,11 @@ export function mountMobileShell(page, { onOverlayChange = () => {}, onVisibilit
   }
   function collapse() {
     if (state.snap === 'preview') { hideContext(); return; }
-    apply({ type: 'snap', snap: state.snap === 'expanded' ? 'peek' : 'preview' });
+    apply({ type: 'snap', snap: 'preview' });
   }
   function expand() {
     if (dragMoved) return;
-    apply({ type: 'snap', snap: state.snap === 'expanded' ? 'peek' : state.snap === 'preview' ? 'peek' : 'expanded' });
+    apply({ type: 'snap', snap: state.snap === 'expanded' ? 'preview' : 'expanded' });
   }
   function renderSearch() {
     const matches = searchArticles(input.value);
@@ -253,6 +257,7 @@ export function mountMobileShell(page, { onOverlayChange = () => {}, onVisibilit
   root.querySelector('.mobile-shell__collapse').addEventListener('click', collapse, options);
   grab.addEventListener('click', expand, options);
   title.addEventListener('click', expand, options);
+  previewToggle.addEventListener('click', expand, options);
   input.addEventListener('input', renderSearch, options);
   search.querySelector('form').addEventListener('submit', event => {
     event.preventDefault();

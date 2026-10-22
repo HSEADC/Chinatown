@@ -1,4 +1,4 @@
-export const mobileSnaps = ['hidden', 'preview', 'peek', 'expanded'];
+export const mobileSnaps = ['hidden', 'preview', 'expanded'];
 
 /** Reading context and the temporary search/menu surface share one sheet. */
 export function initialMobileShellState(saved = {}) {
@@ -18,13 +18,13 @@ export function reduceMobileShell(state, event) {
       return {
         ...state, id: event.id,
         introduced: state.introduced || introduce,
-        snap: introduce ? 'peek' : state.snap,
+        snap: introduce ? 'preview' : state.snap,
         mode: introduce && !overlay ? 'context' : state.mode,
         unread: !!event.id && (overlay || state.mode !== 'context') && !introduce,
       };
     }
     case 'open':
-      return { ...state, mode: 'context', snap: event.snap || (state.snap === 'hidden' ? 'peek' : state.snap), dismissed: false, introduced: true, unread: false };
+      return { ...state, mode: 'context', snap: event.snap === 'preview' ? 'preview' : 'expanded', dismissed: false, introduced: true, unread: false };
     case 'overlay':
       return state.mode === event.mode
         ? reduceMobileShell(state, { type: 'back' })
@@ -43,7 +43,8 @@ export function reduceMobileShell(state, event) {
 }
 
 export function mobileSnapHeights(height) {
-  return { hidden: 0, preview: Math.min(88, height * .25), peek: height * .4, expanded: Math.max(height * .4, height - 48) };
+  const preview = Math.min(88, height * .25);
+  return { hidden: 0, preview, expanded: Math.max(preview, height - 48) };
 }
 
 /** A deliberate flick advances one stop; a slow drag lands at the nearest stop. */

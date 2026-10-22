@@ -16,7 +16,6 @@ export function mountQuoteScenes(page, onActiveChange) {
   }));
   if (!scenes.length) return () => {};
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
-  const phone = matchMedia('(max-width: 760px)');
   const controller = new AbortController();
   const options = { signal: controller.signal };
   let active = false;
@@ -36,7 +35,7 @@ export function mountQuoteScenes(page, onActiveChange) {
   }
 
   function measure() {
-    const enhanced = !reducedMotion.matches && !phone.matches;
+    const enhanced = !reducedMotion.matches;
     headerHeight = parseFloat(getComputedStyle(page).getPropertyValue('--story-header-height'));
     for (const scene of scenes) {
       scene.element.classList.toggle('is-enhanced', enhanced);
@@ -82,7 +81,7 @@ export function mountQuoteScenes(page, onActiveChange) {
     const elapsed = lastFrameTime ? Math.min(32, now - lastFrameTime) : 16;
     lastFrameTime = now;
     if (needsMeasure) measure();
-    if (reducedMotion.matches || phone.matches) { lastFrameTime = 0; setActive(false); return; }
+    if (reducedMotion.matches) { lastFrameTime = 0; setActive(false); return; }
     const y = window.scrollY;
     const delta = y - lastScrollY;
     if (delta) {
@@ -157,7 +156,6 @@ export function mountQuoteScenes(page, onActiveChange) {
   window.addEventListener('pageshow', () => schedule({ measure: true }), options);
   document.addEventListener('visibilitychange', () => schedule(), options);
   reducedMotion.addEventListener('change', () => schedule({ measure: true }), options);
-  phone.addEventListener('change', () => schedule({ measure: true }), options);
   document.fonts.ready.then(() => {
     if (!controller.signal.aborted) schedule({ measure: true });
   });

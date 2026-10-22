@@ -32,8 +32,10 @@
 }
 .has-scene-rail[data-media-page="article"] .story-cover { width: 100vw; }
 .is-story-cover-active .story-club { visibility: hidden; pointer-events: none; }
-.has-scene-rail .story-quote-scene { --quote-inset: clamp(20px, 13.333333cqw, 256px); }
-.has-scene-rail .story-quote-scene__lyrics { width: min(70cqw, 1080px); }
+@media (min-width: 761px) {
+  .has-scene-rail .story-quote-scene { --quote-inset: clamp(20px, 13.333333cqw, 256px); }
+  .has-scene-rail .story-quote-scene__lyrics { width: min(70cqw, 1080px); }
+}
 .story-content video[data-editorial-video] { display: block; width: 100%; height: auto; max-height: 75svh; object-fit: contain; background: #000; }
 .story-video figcaption { margin-top: 16px; color: var(--story-muted); font: 400 var(--font-size-caption)/var(--line-height-caption) var(--font-body); }
 @media (min-width: 1200px) {

@@ -366,12 +366,11 @@ html.has-site-cursor .article-image-viewer :is(button, a) { cursor: var(--cursor
   .story-quote-scene .story-quote-scene__lyrics { width: 100%; }
   .story-quote-scene__photo { object-position: 43% center; }
   .story-quote-scene > figcaption { margin-top: 0; }
-  /* Mobile keeps the approved quotation and its analysis in normal reading flow. */
-  .story-quote-scene { --quote-gap: 24px; width: 100%; min-height: 0; margin-inline: 0; padding: 0; background: none; }
-  .story-quote-scene .story-quote-scene__media { display: none; }
-  .story-quote-scene .story-quote-scene__stage { min-height: 0; padding: 24px 0; }
-  .story-quote-scene .story-quote-scene__lyrics { width: 100%; }
-  .story-quote-scene > figcaption { padding: 0; }
+  /* Static fallback for reduced motion or unavailable JavaScript. */
+  .story-quote-scene:not(.is-enhanced) { --quote-gap: 24px; width: 100%; min-height: 0; margin-inline: 0; padding: 0; background: none; }
+  .story-quote-scene:not(.is-enhanced) .story-quote-scene__media { display: none; }
+  .story-quote-scene:not(.is-enhanced) .story-quote-scene__stage { min-height: 0; padding: 24px 0; }
+  .story-quote-scene:not(.is-enhanced) > figcaption { padding: 0; }
   .story-section ul { margin-top: 24px; padding-left: 20px; }
   .story-section li + li { margin-top: 12px; }
   .story-artwork { margin-top: 36px !important; }

@@ -62,7 +62,7 @@
   }
   .mobile-shell[data-mode="context"]:not([data-snap="hidden"]) .mobile-shell__sheet { visibility: visible; transform: translateY(0); pointer-events: auto; }
   .mobile-shell.is-dragging .mobile-shell__sheet { transition: none; }
-  .mobile-shell__handle { flex: none; touch-action: none; user-select: none; }
+  .mobile-shell__handle { position: relative; z-index: 2; flex: none; touch-action: none; user-select: none; }
   .mobile-shell__grab { display: grid; place-items: center; width: 100%; height: 12px; padding: 0; background: transparent; }
   .mobile-shell__grab > span { display: block; width: 32px; height: 3px; background: #797979; }
   .mobile-shell__heading { display: flex; align-items: center; min-height: 32px; }
@@ -88,7 +88,10 @@
   .mobile-shell__format { flex: none; padding: 0 12px; }
   .mobile-shell__format > button { min-height: 44px; padding: 8px 0; background: transparent; color: #b7b7b7; font: 400 var(--font-size-caption)/var(--line-height-caption) var(--font-body); text-decoration: underline; text-underline-offset: .2em; }
   .mobile-shell[data-snap="preview"] :is(.mobile-shell__format, .mobile-city-video__controls, .mobile-city-video__status) { display: none; }
-  .mobile-shell[data-snap="preview"] .mobile-shell__content { overflow-y: hidden; }
+  .mobile-shell[data-snap="preview"] :is(.mobile-shell__pages, .mobile-city-video) { pointer-events: none; }
+  .mobile-shell[data-snap="preview"] .mobile-shell__content { overflow-y: hidden; overscroll-behavior: auto; }
+  /* Preview taps expand the card; native vertical swipes continue scrolling the article. */
+  .mobile-shell__preview-toggle { position: absolute; z-index: 1; inset: 0; width: 100%; padding: 0; background: transparent; touch-action: pan-y pinch-zoom; }
   .mobile-shell__backdrop { position: fixed; inset: 0; background: rgb(0 0 0 / .6); }
   .mobile-shell__menu-surface { position: fixed; right: 0; bottom: var(--mobile-keyboard-inset); left: 0; max-height: calc(var(--mobile-viewport-height) - 12px); overflow-y: auto; padding-top: 56px; }
   .mobile-shell__menu-close { position: absolute; top: 0; right: 6px; }
