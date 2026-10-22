@@ -36,7 +36,7 @@ function paragraphView(copyId, index) {
   if (copyId === 'reach' && index === 0) text = text.replace('300%', contextLink('reach-note', '300%'));
   if (copyId === 'album' && index === 0) text = text.replace('sexyswag', entity('sexyswag-artwork', 'sexyswag'));
   if (copyId === 'return' && index === 0) text = text.replace('«Так похуй»', entity('track-tak-pohuy', '«Так похуй»'));
-  return `<p${id ? ` id="${id}"` : ''}>${text}${sourcesView(section.paragraphSources[index])}</p>`;
+  return `<p id="${id || `${copyId}-paragraph-${index + 1}`}"><span data-context-text>${text}</span>${sourcesView(section.paragraphSources[index])}</p>`;
 }
 
 function sectionView(id, copyId, { analysis = false, afterParagraph = {}, after = '', from = 0, to = Infinity, heading = true, labelledBy = `${id}-title` } = {}) {
@@ -118,11 +118,11 @@ export function articleView() {
           <button class="story-menu__item" type="button" aria-disabled="true" title="Раздел готовится" data-node-id="272:121">Тесты</button>
           <button class="story-menu__item" type="button" aria-disabled="true" title="Раздел готовится" data-node-id="272:122">Мерч</button>
         </nav>
-        <form class="story-search" id="article-search-form" role="search" aria-label="Поиск по статье" data-node-id="376:712" inert>
-          <button class="story-icon story-search__submit" type="submit" aria-label="Найти в статье" data-node-id="376:713">
+        <form class="story-search" id="article-search-form" role="search" aria-label="Поиск статей" data-node-id="376:712" inert>
+          <button class="story-icon story-search__submit" type="submit" aria-label="Найти статьи" data-node-id="376:713">
             <img src="${icons}search.svg" alt="" width="32" height="32">
           </button>
-          <label class="story-visually-hidden" for="article-search">О чем скучаешь? Найти в статье</label>
+          <label class="story-visually-hidden" for="article-search">О чем скучаешь? Найти статьи</label>
           <input id="article-search" name="q" type="search" placeholder="О чем скучаешь?" autocomplete="off" aria-controls="article-search-results" data-node-id="376:717">
           <button class="story-icon story-search__close" type="button" aria-label="Закрыть поиск" aria-controls="article-search-form article-search-results" data-node-id="376:723">
             <img src="${icons}close.svg" alt="" width="32" height="32">

@@ -1,3 +1,5 @@
+import { searchArticles } from './article-search-data.js';
+
 const motion = {
   searchDuration: 420,
   menuDuration: 540,
@@ -18,7 +20,6 @@ export function mountArticleHeader(header, onChange, page = header.closest('.sto
   const results = header.querySelector('.story-search__results');
   const status = results.querySelector('[role="status"]');
   const list = results.querySelector('ul');
-  const sections = [...page.querySelectorAll('[data-search-section]')];
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   const mobile = { get matches() { return header.clientWidth <= 760; } };
   const controller = new AbortController();
@@ -97,14 +98,22 @@ export function mountArticleHeader(header, onChange, page = header.closest('.sto
   function renderSearch() {
     clearResults();
     const query = input.value.trim().toLocaleLowerCase('ru');
-    if (!searchOpen || !query) return;
-    const matches = sections.filter(section => section.textContent.toLocaleLowerCase('ru').includes(query));
-    status.textContent = matches.length ? `Найдено разделов: ${matches.length}` : 'Ничего не найдено. Попробуй другое слово.';
-    for (const section of matches) {
+    if (!searchOpen) return;
+    const matches = searchArticles(query);
+    status.textContent = matches.length ? 'Готовим новые материалы' : 'Ничего не найдено. Попробуй другое слово.';
+    for (const article of matches) {
       const item = document.createElement('li');
       const link = document.createElement('a');
-      link.href = `#${section.id}`;
-      link.textContent = section.querySelector('h2, h3').textContent;
+      link.href = './index.html';
+      link.className = 'story-search-result';
+      const image = document.createElement('img');
+      image.src = article.image;
+      image.alt = '';
+      image.style.objectPosition = article.position;
+      const label = document.createElement('span');
+      label.textContent = `${article.artist} — ${article.title}`;
+      link.setAttribute('aria-label', `${label.textContent}. Материал готовится, открыть вайт-лист`);
+      link.append(image, label);
       item.append(link);
       list.append(item);
     }
@@ -138,6 +147,7 @@ export function mountArticleHeader(header, onChange, page = header.closest('.sto
       cancelAnimations(menuAnimations);
     }
     syncNavigation();
+    if (open) renderSearch();
     const shouldAnimate = animated && !reducedMotion.matches;
     header.classList.toggle('is-search-animating', shouldAnimate);
     if (!shouldAnimate) {

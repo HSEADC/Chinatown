@@ -1,0 +1,117 @@
+{
+  "checks": [
+    "First material opens at 40% and highlights its paragraph",
+    "Image viewer closes back to the same card and article position",
+    "Dismissal persists through a chapter change; the FAB shows an unread dot",
+    "Back and Forward restore a user-opened sheet",
+    "Search filters articles, shows empty results, and Back/Escape release scroll lock",
+    "City format loads lazily, starts muted, enables sound by tap and pauses on return",
+    "Manual card survives nested image history",
+    "No overflow or duplicate material nodes across phone, desktop and rail breakpoints",
+    "Whitelist opens and its unconfigured form reports its existing status",
+    "Real touch drag expands, collapses and dismisses without scrolling the article",
+    "Card changes animate in article order, including reverse scrolling",
+    "Manual material remains pinned after nested viewer Back and further article scrolling",
+    "Expanded sheet fits small and landscape viewports",
+    "Search result reaches the existing whitelist screen",
+    "Reduced motion disables sheet movement and city video is not preloaded",
+    "Desktop rail, source highlight, shell collapse and article search remain functional",
+    "Both CTA groups are centered without overflow at 320/390px; form submission succeeds against a mocked endpoint",
+    "Manual material is restored by Forward; resizing an open search releases article inert/scroll lock",
+    "Every Figma SVG is local, loaded and uses its original dimensions"
+  ],
+  "errors": [],
+  "geometry": [
+    {
+      "viewport": 320,
+      "left": 8,
+      "right": 312,
+      "width": 304,
+      "height": 32,
+      "group": 241.8125,
+      "overflow": 320,
+      "centerError": 0
+    },
+    {
+      "submit": {
+        "width": 280,
+        "height": 32,
+        "group": 169.46875,
+        "centerError": 0
+      },
+      "width": 280,
+      "height": 32,
+      "group": 169.46875,
+      "centerError": 0
+    },
+    {
+      "viewport": 390,
+      "left": 8,
+      "right": 382,
+      "width": 374,
+      "height": 32,
+      "group": 241.8125,
+      "overflow": 390,
+      "centerError": 0
+    },
+    {
+      "submit": {
+        "width": 350,
+        "height": 32,
+        "group": 169.46875,
+        "centerError": 0
+      },
+      "width": 350,
+      "height": 32,
+      "group": 169.46875,
+      "centerError": 0
+    }
+  ],
+  "assets": [
+    {
+      "src": "/assets/figma/mobile-shell/menu.svg",
+      "width": 16,
+      "height": 16,
+      "loaded": true
+    },
+    {
+      "src": "/assets/figma/mobile-shell/search.svg",
+      "width": 16,
+      "height": 16,
+      "loaded": true
+    },
+    {
+      "src": "/assets/figma/mobile-shell/arrow-up.svg",
+      "width": 32,
+      "height": 32,
+      "loaded": true
+    },
+    {
+      "src": "/assets/figma/mobile-shell/arrow-down.svg",
+      "width": 32,
+      "height": 32,
+      "loaded": true
+    },
+    {
+      "src": "/assets/figma/mobile-shell/arrow-down.svg",
+      "width": 32,
+      "height": 32,
+      "loaded": true
+    },
+    {
+      "src": "/assets/figma/mobile-shell/search-field.svg",
+      "width": 24,
+      "height": 24,
+      "loaded": true
+    },
+    {
+      "src": "/assets/figma/mobile-shell/close.svg",
+      "width": 24,
+      "height": 24,
+      "loaded": true
+    }
+  ],
+  "unitTests": 47,
+  "build": "passed",
+  "browser": "Chromium; touch emulation"
+}

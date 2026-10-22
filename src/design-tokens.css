@@ -44,6 +44,10 @@
   --font-size-brand: 24px;
   --icon-size: 32px;
   --header-height: 64px;
+  --font-size-card-title: 24px;
+  --line-height-card-title: 24px;
+  --font-size-card-artist: 32px;
+  --line-height-card-artist: 32px;
 }
 
 /* Figma 388:767 / 784–789 / 793. These are text roles, not page geometry. */
@@ -80,5 +84,9 @@
     --font-size-search: 12px;
     --line-height-search: 16px;
     --font-size-brand: 14px;
+    --font-size-card-title: 32px;
+    --line-height-card-title: 38.4px;
+    --font-size-card-artist: 24px;
+    --line-height-card-artist: 32px;
   }
 }

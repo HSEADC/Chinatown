@@ -1,0 +1,1470 @@
+{
+  "checks": 24,
+  "failures": [],
+  "matrix": [
+    {
+      "buttons": [],
+      "family": "typography",
+      "introOverflow": false,
+      "nav": [],
+      "nodes": [
+        {
+          "clientWidth": 280,
+          "display": "block",
+          "fontSize": "40px",
+          "height": 40,
+          "lineHeight": "40px",
+          "role": "display",
+          "scrollWidth": 280,
+          "visible": true,
+          "width": 280
+        },
+        {
+          "clientWidth": 280,
+          "display": "block",
+          "fontSize": "64px",
+          "height": 256,
+          "lineHeight": "64px",
+          "role": "h1",
+          "scrollWidth": 280,
+          "visible": true,
+          "width": 280
+        },
+        {
+          "clientWidth": 280,
+          "display": "block",
+          "fontSize": "36px",
+          "height": 96,
+          "lineHeight": "48px",
+          "role": "h2",
+          "scrollWidth": 280,
+          "visible": true,
+          "width": 280
+        },
+        {
+          "clientWidth": 280,
+          "display": "block",
+          "fontSize": "14px",
+          "height": 16,
+          "lineHeight": "16px",
+          "role": "h3",
+          "scrollWidth": 280,
+          "visible": true,
+          "width": 280
+        },
+        {
+          "clientWidth": 280,
+          "display": "block",
+          "fontSize": "16px",
+          "height": 260,
+          "lineHeight": "26px",
+          "role": "body",
+          "scrollWidth": 280,
+          "visible": true,
+          "width": 280
+        },
+        {
+          "clientWidth": 280,
+          "display": "block",
+          "fontSize": "12px",
+          "height": 16,
+          "lineHeight": "16px",
+          "role": "caption",
+          "scrollWidth": 280,
+          "visible": true,
+          "width": 280
+        },
+        {
+          "clientWidth": 280,
+          "display": "block",
+          "fontSize": "32px",
+          "height": 100.4765625,
+          "lineHeight": "38.4px",
+          "role": "quote",
+          "scrollWidth": 280,
+          "visible": true,
+          "width": 280
+        }
+      ],
+      "overflow": false,
+      "url": "http://localhost:4173/component-preview.html?family=typography&dev=0",
+      "viewport": 320
+    },
+    {
+      "buttons": [
+        {
+          "centerDelta": 0,
+          "groupWidth": 241.8125,
+          "overflow": false,
+          "width": 280
+        }
+      ],
+      "family": "action",
+      "introOverflow": false,
+      "nav": [],
+      "nodes": [
+        {
+          "clientWidth": 280,
+          "display": "flex",
+          "fontSize": "12px",
+          "height": 32,
+          "lineHeight": "16px",
+          "role": "action-button",
+          "scrollWidth": 280,
+          "visible": true,
+          "width": 280
+        },
+        {
+          "clientWidth": 210,
+          "display": "block",
+          "fontSize": "12px",
+          "height": 32,
+          "lineHeight": "16px",
+          "role": "action-button__label",
+          "scrollWidth": 210,
+          "visible": true,
+          "width": 209.8125
+        },
+        {
+          "clientWidth": 0,
+          "display": "block",
+          "fontSize": "12px",
+          "height": 0,
+          "lineHeight": "16px",
+          "role": "email-field",
+          "scrollWidth": 0,
+          "visible": false,
+          "width": 0
+        },
+        {
+          "clientWidth": 0,
+          "display": "flex",
+          "fontSize": "12px",
+          "height": 0,
+          "lineHeight": "16px",
+          "role": "action-button",
+          "scrollWidth": 0,
+          "visible": false,
+          "width": 0
+        },
+        {
+          "clientWidth": 0,
+          "display": "block",
+          "fontSize": "12px",
+          "height": 0,
+          "lineHeight": "16px",
+          "role": "action-button__label",
+          "scrollWidth": 0,
+          "visible": false,
+          "width": 0
+        }
+      ],
+      "overflow": false,
+      "url": "http://localhost:4173/component-preview.html?family=action&dev=0",
+      "viewport": 320
+    },
+    {
+      "buttons": [],
+      "family": "email",
+      "introOverflow": false,
+      "nav": [],
+      "nodes": [
+        {
+          "clientWidth": 278,
+          "display": "block",
+          "fontSize": "12px",
+          "height": 34,
+          "lineHeight": "16px",
+          "role": "email-field",
+          "scrollWidth": 278,
+          "visible": true,
+          "width": 280
+        }
+      ],
+      "overflow": false,
+      "url": "http://localhost:4173/component-preview.html?family=email&dev=0",
+      "viewport": 320
+    },
+    {
+      "buttons": [],
+      "family": "typography",
+      "introOverflow": false,
+      "nav": [],
+      "nodes": [
+        {
+          "clientWidth": 350,
+          "display": "block",
+          "fontSize": "40px",
+          "height": 40,
+          "lineHeight": "40px",
+          "role": "display",
+          "scrollWidth": 350,
+          "visible": true,
+          "width": 350
+        },
+        {
+          "clientWidth": 350,
+          "display": "block",
+          "fontSize": "64px",
+          "height": 192,
+          "lineHeight": "64px",
+          "role": "h1",
+          "scrollWidth": 350,
+          "visible": true,
+          "width": 350
+        },
+        {
+          "clientWidth": 350,
+          "display": "block",
+          "fontSize": "36px",
+          "height": 48,
+          "lineHeight": "48px",
+          "role": "h2",
+          "scrollWidth": 350,
+          "visible": true,
+          "width": 350
+        },
+        {
+          "clientWidth": 350,
+          "display": "block",
+          "fontSize": "14px",
+          "height": 16,
+          "lineHeight": "16px",
+          "role": "h3",
+          "scrollWidth": 350,
+          "visible": true,
+          "width": 350
+        },
+        {
+          "clientWidth": 350,
+          "display": "block",
+          "fontSize": "16px",
+          "height": 208,
+          "lineHeight": "26px",
+          "role": "body",
+          "scrollWidth": 350,
+          "visible": true,
+          "width": 350
+        },
+        {
+          "clientWidth": 350,
+          "display": "block",
+          "fontSize": "12px",
+          "height": 16,
+          "lineHeight": "16px",
+          "role": "caption",
+          "scrollWidth": 350,
+          "visible": true,
+          "width": 350
+        },
+        {
+          "clientWidth": 350,
+          "display": "block",
+          "fontSize": "32px",
+          "height": 62.078125,
+          "lineHeight": "38.4px",
+          "role": "quote",
+          "scrollWidth": 350,
+          "visible": true,
+          "width": 350
+        }
+      ],
+      "overflow": false,
+      "url": "http://localhost:4173/component-preview.html?family=typography&dev=0",
+      "viewport": 390
+    },
+    {
+      "buttons": [
+        {
+          "centerDelta": 0,
+          "groupWidth": 241.8125,
+          "overflow": false,
+          "width": 350
+        }
+      ],
+      "family": "action",
+      "introOverflow": false,
+      "nav": [],
+      "nodes": [
+        {
+          "clientWidth": 350,
+          "display": "flex",
+          "fontSize": "12px",
+          "height": 32,
+          "lineHeight": "16px",
+          "role": "action-button",
+          "scrollWidth": 350,
+          "visible": true,
+          "width": 350
+        },
+        {
+          "clientWidth": 210,
+          "display": "block",
+          "fontSize": "12px",
+          "height": 32,
+          "lineHeight": "16px",
+          "role": "action-button__label",
+          "scrollWidth": 210,
+          "visible": true,
+          "width": 209.8125
+        },
+        {
+          "clientWidth": 0,
+          "display": "block",
+          "fontSize": "12px",
+          "height": 0,
+          "lineHeight": "16px",
+          "role": "email-field",
+          "scrollWidth": 0,
+          "visible": false,
+          "width": 0
+        },
+        {
+          "clientWidth": 0,
+          "display": "flex",
+          "fontSize": "12px",
+          "height": 0,
+          "lineHeight": "16px",
+          "role": "action-button",
+          "scrollWidth": 0,
+          "visible": false,
+          "width": 0
+        },
+        {
+          "clientWidth": 0,
+          "display": "block",
+          "fontSize": "12px",
+          "height": 0,
+          "lineHeight": "16px",
+          "role": "action-button__label",
+          "scrollWidth": 0,
+          "visible": false,
+          "width": 0
+        }
+      ],
+      "overflow": false,
+      "url": "http://localhost:4173/component-preview.html?family=action&dev=0",
+      "viewport": 390
+    },
+    {
+      "buttons": [],
+      "family": "email",
+      "introOverflow": false,
+      "nav": [],
+      "nodes": [
+        {
+          "clientWidth": 313,
+          "display": "block",
+          "fontSize": "12px",
+          "height": 34,
+          "lineHeight": "16px",
+          "role": "email-field",
+          "scrollWidth": 313,
+          "visible": true,
+          "width": 315
+        }
+      ],
+      "overflow": false,
+      "url": "http://localhost:4173/component-preview.html?family=email&dev=0",
+      "viewport": 390
+    },
+    {
+      "buttons": [],
+      "family": "typography",
+      "introOverflow": false,
+      "nav": [],
+      "nodes": [
+        {
+          "clientWidth": 560,
+          "display": "block",
+          "fontSize": "40px",
+          "height": 40,
+          "lineHeight": "40px",
+          "role": "display",
+          "scrollWidth": 560,
+          "visible": true,
+          "width": 560
+        },
+        {
+          "clientWidth": 560,
+          "display": "block",
+          "fontSize": "64px",
+          "height": 128,
+          "lineHeight": "64px",
+          "role": "h1",
+          "scrollWidth": 560,
+          "visible": true,
+          "width": 560
+        },
+        {
+          "clientWidth": 560,
+          "display": "block",
+          "fontSize": "36px",
+          "height": 48,
+          "lineHeight": "48px",
+          "role": "h2",
+          "scrollWidth": 560,
+          "visible": true,
+          "width": 560
+        },
+        {
+          "clientWidth": 560,
+          "display": "block",
+          "fontSize": "14px",
+          "height": 16,
+          "lineHeight": "16px",
+          "role": "h3",
+          "scrollWidth": 560,
+          "visible": true,
+          "width": 560
+        },
+        {
+          "clientWidth": 560,
+          "display": "block",
+          "fontSize": "16px",
+          "height": 130,
+          "lineHeight": "26px",
+          "role": "body",
+          "scrollWidth": 560,
+          "visible": true,
+          "width": 560
+        },
+        {
+          "clientWidth": 560,
+          "display": "block",
+          "fontSize": "12px",
+          "height": 16,
+          "lineHeight": "16px",
+          "role": "caption",
+          "scrollWidth": 560,
+          "visible": true,
+          "width": 560
+        },
+        {
+          "clientWidth": 560,
+          "display": "block",
+          "fontSize": "32px",
+          "height": 23.6796875,
+          "lineHeight": "38.4px",
+          "role": "quote",
+          "scrollWidth": 560,
+          "visible": true,
+          "width": 560
+        }
+      ],
+      "overflow": false,
+      "url": "http://localhost:4173/component-preview.html?family=typography&dev=0",
+      "viewport": 600
+    },
+    {
+      "buttons": [
+        {
+          "centerDelta": 0,
+          "groupWidth": 241.8125,
+          "overflow": false,
+          "width": 560
+        }
+      ],
+      "family": "action",
+      "introOverflow": false,
+      "nav": [],
+      "nodes": [
+        {
+          "clientWidth": 560,
+          "display": "flex",
+          "fontSize": "12px",
+          "height": 32,
+          "lineHeight": "16px",
+          "role": "action-button",
+          "scrollWidth": 560,
+          "visible": true,
+          "width": 560
+        },
+        {
+          "clientWidth": 210,
+          "display": "block",
+          "fontSize": "12px",
+          "height": 32,
+          "lineHeight": "16px",
+          "role": "action-button__label",
+          "scrollWidth": 210,
+          "visible": true,
+          "width": 209.8125
+        },
+        {
+          "clientWidth": 0,
+          "display": "block",
+          "fontSize": "12px",
+          "height": 0,
+          "lineHeight": "16px",
+          "role": "email-field",
+          "scrollWidth": 0,
+          "visible": false,
+          "width": 0
+        },
+        {
+          "clientWidth": 0,
+          "display": "flex",
+          "fontSize": "12px",
+          "height": 0,
+          "lineHeight": "16px",
+          "role": "action-button",
+          "scrollWidth": 0,
+          "visible": false,
+          "width": 0
+        },
+        {
+          "clientWidth": 0,
+          "display": "block",
+          "fontSize": "12px",
+          "height": 0,
+          "lineHeight": "16px",
+          "role": "action-button__label",
+          "scrollWidth": 0,
+          "visible": false,
+          "width": 0
+        }
+      ],
+      "overflow": false,
+      "url": "http://localhost:4173/component-preview.html?family=action&dev=0",
+      "viewport": 600
+    },
+    {
+      "buttons": [],
+      "family": "email",
+      "introOverflow": false,
+      "nav": [],
+      "nodes": [
+        {
+          "clientWidth": 313,
+          "display": "block",
+          "fontSize": "12px",
+          "height": 34,
+          "lineHeight": "16px",
+          "role": "email-field",
+          "scrollWidth": 313,
+          "visible": true,
+          "width": 315
+        }
+      ],
+      "overflow": false,
+      "url": "http://localhost:4173/component-preview.html?family=email&dev=0",
+      "viewport": 600
+    },
+    {
+      "buttons": [],
+      "family": "typography",
+      "introOverflow": false,
+      "nav": [],
+      "nodes": [
+        {
+          "clientWidth": 720,
+          "display": "block",
+          "fontSize": "40px",
+          "height": 40,
+          "lineHeight": "40px",
+          "role": "display",
+          "scrollWidth": 720,
+          "visible": true,
+          "width": 720
+        },
+        {
+          "clientWidth": 720,
+          "display": "block",
+          "fontSize": "64px",
+          "height": 128,
+          "lineHeight": "64px",
+          "role": "h1",
+          "scrollWidth": 720,
+          "visible": true,
+          "width": 720
+        },
+        {
+          "clientWidth": 720,
+          "display": "block",
+          "fontSize": "36px",
+          "height": 48,
+          "lineHeight": "48px",
+          "role": "h2",
+          "scrollWidth": 720,
+          "visible": true,
+          "width": 720
+        },
+        {
+          "clientWidth": 720,
+          "display": "block",
+          "fontSize": "14px",
+          "height": 16,
+          "lineHeight": "16px",
+          "role": "h3",
+          "scrollWidth": 720,
+          "visible": true,
+          "width": 720
+        },
+        {
+          "clientWidth": 720,
+          "display": "block",
+          "fontSize": "16px",
+          "height": 104,
+          "lineHeight": "26px",
+          "role": "body",
+          "scrollWidth": 720,
+          "visible": true,
+          "width": 720
+        },
+        {
+          "clientWidth": 720,
+          "display": "block",
+          "fontSize": "12px",
+          "height": 16,
+          "lineHeight": "16px",
+          "role": "caption",
+          "scrollWidth": 720,
+          "visible": true,
+          "width": 720
+        },
+        {
+          "clientWidth": 720,
+          "display": "block",
+          "fontSize": "32px",
+          "height": 23.6796875,
+          "lineHeight": "38.4px",
+          "role": "quote",
+          "scrollWidth": 720,
+          "visible": true,
+          "width": 720
+        }
+      ],
+      "overflow": false,
+      "url": "http://localhost:4173/component-preview.html?family=typography&dev=0",
+      "viewport": 760
+    },
+    {
+      "buttons": [
+        {
+          "centerDelta": 0,
+          "groupWidth": 241.8125,
+          "overflow": false,
+          "width": 720
+        }
+      ],
+      "family": "action",
+      "introOverflow": false,
+      "nav": [],
+      "nodes": [
+        {
+          "clientWidth": 720,
+          "display": "flex",
+          "fontSize": "12px",
+          "height": 32,
+          "lineHeight": "16px",
+          "role": "action-button",
+          "scrollWidth": 720,
+          "visible": true,
+          "width": 720
+        },
+        {
+          "clientWidth": 210,
+          "display": "block",
+          "fontSize": "12px",
+          "height": 32,
+          "lineHeight": "16px",
+          "role": "action-button__label",
+          "scrollWidth": 210,
+          "visible": true,
+          "width": 209.8125
+        },
+        {
+          "clientWidth": 0,
+          "display": "block",
+          "fontSize": "12px",
+          "height": 0,
+          "lineHeight": "16px",
+          "role": "email-field",
+          "scrollWidth": 0,
+          "visible": false,
+          "width": 0
+        },
+        {
+          "clientWidth": 0,
+          "display": "flex",
+          "fontSize": "12px",
+          "height": 0,
+          "lineHeight": "16px",
+          "role": "action-button",
+          "scrollWidth": 0,
+          "visible": false,
+          "width": 0
+        },
+        {
+          "clientWidth": 0,
+          "display": "block",
+          "fontSize": "12px",
+          "height": 0,
+          "lineHeight": "16px",
+          "role": "action-button__label",
+          "scrollWidth": 0,
+          "visible": false,
+          "width": 0
+        }
+      ],
+      "overflow": false,
+      "url": "http://localhost:4173/component-preview.html?family=action&dev=0",
+      "viewport": 760
+    },
+    {
+      "buttons": [],
+      "family": "email",
+      "introOverflow": false,
+      "nav": [],
+      "nodes": [
+        {
+          "clientWidth": 313,
+          "display": "block",
+          "fontSize": "12px",
+          "height": 34,
+          "lineHeight": "16px",
+          "role": "email-field",
+          "scrollWidth": 313,
+          "visible": true,
+          "width": 315
+        }
+      ],
+      "overflow": false,
+      "url": "http://localhost:4173/component-preview.html?family=email&dev=0",
+      "viewport": 760
+    },
+    {
+      "buttons": [],
+      "family": "typography",
+      "introOverflow": false,
+      "nav": [],
+      "nodes": [
+        {
+          "clientWidth": 685,
+          "display": "block",
+          "fontSize": "128px",
+          "height": 128,
+          "lineHeight": "128px",
+          "role": "display",
+          "scrollWidth": 685,
+          "visible": true,
+          "width": 684.90625
+        },
+        {
+          "clientWidth": 685,
+          "display": "block",
+          "fontSize": "64px",
+          "height": 128,
+          "lineHeight": "64px",
+          "role": "h1",
+          "scrollWidth": 685,
+          "visible": true,
+          "width": 684.90625
+        },
+        {
+          "clientWidth": 685,
+          "display": "block",
+          "fontSize": "36px",
+          "height": 48,
+          "lineHeight": "48px",
+          "role": "h2",
+          "scrollWidth": 685,
+          "visible": true,
+          "width": 684.90625
+        },
+        {
+          "clientWidth": 685,
+          "display": "block",
+          "fontSize": "14px",
+          "height": 16,
+          "lineHeight": "16px",
+          "role": "h3",
+          "scrollWidth": 685,
+          "visible": true,
+          "width": 684.90625
+        },
+        {
+          "clientWidth": 685,
+          "display": "block",
+          "fontSize": "20px",
+          "height": 160,
+          "lineHeight": "32px",
+          "role": "body",
+          "scrollWidth": 685,
+          "visible": true,
+          "width": 684.90625
+        },
+        {
+          "clientWidth": 685,
+          "display": "block",
+          "fontSize": "14px",
+          "height": 16,
+          "lineHeight": "16px",
+          "role": "caption",
+          "scrollWidth": 685,
+          "visible": true,
+          "width": 684.90625
+        },
+        {
+          "clientWidth": 685,
+          "display": "block",
+          "fontSize": "48px",
+          "height": 99.5234375,
+          "lineHeight": "64px",
+          "role": "quote",
+          "scrollWidth": 685,
+          "visible": true,
+          "width": 684.90625
+        }
+      ],
+      "overflow": false,
+      "url": "http://localhost:4173/component-preview.html?family=typography&dev=0",
+      "viewport": 761
+    },
+    {
+      "buttons": [
+        {
+          "centerDelta": 0.00390625,
+          "groupWidth": 492.7421875,
+          "overflow": false,
+          "width": 684.90625
+        }
+      ],
+      "family": "action",
+      "introOverflow": false,
+      "nav": [],
+      "nodes": [
+        {
+          "clientWidth": 685,
+          "display": "flex",
+          "fontSize": "24px",
+          "height": 64,
+          "lineHeight": "32px",
+          "role": "action-button",
+          "scrollWidth": 685,
+          "visible": true,
+          "width": 684.90625
+        },
+        {
+          "clientWidth": 429,
+          "display": "block",
+          "fontSize": "24px",
+          "height": 64,
+          "lineHeight": "32px",
+          "role": "action-button__label",
+          "scrollWidth": 429,
+          "visible": true,
+          "width": 428.7421875
+        },
+        {
+          "clientWidth": 0,
+          "display": "block",
+          "fontSize": "24px",
+          "height": 0,
+          "lineHeight": "32px",
+          "role": "email-field",
+          "scrollWidth": 0,
+          "visible": false,
+          "width": 0
+        },
+        {
+          "clientWidth": 0,
+          "display": "flex",
+          "fontSize": "24px",
+          "height": 0,
+          "lineHeight": "32px",
+          "role": "action-button",
+          "scrollWidth": 0,
+          "visible": false,
+          "width": 0
+        },
+        {
+          "clientWidth": 0,
+          "display": "block",
+          "fontSize": "24px",
+          "height": 0,
+          "lineHeight": "32px",
+          "role": "action-button__label",
+          "scrollWidth": 0,
+          "visible": false,
+          "width": 0
+        }
+      ],
+      "overflow": false,
+      "url": "http://localhost:4173/component-preview.html?family=action&dev=0",
+      "viewport": 761
+    },
+    {
+      "buttons": [],
+      "family": "email",
+      "introOverflow": false,
+      "nav": [],
+      "nodes": [
+        {
+          "clientWidth": 311,
+          "display": "block",
+          "fontSize": "24px",
+          "height": 64,
+          "lineHeight": "32px",
+          "role": "email-field",
+          "scrollWidth": 311,
+          "visible": true,
+          "width": 315
+        }
+      ],
+      "overflow": false,
+      "url": "http://localhost:4173/component-preview.html?family=email&dev=0",
+      "viewport": 761
+    },
+    {
+      "buttons": [],
+      "family": "typography",
+      "introOverflow": false,
+      "nav": [],
+      "nodes": [
+        {
+          "clientWidth": 922,
+          "display": "block",
+          "fontSize": "128px",
+          "height": 128,
+          "lineHeight": "128px",
+          "role": "display",
+          "scrollWidth": 922,
+          "visible": true,
+          "width": 921.609375
+        },
+        {
+          "clientWidth": 922,
+          "display": "block",
+          "fontSize": "64px",
+          "height": 64,
+          "lineHeight": "64px",
+          "role": "h1",
+          "scrollWidth": 922,
+          "visible": true,
+          "width": 921.609375
+        },
+        {
+          "clientWidth": 922,
+          "display": "block",
+          "fontSize": "36px",
+          "height": 48,
+          "lineHeight": "48px",
+          "role": "h2",
+          "scrollWidth": 922,
+          "visible": true,
+          "width": 921.609375
+        },
+        {
+          "clientWidth": 922,
+          "display": "block",
+          "fontSize": "14px",
+          "height": 16,
+          "lineHeight": "16px",
+          "role": "h3",
+          "scrollWidth": 922,
+          "visible": true,
+          "width": 921.609375
+        },
+        {
+          "clientWidth": 922,
+          "display": "block",
+          "fontSize": "20px",
+          "height": 128,
+          "lineHeight": "32px",
+          "role": "body",
+          "scrollWidth": 922,
+          "visible": true,
+          "width": 921.609375
+        },
+        {
+          "clientWidth": 922,
+          "display": "block",
+          "fontSize": "14px",
+          "height": 16,
+          "lineHeight": "16px",
+          "role": "caption",
+          "scrollWidth": 922,
+          "visible": true,
+          "width": 921.609375
+        },
+        {
+          "clientWidth": 922,
+          "display": "block",
+          "fontSize": "48px",
+          "height": 35.5234375,
+          "lineHeight": "64px",
+          "role": "quote",
+          "scrollWidth": 922,
+          "visible": true,
+          "width": 921.609375
+        }
+      ],
+      "overflow": false,
+      "url": "http://localhost:4173/component-preview.html?family=typography&dev=0",
+      "viewport": 1024
+    },
+    {
+      "buttons": [
+        {
+          "centerDelta": 0.00390625,
+          "groupWidth": 492.7421875,
+          "overflow": false,
+          "width": 921.609375
+        }
+      ],
+      "family": "action",
+      "introOverflow": false,
+      "nav": [],
+      "nodes": [
+        {
+          "clientWidth": 922,
+          "display": "flex",
+          "fontSize": "24px",
+          "height": 64,
+          "lineHeight": "32px",
+          "role": "action-button",
+          "scrollWidth": 922,
+          "visible": true,
+          "width": 921.609375
+        },
+        {
+          "clientWidth": 429,
+          "display": "block",
+          "fontSize": "24px",
+          "height": 64,
+          "lineHeight": "32px",
+          "role": "action-button__label",
+          "scrollWidth": 429,
+          "visible": true,
+          "width": 428.7421875
+        },
+        {
+          "clientWidth": 0,
+          "display": "block",
+          "fontSize": "24px",
+          "height": 0,
+          "lineHeight": "32px",
+          "role": "email-field",
+          "scrollWidth": 0,
+          "visible": false,
+          "width": 0
+        },
+        {
+          "clientWidth": 0,
+          "display": "flex",
+          "fontSize": "24px",
+          "height": 0,
+          "lineHeight": "32px",
+          "role": "action-button",
+          "scrollWidth": 0,
+          "visible": false,
+          "width": 0
+        },
+        {
+          "clientWidth": 0,
+          "display": "block",
+          "fontSize": "24px",
+          "height": 0,
+          "lineHeight": "32px",
+          "role": "action-button__label",
+          "scrollWidth": 0,
+          "visible": false,
+          "width": 0
+        }
+      ],
+      "overflow": false,
+      "url": "http://localhost:4173/component-preview.html?family=action&dev=0",
+      "viewport": 1024
+    },
+    {
+      "buttons": [],
+      "family": "email",
+      "introOverflow": false,
+      "nav": [],
+      "nodes": [
+        {
+          "clientWidth": 311,
+          "display": "block",
+          "fontSize": "24px",
+          "height": 64,
+          "lineHeight": "32px",
+          "role": "email-field",
+          "scrollWidth": 311,
+          "visible": true,
+          "width": 315
+        }
+      ],
+      "overflow": false,
+      "url": "http://localhost:4173/component-preview.html?family=email&dev=0",
+      "viewport": 1024
+    },
+    {
+      "buttons": [],
+      "family": "typography",
+      "introOverflow": false,
+      "nav": [],
+      "nodes": [
+        {
+          "clientWidth": 956,
+          "display": "block",
+          "fontSize": "128px",
+          "height": 128,
+          "lineHeight": "128px",
+          "role": "display",
+          "scrollWidth": 956,
+          "visible": true,
+          "width": 956
+        },
+        {
+          "clientWidth": 956,
+          "display": "block",
+          "fontSize": "64px",
+          "height": 64,
+          "lineHeight": "64px",
+          "role": "h1",
+          "scrollWidth": 956,
+          "visible": true,
+          "width": 956
+        },
+        {
+          "clientWidth": 956,
+          "display": "block",
+          "fontSize": "36px",
+          "height": 48,
+          "lineHeight": "48px",
+          "role": "h2",
+          "scrollWidth": 956,
+          "visible": true,
+          "width": 956
+        },
+        {
+          "clientWidth": 956,
+          "display": "block",
+          "fontSize": "14px",
+          "height": 16,
+          "lineHeight": "16px",
+          "role": "h3",
+          "scrollWidth": 956,
+          "visible": true,
+          "width": 956
+        },
+        {
+          "clientWidth": 956,
+          "display": "block",
+          "fontSize": "20px",
+          "height": 128,
+          "lineHeight": "32px",
+          "role": "body",
+          "scrollWidth": 956,
+          "visible": true,
+          "width": 956
+        },
+        {
+          "clientWidth": 956,
+          "display": "block",
+          "fontSize": "14px",
+          "height": 16,
+          "lineHeight": "16px",
+          "role": "caption",
+          "scrollWidth": 956,
+          "visible": true,
+          "width": 956
+        },
+        {
+          "clientWidth": 956,
+          "display": "block",
+          "fontSize": "48px",
+          "height": 35.5234375,
+          "lineHeight": "64px",
+          "role": "quote",
+          "scrollWidth": 956,
+          "visible": true,
+          "width": 956
+        }
+      ],
+      "overflow": false,
+      "url": "http://localhost:4173/component-preview.html?family=typography&dev=0",
+      "viewport": 1440
+    },
+    {
+      "buttons": [
+        {
+          "centerDelta": 0.00390625,
+          "groupWidth": 492.7421875,
+          "overflow": false,
+          "width": 956
+        }
+      ],
+      "family": "action",
+      "introOverflow": false,
+      "nav": [],
+      "nodes": [
+        {
+          "clientWidth": 956,
+          "display": "flex",
+          "fontSize": "24px",
+          "height": 64,
+          "lineHeight": "32px",
+          "role": "action-button",
+          "scrollWidth": 956,
+          "visible": true,
+          "width": 956
+        },
+        {
+          "clientWidth": 429,
+          "display": "block",
+          "fontSize": "24px",
+          "height": 64,
+          "lineHeight": "32px",
+          "role": "action-button__label",
+          "scrollWidth": 429,
+          "visible": true,
+          "width": 428.7421875
+        },
+        {
+          "clientWidth": 0,
+          "display": "block",
+          "fontSize": "24px",
+          "height": 0,
+          "lineHeight": "32px",
+          "role": "email-field",
+          "scrollWidth": 0,
+          "visible": false,
+          "width": 0
+        },
+        {
+          "clientWidth": 0,
+          "display": "flex",
+          "fontSize": "24px",
+          "height": 0,
+          "lineHeight": "32px",
+          "role": "action-button",
+          "scrollWidth": 0,
+          "visible": false,
+          "width": 0
+        },
+        {
+          "clientWidth": 0,
+          "display": "block",
+          "fontSize": "24px",
+          "height": 0,
+          "lineHeight": "32px",
+          "role": "action-button__label",
+          "scrollWidth": 0,
+          "visible": false,
+          "width": 0
+        }
+      ],
+      "overflow": false,
+      "url": "http://localhost:4173/component-preview.html?family=action&dev=0",
+      "viewport": 1440
+    },
+    {
+      "buttons": [],
+      "family": "email",
+      "introOverflow": false,
+      "nav": [],
+      "nodes": [
+        {
+          "clientWidth": 311,
+          "display": "block",
+          "fontSize": "24px",
+          "height": 64,
+          "lineHeight": "32px",
+          "role": "email-field",
+          "scrollWidth": 311,
+          "visible": true,
+          "width": 315
+        }
+      ],
+      "overflow": false,
+      "url": "http://localhost:4173/component-preview.html?family=email&dev=0",
+      "viewport": 1440
+    },
+    {
+      "buttons": [],
+      "family": "typography",
+      "introOverflow": false,
+      "nav": [],
+      "nodes": [
+        {
+          "clientWidth": 956,
+          "display": "block",
+          "fontSize": "128px",
+          "height": 128,
+          "lineHeight": "128px",
+          "role": "display",
+          "scrollWidth": 956,
+          "visible": true,
+          "width": 956
+        },
+        {
+          "clientWidth": 956,
+          "display": "block",
+          "fontSize": "64px",
+          "height": 64,
+          "lineHeight": "64px",
+          "role": "h1",
+          "scrollWidth": 956,
+          "visible": true,
+          "width": 956
+        },
+        {
+          "clientWidth": 956,
+          "display": "block",
+          "fontSize": "36px",
+          "height": 48,
+          "lineHeight": "48px",
+          "role": "h2",
+          "scrollWidth": 956,
+          "visible": true,
+          "width": 956
+        },
+        {
+          "clientWidth": 956,
+          "display": "block",
+          "fontSize": "14px",
+          "height": 16,
+          "lineHeight": "16px",
+          "role": "h3",
+          "scrollWidth": 956,
+          "visible": true,
+          "width": 956
+        },
+        {
+          "clientWidth": 956,
+          "display": "block",
+          "fontSize": "20px",
+          "height": 128,
+          "lineHeight": "32px",
+          "role": "body",
+          "scrollWidth": 956,
+          "visible": true,
+          "width": 956
+        },
+        {
+          "clientWidth": 956,
+          "display": "block",
+          "fontSize": "14px",
+          "height": 16,
+          "lineHeight": "16px",
+          "role": "caption",
+          "scrollWidth": 956,
+          "visible": true,
+          "width": 956
+        },
+        {
+          "clientWidth": 956,
+          "display": "block",
+          "fontSize": "48px",
+          "height": 35.5234375,
+          "lineHeight": "64px",
+          "role": "quote",
+          "scrollWidth": 956,
+          "visible": true,
+          "width": 956
+        }
+      ],
+      "overflow": false,
+      "url": "http://localhost:4173/component-preview.html?family=typography&dev=0",
+      "viewport": 1920
+    },
+    {
+      "buttons": [
+        {
+          "centerDelta": 0.00390625,
+          "groupWidth": 492.7421875,
+          "overflow": false,
+          "width": 956
+        }
+      ],
+      "family": "action",
+      "introOverflow": false,
+      "nav": [],
+      "nodes": [
+        {
+          "clientWidth": 956,
+          "display": "flex",
+          "fontSize": "24px",
+          "height": 64,
+          "lineHeight": "32px",
+          "role": "action-button",
+          "scrollWidth": 956,
+          "visible": true,
+          "width": 956
+        },
+        {
+          "clientWidth": 429,
+          "display": "block",
+          "fontSize": "24px",
+          "height": 64,
+          "lineHeight": "32px",
+          "role": "action-button__label",
+          "scrollWidth": 429,
+          "visible": true,
+          "width": 428.7421875
+        },
+        {
+          "clientWidth": 0,
+          "display": "block",
+          "fontSize": "24px",
+          "height": 0,
+          "lineHeight": "32px",
+          "role": "email-field",
+          "scrollWidth": 0,
+          "visible": false,
+          "width": 0
+        },
+        {
+          "clientWidth": 0,
+          "display": "flex",
+          "fontSize": "24px",
+          "height": 0,
+          "lineHeight": "32px",
+          "role": "action-button",
+          "scrollWidth": 0,
+          "visible": false,
+          "width": 0
+        },
+        {
+          "clientWidth": 0,
+          "display": "block",
+          "fontSize": "24px",
+          "height": 0,
+          "lineHeight": "32px",
+          "role": "action-button__label",
+          "scrollWidth": 0,
+          "visible": false,
+          "width": 0
+        }
+      ],
+      "overflow": false,
+      "url": "http://localhost:4173/component-preview.html?family=action&dev=0",
+      "viewport": 1920
+    },
+    {
+      "buttons": [],
+      "family": "email",
+      "introOverflow": false,
+      "nav": [],
+      "nodes": [
+        {
+          "clientWidth": 311,
+          "display": "block",
+          "fontSize": "24px",
+          "height": 64,
+          "lineHeight": "32px",
+          "role": "email-field",
+          "scrollWidth": 311,
+          "visible": true,
+          "width": 315
+        }
+      ],
+      "overflow": false,
+      "url": "http://localhost:4173/component-preview.html?family=email&dev=0",
+      "viewport": 1920
+    }
+  ]
+}

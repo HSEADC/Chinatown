@@ -1,5 +1,5 @@
 /** Slide the actual editorial nodes; retiring a page returns it to its article home. */
-export function createContextPager(host, { canAnimate, onUpdate }) {
+export function createContextPager(host, { canAnimate, onUpdate, outgoingClassName = 'scene-rail__context-content scene-rail__context-outgoing' }) {
   const panel = host.parentElement;
   let current = null;
   let outgoing = null;
@@ -54,7 +54,7 @@ export function createContextPager(host, { canAnimate, onUpdate }) {
     outgoing = null;
     if (current) {
       const layer = host.ownerDocument.createElement('div');
-      layer.className = 'scene-rail__context-content scene-rail__context-outgoing';
+      layer.className = outgoingClassName;
       layer.inert = true;
       layer.setAttribute('aria-hidden', 'true');
       const scrollTop = host.scrollTop;

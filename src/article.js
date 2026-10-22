@@ -7,6 +7,7 @@ import { mountSectionHeadings } from './section-headings.js';
 import { mountDevTools } from './dev-tools.js';
 import { mountArticleImages } from './article-images.js';
 import { mountActionButtons } from './components/action-button.js';
+import { mountMobileShell } from './mobile-shell.js';
 
 /** Attach article anchors and the shared headline effect. */
 export function mountArticle(page, header = page?.querySelector('.story-header'), sceneRail) {
@@ -16,20 +17,28 @@ export function mountArticle(page, header = page?.querySelector('.story-header')
   const controller = new AbortController();
   const headlineGlitch = mountHeadlineGlitch(title, { scroll: true, multiline: true });
   let quoteActive = false;
+  let mobileOverlay = false;
   let sectionHeadings;
   const club = mountStoryClub(page);
   let context;
   const images = mountArticleImages(page, { onOpenChange: value => context?.setFrozen(value) });
   function syncHeadline() {
-    const overlayOpen = header.classList.contains('is-search-open') || header.classList.contains('is-nav-open');
+    const headerOverlay = header.classList.contains('is-search-open') || header.classList.contains('is-nav-open');
+    const overlayOpen = headerOverlay || mobileOverlay;
     headlineGlitch.setSuspended(overlayOpen || quoteActive);
     club.setSuspended(overlayOpen || quoteActive);
-    context?.setSuspended(overlayOpen || quoteActive);
+    context?.setSuspended(headerOverlay || quoteActive);
     // Section titles belong to the article flow, including the concert's fade-out.
     sectionHeadings?.setSuspended(overlayOpen);
   }
 
   const headerControls = mountArticleHeader(header, syncHeadline, page);
+  const mobileShell = mountMobileShell(page, {
+    onOverlayChange(value) { mobileOverlay = value; syncHeadline(); },
+    onVisibilityChange() { context?.refresh(); },
+    onDismissContext() { context?.closeManual(); },
+    onRestoreContext(id) { context?.openManual(id); },
+  });
   sectionHeadings = mountSectionHeadings(page, header);
   const disposeQuotes = mountQuoteScenes(page, active => {
     quoteActive = active;
@@ -40,7 +49,7 @@ export function mountArticle(page, header = page?.querySelector('.story-header')
   });
   // Register lyric phase updates before the context scroll listener, so a scene
   // hides the rail before that same frame can select its video fallback.
-  context = mountArticleContext(page, sceneRail, { suspended: quoteActive });
+  context = mountArticleContext(page, sceneRail, { suspended: quoteActive, mobileShell });
   syncHeadline();
   const disposeDevTools = mountDevTools({ page, club });
   function followAnchor(event) {
@@ -70,6 +79,7 @@ export function mountArticle(page, header = page?.querySelector('.story-header')
     headlineGlitch.destroy();
     images.dispose();
     context.dispose();
+    mobileShell.dispose();
     document.body.classList.remove('is-story-quote-active');
   };
 }

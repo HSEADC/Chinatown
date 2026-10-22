@@ -2,12 +2,13 @@ import { articleContexts } from './article-context-data.js';
 import { contextAtPosition, selectContextState, contextTransitionDirection } from './article-context-state.js';
 
 /** Enhance the existing static nodes: each material has one DOM copy in every layout. */
-export function mountArticleContext(page, sceneRail, { suspended: initiallySuspended = false } = {}) {
+export function mountArticleContext(page, sceneRail, { suspended: initiallySuspended = false, mobileShell } = {}) {
   const data = articleContexts[page.dataset.articleId];
   if (!data || !sceneRail) return { setSuspended() {}, setFrozen() {}, dispose() {} };
   const controller = new AbortController();
   const options = { signal: controller.signal };
   const wide = matchMedia('(min-width: 1200px)');
+  const phone = matchMedia('(max-width: 760px)');
   const finePointer = matchMedia('(hover: hover) and (pointer: fine)');
   const refs = [...page.querySelectorAll('[data-context-ref]')];
   const materials = new Map(data.materials.map(item => [item.id, { ...item, node: page.querySelector(`[data-context-material="${item.id}"]`) }]).filter(([, item]) => item.node));
@@ -17,7 +18,7 @@ export function mountArticleContext(page, sceneRail, { suspended: initiallySuspe
     node.before(marker);
     return [node, marker];
   }));
-  const chapters = data.chapters.map(chapter => ({ ...chapter, node: page.querySelector(`#${chapter.id}`) })).filter(chapter => chapter.node);
+  const chapters = data.chapters.map(chapter => ({ ...chapter, node: page.querySelector(`#${chapter.anchorId || chapter.id}`) })).filter(chapter => chapter.node);
   // Capture article order before any material moves into the rail or a dialog.
   // Unlike Y coordinates, this also distinguishes mentions on the same text line.
   const sourceOrder = new Map([...page.querySelectorAll('*')].map((node, index) => [node, index]));
@@ -41,6 +42,7 @@ export function mountArticleContext(page, sceneRail, { suspended: initiallySuspe
   let frozen = false;
   let pointerDown = false;
   let scrollLock = null;
+  let highlighted = null;
 
   function ownHistory() { return history.state?.articleContext?.token === token; }
   function restoreFocus(trigger) {
@@ -69,18 +71,29 @@ export function mountArticleContext(page, sceneRail, { suspended: initiallySuspe
     for (const ref of refs) {
       const item = materials.get(ref.dataset.contextRef);
       if (!item) continue;
-      const expanded = (manual || preview)?.id === item.id;
+      const expanded = (manual || preview)?.id === item.id || phone.matches && mobileShell?.contextVisible && displayedState.id === item.id;
       ref.setAttribute('aria-expanded', String(expanded));
       ref.toggleAttribute('data-context-active', expanded);
       ref.setAttribute('aria-controls', item.id);
-      if (!wide.matches && (item.mobile === 'screen' || item.entity)) ref.setAttribute('aria-haspopup', 'dialog');
+      if (!wide.matches && !phone.matches && (item.mobile === 'screen' || item.entity)) ref.setAttribute('aria-haspopup', 'dialog');
       else ref.removeAttribute('aria-haspopup');
     }
   }
   function isInteracting() {
+    if (phone.matches) return mobileShell?.isInteracting() || false;
     const selection = window.getSelection();
     return pointerDown || sceneRail.contextHost.contains(document.activeElement)
       || !selection?.isCollapsed && sceneRail.contextHost.contains(selection?.anchorNode);
+  }
+
+  function highlightSource(source) {
+    const shown = phone.matches ? mobileShell?.contextVisible
+      : wide.matches && !sceneRail.rail.classList.contains('is-collapsed') && !document.body.classList.contains('is-story-cover-active') && !suspended;
+    const paragraph = shown && displayedState.id ? (source?.matches('p') ? source : source?.closest('p') || source?.querySelector('.story-section__copy > p')) : null;
+    if (highlighted === paragraph) return;
+    highlighted?.classList.remove('story-context-source');
+    highlighted = paragraph || null;
+    highlighted?.classList.add('story-context-source');
   }
 
   function render() {
@@ -106,23 +119,37 @@ export function mountArticleContext(page, sceneRail, { suspended: initiallySuspe
       };
     }), readingY, chapterId);
     const automaticId = chapters.find(chapter => chapter.id === chapterId)?.materialId || null;
-    const interactionId = wide.matches && !manual && isInteracting() ? displayedState.id || null : null;
+    const interactionId = (wide.matches || phone.matches) && !manual && isInteracting() ? displayedState.id || null : null;
     const state = selectContextState({ manualId: manual?.id, previewId: preview?.id, interactionId, automaticId });
-    updateRefs();
     const selected = materials.get(manual?.id);
-    const screen = !wide.matches && !suspended && manual && (selected?.mobile === 'screen' || selected?.entity);
+    const screen = !wide.matches && !phone.matches && !suspended && manual && (selected?.mobile === 'screen' || selected?.entity);
     const id = state.id || 'video';
-    const source = manual?.trigger || preview?.trigger || chapters.find(chapter => chapter.id === chapterId)?.node;
-    const nextSource = { id, order: interactionId && !manual && !preview ? displayedSource?.order : sourceOrder.get(source) };
+    const source = interactionId && !manual && !preview ? displayedSource?.node : manual?.trigger || preview?.trigger || chapters.find(chapter => chapter.id === chapterId)?.node;
+    const nextSource = { id, node: source, order: interactionId && !manual && !preview ? displayedSource?.order : sourceOrder.get(source) };
     const direction = contextTransitionDirection(displayedSource, nextSource);
     displayedSource = nextSource;
-    const key = wide.matches ? `rail:${id}` : screen ? `screen:${manual.id}` : `flow:${manual?.id || ''}:${refs.indexOf(manual?.trigger)}`;
+    const key = phone.matches && mobileShell ? `mobile:${id}` : wide.matches ? `rail:${id}` : screen ? `screen:${manual.id}` : `flow:${manual?.id || ''}:${refs.indexOf(manual?.trigger)}`;
     displayedState = state;
+    updateRefs();
+    highlightSource(source);
     if (key === placement) return;
     const wasWide = placement.startsWith('rail:');
+    const wasMobile = placement.startsWith('mobile:');
     placement = key;
     const focused = document.activeElement;
     closeScreen();
+    if (phone.matches && mobileShell) {
+      if (!wasMobile) {
+        sceneRail.setContext(null, { animate: false });
+        restoreNodes();
+      }
+      const item = materials.get(state.id);
+      if (item) item.node.hidden = false;
+      mobileShell.setContext(item?.node || null, { id: item?.id, title: item?.title, manual: state.manual, direction, animate: wasMobile, release: restoreNode });
+      highlightSource(source);
+      return;
+    }
+    if (wasMobile) mobileShell?.releaseContext();
     if (wide.matches) {
       if (!wasWide) {
         sceneRail.setContext(null, { animate: false });
@@ -193,7 +220,7 @@ export function mountArticleContext(page, sceneRail, { suspended: initiallySuspe
     if (ownHistory()) history.back();
     else closeImmediate();
   }
-  function open(id, trigger) {
+  function open(id, trigger, { recordHistory = true } = {}) {
     const item = materials.get(id);
     if (!item) return;
     if (!wide.matches && item.kind === 'footnote' && manual?.id === id && manual.trigger === trigger) { requestClose(); return; }
@@ -202,6 +229,7 @@ export function mountArticleContext(page, sceneRail, { suspended: initiallySuspe
     if (wide.matches) sceneRail.expand();
     if (ownHistory()) history.replaceState({ ...history.state, articleContext: { token, articleId: data.articleId, materialId: id } }, '');
     render();
+    if (phone.matches && mobileShell && recordHistory) mobileShell.openContext();
     if (wide.matches) item.node.focus({ preventScroll: true });
   }
   function followHash() {
@@ -265,6 +293,8 @@ export function mountArticleContext(page, sceneRail, { suspended: initiallySuspe
     }
   }, options);
   window.addEventListener('popstate', () => {
+    // The phone shell owns its Back entry; nested image entries must not unpin it.
+    if (phone.matches && mobileShell) return;
     if (ownHistory()) {
       const id = history.state.articleContext.materialId;
       if (materials.has(id)) { manual = { id, trigger: refs.find(ref => ref.dataset.contextRef === id) }; render(); }
@@ -278,6 +308,7 @@ export function mountArticleContext(page, sceneRail, { suspended: initiallySuspe
   page.addEventListener('load', schedule, { ...options, capture: true });
   sceneRail.rail.addEventListener('focusin', schedule, options);
   sceneRail.rail.addEventListener('focusout', schedule, options);
+  sceneRail.rail.addEventListener('click', schedule, options);
   sceneRail.contextHost.addEventListener('pointerdown', () => { pointerDown = true; }, options);
   window.addEventListener('pointerup', () => { pointerDown = false; schedule(); }, options);
   window.addEventListener('pointercancel', () => { pointerDown = false; schedule(); }, options);
@@ -292,8 +323,12 @@ export function mountArticleContext(page, sceneRail, { suspended: initiallySuspe
   followHash();
 
   return {
+    refresh: schedule,
+    openManual(id) { if (manual?.id !== id) open(id, refs.find(ref => ref.dataset.contextRef === id), { recordHistory: false }); },
+    closeManual() { if (manual) closeImmediate({ focus: false }); },
     setFrozen(value) {
       frozen = value;
+      mobileShell?.setFrozen(value);
       sceneRail.setContextFrozen(value);
       if (!frozen) render();
     },
@@ -310,6 +345,7 @@ export function mountArticleContext(page, sceneRail, { suspended: initiallySuspe
       cancelAnimationFrame(frame);
       cancelAnimationFrame(hashFrame);
       closeScreen();
+      mobileShell?.releaseContext();
       sceneRail.setContext(null, { animate: false });
       restoreNodes();
       for (const node of nodes) node.hidden = false;
@@ -317,6 +353,7 @@ export function mountArticleContext(page, sceneRail, { suspended: initiallySuspe
       sceneRail.setSuspended(false);
       dialog.remove();
       page.classList.remove('has-article-context');
+      highlighted?.classList.remove('story-context-source');
       for (const ref of refs) for (const attr of ['aria-expanded', 'aria-controls', 'aria-haspopup', 'data-context-active']) ref.removeAttribute(attr);
     },
   };

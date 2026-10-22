@@ -103,12 +103,12 @@
 .scene-rail.is-suspended { opacity: 0; visibility: hidden; pointer-events: none; transition: none; }
 .scene-rail--article .scene-rail__status, .scene-rail--article .scene-rail__credit { font: 400 var(--font-size-caption)/var(--line-height-caption) var(--font-body); }
 .article-context-material { min-width: 0; margin-block: 24px; padding: 24px 0 24px 20px; border-left: 1px solid var(--media-accent); color: var(--story-muted, #b7b7b7); font: 400 var(--font-size-body)/var(--line-height-body) var(--font-body); overflow-wrap: anywhere; }
-.article-context-material h2 { margin: 0 0 24px; color: #fff; font: 800 28px/32px var(--font-body); text-wrap: balance; }
+.article-context-material h2 { margin: 0 0 24px; color: #fff; font: 800 var(--font-size-heading)/var(--line-height-heading) var(--font-body); text-wrap: balance; }
 .article-context-material p { margin: 0; font: inherit; }
 .article-context-material p + p { margin-top: 24px; }
 .article-context-material figure { margin: 0 0 24px; }
 .article-context-material img { display: block; width: 100%; height: auto; }
-.article-context-material figcaption, .article-context-sources, .article-context-backlink { font: 400 var(--font-size-caption)/24px var(--font-body); }
+.article-context-material figcaption, .article-context-sources, .article-context-backlink { font: 400 var(--font-size-caption)/var(--line-height-caption) var(--font-body); }
 .article-context-material figcaption { margin-top: 16px; }
 .article-context-material a { color: inherit; text-underline-offset: .2em; }
 .article-context-material a:hover { color: var(--media-accent); }
@@ -122,7 +122,7 @@
 .has-article-context .article-context-backlink, .scene-rail .article-context-backlink, .article-context-screen .article-context-backlink { display: none; }
 .scene-rail__context .article-context-material, .article-context-screen .article-context-material { margin: 0; padding: 0; border: 0; }
 .scene-rail__context-content > [data-context-material]:not(:has(> h2)) { padding-top: 46px; }
-.scene-rail__context-content > [data-context-material] > h2 { min-height: 30px; margin: 0 0 16px; padding-top: 6px; overflow: hidden; color: #fff; font: 700 24px/24px var(--font-display); letter-spacing: .02em; text-transform: uppercase; white-space: nowrap; text-overflow: ellipsis; transition: padding-left var(--scene-shell-motion); }
+.scene-rail__context-content > [data-context-material] > h2 { min-height: 30px; margin: 0 0 16px; padding-top: 6px; overflow: hidden; color: #fff; font: 700 var(--font-size-card-title)/var(--line-height-card-title) var(--font-display); letter-spacing: .02em; text-transform: uppercase; white-space: nowrap; text-overflow: ellipsis; transition: padding-left var(--scene-shell-motion); }
 .scene-rail:not(.is-collapsed):is(.is-hovered, :has(:focus-visible)) .scene-rail__context-content > [data-context-material] > h2 { padding-left: 40px; }
 .scene-rail .story-artwork { display: flex; flex-direction: column; gap: 16px; width: 100%; }
 .scene-rail .story-artwork .story-artwork__title { display: block; flex: none; width: 100%; margin: 0; }
@@ -131,8 +131,8 @@
 .scene-rail .story-artwork img { position: absolute; top: 0; left: -.63%; display: block; width: 101.59%; max-width: none; height: 100.325%; aspect-ratio: auto; }
 .scene-rail .story-artwork .context-image-trigger:is(:hover, :focus-visible, :active) { transform: none; filter: none; }
 .scene-rail .story-artwork figcaption { display: flex; flex-direction: column; gap: 4px; margin: 0; color: #fff; }
-.scene-rail .story-artwork__artist { display: block; font: 700 32px/32px var(--font-display); letter-spacing: .02em; }
-.scene-rail .story-artwork__name { display: block; font: 400 14px/16px var(--font-body); }
+.scene-rail .story-artwork__artist { display: block; font: 700 var(--font-size-card-artist)/var(--line-height-card-artist) var(--font-display); letter-spacing: .02em; }
+.scene-rail .story-artwork__name { display: block; font: 400 var(--font-size-caption)/var(--line-height-caption) var(--font-body); }
 .scene-rail .story-artwork__summary { display: block; width: 100%; margin: 0; color: var(--color-on-media); font: 400 var(--font-size-body)/var(--line-height-body) var(--font-body); }
 .scene-rail .story-artwork__description { display: none; }
 .article-context-screen { position: fixed; inset: 0; width: 100%; max-width: none; height: 100%; max-height: none; margin: 0; padding: max(20px, env(safe-area-inset-top)) 20px max(32px, env(safe-area-inset-bottom)); border: 0; background: var(--story-bg, #131313); color: #fff; overflow-y: auto; overscroll-behavior: contain; }

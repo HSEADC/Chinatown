@@ -204,6 +204,7 @@ export const madk1dContext = {
   "chapters": [
     {
       "id": "artist",
+      "anchorId": "artist-intro",
       "materialId": "track-tak-pohuy"
     },
     {
@@ -211,6 +212,7 @@ export const madk1dContext = {
     },
     {
       "id": "chorus-freedom",
+      "anchorId": "chorus-doubt",
       "materialId": "address-note"
     },
     {
@@ -218,18 +220,22 @@ export const madk1dContext = {
     },
     {
       "id": "verse",
+      "anchorId": "verse-paragraph-2",
       "materialId": "references"
     },
     {
       "id": "spread",
+      "anchorId": "spread-paragraph-2",
       "materialId": "spread-method"
     },
     {
       "id": "reach",
+      "anchorId": "reach-paragraph-1",
       "materialId": "reach-note"
     },
     {
       "id": "album",
+      "anchorId": "album-paragraph-1",
       "materialId": "sexyswag-artwork"
     },
     {

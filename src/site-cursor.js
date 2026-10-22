@@ -33,8 +33,7 @@ function renderCursor() {
   const target = draggingSphere || document.elementFromPoint(pointer.x, pointer.y);
   if (!target) return hideCursor();
   const intro = target.closest('.intro');
-  const copyArea = intro?.querySelector(intro.classList.contains('intro--compact')
-    ? '.intro__site-link' : '.intro__headline');
+  const copyArea = intro?.querySelector('.intro__headline');
   // The headline lets pointer events through to the sphere. Its copy area must
   // win regardless of which nested element happens to be underneath the mouse.
   const overText = intro && !target.closest('button, .intro__about')
@@ -51,7 +50,6 @@ function renderCursor() {
   cursor.hidden = false;
   root.classList.add('has-site-cursor');
   // Controls move under a stationary pointer during the intro transition.
-  if (document.querySelector('.intro--transitioning')) queueRender();
 }
 
 async function initializeCursor() {

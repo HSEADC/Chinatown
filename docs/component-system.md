@@ -9,7 +9,7 @@
 | Кнопки действия | ActionButton [primary / secondary] | Общий компонент | `src/components/action-button.js`, `src/components/action-button.css` |
 | Поле электропочты | EmailField | Общий компонент | `src/components/email-field.css`, `index.html`, `src/subscribe-modal.js` |
 | Ссылки и действия | TextAction / EntityReference / IconButton | Вынести в общие | `src/components/editorial-typography.js`, `src/components/editorial-typography.css`, `article.css`, `styles.css` |
-| Редакционная типографика | Typography / EditorialProse | Общий компонент | `src/components/typography.css`, `src/components/typography.js`, `src/components/editorial-typography.css`, `styles.css`, `docs/editorial-typography.md` |
+| Редакционная типографика | Typography / EditorialProse | Общий компонент | `src/design-tokens.css`, `src/components/typography.css`, `src/components/typography.js`, `src/components/editorial-typography.css`, `styles.css`, `docs/editorial-typography.md` |
 | Шапка и поиск | SiteHeader → Navigation / Search | Нужен дизайн | `src/article-header.js`, `src/article-view.js`, `article.css`, `src/media-views.js` |
 | Обложка материала | ArticleCover | Вынести в общие | `src/article-view.js`, `article.css` |
 | Раздел статьи | ArticleSection → SectionHeading / Prose | Вынести в общие | `src/article-view.js`, `src/section-headings.js`, `article.css` |
@@ -28,7 +28,7 @@
 
 ActionButton используется для вайт-листа и подписки. Внешний вид меняется только в src/components/action-button.css; страница задаёт доступную ширину и положение. Figma: десктоп 276:101; мобильные основной и прозрачный варианты 388:748 / 388:752. Поле EmailField — 388:756. Мобильная граница — 760 px.
 
-Общая типографика находится в src/components/typography.css; образцы — src/components/typography.js. Список девяти исходных узлов Figma и точная шкала: [editorial-typography.md](editorial-typography.md). Рукописного акцента в редакционном тексте нет. Elion сохранён только среди гарнитур эффекта глитча заголовка.
+Значения двух профилей находятся в src/design-tokens.css; классы типографики — в src/components/typography.css; образцы — src/components/typography.js. Список девяти исходных узлов Figma и точная шкала: [editorial-typography.md](editorial-typography.md). Рукописного акцента в редакционном тексте нет. Elion сохранён только среди гарнитур эффекта глитча заголовка.
 
 ## Блок данных
 
@@ -122,3 +122,6 @@ ActionButton используется для вайт-листа и подпис
 - Hover, focus, pressed, disabled и reduced motion — там, где применимо.
 - Указать поведение между размерами, ограничения контента и правила отсутствующих данных.
 - Для песенных сцен: минимум 4 исходные строки либо полный короткий припев; далее разбор именно показанного фрагмента.
+
+
+Адаптивная архитектура: [responsive-system.md](responsive-system.md). Размеры текста и контролов переключаются только на границе 760 / 761 px.
