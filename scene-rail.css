@@ -152,6 +152,11 @@
   .has-scene-rail[data-media-page="article"] .story-club { display: none; }
 }
 @media (max-width: 760px) {
+  /* Keep the viewport as the native scroll owner in Android custom tabs.
+     The desktop rail is absent here, so the document needs no overflow clip. */
+  html:has(body[data-media-page="article"]) { overflow-y: auto; }
+  .has-scene-rail[data-media-page="article"] { overflow: visible; }
+  .has-mobile-shell #media-content { touch-action: pan-y pinch-zoom; }
   [data-media-page="article"] .article-context-material { font-size: var(--font-size-body); }
 }
 @media (prefers-reduced-motion: reduce) {

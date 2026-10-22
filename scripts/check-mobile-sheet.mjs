@@ -39,6 +39,13 @@ async function checkPhone(width, height) {
   }
   await page.goto(url);
   await page.evaluate(() => document.fonts.ready);
+  await settle();
+  assert.equal(await page.evaluate(() => getComputedStyle(document.documentElement).overflowY), 'auto');
+  assert.equal(await page.evaluate(() => getComputedStyle(document.body).overflow), 'visible');
+  assert.equal(await articleY(), 0);
+  const coverSwipe = await assertArticleSwipe(height * .65, height * .25);
+  assert(await page.locator('.story-cover').evaluate(element => element.getBoundingClientRect().top < -40));
+  await assertArticleSwipe(height * .25, height * .65);
   await page.locator('#artist-intro').evaluate(element => scrollTo(0, scrollY + element.getBoundingClientRect().top - Math.min(160, innerHeight * .25)));
   await settle();
   assert.equal(await snap(), 'preview');
@@ -102,7 +109,7 @@ async function checkPhone(width, height) {
     await assertArticleSwipe(height - 16, height - 250);
   }
   assert.equal(await page.evaluate(() => document.documentElement.scrollWidth), width);
-  checks.push({ width, height, previewHeight, expandedHeight, articleSwipe: forward, reverseSwipe: backward, swipeStartingOnPreview: previewSwipe });
+  checks.push({ width, height, previewHeight, expandedHeight, coverSwipe, articleSwipe: forward, reverseSwipe: backward, swipeStartingOnPreview: previewSwipe });
   await context.close();
 }
 
