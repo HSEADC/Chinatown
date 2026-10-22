@@ -33,10 +33,10 @@ export function mountMobileShell(page, { onOverlayChange = () => {}, onVisibilit
   const root = document.createElement('div');
   root.className = 'mobile-shell';
   root.innerHTML = `<p class="story-visually-hidden" data-mobile-status role="status" aria-live="polite"></p>
-    <div class="mobile-shell__fabs" role="group" aria-label="Управление сайтом">
-      <button class="mobile-fab" type="button" data-mobile-mode="menu" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-site-menu"><span>${img('menu', 16)}</span></button>
-      <button class="mobile-fab" type="button" data-mobile-mode="search" aria-label="Поиск статей" aria-expanded="false" aria-controls="mobile-site-search"><span>${img('search', 16)}</span></button>
-      <button class="mobile-fab mobile-fab--context" type="button" data-mobile-mode="context" aria-label="Открыть дополнительный материал" aria-expanded="false" aria-controls="mobile-context-sheet"><span>${img('arrow-up', 32)}<i class="mobile-fab__unread" hidden></i></span></button>
+    <div class="mobile-shell__fabs" role="group" aria-label="Управление сайтом" data-node-id="404:664">
+      <button class="mobile-fab" type="button" data-mobile-mode="menu" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-site-menu" data-node-id="404:665"><span>${img('menu-24', 24)}</span></button>
+      <button class="mobile-fab" type="button" data-mobile-mode="search" aria-label="Поиск статей" aria-expanded="false" aria-controls="mobile-site-search" data-node-id="404:667"><span>${img('search-24', 24)}</span></button>
+      <button class="mobile-fab mobile-fab--context" type="button" data-mobile-mode="context" aria-label="Открыть дополнительный материал" aria-expanded="false" aria-controls="mobile-context-sheet" data-node-id="404:671"><span>${img('arrow-up', 32)}<i class="mobile-fab__unread" hidden></i></span></button>
     </div>
     <div class="mobile-shell__backdrop" hidden></div>
     <section class="mobile-shell__sheet" id="mobile-context-sheet" aria-label="Рядом со статьёй" inert>

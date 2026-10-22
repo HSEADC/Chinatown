@@ -1,4 +1,4 @@
-/* Figma 400:379 / 443 / 517 / 598. Phone type and controls use the shared UIKIT. */
+/* Figma FAB 404:664; sheets 400:443 / 517 / 598. Controls use the shared UIKIT. */
 .mobile-shell { display: none; }
 .story-context-source > [data-context-text] {
   background: rgb(252 92 255 / .24);
@@ -30,12 +30,18 @@
   .mobile-shell :where(button, a, input):focus-visible { outline: 2px solid var(--mobile-accent); outline-offset: -2px; }
   .mobile-shell :where(p, h2, figure, dl) { margin: 0; }
   .mobile-shell a:where(:not(.action-button)) { color: inherit; }
-  .mobile-shell__fabs { position: fixed; right: 6px; bottom: calc(6px + env(safe-area-inset-bottom)); display: flex; flex-direction: column; align-items: end; }
-  /* The 24/32px Figma surfaces sit inside separate, non-overlapping 44px hit areas. */
+  .mobile-shell__fabs { position: fixed; right: var(--mobile-edge); bottom: calc(var(--mobile-edge) + env(safe-area-inset-bottom)); display: flex; flex-direction: column; align-items: end; gap: var(--fab-gap); }
+  /* The separate menu-close control keeps its existing 44px hit area. */
   .mobile-fab { position: relative; display: flex; align-items: center; justify-content: end; width: 44px; height: 44px; padding: 0 6px 0 0; background: transparent; }
   .mobile-fab > span { position: relative; display: grid; place-items: center; width: 24px; height: 24px; background: var(--mobile-control); }
   .mobile-fab img { display: block; flex: none; max-width: none; }
-  .mobile-fab--context > span { width: var(--button-height); height: var(--button-height); background: var(--mobile-accent); }
+  .mobile-fab--context > span { background: var(--mobile-accent); }
+  .mobile-shell__fabs .mobile-fab { justify-content: center; width: var(--fab-secondary-size); height: var(--fab-secondary-size); padding: 0; }
+  .mobile-shell__fabs .mobile-fab > span { width: var(--fab-secondary-size); height: var(--fab-secondary-size); }
+  /* Expand the small buttons' hit areas without changing the Figma surfaces or gaps. */
+  .mobile-shell__fabs .mobile-fab::after { position: absolute; inset: var(--button-hit-extension); content: ""; }
+  .mobile-shell__fabs .mobile-fab--context, .mobile-shell__fabs .mobile-fab--context > span { width: var(--fab-primary-size); height: var(--fab-primary-size); }
+  .mobile-shell__fabs .mobile-fab--context::after { inset: 0; }
   .mobile-fab__unread { position: absolute; top: -3px; right: -3px; width: 8px; height: 8px; border: 2px solid #131313; background: #fff; }
   .mobile-shell__sheet {
     position: fixed;

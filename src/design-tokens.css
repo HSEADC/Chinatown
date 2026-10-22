@@ -74,6 +74,10 @@
     --button-label-padding: 10px 0 6px 12px;
     --button-tracking: 0;
     --button-hit-extension: -6px;
+    /* Mobile FAB group, Figma 404:664. */
+    --fab-secondary-size: 32px;
+    --fab-primary-size: 56px;
+    --fab-gap: 24px;
     --input-height: 34px;
     --input-padding: 10px 12px 6px;
     --input-border: 1px;
