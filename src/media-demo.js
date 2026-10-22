@@ -44,7 +44,12 @@ function renderPage({ focus = false } = {}) {
 
 document.addEventListener('click', (event) => {
   const release = event.target.closest('[data-yandex-release]');
-  if (release) { player.open(release.dataset.yandexRelease); return; }
+  if (release) {
+    if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    player.open(release.dataset.yandexRelease);
+    return;
+  }
   const link = event.target.closest('a[data-media-route]');
   if (!link || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
   const url = new URL(link.href);

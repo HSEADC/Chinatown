@@ -1,7 +1,7 @@
 import { quoteTiming, quoteReadingLayout, quoteScrollState, quoteScrollStickiness, smoothQuoteTravel } from './quote-scroll-state.js';
 import { mountQuoteBackgroundVideo } from './quote-background-video.js';
 
-/** Fade in the concert, scroll its lyrics, and reveal the following article. */
+/** Fade in the concert, optionally scroll approved lyrics, and reveal the article. */
 export function mountQuoteScenes(page, onActiveChange) {
   const scenes = [...page.querySelectorAll('[data-quote-scene]')].map(element => ({
     element,
@@ -56,7 +56,8 @@ export function mountQuoteScenes(page, onActiveChange) {
         continue;
       }
       scene.height = scene.stage.offsetHeight;
-      scene.offsets = scene.lines.map(line => line.offsetTop - scene.lines[0].offsetTop);
+      // A concert can run without a lyric fragment; retain one stationary stop.
+      scene.offsets = scene.lines.length ? scene.lines.map(line => line.offsetTop - scene.lines[0].offsetTop) : [0];
       Object.assign(scene, quoteReadingLayout(scene.height, scene.offsets));
       scene.visualTravel = null;
       scene.targetTravel = null;

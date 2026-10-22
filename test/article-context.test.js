@@ -1,10 +1,31 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { contextAtPosition, selectContextState } from '../src/article-context-state.js';
+import { contextAtPosition, selectContextState, contextTransitionDirection } from '../src/article-context-state.js';
 import { nextArticleView, contextMaterialView } from '../src/article-context-view.js';
 import { madk1dContext } from '../src/article-context-data.js';
 
 const ranges = [{ id: 'artist', start: 100, end: 400 }, { id: 'note', start: 700, end: 900 }];
+
+test('card turns follow article source order, including adjacent mentions and reverse jumps', () => {
+  const artist = { id: 'artist', order: 10 };
+  const track = { id: 'track', order: 11 };
+  const album = { id: 'album', order: 12 };
+  const lateChapter = { id: 'note', order: 80 };
+  assert.equal(contextTransitionDirection(artist, track), 1);
+  assert.equal(contextTransitionDirection(track, album), 1);
+  assert.equal(contextTransitionDirection(album, artist), -1);
+  assert.equal(contextTransitionDirection(artist, lateChapter), 1);
+  assert.equal(contextTransitionDirection(lateChapter, track), -1);
+  assert.equal(contextTransitionDirection(lateChapter, { id: 'video', order: 90 }), 1);
+});
+
+test('first placement, retained material and unknown sources do not invent a turn direction', () => {
+  assert.equal(contextTransitionDirection(null, { id: 'artist', order: 10 }), 0);
+  assert.equal(contextTransitionDirection({ id: 'album', order: 12 }, { id: 'album', order: 80 }), 0);
+  assert.equal(contextTransitionDirection({ id: 'video' }, { id: 'artist', order: 10 }), 0);
+  assert.equal(contextTransitionDirection({ id: 'artist', order: 10 }, { id: 'missing' }), 0);
+  assert.equal(contextTransitionDirection({ id: 'first', order: 10 }, { id: 'second', order: 10 }), 0);
+});
 
 test('reading line follows explicit ranges, gaps, fast jumps and reverse scrolling', () => {
   let previous = null;
@@ -43,6 +64,13 @@ test('interaction holds automatic material until blur or selection ends, then ca
   assert.deepEqual(selectContextState({ automaticId: 'note' }), { type: 'material', id: 'note', manual: false });
   assert.deepEqual(selectContextState({ endVisible: true, hasNext: false }), { type: 'video' });
   assert.deepEqual(selectContextState(), { type: 'video' });
+});
+
+test('entity previews are temporary and cannot replace a manually pinned card', () => {
+  const state = { previewId: 'artist-madk1d', automaticId: 'madk1d-live', interactionId: 'sexyswag-artwork', endVisible: true, hasNext: true };
+  assert.deepEqual(selectContextState(state), { type: 'material', id: 'artist-madk1d', manual: false });
+  assert.deepEqual(selectContextState({ ...state, manualId: 'track-tak-pohuy' }), { type: 'material', id: 'track-tak-pohuy', manual: true });
+  assert.deepEqual(selectContextState({ ...state, previewId: null }), { type: 'material', id: 'sexyswag-artwork', manual: false });
 });
 
 test('the next story renders a real published link or a plain upcoming announcement', () => {

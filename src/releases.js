@@ -23,6 +23,14 @@ export const releases = [
   },
 ];
 
+const articleReleases = [{
+  id: 'tak-pohuy-track',
+  kind: 'Трек',
+  title: 'Так похуй',
+  subtitle: 'madk1d',
+  musicUrl: 'https://music.yandex.ru/album/35861245/track/137300017',
+}];
+
 export function getRelease(id) {
-  return releases.find((release) => release.id === id) ?? null;
+  return releases.find((release) => release.id === id) ?? articleReleases.find((release) => release.id === id) ?? null;
 }

@@ -8,7 +8,7 @@ export function mountSectionHeadings(page, header) {
     title: element.querySelector('.story-section__heading > :is(h2, h3)'),
     progress: -1,
   })).filter(section => section.title);
-  const content = page.closest('#media-content') || page;
+  const content = page.closest('.scene-reading-layout') || page.closest('#media-content') || page;
   const grid = page.querySelector('.story-content');
   const controller = new AbortController();
   const options = { signal: controller.signal };

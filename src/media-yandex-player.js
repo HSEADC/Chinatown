@@ -33,7 +33,8 @@ export function mountYandexPlayer(host) {
       const selected = button.dataset.yandexRelease === activeRelease?.id;
       button.classList.toggle('is-current', selected);
       // Selected identifies the loaded release, not the cross-origin playback state.
-      button.setAttribute('aria-pressed', String(selected));
+      if (button.matches('button')) button.setAttribute('aria-pressed', String(selected));
+      else button.setAttribute('aria-expanded', String(selected && expanded));
     }
     for (const row of document.querySelectorAll('[data-track-row]')) row.classList.toggle('is-current', row.dataset.trackRow === activeRelease?.id);
   }

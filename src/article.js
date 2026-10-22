@@ -5,10 +5,13 @@ import { mountStoryClub } from './story-club.js';
 import { mountArticleContext } from './article-context.js';
 import { mountSectionHeadings } from './section-headings.js';
 import { mountDevTools } from './dev-tools.js';
+import { mountArticleImages } from './article-images.js';
+import { mountActionButtons } from './components/action-button.js';
 
 /** Attach article anchors and the shared headline effect. */
 export function mountArticle(page, header = page?.querySelector('.story-header'), sceneRail) {
   if (!page) return () => {};
+  mountActionButtons(page);
   const title = page.querySelector('#article-title');
   const controller = new AbortController();
   const headlineGlitch = mountHeadlineGlitch(title, { scroll: true, multiline: true });
@@ -17,7 +20,9 @@ export function mountArticle(page, header = page?.querySelector('.story-header')
   let quoteActive = false;
   let sectionHeadings;
   const club = mountStoryClub(page);
-  const context = mountArticleContext(page, sceneRail);
+  let context;
+  const images = mountArticleImages(page, { onOpenChange: value => context?.setFrozen(value) });
+  context = mountArticleContext(page, sceneRail);
   function syncHeadline() {
     const overlayOpen = header.classList.contains('is-search-open') || header.classList.contains('is-nav-open');
     headlineGlitch.setSuspended(overlayOpen || quoteActive);
@@ -63,6 +68,7 @@ export function mountArticle(page, header = page?.querySelector('.story-header')
     sectionHeadings.dispose();
     headerControls.dispose();
     headlineGlitch.destroy();
+    images.dispose();
     context.dispose();
     document.body.classList.remove('is-story-quote-active');
     if (player) player.inert = originalPlayerInert;

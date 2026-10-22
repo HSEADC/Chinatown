@@ -1,5 +1,13 @@
+import { createContextPager } from './context-pager.js';
+import { mountContextTitles } from './components/context-title.js';
+
 const manifestUrl = new URL('../assets/video/editorial/manifest.json', import.meta.url);
 const fallbackPosterUrl = new URL('../assets/video/editorial/kitay-night-86bc7af48de9/poster.jpg', import.meta.url);
+const shellStorageKey = 'chinatown:scene-rail:collapsed';
+const shellIcons = {
+  expand: new URL('../assets/figma/article/rail/navigate-before.svg', import.meta.url).href,
+  collapse: new URL('../assets/figma/article/rail/navigate-next.svg', import.meta.url).href,
+};
 const icons = {
   play: '<path d="m9 5 11 7-11 7z"/>',
   pause: '<path d="M8 5h2v14H8zm6 0h2v14h-2z"/>',
@@ -14,6 +22,7 @@ export function mountSceneRail(content) {
   const controller = new AbortController();
   const options = { signal: controller.signal };
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  const finePointer = matchMedia('(hover: hover) and (pointer: fine)');
   const wide = matchMedia('(min-width: 1200px)');
   const rail = document.createElement('aside');
   rail.className = 'scene-rail';
@@ -21,6 +30,8 @@ export function mountSceneRail(content) {
   rail.hidden = true;
   rail.setAttribute('aria-label', 'Видео рядом со статьёй');
   rail.innerHTML = `
+    <div class="scene-rail__viewport">
+    <div class="scene-rail__surface" id="scene-rail-surface">
     <video class="scene-rail__video" id="scene-rail-video" muted loop playsinline preload="none" aria-label="Городское видео без звука"></video>
     <div class="scene-rail__shade" aria-hidden="true"></div>
     <div class="scene-rail__bottom">
@@ -34,10 +45,14 @@ export function mountSceneRail(content) {
       <a class="scene-rail__credit" target="_blank" rel="noopener noreferrer" hidden>Источник ↗</a>
     </div>
     <div class="scene-rail__context" hidden>
-      <button class="scene-rail__close" type="button" aria-label="Закрыть пояснение">×</button>
       <div class="scene-rail__context-content"></div>
-    </div>`;
+    </div>
+    </div>
+    </div>
+    <button class="scene-rail__toggle" type="button" aria-controls="scene-rail-surface"></button>`;
   content.after(rail);
+  const surface = rail.querySelector('.scene-rail__surface');
+  const toggle = rail.querySelector('.scene-rail__toggle');
   const video = rail.querySelector('video');
   video.muted = true;
   const play = rail.querySelector('.scene-rail__play');
@@ -46,9 +61,8 @@ export function mountSceneRail(content) {
   const nextButton = rail.querySelector('.scene-rail__next');
   const status = rail.querySelector('.scene-rail__status');
   const credit = rail.querySelector('.scene-rail__credit');
-  const contextPanel = rail.querySelector('.scene-rail__context');
   const contextHost = rail.querySelector('.scene-rail__context-content');
-  const closeButton = rail.querySelector('.scene-rail__close');
+  const contextTitles = mountContextTitles(contextHost.parentElement);
   const videoLayers = [video, rail.querySelector('.scene-rail__shade'), rail.querySelector('.scene-rail__bottom')];
   let clips = [];
   let clip;
@@ -63,16 +77,77 @@ export function mountSceneRail(content) {
   let cover = null;
   let coverVisible = false;
   let textVisible = false;
+  let contextFrozen = false;
   let suspended = false;
-  let savedTime = 0;
   let manifestFailed = false;
+  let collapsed = false;
+  let pointerWithin = false;
+  let focusPreview = false;
+  let shellTimer = 0;
+  try { collapsed = sessionStorage.getItem(shellStorageKey) === 'true'; } catch { /* The shared controller also keeps the preference in memory. */ }
+  const contextPager = createContextPager(contextHost, {
+    canAnimate: () => wide.matches && !collapsed && !suspended && !coverVisible && !reducedMotion.matches && !document.hidden,
+    onUpdate({ node, outgoingNode, moving }) {
+      contextTitles.refresh();
+      textVisible = !!node;
+      for (const layer of videoLayers) {
+        layer.hidden = textVisible && !moving;
+        layer.inert = textVisible || suspended;
+      }
+      const material = node || outgoingNode;
+      rail.dataset.contextState = material ? material.dataset.contextMaterial ? 'material' : 'next' : 'video';
+      syncPlayback();
+    },
+  });
+
+  function syncShell() {
+    document.body.classList.toggle('is-scene-rail-collapsed', collapsed);
+    rail.classList.toggle('is-collapsed', collapsed);
+    toggle.innerHTML = `<img src="${shellIcons[collapsed ? 'expand' : 'collapse']}" width="24" height="24" alt="" aria-hidden="true">`;
+    toggle.setAttribute('aria-expanded', String(!collapsed));
+    const label = collapsed ? 'Показать правую плашку' : 'Свернуть правую плашку';
+    toggle.setAttribute('aria-label', label);
+    toggle.title = label;
+    syncAvailability();
+  }
+
+  function finishShellMotion() {
+    clearTimeout(shellTimer);
+    document.body.classList.remove('is-scene-rail-switching');
+  }
+
+  function setCollapsed(value) {
+    if (collapsed === value || document.querySelector('.article-image-viewer[open]')) return;
+    contextPager.finish();
+    if (value && surface.contains(document.activeElement)) toggle.focus({ preventScroll: true });
+    finishShellMotion();
+    if (wide.matches && !reducedMotion.matches) document.body.classList.add('is-scene-rail-switching');
+    collapsed = value;
+    if (collapsed) pointerWithin = focusPreview = false;
+    try { sessionStorage.setItem(shellStorageKey, String(collapsed)); } catch { /* No persistence is required to use the control. */ }
+    syncShell();
+    syncPlayback();
+    shellTimer = setTimeout(finishShellMotion, reducedMotion.matches ? 0 : 320);
+  }
 
   function playbackAllowed() {
-    return !document.hidden && !userPaused && !failed && !suspended && !coverVisible && !textVisible && !(article && !wide.matches);
+    return wide.matches && !collapsed && !document.hidden && !userPaused && !failed && !suspended && !coverVisible && !textVisible;
   }
 
   function syncAvailability() {
-    rail.inert = suspended || coverVisible || article && !wide.matches;
+    contextTitles.setPaused(contextFrozen || collapsed || suspended || coverVisible || !wide.matches || reducedMotion.matches || document.hidden);
+    rail.inert = suspended || coverVisible || !wide.matches;
+    surface.inert = rail.inert || collapsed;
+    surface.setAttribute('aria-hidden', String(surface.inert));
+    syncPreview();
+  }
+
+  function syncPreview() {
+    if (rail.inert) pointerWithin = focusPreview = false;
+    const preview = collapsed && !rail.inert && (pointerWithin || focusPreview);
+    rail.classList.toggle('is-hovered', !rail.inert && pointerWithin);
+    rail.classList.toggle('is-peeking', preview);
+    rail.dataset.shellState = collapsed ? preview ? 'peek' : 'collapsed' : 'expanded';
   }
 
   function updateControls() {
@@ -84,14 +159,8 @@ export function mountSceneRail(content) {
 
   async function syncPlayback() {
     if (controller.signal.aborted) return;
-    if (article && !wide.matches) {
+    if (!wide.matches) {
       video.pause();
-      video.removeAttribute('poster');
-      if (video.getAttribute('src')) {
-        savedTime = video.currentTime;
-        video.removeAttribute('src');
-        video.load();
-      }
       return;
     }
     if (!video.getAttribute('poster')) video.poster = clip ? new URL(clip.poster, manifestUrl).href : fallbackPosterUrl.href;
@@ -130,6 +199,7 @@ export function mountSceneRail(content) {
     document.body.classList.toggle('is-story-cover-active', nextCoverVisible);
     if (coverVisible !== nextCoverVisible) {
       coverVisible = nextCoverVisible;
+      if (coverVisible) contextPager.finish();
       syncPlayback();
     }
     syncAvailability();
@@ -154,10 +224,9 @@ export function mountSceneRail(content) {
       video.removeAttribute('src');
       video.load();
       clip = next;
-      savedTime = 0;
       failed = false;
       status.textContent = '';
-      if (!article || wide.matches) video.poster = new URL(clip.poster, manifestUrl).href;
+      if (wide.matches) video.poster = new URL(clip.poster, manifestUrl).href;
       video.style.objectPosition = `${clip.focus[0] * 100}% ${clip.focus[1] * 100}%`;
       video.setAttribute('aria-label', `${clip.title}. Видео без звука`);
       credit.hidden = !clip.creditUrl;
@@ -170,6 +239,15 @@ export function mountSceneRail(content) {
   }
   function refresh() {
     article = !!content.querySelector('[data-article-id]');
+    const page = content.querySelector('.story-page');
+    if (page && !page.parentElement.classList.contains('scene-reading-layout')) {
+      // A stable reading container avoids rewrapping text or remeasuring every
+      // sticky heading on each frame of the outer shell's width transition.
+      const layout = document.createElement('div');
+      layout.className = 'scene-reading-layout';
+      page.before(layout);
+      layout.append(page);
+    }
     cover = article ? content.querySelector('.story-cover') : null;
     video.loop = article || clips.length === 1;
     rail.classList.toggle('scene-rail--article', article);
@@ -178,6 +256,7 @@ export function mountSceneRail(content) {
     auto.hidden = article || !manualEmphasis;
     document.body.classList.toggle('has-scene-rail', article || !manifestFailed);
     if (article) delete document.body.dataset.sceneEmphasis;
+    syncShell();
     markers = [...content.querySelectorAll('[data-scene-emphasis]')];
     activeMarker = -1;
     render();
@@ -195,6 +274,18 @@ export function mountSceneRail(content) {
     syncPlayback();
     updateControls();
   }, options);
+  toggle.addEventListener('click', () => setCollapsed(!collapsed), options);
+  rail.addEventListener('pointerenter', event => {
+    pointerWithin = event.pointerType === 'mouse' && finePointer.matches;
+    syncPreview();
+  }, options);
+  rail.addEventListener('pointerleave', () => { pointerWithin = false; syncPreview(); }, options);
+  toggle.addEventListener('focus', () => { focusPreview = toggle.matches(':focus-visible'); syncPreview(); }, options);
+  toggle.addEventListener('blur', () => { focusPreview = false; syncPreview(); }, options);
+  rail.addEventListener('click', event => {
+    if (collapsed && event.target === rail) setCollapsed(false);
+  }, options);
+  finePointer.addEventListener('change', () => { pointerWithin = false; syncPreview(); }, options);
   size.addEventListener('click', () => {
     manualEmphasis = document.body.dataset.sceneEmphasis === 'featured' ? 'ambient' : 'featured';
     render();
@@ -206,10 +297,6 @@ export function mountSceneRail(content) {
   }, options);
   video.addEventListener('play', updateControls, options);
   video.addEventListener('pause', updateControls, options);
-  video.addEventListener('loadedmetadata', () => {
-    if (savedTime && Number.isFinite(video.duration)) video.currentTime = Math.min(savedTime, video.duration);
-    savedTime = 0;
-  }, options);
   nextButton.addEventListener('click', nextClip, options);
   video.addEventListener('ended', () => { if (!article) nextClip(); }, options);
   video.addEventListener('error', () => {
@@ -217,16 +304,19 @@ export function mountSceneRail(content) {
     status.textContent = 'Видео недоступно';
     updateControls();
   }, options);
-  document.addEventListener('visibilitychange', syncPlayback, options);
+  document.addEventListener('visibilitychange', () => { syncAvailability(); syncPlayback(); }, options);
   reducedMotion.addEventListener('change', () => {
+    finishShellMotion();
+    contextPager.finish();
     if (reducedMotion.matches) userPaused = true;
+    syncAvailability();
     syncPlayback();
     updateControls();
   }, options);
   window.addEventListener('scroll', schedule, { ...options, passive: true });
-  window.addEventListener('resize', schedule, options);
+  window.addEventListener('resize', () => { contextPager.finish(); schedule(); }, options);
   window.addEventListener('pageshow', () => { render(); syncPlayback(); }, options);
-  wide.addEventListener('change', syncPlayback, options);
+  wide.addEventListener('change', () => { finishShellMotion(); contextPager.finish(); syncAvailability(); syncPlayback(); }, options);
   updateControls();
   refresh();
   fetch(manifestUrl, { signal: controller.signal }).then(response => {
@@ -252,34 +342,31 @@ export function mountSceneRail(content) {
     refresh,
     rail,
     contextHost,
-    closeButton,
-    setContext(node, { manual = false } = {}) {
-      textVisible = !!node;
-      contextPanel.hidden = !node;
-      closeButton.hidden = !manual;
-      if (node && contextHost.firstElementChild !== node) {
-        contextHost.replaceChildren(node);
-        contextPanel.scrollTop = 0;
-      }
-      if (!node) contextHost.replaceChildren();
-      for (const layer of videoLayers) { layer.hidden = textVisible; layer.inert = textVisible || suspended; }
-      rail.dataset.contextState = node ? node.dataset.contextMaterial ? 'material' : 'next' : 'video';
-      syncPlayback();
+    expand() { setCollapsed(false); },
+    setContext(node, motion) { contextPager.set(node, motion); },
+    setContextFrozen(value) {
+      contextFrozen = value;
+      contextPager.setPaused(value);
+      syncAvailability();
     },
     setSuspended(value) {
       suspended = value;
+      if (value) contextPager.finish();
       rail.classList.toggle('is-suspended', value);
       syncAvailability();
       syncPlayback();
     },
     dispose() {
       controller.abort();
+      finishShellMotion();
+      contextPager.dispose();
+      contextTitles.dispose();
       cancelAnimationFrame(frame);
       video.pause();
       video.removeAttribute('src');
       video.load();
       rail.remove();
-      document.body.classList.remove('has-scene-rail', 'is-story-cover-active');
+      document.body.classList.remove('has-scene-rail', 'is-story-cover-active', 'is-scene-rail-collapsed');
       delete document.body.dataset.sceneEmphasis;
     },
   };

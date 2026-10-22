@@ -13,6 +13,7 @@ export function mountArticleHeader(header, onChange, page = header.closest('.sto
   const menuToggle = header.querySelector('.story-menu-toggle');
   const searchToggle = header.querySelector('.story-search-toggle');
   const form = header.querySelector('.story-search');
+  const searchClose = form.querySelector('.story-search__close');
   const input = form.querySelector('input');
   const results = header.querySelector('.story-search__results');
   const status = results.querySelector('[role="status"]');
@@ -75,7 +76,7 @@ export function mountArticleHeader(header, onChange, page = header.closest('.sto
   function syncNavigation() {
     const expanded = !searchOpen && navOpen;
     header.classList.toggle('is-nav-open', mobile.matches && navOpen && !searchOpen);
-    header.dataset.nodeId = searchOpen ? '272:98' : '272:111';
+    header.dataset.nodeId = searchOpen ? '376:696' : '272:111';
     menu.inert = !expanded;
     brand.setAttribute('aria-expanded', String(expanded));
     menuToggle.setAttribute('aria-expanded', String(expanded));
@@ -187,6 +188,7 @@ export function mountArticleHeader(header, onChange, page = header.closest('.sto
   }, options);
   menuToggle.addEventListener('click', () => showNavigation({ animated: true }), options);
   searchToggle.addEventListener('click', () => setSearch(!searchOpen, { focus: true }), options);
+  searchClose.addEventListener('click', () => setSearch(false, { focus: true }), options);
   input.addEventListener('input', renderSearch, options);
   form.addEventListener('submit', event => {
     event.preventDefault();

@@ -1,8 +1,10 @@
+@import url('./src/components/context-title.css');
+
 /* The video owns its space; the article and its fixed layers end at its left edge. */
-.has-scene-rail { --scene-rail-width: clamp(192px, 24vw, 420px); --scene-motion: 480ms cubic-bezier(.22, 1, .36, 1); --scene-rail-top: var(--media-header-height, 0px); }
+.has-scene-rail { --scene-rail-full-width: clamp(192px, 24vw, 420px); --scene-rail-collapsed-width: 40px; --scene-rail-peek-width: 72px; --scene-rail-peek-inset: 32px; --scene-rail-bg: #171717; --scene-rail-width: var(--scene-rail-full-width); --scene-motion: 480ms cubic-bezier(.22, 1, .36, 1); --scene-shell-motion: 280ms cubic-bezier(.22, 1, .36, 1); --scene-rail-top: var(--media-header-height, 0px); }
 .has-scene-rail:has(.story-header.is-auto-hidden) { --scene-rail-top: 0px; }
-.has-scene-rail[data-scene-emphasis="ambient"] { --scene-rail-width: clamp(144px, 16vw, 280px); }
-.has-scene-rail[data-scene-emphasis="featured"] { --scene-rail-width: clamp(280px, 38vw, 640px); }
+.has-scene-rail[data-scene-emphasis="ambient"] { --scene-rail-full-width: clamp(144px, 16vw, 280px); }
+.has-scene-rail[data-scene-emphasis="featured"] { --scene-rail-full-width: clamp(280px, 38vw, 640px); }
 #media-content { container: editorial / inline-size; }
 .media-site-header { position: sticky; z-index: 60; top: 0; width: 100%; background: transparent; pointer-events: none; }
 .media-site-header > header { pointer-events: auto; }
@@ -10,7 +12,7 @@
 .media-site-header > .story-header { position: relative; }
 .media-site-header > .media-header { padding-inline: clamp(20px, 3.333333vw, 64px); background: #131313; }
 .has-scene-rail #media-content { margin-right: var(--scene-rail-width); transition: margin-right var(--scene-motion); }
-.scene-rail { position: fixed; z-index: 45; inset: var(--scene-rail-top, 0px) 0 0 auto; width: var(--scene-rail-width, 0px); overflow: clip; background: #181818; color: #fff; border-left: 1px solid #ffffff24; transition: width var(--scene-motion), top 220ms cubic-bezier(.16, 1, .3, 1); }
+.scene-rail { position: fixed; z-index: 45; inset: var(--scene-rail-top, 0px) 0 0 auto; width: var(--scene-rail-width, 0px); overflow: visible; background: var(--scene-rail-bg); color: #fff; transition: width var(--scene-motion), top 220ms cubic-bezier(.16, 1, .3, 1); }
 .scene-rail__video, .scene-rail__shade { position: absolute; inset: 0; width: 100%; height: 100%; }
 .scene-rail__video { display: block; object-fit: cover; }
 .scene-rail__shade { pointer-events: none; background: linear-gradient(180deg, #0009, transparent 30%, transparent 60%, #000b); }
@@ -30,7 +32,7 @@
 }
 .has-scene-rail .story-next { position: relative; grid-column: 2 / span var(--story-wide-span); top: auto; right: auto; width: auto; opacity: 1; visibility: visible; transform: none; }
 .has-scene-rail .media-yandex-player { right: calc(var(--scene-rail-width) + 16px); transition: right var(--scene-motion), opacity 140ms ease-out; }
-.has-scene-rail[data-media-page="article"] .story-cover { width: calc(100% + var(--scene-rail-width)); }
+.has-scene-rail[data-media-page="article"] .story-cover { width: 100vw; }
 .is-story-cover-active .story-club { visibility: hidden; pointer-events: none; }
 .has-scene-rail .story-quote-scene { --quote-inset: clamp(20px, 13.333333cqw, 256px); }
 .has-scene-rail .story-quote-scene__lyrics { width: min(70cqw, 1080px); }
@@ -84,9 +86,9 @@
   .media-footer { flex-wrap: wrap; }
 }
 @media (max-width: 760px) {
-  .has-scene-rail { --scene-rail-width: 80px; }
-  .has-scene-rail[data-scene-emphasis="ambient"] { --scene-rail-width: 64px; }
-  .has-scene-rail[data-scene-emphasis="featured"] { --scene-rail-width: min(28vw, 112px); }
+  .has-scene-rail { --scene-rail-full-width: 80px; }
+  .has-scene-rail[data-scene-emphasis="ambient"] { --scene-rail-full-width: 64px; }
+  .has-scene-rail[data-scene-emphasis="featured"] { --scene-rail-full-width: min(28vw, 112px); }
   .scene-rail__bottom { inset-inline: 8px; }
   .scene-rail__credit { display: none; }
   .scene-rail__status { font-size: 10px; line-height: 14px; }
@@ -102,7 +104,7 @@
 
 /* One full-width grid: copy uses tracks 1–4, the rail uses track 5 plus the right margin. */
 .has-scene-rail[data-media-page="article"] {
-  --scene-rail-width: calc((100vw - 2 * var(--story-gutter) - 4 * var(--story-grid-gap)) / 5 + var(--story-gutter));
+  --scene-rail-full-width: calc((100vw - 2 * var(--story-gutter) - 4 * var(--story-grid-gap)) / 5 + var(--story-gutter));
   --scene-motion: 0s;
   overflow-x: clip;
 }
@@ -113,12 +115,15 @@
     .has-scene-rail[data-media-page="article"] .story-page { --story-copy-span: 3; }
   }
 }
-.scene-rail--article { transform: translateX(0); opacity: 1; visibility: visible; transition: transform 480ms cubic-bezier(.22, 1, .36, 1), opacity 360ms ease-out, visibility 0s linear, top 220ms cubic-bezier(.16, 1, .3, 1); }
+.scene-rail--article { transform: translateX(0); opacity: 1; visibility: visible; transition: transform 480ms cubic-bezier(.22, 1, .36, 1), opacity 360ms ease-out, visibility 0s linear, top 220ms cubic-bezier(.16, 1, .3, 1), width var(--scene-motion); }
+/* Editorial cards keep Figma's flat background above the ambient video lights. */
+.scene-rail[data-context-state="material"], .scene-rail[data-context-state="next"] { z-index: 47; }
 .is-story-cover-active .scene-rail--article { transform: translateX(100%); opacity: 0; visibility: hidden; pointer-events: none; transition-delay: 0s, 0s, 480ms, 0s; }
 .is-story-quote-active .scene-rail--article { transform: translateX(100%); }
 .scene-rail [hidden], .has-article-context [hidden] { display: none !important; }
-.scene-rail__context { position: absolute; inset: 0; overflow-y: auto; overscroll-behavior: contain; padding: 32px 24px; background: var(--story-bg, #131313); }
-.scene-rail__close { position: sticky; z-index: 1; top: 0; display: block; width: 44px; height: 44px; margin: -16px -8px 16px auto; padding: 0; border: 0; background: var(--story-bg, #131313); color: #fff; font: 400 32px/44px var(--font-body); }
+.scene-rail__context { position: absolute; inset: 0; overflow: clip; }
+.scene-rail__context-content { position: absolute; inset: 0; overflow-x: hidden; overflow-y: auto; overscroll-behavior: contain; padding: 16px; background: var(--scene-rail-bg); }
+.scene-rail__context-outgoing { pointer-events: none; }
 .scene-rail.is-suspended { pointer-events: none; }
 .scene-rail.is-suspended .scene-rail__context { visibility: hidden; }
 .scene-rail.is-suspended .scene-rail__video { opacity: .15; }
@@ -143,6 +148,20 @@
 .has-article-context [data-context-material][hidden] { display: none !important; }
 .has-article-context .article-context-backlink, .scene-rail .article-context-backlink, .article-context-screen .article-context-backlink { display: none; }
 .scene-rail__context .article-context-material, .article-context-screen .article-context-material { margin: 0; padding: 0; border: 0; }
+.scene-rail__context-content > [data-context-material]:not(:has(> h2)) { padding-top: 46px; }
+.scene-rail__context-content > :is([data-context-material], [data-context-next]) > h2 { min-height: 30px; margin: 0 0 16px; padding-top: 6px; overflow: hidden; color: #fff; font: 700 24px/24px var(--font-display); letter-spacing: .02em; text-transform: uppercase; white-space: nowrap; text-overflow: ellipsis; transition: padding-left var(--scene-shell-motion); }
+.scene-rail:not(.is-collapsed):is(.is-hovered, :has(:focus-visible)) .scene-rail__context-content > :is([data-context-material], [data-context-next]) > h2 { padding-left: 40px; }
+.scene-rail .story-artwork { display: flex; flex-direction: column; gap: 16px; width: 100%; }
+.scene-rail .story-artwork .story-artwork__title { display: block; flex: none; width: 100%; margin: 0; }
+.scene-rail .story-artwork > :is(a, .context-image-trigger) { position: relative; display: block; flex: none; width: 100%; aspect-ratio: 1; overflow: clip; }
+/* Figma's source fill is cropped inside the square cover, without editing it. */
+.scene-rail .story-artwork img { position: absolute; top: 0; left: -.63%; display: block; width: 101.59%; max-width: none; height: 100.325%; aspect-ratio: auto; }
+.scene-rail .story-artwork .context-image-trigger:is(:hover, :focus-visible, :active) { transform: none; filter: none; }
+.scene-rail .story-artwork figcaption { display: flex; flex-direction: column; gap: 4px; margin: 0; color: #fff; }
+.scene-rail .story-artwork__artist { display: block; font: 700 32px/32px var(--font-display); letter-spacing: .02em; }
+.scene-rail .story-artwork__name { display: block; font: 400 14px/16px var(--font-body); }
+.scene-rail .story-artwork__summary { display: block; width: 100%; margin: 0; color: var(--color-on-media); font: 400 var(--font-size-body)/var(--line-height-body) var(--font-body); }
+.scene-rail .story-artwork__description { display: none; }
 .scene-rail__context .story-next { margin: 0; padding: 0; border: 0; }
 .scene-rail__context .story-next__title { font-size: 28px; }
 .story-next__status, .story-next__link { display: block; margin-top: 24px !important; font: 400 var(--font-size-caption)/24px var(--font-body); }
@@ -170,4 +189,40 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .scene-rail { transition: none; }
+}
+
+/* The shell owns its occupied space; its full-size contents never squeeze. */
+.scene-rail__viewport { position: absolute; inset: 0; overflow: clip; }
+.scene-rail.is-collapsed .scene-rail__viewport { pointer-events: none; }
+.scene-rail__surface { position: absolute; inset: 0 auto 0 0; width: var(--scene-rail-full-width); opacity: 1; transform: translateX(0); transition: transform var(--scene-shell-motion), opacity var(--scene-shell-motion); }
+.scene-rail.is-collapsed { transition: transform 480ms cubic-bezier(.22, 1, .36, 1), opacity 360ms ease-out, visibility 0s linear, top 220ms cubic-bezier(.16, 1, .3, 1), width var(--scene-shell-motion); }
+.scene-rail.is-collapsed .scene-rail__surface { opacity: 0; transform: translateX(var(--scene-rail-peek-width)); }
+.scene-rail.is-collapsed.is-peeking { width: var(--scene-rail-peek-width); }
+.scene-rail.is-collapsed.is-peeking .scene-rail__surface { opacity: .5; transform: translateX(var(--scene-rail-peek-inset)); }
+.has-scene-rail.is-scene-rail-collapsed { --scene-rail-width: var(--scene-rail-collapsed-width); }
+.has-scene-rail.is-scene-rail-switching { --scene-motion: var(--scene-shell-motion); }
+.has-scene-rail.is-scene-rail-switching #media-content { transition: margin-right var(--scene-shell-motion); }
+.has-scene-rail.is-scene-rail-collapsed .story-club { visibility: hidden; pointer-events: none; }
+.scene-rail__toggle { position: absolute; z-index: 3; top: 9px; left: 6px; display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 0; border-radius: 0; background: transparent; color: #fff; cursor: pointer; opacity: 0; pointer-events: none; transition: opacity 140ms ease-out; }
+.scene-rail__toggle img { display: block; flex: none; }
+.scene-rail:is(.is-hovered, :has(:focus-visible)) .scene-rail__toggle { opacity: 1; pointer-events: auto; }
+.scene-rail__toggle:focus-visible { outline: 2px solid var(--media-accent); outline-offset: -4px; }
+.scene-rail.is-collapsed .scene-rail__toggle { inset: 0; width: 100%; height: 100%; opacity: 1; pointer-events: auto; }
+.scene-rail[inert] .scene-rail__toggle { visibility: hidden; }
+.scene-reading-layout { container: editorial / inline-size; }
+@media (min-width: 1200px) {
+  .scene-reading-layout { width: calc(100vw - var(--scene-rail-full-width)); }
+}
+@media (max-width: 1199px) {
+  .has-scene-rail, .has-scene-rail.is-scene-rail-collapsed { --scene-rail-width: 0px; }
+  .scene-rail, .has-scene-rail .story-club { display: none; }
+  .has-scene-rail .media-yandex-player { right: 16px; }
+}
+@media (hover: none) {
+  .scene-rail__toggle { opacity: 1; pointer-events: auto; }
+  .scene-rail:not(.is-collapsed) .scene-rail__context-content > :is([data-context-material], [data-context-next]) > h2 { padding-left: 40px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .has-scene-rail { --scene-shell-motion: 0s; }
+  .scene-rail.is-collapsed, .scene-rail__surface, .scene-rail__toggle, .scene-rail__context-content > :is([data-context-material], [data-context-next]) > h2, .has-scene-rail.is-scene-rail-switching #media-content { transition: none; }
 }

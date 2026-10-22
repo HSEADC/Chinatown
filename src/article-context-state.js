@@ -6,10 +6,17 @@ export function contextAtPosition(ranges, readingY, previousId = null, tolerance
 }
 
 /** A manual selection survives every automatic transition, including the article end. */
-export function selectContextState({ manualId = null, interactionId = null, automaticId = null, endVisible = false, hasNext = false } = {}) {
+export function selectContextState({ manualId = null, previewId = null, interactionId = null, automaticId = null, endVisible = false, hasNext = false } = {}) {
   if (manualId) return { type: 'material', id: manualId, manual: true };
+  if (previewId) return { type: 'material', id: previewId, manual: false };
   if (interactionId) return interactionId === 'next' ? { type: 'next' } : { type: 'material', id: interactionId, manual: false };
   if (endVisible && hasNext) return { type: 'next' };
   if (automaticId) return { type: 'material', id: automaticId, manual: false };
   return { type: 'video' };
+}
+
+/** Positive means a later source enters from the right; earlier sources enter from the left. */
+export function contextTransitionDirection(previous, next) {
+  if (!previous || previous.id === next.id || !Number.isFinite(previous.order) || !Number.isFinite(next.order)) return 0;
+  return Math.sign(next.order - previous.order);
 }

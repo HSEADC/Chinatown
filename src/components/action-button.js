@@ -1,6 +1,6 @@
 const NEXT_ICON_URL = new URL('../../assets/icons/intro-navigate-next.svg', import.meta.url).href;
 
-/** Mount the shared Figma 276:101 content without replacing the native button. */
+/** Mount the shared Figma 276:101 content without replacing the native control. */
 export function mountActionButton(button) {
   if (button.querySelector(':scope > .action-button__content')) return button;
 
@@ -32,7 +32,7 @@ export function createActionButton({ label, type = 'button' }) {
   return mountActionButton(button);
 }
 
-/** Enhance the static buttons, keeping their IDs, listeners and form ownership. */
+/** Enhance buttons and action links, preserving their native behavior. */
 export function mountActionButtons(root = document) {
-  root.querySelectorAll('button[data-action-button]').forEach(mountActionButton);
+  root.querySelectorAll('button[data-action-button], a[data-action-button]').forEach(mountActionButton);
 }

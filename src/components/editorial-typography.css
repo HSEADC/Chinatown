@@ -1,0 +1,136 @@
+/* Shared editorial language. Apply .editorial-prose to an article's copy. */
+.editorial-prose {
+  --editorial-ink: #fff;
+  --editorial-link-line: #ffffff80;
+  --editorial-highlight: #fc5cff30;
+}
+.editorial-prose ::selection, .entity-card ::selection {
+  color: #131313;
+  background: var(--media-accent, #fc5cff);
+}
+.editorial-prose a:not(.story-footnote-ref, .action-button) {
+  color: inherit;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-color: var(--editorial-link-line);
+  text-decoration-thickness: 1px;
+  text-underline-offset: .22em;
+  text-decoration-skip-ink: auto;
+  transition: color 140ms ease-out, text-decoration-color 140ms ease-out, background-color 140ms ease-out;
+}
+.editorial-prose a:not(.story-footnote-ref, .action-button):is(:hover, :focus-visible) {
+  color: var(--media-accent, #fc5cff);
+  text-decoration-color: currentColor;
+}
+.editorial-prose a.story-entity {
+  color: var(--editorial-ink);
+  text-decoration-style: dashed;
+  text-decoration-color: var(--media-accent, #fc5cff);
+}
+.story-entity__arrow {
+  display: inline;
+  margin-left: .12em;
+  color: var(--media-accent, #fc5cff);
+  font: 500 .65em/0 var(--font-body);
+  vertical-align: .28em;
+  white-space: nowrap;
+}
+.editorial-prose .story-entity[data-context-active] {
+  color: var(--media-accent, #fc5cff);
+  background: var(--editorial-highlight);
+  text-decoration-style: solid;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+.editorial-prose a:where(:not(.action-button)):focus-visible {
+  outline: 2px solid var(--media-accent, #fc5cff);
+  outline-offset: 4px;
+}
+.editorial-prose strong { color: var(--editorial-ink); font-weight: 700; }
+.editorial-prose em { font-style: italic; }
+.editorial-prose em.editorial-hand {
+  font-family: 'Elion Italic', var(--font-body);
+  font-size: 1.45em;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 0;
+}
+.editorial-prose mark {
+  padding: .02em .12em;
+  color: inherit;
+  background: linear-gradient(transparent 42%, var(--editorial-highlight) 42%, var(--editorial-highlight) 94%, transparent 94%);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+/* Prose quotations have their own scale and attribution; concert lyrics keep theirs. */
+.editorial-prose .editorial-quote {
+  margin-block: 40px;
+  padding: 0 0 0 24px;
+  border-left: 2px solid var(--media-accent, #fc5cff);
+}
+.editorial-prose .editorial-quote blockquote {
+  margin: 0;
+  font: 500 clamp(24px, 1.8vw, 32px)/1.35 var(--font-body);
+  letter-spacing: -.02em;
+  text-wrap: pretty;
+}
+.editorial-prose .editorial-quote blockquote p { margin: 0; font: inherit; }
+.editorial-prose .editorial-quote figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 20px;
+  color: var(--story-muted, #b7b7b7);
+  font: 400 14px/20px var(--font-body);
+}
+.editorial-quote__author { color: #fff; font-weight: 600; }
+.editorial-quote cite { font-style: normal; }
+/* All entity cards share an anatomy, while the existing album artwork stays canonical. */
+.entity-card.article-context-material {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  color: #fff;
+}
+.entity-card.article-context-material > :is(h2, p, figure, dl) { margin: 0; }
+.entity-card.article-context-material > h2 { font-family: var(--font-display); }
+.entity-card .entity-card__type {
+  color: var(--media-accent, #fc5cff);
+  font: 600 11px/16px var(--font-body);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.entity-card .entity-card__subtitle { color: var(--story-muted, #b7b7b7); font: 400 14px/20px var(--font-body); }
+.entity-card .entity-card__details { display: grid; gap: 8px; font: 400 14px/20px var(--font-body); }
+.entity-card__details > div { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 16px; }
+.entity-card__details dt { color: var(--story-muted, #b7b7b7); }
+.entity-card__details dd { margin: 0; }
+.entity-card--artist img { aspect-ratio: 4 / 3; object-fit: cover; object-position: 40% center; }
+.entity-card--track img { aspect-ratio: 1; object-fit: cover; }
+.entity-card .article-context-sources { display: flex; flex-direction: column; gap: 8px; font: 400 14px/24px var(--font-body); }
+.entity-card .article-context-sources a { color: #fff; text-decoration: underline; text-decoration-color: #ffffff80; text-underline-offset: .22em; }
+.entity-card .article-context-sources a:is(:hover, :focus-visible) { color: var(--media-accent, #fc5cff); text-decoration-color: currentColor; }
+.scene-rail .entity-card > p, .article-context-screen .entity-card > p { margin: 0; }
+.scene-rail .entity-card > p:not([class]), .scene-rail .entity-card .story-artwork__summary { font: 400 16px/24px var(--font-body); }
+.scene-rail__context-content > .entity-card > h2 { white-space: normal; overflow-wrap: anywhere; text-overflow: clip; line-height: 1.2; }
+.scene-rail__context-content > .entity-card > h2 + .entity-card__type { margin-top: -8px; }
+.scene-rail__context-content > .entity-card.article-context-material > h2 { margin-bottom: 0; }
+.scene-rail .scene-rail__context-content > .entity-card--artist > h2 { text-transform: none; }
+.article-context-screen .entity-card > h2 { display: block; margin: 0; color: #fff; font: 700 32px/1.2 var(--font-display); }
+.article-context-screen .story-artwork.entity-card { display: flex; flex-direction: column; gap: 16px; margin: 0 !important; }
+.article-context-screen .story-artwork.entity-card > :is(a, .context-image-trigger) { width: 100%; }
+.article-context-screen .entity-card .story-artwork__summary { display: block; font: 400 18px/28px var(--font-body); }
+.article-context-screen .entity-card figcaption { display: flex; flex-direction: column; gap: 4px; margin: 0; }
+.article-context-screen .entity-card .story-artwork__artist { display: block; color: #fff; font: 700 24px/32px var(--font-display); }
+.article-context-screen .entity-card .story-artwork__name { display: block; margin-bottom: 12px; font: 400 14px/20px var(--font-body); }
+/* Album-specific metadata stays beside its cover in the unenhanced article. */
+.story-content > .story-artwork.entity-card > .entity-card__type,
+.story-content > .story-artwork.entity-card > .article-context-sources { display: none; }
+@media (max-width: 760px) {
+  .editorial-prose .editorial-quote { margin-block: 32px; padding-left: 20px; }
+  .editorial-quote__mark { left: 18px; }
+  .entity-card .article-context-sources a { padding-block: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .editorial-prose a:not(.story-footnote-ref, .action-button) { transition: none; }
+}

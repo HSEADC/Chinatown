@@ -1,13 +1,14 @@
 import { articleContexts } from './article-context-data.js';
-import { contextAtPosition, selectContextState } from './article-context-state.js';
+import { contextAtPosition, selectContextState, contextTransitionDirection } from './article-context-state.js';
 
 /** Enhance the existing static nodes: each material has one DOM copy in every layout. */
 export function mountArticleContext(page, sceneRail) {
   const data = articleContexts[page.dataset.articleId];
-  if (!data || !sceneRail) return { setSuspended() {}, dispose() {} };
+  if (!data || !sceneRail) return { setSuspended() {}, setFrozen() {}, dispose() {} };
   const controller = new AbortController();
   const options = { signal: controller.signal };
   const wide = matchMedia('(min-width: 1200px)');
+  const finePointer = matchMedia('(hover: hover) and (pointer: fine)');
   const refs = [...page.querySelectorAll('[data-context-ref]')];
   const materials = new Map(data.materials.map(item => [item.id, { ...item, node: page.querySelector(`[data-context-material="${item.id}"]`) }]).filter(([, item]) => item.node));
   const next = page.querySelector('[data-context-next]');
@@ -19,6 +20,9 @@ export function mountArticleContext(page, sceneRail) {
   }));
   const end = page.querySelector('[data-article-end]');
   const chapters = data.chapters.map(chapter => ({ ...chapter, node: page.querySelector(`#${chapter.id}`) })).filter(chapter => chapter.node);
+  // Capture article order before any material moves into the rail or a dialog.
+  // Unlike Y coordinates, this also distinguishes mentions on the same text line.
+  const sourceOrder = new Map([...page.querySelectorAll('*')].map((node, index) => [node, index]));
   const dialog = document.createElement('dialog');
   dialog.className = 'article-context-screen';
   dialog.innerHTML = '<button class="article-context-screen__back" type="button">← К статье</button><div class="article-context-screen__content"></div>';
@@ -26,12 +30,17 @@ export function mountArticleContext(page, sceneRail) {
   const screenHost = dialog.querySelector('.article-context-screen__content');
   const token = crypto.randomUUID();
   let manual = null;
+  let preview = null;
+  let previewTimer = 0;
+  let dismissTimer = 0;
   let chapterId = null;
   let displayedState = { type: 'video' };
+  let displayedSource = null;
   let placement = '';
   let frame = 0;
   let hashFrame = 0;
   let suspended = false;
+  let frozen = false;
   let pointerDown = false;
   let scrollLock = null;
 
@@ -40,11 +49,13 @@ export function mountArticleContext(page, sceneRail) {
     const target = trigger?.isConnected ? trigger : page.querySelector('#article-content');
     target?.focus({ preventScroll: true });
   }
+  function restoreNode(node) {
+    const marker = homes.get(node);
+    if (marker && marker.nextSibling !== node) marker.after(node);
+    node.hidden = true;
+  }
   function restoreNodes() {
-    for (const [node, marker] of homes) {
-      if (marker.nextSibling !== node) marker.after(node);
-      node.hidden = true;
-    }
+    for (const node of homes.keys()) restoreNode(node);
   }
   function closeScreen() {
     if (!dialog.open) return;
@@ -60,10 +71,11 @@ export function mountArticleContext(page, sceneRail) {
     for (const ref of refs) {
       const item = materials.get(ref.dataset.contextRef);
       if (!item) continue;
-      const expanded = manual?.id === item?.id;
+      const expanded = (manual || preview)?.id === item.id;
       ref.setAttribute('aria-expanded', String(expanded));
+      ref.toggleAttribute('data-context-active', expanded);
       ref.setAttribute('aria-controls', item.id);
-      if (!wide.matches && item.mobile === 'screen') ref.setAttribute('aria-haspopup', 'dialog');
+      if (!wide.matches && (item.mobile === 'screen' || item.entity)) ref.setAttribute('aria-haspopup', 'dialog');
       else ref.removeAttribute('aria-haspopup');
     }
   }
@@ -75,7 +87,7 @@ export function mountArticleContext(page, sceneRail) {
 
   function render() {
     frame = 0;
-    if (controller.signal.aborted) return;
+    if (controller.signal.aborted || frozen) return;
     // Hiding the header must not move the reading line across a chapter boundary.
     const top = parseFloat(getComputedStyle(document.body).getPropertyValue('--media-header-height')) || 0;
     const readingOffset = top + (innerHeight - top) / 3;
@@ -102,28 +114,35 @@ export function mountArticleContext(page, sceneRail) {
       || !automaticId && endTop < innerHeight && remainingScroll <= (displayedState.type === 'next' ? 48 : 24));
     const interactionId = wide.matches && !manual && isInteracting()
       ? displayedState.id || (displayedState.type === 'next' ? 'next' : null) : null;
-    const state = selectContextState({ manualId: manual?.id, interactionId, automaticId, endVisible, hasNext: !!next });
+    const state = selectContextState({ manualId: manual?.id, previewId: preview?.id, interactionId, automaticId, endVisible, hasNext: !!next });
     updateRefs();
-    sceneRail.closeButton.hidden = !manual;
-    const screen = !wide.matches && !suspended && manual && materials.get(manual.id)?.mobile === 'screen';
+    const selected = materials.get(manual?.id);
+    const screen = !wide.matches && !suspended && manual && (selected?.mobile === 'screen' || selected?.entity);
     const id = state.type === 'next' ? 'next' : state.id || 'video';
+    const source = state.type === 'next' ? end : manual?.trigger || preview?.trigger || chapters.find(chapter => chapter.id === chapterId)?.node;
+    const nextSource = { id, order: interactionId && !manual && !preview ? displayedSource?.order : sourceOrder.get(source) };
+    const direction = contextTransitionDirection(displayedSource, nextSource);
+    displayedSource = nextSource;
     const key = wide.matches ? `rail:${id}` : screen ? `screen:${manual.id}` : `flow:${manual?.id || ''}:${refs.indexOf(manual?.trigger)}`;
     displayedState = state;
     if (key === placement) return;
+    const wasWide = placement.startsWith('rail:');
     placement = key;
     const focused = document.activeElement;
     closeScreen();
-    restoreNodes();
     if (wide.matches) {
+      if (!wasWide) {
+        sceneRail.setContext(null, { animate: false });
+        restoreNodes();
+      }
       const node = state.type === 'next' ? next : materials.get(state.id)?.node;
-      if (node) {
-        node.hidden = false;
-        sceneRail.setContext(node, { manual: !!manual });
-        if (node.contains(focused)) focused.focus({ preventScroll: true });
-      } else sceneRail.setContext(null);
+      if (node) node.hidden = false;
+      sceneRail.setContext(node || null, { direction, animate: wasWide, release: restoreNode });
+      if (node?.contains(focused)) focused.focus({ preventScroll: true });
       return;
     }
-    sceneRail.setContext(null);
+    sceneRail.setContext(null, { animate: false });
+    restoreNodes();
     for (const item of materials.values()) {
       item.node.hidden = !(item.mobile === 'inline' || item.kind === 'footnote' && manual?.id === item.id);
       if (item.kind === 'footnote' && manual?.id === item.id) manual.trigger?.closest('p')?.after(item.node);
@@ -145,10 +164,36 @@ export function mountArticleContext(page, sceneRail) {
     }
   }
   function schedule() { if (!frame && !controller.signal.aborted) frame = requestAnimationFrame(render); }
+  function clearPreview() {
+    clearTimeout(previewTimer);
+    clearTimeout(dismissTimer);
+    preview = null;
+  }
+  function previewRef(ref) {
+    if (!ref?.matches('.story-entity')) return;
+    clearTimeout(previewTimer);
+    clearTimeout(dismissTimer);
+    if (!wide.matches || manual || suspended || frozen || isInteracting() || sceneRail.rail.classList.contains('is-collapsed')) return;
+    previewTimer = setTimeout(() => {
+      preview = { id: ref.dataset.contextRef, trigger: ref };
+      render();
+    }, 180);
+  }
+  function dismissPreview() {
+    clearTimeout(previewTimer);
+    clearTimeout(dismissTimer);
+    // Leave enough time to cross the gap between the paragraph and the rail.
+    dismissTimer = setTimeout(() => {
+      if (frozen || sceneRail.contextHost.contains(document.activeElement)) return;
+      preview = null;
+      schedule();
+    }, 280);
+  }
   function closeImmediate({ focus = true } = {}) {
     const trigger = manual?.trigger;
     manual = null;
     if (focus) restoreFocus(trigger);
+    clearPreview();
     render();
   }
   function requestClose() {
@@ -160,7 +205,9 @@ export function mountArticleContext(page, sceneRail) {
     const item = materials.get(id);
     if (!item) return;
     if (!wide.matches && item.kind === 'footnote' && manual?.id === id && manual.trigger === trigger) { requestClose(); return; }
+    clearPreview();
     manual = { id, trigger };
+    if (wide.matches) sceneRail.expand();
     if (ownHistory()) history.replaceState({ ...history.state, articleContext: { token, articleId: data.articleId, materialId: id } }, '');
     render();
     if (wide.matches) item.node.focus({ preventScroll: true });
@@ -188,16 +235,38 @@ export function mountArticleContext(page, sceneRail) {
   }
 
   page.classList.add('has-article-context');
+  page.addEventListener('pointerover', event => {
+    if (event.pointerType !== 'mouse' || !finePointer.matches) return;
+    const ref = event.target.closest('.story-entity');
+    if (ref && !ref.contains(event.relatedTarget)) previewRef(ref);
+  }, options);
+  page.addEventListener('pointerout', event => {
+    const ref = event.target.closest('.story-entity');
+    if (ref && !ref.contains(event.relatedTarget)) dismissPreview();
+  }, options);
+  page.addEventListener('focusin', event => previewRef(event.target.closest('.story-entity')), options);
+  page.addEventListener('focusout', event => {
+    if (event.target.matches('.story-entity')) dismissPreview();
+  }, options);
+  sceneRail.contextHost.addEventListener('pointerenter', () => clearTimeout(dismissTimer), options);
+  sceneRail.contextHost.addEventListener('pointerleave', dismissPreview, options);
+  sceneRail.contextHost.addEventListener('focusout', dismissPreview, options);
   page.addEventListener('click', event => {
     const ref = event.target.closest('[data-context-ref]');
     if (!ref || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     event.preventDefault();
     open(ref.dataset.contextRef, ref);
   }, options);
-  sceneRail.closeButton.addEventListener('click', requestClose, options);
   dialog.querySelector('button').addEventListener('click', requestClose, options);
   dialog.addEventListener('cancel', event => { event.preventDefault(); requestClose(); }, options);
   document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && preview && !manual && !event.defaultPrevented) {
+      restoreFocus(preview.trigger);
+      clearPreview();
+      schedule();
+      event.preventDefault();
+      return;
+    }
     if (event.key === 'Escape' && manual && !suspended && !dialog.open && !event.defaultPrevented) {
       event.preventDefault();
       requestClose();
@@ -209,8 +278,8 @@ export function mountArticleContext(page, sceneRail) {
       if (materials.has(id)) { manual = { id, trigger: refs.find(ref => ref.dataset.contextRef === id) }; render(); }
     } else if (manual) closeImmediate();
   }, options);
-  window.addEventListener('scroll', schedule, { ...options, passive: true });
-  window.addEventListener('resize', schedule, options);
+  window.addEventListener('scroll', () => { clearPreview(); schedule(); }, { ...options, passive: true });
+  window.addEventListener('resize', () => { clearPreview(); schedule(); }, options);
   window.addEventListener('hashchange', followHash, options);
   window.addEventListener('pageshow', schedule, options);
   wide.addEventListener('change', schedule, options);
@@ -230,25 +299,32 @@ export function mountArticleContext(page, sceneRail) {
   followHash();
 
   return {
+    setFrozen(value) {
+      frozen = value;
+      sceneRail.setContextFrozen(value);
+      if (!frozen) render();
+    },
     setSuspended(value) {
       suspended = value;
+      if (value) clearPreview();
       sceneRail.setSuspended(value);
       render();
     },
     dispose() {
       controller.abort();
+      clearPreview();
       observer.disconnect();
       cancelAnimationFrame(frame);
       cancelAnimationFrame(hashFrame);
       closeScreen();
+      sceneRail.setContext(null, { animate: false });
       restoreNodes();
       for (const node of nodes) node.hidden = false;
       for (const marker of homes.values()) marker.remove();
-      sceneRail.setContext(null);
       sceneRail.setSuspended(false);
       dialog.remove();
       page.classList.remove('has-article-context');
-      for (const ref of refs) for (const attr of ['aria-expanded', 'aria-controls', 'aria-haspopup']) ref.removeAttribute(attr);
+      for (const ref of refs) for (const attr of ['aria-expanded', 'aria-controls', 'aria-haspopup', 'data-context-active']) ref.removeAttribute(attr);
     },
   };
 }
