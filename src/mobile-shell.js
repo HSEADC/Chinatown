@@ -130,9 +130,9 @@ export function mountMobileShell(page, { onOverlayChange = () => {}, onVisibilit
   }
   function syncViewport() {
     const height = viewportHeight();
-    const keyboardInset = Math.max(0, innerHeight - height - (window.visualViewport?.offsetTop || 0));
+    const searchInset = Math.max(0, innerHeight - height - (window.visualViewport?.offsetTop || 0));
     root.style.setProperty('--mobile-viewport-height', `${height}px`);
-    root.style.setProperty('--mobile-keyboard-inset', `${keyboardInset}px`);
+    root.style.setProperty('--mobile-search-inset', `${searchInset}px`);
     if (!drag) root.style.setProperty('--mobile-sheet-height', `${mobileSnapHeights(height)[state.snap]}px`);
   }
   function render() {

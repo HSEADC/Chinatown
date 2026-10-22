@@ -51,6 +51,14 @@ async function checkPhone(width, height) {
   assert.equal(await snap(), 'preview');
   const previewHeight = await page.locator('.mobile-shell__sheet').evaluate(element => element.getBoundingClientRect().height);
   assert(Math.abs(previewHeight - Math.min(88, height * .25)) < 1);
+  // Browser chrome can resize visualViewport before innerHeight catches up.
+  await page.evaluate(() => {
+    Object.defineProperty(visualViewport, 'height', { configurable: true, get: () => innerHeight - 64 });
+    visualViewport.dispatchEvent(new Event('resize'));
+  });
+  const previewBottomGap = await page.locator('.mobile-shell__sheet').evaluate(element => innerHeight - element.getBoundingClientRect().bottom);
+  assert(Math.abs(previewBottomGap) < 1, `Browser chrome lifted the preview by ${previewBottomGap}px`);
+  await page.evaluate(() => { delete visualViewport.height; visualViewport.dispatchEvent(new Event('resize')); });
   const forward = await assertArticleSwipe(height * .5, height * .2);
   const backward = await assertArticleSwipe(height * .2, height * .5);
   // The regression: this gesture starts on the visible card image, below its drag handle.
@@ -77,6 +85,15 @@ async function checkPhone(width, height) {
   for (const surface of ['menu', 'search']) {
     await page.locator(`[data-mobile-mode="${surface}"]`).click();
     assert.equal(await page.locator('.story-page').evaluate(element => element.inert), true);
+    const obstruction = Math.min(300, height * .4);
+    await page.evaluate(obstruction => {
+      Object.defineProperty(visualViewport, 'height', { configurable: true, get: () => innerHeight - obstruction });
+      visualViewport.dispatchEvent(new Event('resize'));
+    }, obstruction);
+    const panel = page.locator(surface === 'search' ? '.mobile-shell__search' : '.mobile-shell__menu-surface');
+    const bottom = await panel.evaluate(element => element.getBoundingClientRect().bottom);
+    assert(Math.abs(bottom - (surface === 'search' ? height - obstruction : height)) < 1);
+    await page.evaluate(() => { delete visualViewport.height; visualViewport.dispatchEvent(new Event('resize')); });
     await page.goBack();
     await settle();
     assert.equal(await mode(), 'closed');
@@ -109,7 +126,7 @@ async function checkPhone(width, height) {
     await assertArticleSwipe(height - 16, height - 250);
   }
   assert.equal(await page.evaluate(() => document.documentElement.scrollWidth), width);
-  checks.push({ width, height, previewHeight, expandedHeight, coverSwipe, articleSwipe: forward, reverseSwipe: backward, swipeStartingOnPreview: previewSwipe });
+  checks.push({ width, height, previewHeight, expandedHeight, previewBottomGap, coverSwipe, articleSwipe: forward, reverseSwipe: backward, swipeStartingOnPreview: previewSwipe });
   await context.close();
 }
 

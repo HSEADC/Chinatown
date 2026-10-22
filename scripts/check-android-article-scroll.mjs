@@ -54,11 +54,43 @@ try {
   await swipe('backward');
   // Exercise a second gesture after the native toolbar changes viewport height.
   await swipe('forward');
+  await page.locator('#artist-intro').evaluate(element => scrollTo(0, scrollY + element.getBoundingClientRect().top - 160));
+  await page.waitForTimeout(500);
+  if (await page.locator('.mobile-shell').getAttribute('data-snap') === 'hidden') await page.locator('[data-mobile-mode="context"]').click();
+  if (await page.locator('.mobile-shell').getAttribute('data-snap') === 'expanded') await page.locator('.mobile-shell__collapse').click();
+  await page.waitForTimeout(400);
+  await page.evaluate(() => {
+    window.__sheetViewportTrace = { running: true, frames: [] };
+    function record() {
+      const trace = window.__sheetViewportTrace;
+      const sheet = document.querySelector('.mobile-shell__sheet');
+      trace.frames.push({
+        height: innerHeight, visualHeight: visualViewport.height,
+        bottomGap: innerHeight - sheet.getBoundingClientRect().bottom,
+        cssBottom: parseFloat(getComputedStyle(sheet).bottom),
+        searchInset: parseFloat(document.querySelector('.mobile-shell').style.getPropertyValue('--mobile-search-inset')),
+      });
+      if (trace.running) requestAnimationFrame(record);
+    }
+    record();
+  });
+  for (const [start, end, duration] of [[.72, .32, 140], [.28, .72, 90]]) {
+    adb(['shell', 'input', 'swipe', String(Math.round(width / 2)), String(Math.round(height * start)), String(Math.round(width / 2)), String(Math.round(height * end)), String(duration)]);
+    await page.waitForTimeout(250);
+  }
+  await page.waitForTimeout(400);
+  const viewportFrames = await page.evaluate(() => { window.__sheetViewportTrace.running = false; return window.__sheetViewportTrace.frames; });
+  assert(viewportFrames.every(frame => Math.abs(frame.bottomGap) < 1 && frame.cssBottom === 0), 'Rapid reverse scrolling detached the sheet from the viewport bottom');
+  await page.screenshot({ path: fileURLToPath(new URL('sheet-after-fast-reverse-scroll.png', output)) });
   const collapse = page.locator('.mobile-shell__collapse');
   if (await collapse.isVisible()) await collapse.click();
   for (const mode of ['menu', 'search']) {
     await page.locator(`[data-mobile-mode="${mode}"]`).click();
     assert.equal(await page.evaluate(() => document.documentElement.style.overflow), 'hidden');
+    if (mode === 'search') {
+      await page.waitForTimeout(1000);
+      assert(await page.locator('#mobile-article-query').evaluate(input => input.getBoundingClientRect().bottom <= visualViewport.height + visualViewport.offsetTop));
+    }
     await page.goBack();
     await page.waitForTimeout(500);
     assert(!['hidden', 'clip'].includes((await read()).rootOverflowY));
@@ -67,8 +99,9 @@ try {
   }
   assert.deepEqual(errors, []);
   const activity = adb(['shell', 'dumpsys', 'activity', 'activities']).split('\n').find(line => line.includes('topResumedActivity='))?.trim();
-  await writeFile(new URL('validation.json', output), JSON.stringify({ userAgent: await page.evaluate(() => navigator.userAgent), activity, input: 'adb shell input swipe', initial, swipes, errors }, null, 2));
-  console.log(JSON.stringify({ activity, nativeSwipes: swipes.length, errors }, null, 2));
+  const viewport = { frames: viewportFrames.length, maxBottomGap: Math.max(...viewportFrames.map(frame => Math.abs(frame.bottomGap))), maxSearchInset: Math.max(...viewportFrames.map(frame => frame.searchInset)) };
+  await writeFile(new URL('validation.json', output), JSON.stringify({ userAgent: await page.evaluate(() => navigator.userAgent), activity, input: 'adb shell input swipe', initial, swipes, viewport, errors }, null, 2));
+  console.log(JSON.stringify({ activity, nativeSwipes: swipes.length + 2, viewport, errors }, null, 2));
 } finally {
   await browser.close();
 }

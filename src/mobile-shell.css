@@ -17,7 +17,7 @@
     --mobile-accent: var(--media-accent, #fc5cff);
     --mobile-edge: 12px;
     --mobile-sheet-height: 0px;
-    --mobile-keyboard-inset: 0px;
+    --mobile-search-inset: 0px;
     position: relative;
     z-index: 55;
     display: block;
@@ -46,7 +46,7 @@
   .mobile-shell__sheet {
     position: fixed;
     right: 0;
-    bottom: var(--mobile-keyboard-inset);
+    bottom: 0;
     left: 0;
     display: flex;
     flex-direction: column;
@@ -93,12 +93,12 @@
   /* Preview taps expand the card; native vertical swipes continue scrolling the article. */
   .mobile-shell__preview-toggle { position: absolute; z-index: 1; inset: 0; width: 100%; padding: 0; background: transparent; touch-action: pan-y pinch-zoom; }
   .mobile-shell__backdrop { position: fixed; inset: 0; background: rgb(0 0 0 / .6); }
-  .mobile-shell__menu-surface { position: fixed; right: 0; bottom: var(--mobile-keyboard-inset); left: 0; max-height: calc(var(--mobile-viewport-height) - 12px); overflow-y: auto; padding-top: 56px; }
+  .mobile-shell__menu-surface { position: fixed; right: 0; bottom: 0; left: 0; max-height: calc(var(--mobile-viewport-height) - 12px); overflow-y: auto; padding-top: 56px; }
   .mobile-shell__menu-close { position: absolute; top: 0; right: 6px; }
   .mobile-shell__menu-close > span { width: 32px; height: 32px; }
   .mobile-shell__menu-surface nav { display: flex; flex-direction: column; align-items: stretch; gap: 8px; padding: 8px 12px calc(8px + env(safe-area-inset-bottom)); background: #000; }
   .mobile-shell__menu-surface nav a { display: flex; align-items: center; justify-content: center; min-height: 32px; padding: 10px 12px 6px; color: #fff; font: 700 var(--font-size-button)/var(--line-height-button) var(--font-display); text-transform: uppercase; text-decoration: none; }
-  .mobile-shell__search { position: fixed; right: 0; bottom: var(--mobile-keyboard-inset); left: 0; display: flex; flex-direction: column; height: var(--mobile-viewport-height); padding-top: env(safe-area-inset-top); padding-bottom: env(safe-area-inset-bottom); background: #212121; }
+  .mobile-shell__search { position: fixed; right: 0; bottom: var(--mobile-search-inset); left: 0; display: flex; flex-direction: column; height: var(--mobile-viewport-height); padding-top: env(safe-area-inset-top); padding-bottom: env(safe-area-inset-bottom); background: #212121; }
   .mobile-search-field { display: flex; flex: none; align-items: center; gap: 6px; min-height: 48px; margin: 0; padding: 0 8px; }
   .mobile-search-field > button { position: relative; display: grid; place-items: center; flex: none; width: 32px; height: 44px; padding: 0; background: transparent; }
   .mobile-search-field img { display: block; max-width: none; }

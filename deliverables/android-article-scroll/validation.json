@@ -1,11 +1,11 @@
 {
   "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36",
-  "activity": "topResumedActivity=ActivityRecord{132648269 u0 com.duckduckgo.mobile.android/com.duckduckgo.app.browser.customtabs.CustomTabActivity t19}",
+  "activity": "topResumedActivity=ActivityRecord{141405164 u0 com.android.chrome/org.chromium.chrome.browser.customtabs.CustomTabActivity t21}",
   "input": "adb shell input swipe",
   "initial": {
     "y": 0,
-    "height": 713,
-    "visualHeight": 713.4545288085938,
+    "height": 721,
+    "visualHeight": 721.4545288085938,
     "rootOverflowY": "visible",
     "bodyOverflow": "visible",
     "touchAction": "auto",
@@ -16,107 +16,112 @@
       "direction": "forward",
       "before": {
         "y": 0,
-        "height": 713,
-        "visualHeight": 713.4545288085938,
+        "height": 721,
+        "visualHeight": 721.4545288085938,
         "rootOverflowY": "visible",
         "bodyOverflow": "visible",
         "touchAction": "auto",
         "coverTop": 0
       },
       "after": {
-        "y": 486.5454406738281,
-        "height": 777,
-        "visualHeight": 777.4545288085938,
+        "y": 505.81817626953125,
+        "height": 721,
+        "visualHeight": 721.4545288085938,
         "rootOverflowY": "visible",
         "bodyOverflow": "visible",
         "touchAction": "auto",
-        "coverTop": -486.54547119140625
+        "coverTop": -505.8182067871094
       }
     },
     {
       "direction": "backward",
       "before": {
-        "y": 486.5454406738281,
-        "height": 777,
-        "visualHeight": 777.0908813476562,
+        "y": 505.81817626953125,
+        "height": 721,
+        "visualHeight": 721.0908813476562,
         "rootOverflowY": "visible",
         "bodyOverflow": "visible",
         "touchAction": "auto",
-        "coverTop": -486.54547119140625
+        "coverTop": -505.8182067871094
       },
       "after": {
-        "y": 0,
-        "height": 713,
-        "visualHeight": 713.4545288085938,
+        "y": 4,
+        "height": 721,
+        "visualHeight": 721.0908813476562,
         "rootOverflowY": "visible",
         "bodyOverflow": "visible",
         "touchAction": "auto",
-        "coverTop": 0
+        "coverTop": -4
       }
     },
     {
       "direction": "forward",
       "before": {
-        "y": 0,
-        "height": 713,
-        "visualHeight": 713.4545288085938,
+        "y": 4,
+        "height": 721,
+        "visualHeight": 721.0908813476562,
         "rootOverflowY": "visible",
         "bodyOverflow": "visible",
         "touchAction": "auto",
-        "coverTop": 0
+        "coverTop": -4
       },
       "after": {
-        "y": 490.9090881347656,
-        "height": 777,
-        "visualHeight": 777.4545288085938,
+        "y": 510.5454406738281,
+        "height": 721,
+        "visualHeight": 721.0908813476562,
         "rootOverflowY": "visible",
         "bodyOverflow": "visible",
         "touchAction": "auto",
-        "coverTop": -490.90911865234375
+        "coverTop": -510.54547119140625
       }
     },
     {
       "direction": "forward",
       "before": {
-        "y": 490.9090881347656,
-        "height": 777,
-        "visualHeight": 777.4545288085938,
+        "y": 701.0908813476562,
+        "height": 721,
+        "visualHeight": 721.0908813476562,
         "rootOverflowY": "visible",
         "bodyOverflow": "visible",
         "touchAction": "auto",
-        "coverTop": -490.90911865234375
+        "coverTop": -701.0909423828125
       },
       "after": {
-        "y": 997.4545288085938,
-        "height": 777,
-        "visualHeight": 777.4545288085938,
+        "y": 1205.8182373046875,
+        "height": 721,
+        "visualHeight": 721.0908813476562,
         "rootOverflowY": "visible",
         "bodyOverflow": "visible",
         "touchAction": "auto",
-        "coverTop": -997.45458984375
+        "coverTop": -1205.8182373046875
       }
     },
     {
       "direction": "forward",
       "before": {
-        "y": 997.4545288085938,
-        "height": 777,
-        "visualHeight": 777.4545288085938,
+        "y": 1205.8182373046875,
+        "height": 721,
+        "visualHeight": 721.4545288085938,
         "rootOverflowY": "visible",
         "bodyOverflow": "visible",
         "touchAction": "auto",
-        "coverTop": -997.45458984375
+        "coverTop": -1205.8182373046875
       },
       "after": {
-        "y": 1497.45458984375,
+        "y": 1657.45458984375,
         "height": 777,
         "visualHeight": 777.4545288085938,
         "rootOverflowY": "visible",
         "bodyOverflow": "visible",
         "touchAction": "auto",
-        "coverTop": -1497.45458984375
+        "coverTop": -1657.45458984375
       }
     }
   ],
+  "viewport": {
+    "frames": 48,
+    "maxBottomGap": 0.0909423828125,
+    "maxSearchInset": 0
+  },
   "errors": []
 }
