@@ -65,7 +65,7 @@
 .landing-feature__title { flex: 1 1 auto; text-transform: uppercase; }
 .landing-feature__head { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
 .landing-feature__head .ct-tag, .landing-rubrics .ct-tag { rotate: var(--tag-tilt, 0deg); }
-.landing-feature__burst.ct-big-burst { flex: none; width: 420px; margin: 0 0 32px; }
+.landing-feature__burst.ct-big-burst { flex: none; width: 420px; margin: 0 0 96px; }
 /* The rail is off here, but a collapsed rail remembered from an article must not slide and grow the burst out of the block. */
 .is-scene-rail-collapsed .landing-feature__burst.ct-big-burst { translate: none; scale: none; margin-top: 0; }
 /* Stickers slapped on the cover collage, clear of the wordmark. */
@@ -96,7 +96,7 @@
   .landing-feature { min-height: 600px; gap: 20px; }
   .landing-feature__row { flex-direction: column; align-items: flex-start; gap: 20px; }
   /* The phone H1 (64px) cannot hold «СЛИШКОМ»; the teaser switches to the display role. */
-  .landing-feature__burst.ct-big-burst { align-self: flex-end; width: min(100%, 300px); }
+  .landing-feature__burst.ct-big-burst { align-self: flex-end; width: min(100%, 300px); margin-bottom: 32px; }
   .landing-hero__tags { top: 24px; }
   .landing-rubrics { padding-top: 40px; }
   .landing-feature__title { font-size: var(--font-size-display); line-height: var(--line-height-display); letter-spacing: var(--type-display-tracking); }
