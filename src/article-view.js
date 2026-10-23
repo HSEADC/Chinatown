@@ -151,7 +151,7 @@ export function articleView() {
         <div class="story-cover__shade" aria-hidden="true"></div>
         <div class="story-cover__meta" data-node-id="290:70">
           <p class="media-eyebrow story-category" data-node-id="290:71">Новая сцена <span aria-hidden="true">/</span> Разбор</p>
-          <p class="story-meta" data-node-id="290:72">${articleCopy.readingMinutes} минут</p>
+          <p class="story-meta" data-node-id="290:72">${tagMarkup(`${articleCopy.readingMinutes} минут`, 'time')}</p>
         </div>
         <div class="story-cover__intro-row" data-node-id="293:210">
           <p class="story-cover__intro" data-node-id="293:209">${escape(articleDescription)}${sourcesView(articleCopy.sections.cover.paragraphSources[0])}</p>

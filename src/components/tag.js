@@ -23,8 +23,7 @@ function stickerFor(label) {
 const escape = value => String(value).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
 
 // Markup for pages rendered as strings (article cards are generated into article.html).
-export function tagMarkup(label) {
-  const name = rubricStickers[label.toLocaleLowerCase('ru')];
+export function tagMarkup(label, name = rubricStickers[label.toLocaleLowerCase('ru')]) {
   const sticker = `./assets/${name ? `stickers/${name}` : 'textures/topic-sticker'}.svg`;
   return `<span class="ct-tag"><img class="ct-tag__sticker" src="${sticker}" alt="" decoding="async" loading="lazy"><span class="ct-tag__label">${escape(label)}</span></span>`;
 }

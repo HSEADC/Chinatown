@@ -76,7 +76,7 @@
 .story-cover__shade { position: absolute; z-index: -1; inset: 0; background: linear-gradient(180deg, #000, #0003 28%, rgb(0 0 0 / .33) 48%, #000 100%); }
 .story-cover__meta { display: flex; align-items: flex-start; gap: 16px; min-width: 0; width: 100%; }
 .story-cover__meta > p { flex: 1; min-width: 0; }
-.story-cover__meta .story-meta { text-align: right; }
+.story-cover__meta .story-meta { display: flex; justify-content: flex-end; padding-left: 8px; text-align: right; }
 .story-cover__title { font: 800 var(--font-size-display)/var(--line-height-display) var(--font-display); letter-spacing: .04em; text-transform: uppercase; text-wrap: balance; overflow-wrap: anywhere; }
 .story-cover__artist { white-space: nowrap; }
 .story-cover__intro-row { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); width: 100%; }
