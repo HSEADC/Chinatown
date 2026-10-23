@@ -15,28 +15,22 @@ const directions = [
   ['Разборы и истории', 'Треки строка за строкой, артисты, концерты и события, которые стали частью сцены.'],
 ];
 
-const team = [
-  ['Лёша', 'дизайн и код'],
-  ['Лиза', 'дизайн и коммуникации'],
-  ['Ксюша', 'код'],
-];
-
 const northEast = './assets/figma/intro-north-east.svg';
 
 function sectionLabel(id, label) {
   return `<h2 class="landing-section__label type-h3" id="${id}">${label}</h2>`;
 }
 
-function cardsView(items, heading = 'h3') {
-  return `<ul class="landing-cards">${items.map(([title, text]) => `<li class="landing-card"><${heading} class="type-h2">${title}</${heading}><p class="type-body">${text}</p></li>`).join('')}</ul>`;
+function cardsView(items) {
+  return `<ul class="landing-cards">${items.map(([title, text]) => `<li class="landing-card"><h3 class="type-h2">${title}</h3><p class="type-body">${text}</p></li>`).join('')}</ul>`;
 }
 
-/** Landing «О нас», Figma 414:380 (1440) / 415:399 (390). */
+/** Landing «О нас», Figma 440:696 (1440) / 415:399 (390). */
 export function homeView() {
   return `<div class="landing" data-scene-rail="off">
     ${siteHeaderView(landingMenu)}
-    <section class="landing-hero" aria-labelledby="landing-title" data-node-id="414:393">
-      <img class="landing-hero__photo" src="./assets/video/editorial/kitay-night-86bc7af48de9/poster.jpg" alt="" fetchpriority="high">
+    <section class="landing-hero" aria-labelledby="landing-title" data-node-id="440:709">
+      <img class="landing-hero__photo" src="./assets/figma/landing/hero-collage.jpg" alt="" width="1440" height="836" fetchpriority="high">
       <div class="landing-hero__content">
         <h1 class="landing-hero__title type-display" id="landing-title"><span class="media-accent">CHINATOWN<wbr>.site</span> — гид и архив центра Москвы</h1>
         <div class="landing-hero__row">
@@ -45,7 +39,7 @@ export function homeView() {
         </div>
       </div>
     </section>
-    <section class="landing-section" aria-labelledby="landing-about" data-node-id="414:403">
+    <section class="landing-section" aria-labelledby="landing-about" data-node-id="440:715">
       ${sectionLabel('landing-about', 'О нас')}
       <div class="landing-section__content">
         <p class="type-h2">Центр Москвы — больше, чем бар</p>
@@ -53,11 +47,11 @@ export function homeView() {
         <p class="type-body">Мы отвечаем на другие вопросы. Где позавтракать после тусы, выпить кофе с утра, проявить плёнку, найти аптеку или место, о котором вы ещё не слышали. Чтобы сегодня вечером пойти туда, куда раньше не ходили.</p>
       </div>
     </section>
-    <section class="landing-section" aria-labelledby="landing-inside" data-node-id="414:413">
+    <section class="landing-section" aria-labelledby="landing-inside" data-node-id="440:722">
       ${sectionLabel('landing-inside', 'Что внутри')}
       <div class="landing-section__wide">${cardsView(directions)}</div>
     </section>
-    <section class="landing-section landing-section--closing" aria-labelledby="landing-why" data-node-id="425:420">
+    <section class="landing-section landing-section--closing" aria-labelledby="landing-why" data-node-id="440:735">
       ${sectionLabel('landing-why', 'Почему сейчас')}
       <div class="landing-section__content">
         <p class="type-h2">Пока это ещё можно застать</p>
@@ -65,7 +59,7 @@ export function homeView() {
         <p class="landing-stat"><span class="type-quote">≈<span class="media-accent">100</span> материалов</span><span class="type-caption">выйдет за первые три месяца</span></p>
       </div>
     </section>
-    <section class="landing-feature" aria-labelledby="landing-feature-title" data-node-id="414:426">
+    <section class="landing-feature" aria-labelledby="landing-feature-title" data-node-id="440:744">
       <img class="landing-feature__photo" src="./assets/figma/article/madk1d-concert.png" alt="" loading="lazy" width="3516" height="1984">
       <p class="type-h3">Первый материал</p>
       <div class="landing-feature__row">
@@ -73,11 +67,7 @@ export function homeView() {
         <a class="text-button" href="./article.html" data-media-route aria-describedby="landing-feature-title"><span>Читать статью</span><img src="${northEast}" alt="" aria-hidden="true"></a>
       </div>
     </section>
-    <section class="landing-section" aria-labelledby="landing-team" data-node-id="425:430">
-      ${sectionLabel('landing-team', 'Команда')}
-      <div class="landing-section__wide">${cardsView(team, 'p')}</div>
-    </section>
-    <section class="landing-section landing-section--closing" aria-labelledby="landing-contact" data-node-id="414:434">
+    <section class="landing-section landing-section--closing" aria-labelledby="landing-contact" data-node-id="440:759">
       ${sectionLabel('landing-contact', 'На связи')}
       <div class="landing-section__content">
         <p class="type-h2">Держим связь</p>

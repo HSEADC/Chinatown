@@ -1,4 +1,4 @@
-/* Landing «О нас»: Figma 414:380 (1440) / 415:399 (390).
+/* Landing «О нас»: Figma 440:696 (1440) / 415:399 (390).
    Text roles and controls come from shared tokens; this file only places them. */
 .landing {
   --landing-gutter: var(--page-gutter);
