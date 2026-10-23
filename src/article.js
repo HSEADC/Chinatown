@@ -8,6 +8,7 @@ import { mountDevTools } from './dev-tools.js';
 import { mountArticleImages } from './article-images.js';
 import { mountActionButtons } from './components/action-button.js';
 import { mountMobileShell } from './mobile-shell.js';
+import { mountBigBursts } from './components/tag.js';
 
 /** Attach article anchors and the shared headline effect. */
 export function mountArticle(page, header = page?.querySelector('.story-header'), sceneRail) {
@@ -22,6 +23,7 @@ export function mountArticle(page, header = page?.querySelector('.story-header')
   const club = mountStoryClub(page);
   let context;
   const images = mountArticleImages(page, { onOpenChange: value => context?.setFrozen(value) });
+  const disposeBigBursts = mountBigBursts(page);
   function syncHeadline() {
     const headerOverlay = header.classList.contains('is-search-open') || header.classList.contains('is-nav-open');
     const overlayOpen = headerOverlay || mobileOverlay;
@@ -78,6 +80,7 @@ export function mountArticle(page, header = page?.querySelector('.story-header')
     headerControls.dispose();
     headlineGlitch.destroy();
     images.dispose();
+    disposeBigBursts();
     context.dispose();
     mobileShell.dispose();
     document.body.classList.remove('is-story-quote-active');

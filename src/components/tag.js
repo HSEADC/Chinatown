@@ -99,3 +99,22 @@ function bigBurstShape(kind, width, height) {
 export function bigBurstMarkup({ href, label, title }) {
   return `<a class="ct-big-burst" href="${escape(href)}">${bigBurstShape('wide', 560, 340)}${bigBurstShape('narrow', 358, 300)}<span class="ct-big-burst__text"><span class="ct-big-burst__label">${escape(label)}</span><span class="ct-big-burst__title">${escape(title)}</span></span></a>`;
 }
+
+// With the right rail collapsed the big burst slides into the freed bottom-right corner. Its column does not reflow,
+// so the reach to that corner is measured here and kept in --big-burst-reach for the CSS.
+export function mountBigBursts(root) {
+  const bursts = [...root.querySelectorAll('.ct-big-burst')];
+  if (!bursts.length) return () => {};
+  function measure() {
+    const rail = parseFloat(getComputedStyle(document.body).getPropertyValue('--scene-rail-collapsed-width')) || 0;
+    for (const burst of bursts) {
+      const gutter = parseFloat(getComputedStyle(burst).getPropertyValue('--story-gutter')) || 0;
+      const reach = window.innerWidth - rail - gutter - burst.parentElement.getBoundingClientRect().right;
+      burst.style.setProperty('--big-burst-reach', `${Math.max(0, Math.round(reach))}px`);
+    }
+  }
+  const size = new ResizeObserver(measure);
+  size.observe(root);
+  measure();
+  return () => size.disconnect();
+}
