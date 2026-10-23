@@ -65,6 +65,11 @@ export function createTagList(tags, seed = '') {
   return list;
 }
 
+// The same burst as a button: in a context card it sends the reader out to listen to the track or watch the clip.
+export function burstLinkMarkup({ label, href }) {
+  return `<a class="ct-burst ct-burst--action" href="${escape(href)}" target="_blank" rel="noopener"><svg viewBox="0 0 100 60" aria-hidden="true">${burstFrames.map(points => `<polygon points="${points}"/>`).join('')}</svg><span class="ct-burst__label">${escape(label)}</span></a>`;
+}
+
 export function createBurst(label) {
   const burst = document.createElement('span');
   burst.className = 'ct-burst';
@@ -100,16 +105,14 @@ export function bigBurstMarkup({ href, label, title }) {
   return `<a class="ct-big-burst" href="${escape(href)}">${bigBurstShape('wide', 560, 340)}${bigBurstShape('narrow', 358, 300)}<span class="ct-big-burst__text"><span class="ct-big-burst__label">${escape(label)}</span><span class="ct-big-burst__title">${escape(title)}</span></span></a>`;
 }
 
-// With the right rail collapsed the big burst slides into the freed bottom-right corner. Its column does not reflow,
-// so the reach to that corner is measured here and kept in --big-burst-reach for the CSS.
+// With the right rail collapsed the big burst slides into the bottom-right corner and past the screen edge. Its column
+// does not reflow, so the reach to that edge is measured here and kept in --big-burst-reach for the CSS.
 export function mountBigBursts(root) {
   const bursts = [...root.querySelectorAll('.ct-big-burst')];
   if (!bursts.length) return () => {};
   function measure() {
-    const rail = parseFloat(getComputedStyle(document.body).getPropertyValue('--scene-rail-collapsed-width')) || 0;
     for (const burst of bursts) {
-      const gutter = parseFloat(getComputedStyle(burst).getPropertyValue('--story-gutter')) || 0;
-      const reach = window.innerWidth - rail - gutter - burst.parentElement.getBoundingClientRect().right;
+      const reach = document.documentElement.clientWidth - burst.parentElement.getBoundingClientRect().right;
       burst.style.setProperty('--big-burst-reach', `${Math.max(0, Math.round(reach))}px`);
     }
   }

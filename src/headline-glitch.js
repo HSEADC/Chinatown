@@ -84,7 +84,11 @@ export function mountHeadlineGlitch(headline, { scroll = false, multiline = fals
       const matrix = getComputedStyle(headline).transform;
       const scale = matrix === 'none' ? 1 : new DOMMatrixReadOnly(matrix).a || 1;
       const size = parseFloat(style.fontSize);
-      const baseline = (run.baseline.getBoundingClientRect().top - rect.top) / scale;
+      // Glyph coordinates are relative to the overlay's own origin. A positioned
+      // ancestor inside the heading (the site link) can anchor it below the
+      // heading's top, so never assume the heading's corner.
+      const overlay = run.svg.getBoundingClientRect();
+      const baseline = (run.baseline.getBoundingClientRect().top - overlay.top) / scale;
       const lastSourceTop = run.lastSource.getBoundingClientRect().top;
       run.svg.setAttribute('width', rect.width / scale);
       run.svg.setAttribute('height', rect.height / scale);
@@ -99,7 +103,7 @@ export function mountHeadlineGlitch(headline, { scroll = false, multiline = fals
         context.font = font(size, style.fontFamily, style.fontWeight);
         const base = context.measureText(letter.character);
         const inkCenter = (base.actualBoundingBoxRight - base.actualBoundingBoxLeft) / 2;
-        const origin = (sourceRect.left - rect.left) / scale;
+        const origin = (sourceRect.left - overlay.left) / scale;
         const maxWidth = Math.max(base.actualBoundingBoxLeft + base.actualBoundingBoxRight, sourceRect.width / scale) * 1.12;
         letter.variants = families.map((family) => {
           context.font = font(100, `"${family}"`);

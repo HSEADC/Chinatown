@@ -112,7 +112,7 @@ export function mountArticleHeader(header, onChange, page = header.closest('.sto
     const query = input.value.trim().toLocaleLowerCase('ru');
     if (!searchOpen) return;
     const matches = searchArticles(query);
-    status.textContent = matches.length ? 'Готовим новые материалы' : 'Ничего не найдено. Попробуй другое слово.';
+    status.textContent = matches.length ? '' : 'Ничего не найдено. Попробуй другое слово.';
     const rows = searchRows(matches.length);
     for (const [index, article] of matches.entries()) {
       const item = document.createElement('li');
@@ -144,7 +144,7 @@ export function mountArticleHeader(header, onChange, page = header.closest('.sto
     }
     results.hidden = false;
     results.inert = false;
-    status.hidden = false;
+    status.hidden = !!matches.length;
     results.classList.add('has-query');
   }
 

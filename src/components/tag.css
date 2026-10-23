@@ -26,6 +26,8 @@
 .ct-burst polygon:nth-child(2) { animation-delay: -.8s; }
 .ct-burst polygon:nth-child(3) { animation-delay: -.4s; }
 .ct-burst__label { position: relative; padding-top: 3px; font: 800 var(--font-size-caption)/var(--line-height-caption) var(--font-display); letter-spacing: .02em; text-transform: uppercase; rotate: -6deg; }
+/* Burst as a button at the bottom-right of a context card: in the flow, so it never covers the card's text. */
+.ct-burst.ct-burst--action { position: relative; top: auto; right: auto; z-index: auto; display: grid; align-self: flex-end; margin: 16px 0 0 auto; color: #000; text-decoration: none; pointer-events: auto; }
 @keyframes ct-burst-frame { 0% { opacity: 1; } 33.333% { opacity: 0; } }
 @keyframes ct-burst-wobble { 0% { rotate: -3deg; } 33.333% { rotate: 2deg; } 66.666% { rotate: -1deg; } }
 
@@ -48,10 +50,12 @@
 .ct-big-burst__text { display: flex; flex-direction: column; align-items: center; gap: 12px; max-width: 340px; color: #000; }
 .ct-big-burst__label { font: 800 var(--font-size-caption)/var(--line-height-caption) var(--font-display); letter-spacing: .04em; text-transform: uppercase; }
 .ct-big-burst__title { font: 800 var(--font-size-card-artist)/var(--line-height-card-artist) var(--font-display); letter-spacing: .02em; text-transform: uppercase; }
-/* Collapsing the right rail frees the bottom-right corner: the burst slides there and grows from that corner. */
+/* Collapsing the right rail frees the bottom-right corner: the burst grows and slides past the right and bottom
+   screen edges, so the article ends on a sticker torn off the page. */
 @media (min-width: 761px) {
   .ct-big-burst { transform-origin: 100% 100%; transition: translate var(--scene-shell-motion, 280ms ease), scale var(--scene-shell-motion, 280ms ease), margin-top var(--scene-shell-motion, 280ms ease); }
-  .is-scene-rail-collapsed .ct-big-burst { translate: calc(var(--big-burst-reach, 0px) - 16px) 0; scale: 1.4; margin-top: 200px; }
+  .is-scene-rail-collapsed #media-content { overflow: clip; }
+  .is-scene-rail-collapsed .ct-big-burst { translate: calc(var(--big-burst-reach, 0px) + 80px) 160px; scale: 1.4; margin-top: 120px; }
 }
 @media (max-width: 760px) {
   .ct-big-burst { width: 100%; aspect-ratio: 358 / 300; margin: 40px 0 0; rotate: none; }

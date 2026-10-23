@@ -1,7 +1,7 @@
 import { editorialDataView } from './components/editorial-data.js';
 import { madk1dContext as context } from './article-context-data.js';
 import { contextMaterialView, contextEntryView } from './article-context-view.js';
-import { bigBurstMarkup, tagMarkup } from './components/tag.js';
+import { bigBurstMarkup, burstLinkMarkup, tagMarkup } from './components/tag.js';
 import { articleSearchItems } from './article-search-data.js';
 import { entityReferenceView } from './components/editorial-typography.js';
 import { articleCopy, articleSources } from './article-copy.js';
@@ -121,7 +121,6 @@ export function articleView() {
         </div>
         <nav class="story-menu" id="article-menu" aria-label="Навигация Чайнатаун" data-node-id="272:116">
           <button class="story-menu__item" type="button" aria-disabled="true" title="Раздел готовится" data-node-id="272:118">Карта артистов</button>
-          <button class="story-menu__item" type="button" aria-disabled="true" title="Раздел готовится" data-node-id="272:119">Карта артистов</button>
           <a class="story-menu__item" href="#article-content" data-node-id="272:120">Статьи</a>
           <button class="story-menu__item" type="button" aria-disabled="true" title="Раздел готовится" data-node-id="272:121">Тесты</button>
           <button class="story-menu__item" type="button" aria-disabled="true" title="Раздел готовится" data-node-id="272:122">Мерч</button>
@@ -186,6 +185,7 @@ export function articleView() {
           <figcaption id="sexyswag-artwork-caption"><span class="story-artwork__artist">madk1d</span><span class="story-artwork__name">Марк Робертович Серков</span><span class="story-artwork__description">Обложка альбома sexyswag — madk1d.</span></figcaption>
           ${material('sexyswag-artwork').paragraphs.map(text => `<p class="story-artwork__summary">${escape(text)}</p>`).join('')}
           <p class="article-context-sources">${material('sexyswag-artwork').sources.map(source => `<a href="${escape(source.href)}">${escape(source.label)}</a>`).join(' · ')}</p>
+          ${burstLinkMarkup(material('sexyswag-artwork').listen)}
         </figure>
         ${sectionView('return', 'return', { after: nextStoryView() })}
       </div>
