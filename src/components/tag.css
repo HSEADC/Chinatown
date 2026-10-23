@@ -16,7 +16,8 @@
 .ct-tag { position: relative; isolation: isolate; display: inline-flex; align-items: center; height: var(--tag-height); padding: 0 12px 0 calc(var(--tag-sticker) + 4px); color: #fff; font: 600 var(--font-size-caption)/var(--line-height-caption) var(--font-display); letter-spacing: .04em; text-transform: uppercase; white-space: nowrap; }
 .ct-tag::before { position: absolute; z-index: -1; inset: 0; background: #000 url('../../assets/textures/tag-outline.svg') center / 100% 100% no-repeat; -webkit-mask: var(--worn-mask) 0 0 / 160px; mask: var(--worn-mask) 0 0 / 160px; content: ""; }
 .ct-tag__label { padding-top: 3px; }
-.ct-tag__sticker { position: absolute; top: calc((var(--tag-height) - var(--tag-sticker)) / 2 - 2px); left: -6px; width: var(--tag-sticker); height: var(--tag-sticker); border: 2px solid #fff; object-fit: cover; background: #000; rotate: -7deg; }
+/* Doubled class: card content styles every img (full width, 4:3); the sticker must not inherit that. */
+.ct-tag > img.ct-tag__sticker.ct-tag__sticker { display: block; max-width: none; aspect-ratio: 1; position: absolute; top: calc((var(--tag-height) - var(--tag-sticker)) / 2 - 2px); left: -6px; width: var(--tag-sticker); height: var(--tag-sticker); border: 2px solid #fff; object-fit: cover; background: #000; rotate: -7deg; }
 
 /* Three drawn frames swap on a slow, constant beat: hand-drawn boil, not a tween. */
 .ct-burst { position: absolute; z-index: 1; top: 6px; right: 6px; display: grid; place-items: center; width: var(--burst-width); height: var(--burst-height); color: #000; pointer-events: none; animation: ct-burst-wobble 1.2s step-end infinite; }

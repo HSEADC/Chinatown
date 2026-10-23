@@ -466,7 +466,8 @@ p { line-height: var(--line-height-body); }
   column-gap: var(--landing-grid-gap);
   min-height: min(424px, calc(100dvh - 24px));
   max-height: calc(100dvh - 24px);
-  overflow-y: auto;
+  /* No clipping on desktop: the star overlaps the backdrop above the panel. Scroll comes back on short screens and mobile. */
+  overflow: visible;
   padding: 32px var(--landing-gutter) calc(32px + env(safe-area-inset-bottom));
   background: #131313;
   /* Same bottom-surface motion as the article shell; keyboard resizing stays native (bottom/max-height are not animated). */
@@ -539,7 +540,7 @@ p { line-height: var(--line-height-body); }
   .intro__socials > :is(span, a) { position: relative; padding: 10px 0 6px; }
   .intro__socials > a::after { position: absolute; inset: -6px; content: ""; }
   .subscribe-modal__body { grid-column: 1 / -1; gap: 24px; }
-  .subscribe-modal__panel { min-height: 0; padding-top: 64px; }
+  .subscribe-modal__panel { min-height: 0; padding-top: 64px; overflow-y: auto; }
   .subscribe-modal.is-entering-email .subscribe-modal__panel {
     bottom: var(--subscribe-input-bottom, 0px);
     max-height: calc(var(--subscribe-input-height, 100dvh) - 24px);

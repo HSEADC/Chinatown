@@ -11,11 +11,22 @@ const burstFrames = [
 const rubricStickers = {
   'фиты': 'fity', 'дропы': 'dropy', 'биты': 'bity', 'бифы': 'bify', 'сниппеты': 'snippety',
   'удалённое': 'udalyonnoe', 'пропавшие': 'propavshie', 'клипы': 'klipy', 'сохранёнки': 'sohranyonki',
+  // Material types in article cards: the tag replaces the old text label.
+  'артист': 'artist', 'альбом': 'album', 'трек': 'track',
 };
 
 function stickerFor(label) {
   const name = rubricStickers[label.toLocaleLowerCase('ru')];
   return name ? new URL(`../../assets/stickers/${name}.svg`, import.meta.url).href : new URL('topic-sticker.svg', textures).href;
+}
+
+const escape = value => String(value).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
+
+// Markup for pages rendered as strings (article cards are generated into article.html).
+export function tagMarkup(label) {
+  const name = rubricStickers[label.toLocaleLowerCase('ru')];
+  const sticker = `./assets/${name ? `stickers/${name}` : 'textures/topic-sticker'}.svg`;
+  return `<span class="ct-tag"><img class="ct-tag__sticker" src="${sticker}" alt="" decoding="async" loading="lazy"><span class="ct-tag__label">${escape(label)}</span></span>`;
 }
 
 export function createTag({ label, sticker = stickerFor(label) }) {

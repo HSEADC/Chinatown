@@ -1,6 +1,7 @@
 import { editorialDataView } from './components/editorial-data.js';
 import { madk1dContext as context } from './article-context-data.js';
 import { contextMaterialView, contextEntryView } from './article-context-view.js';
+import { tagMarkup } from './components/tag.js';
 import { entityReferenceView } from './components/editorial-typography.js';
 import { articleCopy, articleSources } from './article-copy.js';
 const material = id => context.materials.find(item => item.id === id);
@@ -173,7 +174,7 @@ export function articleView() {
         ${sectionView('album', 'album')}
         <figure class="story-artwork story-column entity-card entity-card--album" id="sexyswag-artwork" data-context-material="sexyswag-artwork" tabindex="-1" aria-labelledby="sexyswag-artwork-title">
           <h2 class="story-artwork__title" id="sexyswag-artwork-title">${escape(material('sexyswag-artwork').title)}</h2>
-          <p class="entity-card__type">Альбом</p>
+          <p class="entity-card__type">${tagMarkup('Альбом')}</p>
           <a href="${escape(articleSources.album.url)}" aria-label="Альбом sexyswag на Shazam"><img src="${artwork}rail/sexyswag.png" alt="Обложка альбома sexyswag, стилизованная под страницу поиска" width="642" height="634" loading="lazy"></a>
           <figcaption id="sexyswag-artwork-caption"><span class="story-artwork__artist">madk1d</span><span class="story-artwork__name">Марк Робертович Серков</span><span class="story-artwork__description">Обложка альбома sexyswag — madk1d.</span></figcaption>
           ${material('sexyswag-artwork').paragraphs.map(text => `<p class="story-artwork__summary">${escape(text)}</p>`).join('')}

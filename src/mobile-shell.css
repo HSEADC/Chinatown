@@ -91,7 +91,7 @@
   .mobile-shell[data-snap="expanded"] .mobile-shell__content { padding-bottom: calc(16px + var(--fab-secondary-size) + var(--fab-sheet-gap)); }
   .mobile-shell__outgoing { pointer-events: none; }
   .mobile-shell__content > :is(.article-context-material, .story-artwork) { display: flex; flex-direction: column; gap: 12px; width: 100%; margin: 0 !important; padding: 0; border: 0; color: #fff; font: 400 var(--font-size-body)/var(--line-height-body) var(--font-body); }
-  .mobile-shell__content > [data-context-material] > :is(h2, .entity-card__type) { display: none; }
+  .mobile-shell__content > [data-context-material] > h2 { display: none; }
   .mobile-shell__content [data-context-material] > :is(p, figure, dl) { margin: 0; }
   .mobile-shell__content [data-context-material] :is(p, li) { font: 400 var(--font-size-body)/var(--line-height-body) var(--font-body); }
   .mobile-shell__content [data-context-material] img { display: block; width: 100%; height: auto; }

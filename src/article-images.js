@@ -30,7 +30,7 @@ export function mountArticleImages(page, { onOpenChange = () => {} } = {}) {
   let scrollLock = null;
   let backdropPressed = false;
 
-  const entries = [...page.querySelectorAll('[data-context-material] img')].map(image => {
+  const entries = [...page.querySelectorAll('[data-context-material] img:not(.ct-tag__sticker)')].map(image => {
     const link = image.parentElement.matches('a') ? image.parentElement : null;
     const trigger = document.createElement('button');
     trigger.className = 'context-image-trigger';
