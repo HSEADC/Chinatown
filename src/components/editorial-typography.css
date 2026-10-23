@@ -18,9 +18,16 @@
   text-decoration-skip-ink: auto;
   transition: color 140ms ease-out, text-decoration-color 140ms ease-out, background-color 140ms ease-out;
 }
-.editorial-prose a:not(.story-footnote-ref, .action-button):is(:hover, :focus-visible) {
+.editorial-prose a:not(.story-footnote-ref, .action-button):hover {
   color: var(--media-accent, #fc5cff);
   text-decoration-color: currentColor;
+}
+/* Phones have no focus states (styles.css); desktop keeps the keyboard highlight. */
+@media (min-width: 761px) {
+  .editorial-prose a:not(.story-footnote-ref, .action-button):focus-visible {
+    color: var(--media-accent, #fc5cff);
+    text-decoration-color: currentColor;
+  }
 }
 .editorial-prose a.story-entity {
   color: var(--editorial-ink);
@@ -102,7 +109,10 @@
 .entity-card--track img { aspect-ratio: 1; object-fit: cover; }
 .entity-card .article-context-sources { display: flex; flex-direction: column; gap: 8px; font: 400 var(--font-size-caption)/var(--line-height-caption) var(--font-body); }
 .entity-card .article-context-sources a { color: #fff; text-decoration: underline; text-decoration-color: #ffffff80; text-underline-offset: .22em; }
-.entity-card .article-context-sources a:is(:hover, :focus-visible) { color: var(--media-accent, #fc5cff); text-decoration-color: currentColor; }
+.entity-card .article-context-sources a:hover { color: var(--media-accent, #fc5cff); text-decoration-color: currentColor; }
+@media (min-width: 761px) {
+  .entity-card .article-context-sources a:focus-visible { color: var(--media-accent, #fc5cff); text-decoration-color: currentColor; }
+}
 .scene-rail .entity-card > p, .article-context-screen .entity-card > p { margin: 0; }
 .scene-rail .entity-card > p:not([class]), .scene-rail .entity-card .story-artwork__summary { font: 400 var(--font-size-body)/var(--line-height-body) var(--font-body); }
 .scene-rail__context-content > .entity-card > h2 { white-space: normal; overflow-wrap: anywhere; text-overflow: clip; line-height: var(--line-height-card-title); }

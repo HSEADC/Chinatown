@@ -16,5 +16,7 @@
   text-transform: uppercase;
 }
 .email-field::placeholder { color: rgb(255 255 255 / .3); opacity: 1; }
-.email-field:focus-visible { border-color: var(--landing-accent, #fc5cff); }
+@media (min-width: 761px) {
+  .email-field:focus-visible { border-color: var(--landing-accent, #fc5cff); }
+}
 .email-field[aria-invalid='true'] { border-color: #ff7b8b; }

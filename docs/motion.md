@@ -69,7 +69,7 @@ JavaScript читает те же токены: `motionMs('--motion-enter', 260)
 | Элемент | Появление | Исчезновение | Файл |
 | --- | --- | --- | --- |
 | FAB-кнопки, меню, поиск, подложка (телефон) | `--motion-enter` / `--motion-ease` | `--motion-exit` / `--motion-ease-exit` | `src/mobile-shell.css` |
-| Нижний лист (телефон) | `--motion-enter`, при жесте — скорость пальца (`--mobile-sheet-settle`) | `--motion-exit` | `src/mobile-shell.css` |
+| Нижний лист (телефон) | `--motion-enter`, при жесте — скорость пальца (`--mobile-sheet-settle`) | `--motion-exit`; тянется вниз с любой точки, следует за пальцем 1:1, после отпускания доезжает со скоростью пальца (180–280 ms) | `src/mobile-shell.css`, `src/mobile-shell.js` |
 | Метка непрочитанного на FAB | `--motion-enter` / `--motion-ease` | — | `src/mobile-shell.css` |
 | Правое окно статьи: обложка | 480 / 360 ms | 480 / 360 ms | `scene-rail.css` |
 | Правое окно статьи: песенная сцена и открытое меню/поиск (`.is-suspended`) | 480 / 360 ms | `--motion-exit` / `--motion-ease-exit`, уход вправо с затуханием | `scene-rail.css` |
