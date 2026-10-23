@@ -95,7 +95,7 @@
   .mobile-shell__content [data-context-material] > :is(p, figure, dl) { margin: 0; }
   .mobile-shell__content [data-context-material] :is(p, li) { font: 400 var(--font-size-body)/var(--line-height-body) var(--font-body); }
   .mobile-shell__content [data-context-material] img { display: block; width: 100%; height: auto; }
-  .mobile-shell__content .story-artwork__cover > :is(a, .context-image-trigger) { position: relative; display: block; width: 100%; aspect-ratio: 1; overflow: clip; }
+  .mobile-shell__content .story-artwork__cover > :is(a:not(.ct-big-burst), .context-image-trigger) { position: relative; display: block; width: 100%; aspect-ratio: 1; overflow: clip; }
   .mobile-shell__content .story-artwork img { position: absolute; top: 0; left: -.63%; width: 101.59%; max-width: none; height: 100.44%; aspect-ratio: auto; }
   .mobile-shell__content .story-artwork figcaption { display: flex; flex-direction: column; gap: 4px; margin: 0; }
   .mobile-shell__content .story-artwork__artist { display: block; font: 700 var(--font-size-card-artist)/var(--line-height-card-artist) var(--font-display); }
@@ -129,8 +129,8 @@
   .mobile-search-field > input::placeholder { color: #777; opacity: 1; }
   .mobile-search-field > input::-webkit-search-cancel-button { -webkit-appearance: none; }
   .mobile-search-results { flex: 1; min-height: 0; margin: 0; padding: 0; overflow-y: auto; overscroll-behavior: contain; list-style: none; }
-  .mobile-search-results > li + li { margin-top: 12px; }
-  .mobile-search-result { --tags-right: 14px; --tags-bottom: 18px; position: relative; isolation: isolate; display: flex; align-items: flex-start; gap: 8px; min-height: 132px; padding: 16px 16px 24px; overflow: clip; text-decoration: none; -webkit-mask: var(--torn-edge-mask); mask: var(--torn-edge-mask); }
+  .mobile-search-results > li + li { margin-top: 2px; }
+  .mobile-search-result { --tags-right: 14px; --tags-bottom: 18px; position: relative; isolation: isolate; display: flex; align-items: flex-start; gap: 8px; min-height: 132px; padding: 16px 16px 24px; overflow: clip; text-decoration: none; }
   .mobile-search-result::after { position: absolute; z-index: -1; inset: 0; background: rgb(0 0 0 / .4); content: ""; }
   .mobile-search-result > img { position: absolute; z-index: -2; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; }
   .mobile-search-result__body { flex: 1; min-width: 0; padding-right: 128px; }

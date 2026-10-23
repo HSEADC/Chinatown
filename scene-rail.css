@@ -128,7 +128,7 @@
 .scene-rail:not(.is-collapsed):is(.is-hovered, :has(:focus-visible)) .scene-rail__context-content > [data-context-material] > h2 { padding-left: 40px; }
 .scene-rail .story-artwork { display: flex; flex-direction: column; gap: 16px; width: 100%; }
 .scene-rail .story-artwork .story-artwork__title { display: block; flex: none; width: 100%; margin: 0; }
-.scene-rail .story-artwork__cover > :is(a, .context-image-trigger) { position: relative; display: block; flex: none; width: 100%; aspect-ratio: 1; overflow: clip; }
+.scene-rail .story-artwork__cover > :is(a:not(.ct-big-burst), .context-image-trigger) { position: relative; display: block; flex: none; width: 100%; aspect-ratio: 1; overflow: clip; }
 /* Figma's source fill is cropped inside the square cover, without editing it. */
 .scene-rail .story-artwork img { position: absolute; top: 0; left: -.63%; display: block; width: 101.59%; max-width: none; height: 100.325%; aspect-ratio: auto; }
 .scene-rail .story-artwork .context-image-trigger:is(:hover, :focus-visible, :active) { transform: none; filter: none; }
