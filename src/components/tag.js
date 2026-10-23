@@ -65,11 +65,15 @@ export function createTagList(tags, seed = '') {
   return list;
 }
 
-// Small sibling of the big burst: same white backing, outline and boil, but the small burst's outline and a single
-// word. It peeks out of a card's cover and sends the reader out to listen to the track or watch the clip.
+// Burst family names used in design talk: «бах-бейдж» is the static НОВОЕ marker (createBurst), «бах-кнопка» the
+// small one-word button (this function), «большой бах» the whole-burst «Читай дальше» link (bigBurstMarkup).
+// Бах-кнопка: same white backing, outline and boil as the big one. It peeks out of a cover's corner and sends the
+// reader to listen, watch or read. Without href it is a decoration inside a card that is itself the link.
 export function burstLinkMarkup({ label, href }) {
   const shape = `<svg class="ct-big-burst__shape" viewBox="0 0 100 60" aria-hidden="true"><polygon class="ct-big-burst__backing" points="${burstFrames[1]}" transform="translate(3 3) rotate(3 50 30)"/><g class="ct-big-burst__frames">${burstFrames.map(points => `<polygon points="${points}"/>`).join('')}</g></svg>`;
-  return `<a class="ct-big-burst ct-big-burst--small" href="${escape(href)}" target="_blank" rel="noopener">${shape}<span class="ct-big-burst__text"><span class="ct-big-burst__label">${escape(label)}</span></span></a>`;
+  const text = `<span class="ct-big-burst__text"><span class="ct-big-burst__label">${escape(label)}</span></span>`;
+  if (!href) return `<span class="ct-big-burst ct-big-burst--small" aria-hidden="true">${shape}${text}</span>`;
+  return `<a class="ct-big-burst ct-big-burst--small" href="${escape(href)}" target="_blank" rel="noopener">${shape}${text}</a>`;
 }
 
 export function createBurst(label) {

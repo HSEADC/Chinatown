@@ -1,7 +1,7 @@
 import { createContextPager } from './context-pager.js';
 import { initialMobileShellState, reduceMobileShell, mobileSnapHeights, mobileSnapAfterDrag } from './mobile-shell-state.js';
 import { mountMobileCityVideo } from './mobile-city-video.js';
-import { searchArticles } from './article-search-data.js';
+import { searchFeed } from './article-search-data.js';
 import { createBurst, createTagList } from './components/tag.js';
 
 const asset = name => new URL(`../assets/figma/mobile-shell/${name}.svg`, import.meta.url).href;
@@ -234,7 +234,7 @@ export function mountMobileShell(page, { onOverlayChange = () => {}, onVisibilit
     setSnap(state.snap === 'expanded' ? 'preview' : 'expanded');
   }
   function renderSearch() {
-    const matches = searchArticles(input.value);
+    const matches = searchFeed(input.value);
     results.replaceChildren();
     for (const item of matches) {
       const li = document.createElement('li');

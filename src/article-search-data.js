@@ -16,3 +16,13 @@ export function searchArticles(query = '') {
   const words = query.trim().toLocaleLowerCase('ru').replace(/ё/g, 'е').split(/\s+/).filter(Boolean);
   return articleSearchItems.filter(item => words.every(word => `${item.artist} ${item.title}`.toLocaleLowerCase('ru').replace(/ё/g, 'е').includes(word)));
 }
+
+// The empty search is a feed preview: repeat the materials so reviewers can scroll a longer list.
+export function searchFeed(query = '', length = 28) {
+  const matches = searchArticles(query);
+  if (query.trim() || !matches.length) return matches;
+  return Array.from({ length: Math.max(length, matches.length) }, (_, index) => {
+    const item = matches[index % matches.length];
+    return index < matches.length ? item : { ...item, status: undefined };
+  });
+}
