@@ -1,7 +1,7 @@
 import { editorialDataView } from './components/editorial-data.js';
 import { madk1dContext as context } from './article-context-data.js';
 import { contextMaterialView, contextEntryView } from './article-context-view.js';
-import { bigBurstMarkup, tagMarkup } from './components/tag.js';
+import { bigBurstMarkup, burstLinkMarkup, tagMarkup } from './components/tag.js';
 import { articleSearchItems } from './article-search-data.js';
 import { entityReferenceView } from './components/editorial-typography.js';
 import { articleCopy, articleSources } from './article-copy.js';
@@ -12,7 +12,8 @@ const icons = `${artwork}header/`;
 
 const escape = value => String(value).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
 const contextLink = (id, label) => `<a href="#${escape(id)}" data-context-ref="${escape(id)}">${escape(label)}</a>`;
-const sourcesView = ids => ids?.length ? `<span class="story-source-links">${ids.map(id => `<a href="${escape(articleSources[id].url)}">${escape(articleSources[id].label)}</a>`).join(' · ')}</span>` : '';
+// Sources never sit in the copy: each scene lists them in its context card.
+const withSources = (item, sources) => ({ ...item, sources: [...sources, ...item.sources] });
 
 export const articleTitle = articleCopy.title;
 export const articleDescription = articleCopy.description;
@@ -38,7 +39,7 @@ function paragraphView(copyId, index) {
   if (copyId === 'reach' && index === 0) text = text.replace('300%', contextLink('reach-note', '300%'));
   if (copyId === 'album' && index === 0) text = text.replace('sexyswag', entity('sexyswag-artwork', 'sexyswag'));
   if (copyId === 'return' && index === 0) text = text.replace('«Так похуй»', entity('track-tak-pohuy', '«Так похуй»'));
-  return `<p id="${id || `${copyId}-paragraph-${index + 1}`}"><span data-context-text>${text}</span>${sourcesView(section.paragraphSources[index])}</p>`;
+  return `<p id="${id || `${copyId}-paragraph-${index + 1}`}"><span data-context-text>${text}</span></p>`;
 }
 
 function sectionView(id, copyId, { analysis = false, afterParagraph = {}, after = '', from = 0, to = Infinity, heading = true, labelledBy = `${id}-title` } = {}) {
@@ -63,10 +64,9 @@ function timelineView() {
   return `${editorialDataView({
     id: 'spread-timeline', title: timeline.title, scope: '«Так похуй» · Spotify · Украина · недельный чарт',
     points: timeline.points.map(point => ({ ...point, label: point.position })),
-    caption: timeline.caption, sources: [{ label: articleSources.kworb.label, href: articleSources.kworb.url }],
+    caption: timeline.caption, sources: [{ label: 'Kworb', href: articleSources.kworb.url }],
   })}
-  ${contextEntryView({ ...material('spread-method'), title: 'Источник и методика' })}
-  ${contextMaterialView(material('spread-method'))}
+  ${contextMaterialView(withSources(material('spread-method'), [{ label: articleSources.interview.label, href: articleSources.interview.url }]))}
   ${paragraphView('timeline', 0)}`;
 }
 
@@ -84,25 +84,24 @@ function quoteSceneView({ id, text, caption, hasLyrics = true, figma = false }) 
       <div class="story-quote-scene__shade"${figma ? ' data-node-id="125:5"' : ''}></div>
     </div>
     <div class="story-quote-scene__scroll"><div class="story-quote-scene__stage">${text}</div></div>
-    <figcaption>${caption}</figcaption>
+    ${caption ? `<figcaption>${caption}</figcaption>` : ''}
   </figure>`;
 }
 
 function verseExcerptView() {
   const { caption, stanzas } = articleCopy.verseExcerpt;
   const text = `<blockquote class="story-quote-scene__lyrics" aria-label="Куплет «Так похуй»">${stanzas.map((lines, stanzaIndex) => lines.map((line, lineIndex) => `<p${stanzaIndex === 0 && lineIndex === 0 ? ' class="is-current"' : ''} data-quote-line data-lyric-line>${escape(line.text)}</p>`).join('')).join('<p class="story-quote-scene__break" role="separator" aria-label="Пропуск строк">***</p>')}</blockquote>`;
+  return quoteSceneView({ id: 'verse-excerpt', text, caption: `${escape(caption)}. На фоне — концертная запись.` });
+}
+
+function referencesView() {
   const labels = ['Bunny Boots', 'Dragon Lore', 'Mac и Logic'];
-  const links = stanzas.flat().filter(line => line.href).map((line, index) => `<a href="${escape(line.href)}">${labels[index]}</a>`).join(' · ');
-  return quoteSceneView({
-    id: 'verse-excerpt',
-    text,
-    caption: `${escape(caption)}. На фоне — концертная запись.<span class="story-source-links">Пояснения на Genius: ${links}</span>`,
-  });
+  const genius = articleCopy.verseExcerpt.stanzas.flat().filter(line => line.href).map((line, index) => ({ label: `Genius: ${labels[index]}`, href: line.href }));
+  return contextMaterialView(withSources(material('references'), genius));
 }
 
 const articleMenu = [
   { label: 'Карта артистов', node: '272:118' },
-  { label: 'Карта артистов', node: '272:119' },
   { label: 'Статьи', href: '#article-content', node: '272:120' },
   { label: 'Тесты', node: '272:121' },
   { label: 'Мерч', node: '272:122' },
@@ -176,7 +175,7 @@ export function articleView() {
           <p class="story-meta" data-node-id="290:72">${tagMarkup(`${articleCopy.readingMinutes} минут`, 'time')}</p>
         </div>
         <div class="story-cover__intro-row" data-node-id="293:210">
-          <p class="story-cover__intro" data-node-id="293:209">${escape(articleDescription)}${sourcesView(articleCopy.sections.cover.paragraphSources[0])}</p>
+          <p class="story-cover__intro" data-node-id="293:209">${escape(articleDescription)}</p>
         </div>
         <h1 class="story-cover__title" id="article-title" data-node-id="290:74"><span class="story-cover__artist"><span class="media-accent">madk1d</span></span> — «Так похуй»: почему этот припев прилип</h1>
       </header>
@@ -185,19 +184,19 @@ export function articleView() {
           afterParagraph: { 0: contextMaterialView(material('artist-madk1d')) + contextMaterialView(material('track-tak-pohuy')) },
           after: `<div id="chorus">${contextEntryView(material('madk1d-live'))}</div>${contextMaterialView(material('madk1d-live'))}`,
         })}
-        ${quoteSceneView({ id: 'quote', text: concertTextView(), caption: `madk1d — «Так похуй», концертная запись. <a href="${escape(articleSources.live.url)}">Смотреть выступление с 6:57</a>.`, hasLyrics: !!articleCopy.concert.lyrics.length, figma: true })}
+        ${quoteSceneView({ id: 'quote', text: concertTextView(), hasLyrics: !!articleCopy.concert.lyrics.length, figma: true })}
         ${sectionView('chorus-freedom', 'analysis', { analysis: true, afterParagraph: { 0: contextMaterialView(material('address-note')) } })}
         ${sectionView('delivery', 'delivery', { afterParagraph: { 1: contextMaterialView(material('footnote-1')) } })}
         ${sectionView('verse', 'verse', { to: 1 })}
         ${verseExcerptView()}
-        ${sectionView('verse-analysis', 'verse', { from: 1, heading: false, labelledBy: 'verse-title', afterParagraph: { 1: contextMaterialView(material('references')) } })}
+        ${sectionView('verse-analysis', 'verse', { from: 1, heading: false, labelledBy: 'verse-title', afterParagraph: { 1: referencesView() } })}
         ${sectionView('spread', 'spread', { after: timelineView() })}
         ${sectionView('reach', 'reach', { afterParagraph: { 0: contextMaterialView(material('reach-note')) } })}
         ${sectionView('album', 'album')}
         <figure class="story-artwork story-column entity-card entity-card--album" id="sexyswag-artwork" data-context-material="sexyswag-artwork" tabindex="-1" aria-labelledby="sexyswag-artwork-title">
           <h2 class="story-artwork__title" id="sexyswag-artwork-title">${escape(material('sexyswag-artwork').title)}</h2>
           <p class="entity-card__type">${tagMarkup('Альбом')}</p>
-          <a href="${escape(articleSources.album.url)}" aria-label="Альбом sexyswag на Shazam"><img src="${artwork}rail/sexyswag.png" alt="Обложка альбома sexyswag, стилизованная под страницу поиска" width="642" height="634" loading="lazy"></a>
+          <div class="story-artwork__cover"><a href="${escape(articleSources.album.url)}" aria-label="Альбом sexyswag на Shazam"><img src="${artwork}rail/sexyswag.png" alt="Обложка альбома sexyswag, стилизованная под страницу поиска" width="642" height="634" loading="lazy"></a>${burstLinkMarkup(material('sexyswag-artwork').listen)}</div>
           <figcaption id="sexyswag-artwork-caption"><span class="story-artwork__artist">madk1d</span><span class="story-artwork__name">Марк Робертович Серков</span><span class="story-artwork__description">Обложка альбома sexyswag — madk1d.</span></figcaption>
           ${material('sexyswag-artwork').paragraphs.map(text => `<p class="story-artwork__summary">${escape(text)}</p>`).join('')}
           <p class="article-context-sources">${material('sexyswag-artwork').sources.map(source => `<a href="${escape(source.href)}">${escape(source.label)}</a>`).join(' · ')}</p>

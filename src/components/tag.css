@@ -48,13 +48,22 @@
 .ct-big-burst__text { display: flex; flex-direction: column; align-items: center; gap: 12px; max-width: 340px; color: #000; }
 .ct-big-burst__label { font: 800 var(--font-size-caption)/var(--line-height-caption) var(--font-display); letter-spacing: .04em; text-transform: uppercase; }
 .ct-big-burst__title { font: 800 var(--font-size-card-artist)/var(--line-height-card-artist) var(--font-display); letter-spacing: .02em; text-transform: uppercase; }
-/* Collapsing the right rail frees the bottom-right corner: the burst slides there and grows from that corner. */
+/* Small big burst: a button that peeks out of a card's cover from the bottom-right corner. The cover clips it,
+   the way the big burst runs off the screen; a click on the cover itself still opens the image. */
+:is(.entity-card__cover, .story-artwork__cover) { position: relative; overflow: clip; }
+.ct-big-burst.ct-big-burst--small { position: absolute; z-index: 2; right: -28px; bottom: -24px; width: 168px; margin: 0; rotate: -6deg; }
+.ct-big-burst--small .ct-big-burst__frames polygon { stroke-width: 1.8; }
+.ct-big-burst--small .ct-big-burst__text { padding: 0 8px 4px 0; }
+/* Collapsing the right rail frees the bottom-right corner: the burst grows and slides past the right and bottom
+   screen edges, so the article ends on a sticker torn off the page. */
 @media (min-width: 761px) {
-  .ct-big-burst { transform-origin: 100% 100%; transition: translate var(--scene-shell-motion, 280ms ease), scale var(--scene-shell-motion, 280ms ease), margin-top var(--scene-shell-motion, 280ms ease); }
-  .is-scene-rail-collapsed .ct-big-burst { translate: calc(var(--big-burst-reach, 0px) - 16px) 0; scale: 1.4; margin-top: 200px; }
+  .ct-big-burst:not(.ct-big-burst--small) { transform-origin: 100% 100%; transition: translate var(--scene-shell-motion, 280ms ease), scale var(--scene-shell-motion, 280ms ease), margin-top var(--scene-shell-motion, 280ms ease); }
+  /* Not on the cover: it is full-bleed and the clip would cut it at the collapsed rail's gap. The burst sits at the article's end, far from the cover. */
+  .is-scene-rail-collapsed:not(.is-story-cover-active) #media-content { overflow: clip; }
+  .is-scene-rail-collapsed .ct-big-burst:not(.ct-big-burst--small) { translate: calc(var(--big-burst-reach, 0px) + 80px) 160px; scale: 1.4; margin-top: 120px; }
 }
 @media (max-width: 760px) {
-  .ct-big-burst { width: 100%; aspect-ratio: 358 / 300; margin: 40px 0 0; rotate: none; }
+  .ct-big-burst:not(.ct-big-burst--small) { width: 100%; aspect-ratio: 358 / 300; margin: 40px 0 0; rotate: none; }
   .ct-big-burst__shape--wide { display: none; }
   .ct-big-burst__shape--narrow { display: block; }
   .ct-big-burst__text { max-width: 264px; }
