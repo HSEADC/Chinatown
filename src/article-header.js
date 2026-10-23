@@ -231,9 +231,10 @@ export function mountArticleHeader(header, onChange, page = header.closest('.sto
     list.querySelector('a')?.focus();
   }, options);
 
+  // An open search is a screen of its own: only Escape or its close button leave it.
   function close() {
+    if (searchOpen) return;
     cancelAnimations(menuAnimations);
-    setSearch(false);
     navOpen = !mobile.matches;
     syncNavigation();
   }

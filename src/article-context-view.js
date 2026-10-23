@@ -14,7 +14,7 @@ export function contextMaterialView(material) {
     ${entity?.subtitle ? `<p class="entity-card__subtitle">${escape(entity.subtitle)}</p>` : ''}
     ${entity?.details?.length ? `<dl class="entity-card__details">${entity.details.map(item => `<div><dt>${escape(item.label)}</dt><dd>${escape(item.value)}</dd></div>`).join('')}</dl>` : ''}
     ${paragraphs.map(text => `<p>${escape(text)}</p>`).join('')}
-    ${sources?.length ? `<p class="article-context-sources">${sources.map(source => `<a href="${safeUrl(source.href)}">${escape(source.label)}</a>`).join(entity ? '' : ' · ')}</p>` : ''}
+    ${sources?.length ? `<p class="article-context-sources">${sources.map(source => `<a href="${safeUrl(source.href)}">${escape(source.label)}</a>`).join('')}</p>` : ''}
     ${backTo ? `<a class="article-context-backlink" href="#${escape(backTo)}" role="doc-backlink">К тексту ↑</a>` : ''}
   </aside>`;
 }

@@ -111,6 +111,7 @@
 .article-context-material img { display: block; width: 100%; height: auto; }
 .article-context-material figcaption, .article-context-sources, .article-context-backlink { font: 400 var(--font-size-caption)/var(--line-height-caption) var(--font-body); }
 .article-context-material figcaption { margin-top: 16px; }
+.article-context-sources { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
 .article-context-material a { color: inherit; text-underline-offset: .2em; }
 .article-context-material a:hover { color: var(--media-accent); }
 .article-context-entry { margin-top: 24px !important; }

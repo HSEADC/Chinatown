@@ -65,9 +65,11 @@ export function createTagList(tags, seed = '') {
   return list;
 }
 
-// The same burst as a button: in a context card it sends the reader out to listen to the track or watch the clip.
+// Small sibling of the big burst: same white backing, outline and boil, but the small burst's outline and a single
+// word. It peeks out of a card's cover and sends the reader out to listen to the track or watch the clip.
 export function burstLinkMarkup({ label, href }) {
-  return `<a class="ct-burst ct-burst--action" href="${escape(href)}" target="_blank" rel="noopener"><svg viewBox="0 0 100 60" aria-hidden="true">${burstFrames.map(points => `<polygon points="${points}"/>`).join('')}</svg><span class="ct-burst__label">${escape(label)}</span></a>`;
+  const shape = `<svg class="ct-big-burst__shape" viewBox="0 0 100 60" aria-hidden="true"><polygon class="ct-big-burst__backing" points="${burstFrames[1]}" transform="translate(3 3) rotate(3 50 30)"/><g class="ct-big-burst__frames">${burstFrames.map(points => `<polygon points="${points}"/>`).join('')}</g></svg>`;
+  return `<a class="ct-big-burst ct-big-burst--small" href="${escape(href)}" target="_blank" rel="noopener">${shape}<span class="ct-big-burst__text"><span class="ct-big-burst__label">${escape(label)}</span></span></a>`;
 }
 
 export function createBurst(label) {
@@ -108,7 +110,7 @@ export function bigBurstMarkup({ href, label, title }) {
 // With the right rail collapsed the big burst slides into the bottom-right corner and past the screen edge. Its column
 // does not reflow, so the reach to that edge is measured here and kept in --big-burst-reach for the CSS.
 export function mountBigBursts(root) {
-  const bursts = [...root.querySelectorAll('.ct-big-burst')];
+  const bursts = [...root.querySelectorAll('.ct-big-burst:not(.ct-big-burst--small)')];
   if (!bursts.length) return () => {};
   function measure() {
     for (const burst of bursts) {

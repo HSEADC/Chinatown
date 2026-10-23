@@ -12,7 +12,8 @@ const icons = `${artwork}header/`;
 
 const escape = value => String(value).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
 const contextLink = (id, label) => `<a href="#${escape(id)}" data-context-ref="${escape(id)}">${escape(label)}</a>`;
-const sourcesView = ids => ids?.length ? `<span class="story-source-links">${ids.map(id => `<a href="${escape(articleSources[id].url)}">${escape(articleSources[id].label)}</a>`).join(' · ')}</span>` : '';
+// Sources never sit in the copy: each scene lists them in its context card.
+const withSources = (item, sources) => ({ ...item, sources: [...sources, ...item.sources] });
 
 export const articleTitle = articleCopy.title;
 export const articleDescription = articleCopy.description;
@@ -38,7 +39,7 @@ function paragraphView(copyId, index) {
   if (copyId === 'reach' && index === 0) text = text.replace('300%', contextLink('reach-note', '300%'));
   if (copyId === 'album' && index === 0) text = text.replace('sexyswag', entity('sexyswag-artwork', 'sexyswag'));
   if (copyId === 'return' && index === 0) text = text.replace('«Так похуй»', entity('track-tak-pohuy', '«Так похуй»'));
-  return `<p id="${id || `${copyId}-paragraph-${index + 1}`}"><span data-context-text>${text}</span>${sourcesView(section.paragraphSources[index])}</p>`;
+  return `<p id="${id || `${copyId}-paragraph-${index + 1}`}"><span data-context-text>${text}</span></p>`;
 }
 
 function sectionView(id, copyId, { analysis = false, afterParagraph = {}, after = '', from = 0, to = Infinity, heading = true, labelledBy = `${id}-title` } = {}) {
@@ -65,7 +66,7 @@ function timelineView() {
     points: timeline.points.map(point => ({ ...point, label: point.position })),
     caption: timeline.caption, sources: [{ label: 'Kworb', href: articleSources.kworb.url }],
   })}
-  ${contextMaterialView(material('spread-method'))}
+  ${contextMaterialView(withSources(material('spread-method'), [{ label: articleSources.interview.label, href: articleSources.interview.url }]))}
   ${paragraphView('timeline', 0)}`;
 }
 
@@ -90,13 +91,13 @@ function quoteSceneView({ id, text, caption, hasLyrics = true, figma = false }) 
 function verseExcerptView() {
   const { caption, stanzas } = articleCopy.verseExcerpt;
   const text = `<blockquote class="story-quote-scene__lyrics" aria-label="Куплет «Так похуй»">${stanzas.map((lines, stanzaIndex) => lines.map((line, lineIndex) => `<p${stanzaIndex === 0 && lineIndex === 0 ? ' class="is-current"' : ''} data-quote-line data-lyric-line>${escape(line.text)}</p>`).join('')).join('<p class="story-quote-scene__break" role="separator" aria-label="Пропуск строк">***</p>')}</blockquote>`;
+  return quoteSceneView({ id: 'verse-excerpt', text, caption: `${escape(caption)}. На фоне — концертная запись.` });
+}
+
+function referencesView() {
   const labels = ['Bunny Boots', 'Dragon Lore', 'Mac и Logic'];
-  const links = stanzas.flat().filter(line => line.href).map((line, index) => `<a href="${escape(line.href)}">${labels[index]}</a>`).join(' · ');
-  return quoteSceneView({
-    id: 'verse-excerpt',
-    text,
-    caption: `${escape(caption)}. На фоне — концертная запись.<span class="story-source-links">Пояснения на Genius: ${links}</span>`,
-  });
+  const genius = articleCopy.verseExcerpt.stanzas.flat().filter(line => line.href).map((line, index) => ({ label: `Genius: ${labels[index]}`, href: line.href }));
+  return contextMaterialView(withSources(material('references'), genius));
 }
 
 /** The complete article, shared by the static page and client-side navigation. */
@@ -159,7 +160,7 @@ export function articleView() {
           <p class="story-meta" data-node-id="290:72">${tagMarkup(`${articleCopy.readingMinutes} минут`, 'time')}</p>
         </div>
         <div class="story-cover__intro-row" data-node-id="293:210">
-          <p class="story-cover__intro" data-node-id="293:209">${escape(articleDescription)}${sourcesView(articleCopy.sections.cover.paragraphSources[0])}</p>
+          <p class="story-cover__intro" data-node-id="293:209">${escape(articleDescription)}</p>
         </div>
         <h1 class="story-cover__title" id="article-title" data-node-id="290:74"><span class="story-cover__artist"><span class="media-accent">madk1d</span></span> — «Так похуй»: почему этот припев прилип</h1>
       </header>
@@ -173,7 +174,7 @@ export function articleView() {
         ${sectionView('delivery', 'delivery', { afterParagraph: { 1: contextMaterialView(material('footnote-1')) } })}
         ${sectionView('verse', 'verse', { to: 1 })}
         ${verseExcerptView()}
-        ${sectionView('verse-analysis', 'verse', { from: 1, heading: false, labelledBy: 'verse-title', afterParagraph: { 1: contextMaterialView(material('references')) } })}
+        ${sectionView('verse-analysis', 'verse', { from: 1, heading: false, labelledBy: 'verse-title', afterParagraph: { 1: referencesView() } })}
         ${sectionView('spread', 'spread', { after: timelineView() })}
         ${sectionView('reach', 'reach', { afterParagraph: { 0: contextMaterialView(material('reach-note')) } })}
         ${sectionView('album', 'album')}
