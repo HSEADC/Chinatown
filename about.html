@@ -4,19 +4,121 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#131313">
-    <meta name="description" content="CHINATOWN.RU — новая сцена, портреты и музыка для чтения.">
-      <title>О нас — CHINATOWN.RU</title>
+    <meta name="description" content="Куда пойти в центре Москвы, кроме бара, и архив сцены Китай-города, пока она ещё жива.">
+      <title>CHINATOWN.SITE — гид и архив центра Москвы</title>
     <link rel="preload" href="./assets/fonts/Benzin-ExtraBold.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="./styles.css">
     <link rel="stylesheet" href="./media.css">
     <link rel="stylesheet" href="./article.css">
     <link rel="stylesheet" href="./scene-rail.css">
+    <link rel="stylesheet" href="./landing.css">
   </head>
   <body class="media-page" data-media-page="home">
-    <main id="media-content"><div class="media-home" data-video-clip="kitay-night">
-    <header class="media-header"><a class="media-brand" href="./index.html">CHINATOWN.RU</a><span class="media-header__note">МЕДИА О НЕФОРАХ</span></header>
-    <section class="media-home__intro" data-scene-emphasis="featured" aria-labelledby="landing-title"><p class="media-eyebrow">Пока готовим большое</p><h1 id="landing-title">ТУТ БУДЕТ<br>ЛЕНДИНГ<span class="media-accent">*</span></h1><p class="media-home__lead">Медиа о людях, местах<br>и независимой культуре.</p><p class="editorial-prose"><a href="./article.html" data-media-route>Статья о madk1d</a></p></section>
-    <footer class="media-footer"><span>CHINATOWN.RU</span><a href="./glitch-test.html">Тест анимации заголовка ↗</a></footer>
+    <main id="media-content"><div class="landing" data-scene-rail="off">
+    <header class="story-header" data-node-id="272:111">
+      <div class="story-header__bar">
+        <div class="story-header__identity" data-node-id="272:112">
+          <button class="story-icon story-brand" type="button" aria-label="Навигация Чайнатаун" aria-controls="article-menu" aria-expanded="true" data-node-id="272:113">
+            <img src="./assets/figma/article/header/star.svg" alt="" width="35.4091" height="35.584">
+          </button>
+        </div>
+        <nav class="story-menu" id="article-menu" aria-label="Навигация Чайнатаун" data-node-id="272:116">
+          <a class="story-menu__item" href="./article.html" data-media-route>Статьи</a>
+          <button class="story-menu__item" type="button" aria-disabled="true" title="Раздел готовится">Карта артистов</button>
+          <button class="story-menu__item" type="button" aria-disabled="true" title="Раздел готовится">Тесты</button>
+          <button class="story-menu__item" type="button" aria-disabled="true" title="Раздел готовится">Мерч</button>
+        </nav>
+        <form class="story-search" id="article-search-form" role="search" aria-label="Поиск статей" data-node-id="376:712" inert>
+          <button class="story-icon story-search__submit" type="submit" aria-label="Найти статьи" data-node-id="376:713">
+            <img src="./assets/figma/article/header/search.svg" alt="" width="32" height="32">
+          </button>
+          <label class="story-visually-hidden" for="article-search">О чем скучаешь? Найти статьи</label>
+          <input id="article-search" name="q" type="search" placeholder="О чем скучаешь?" autocomplete="off" aria-controls="article-search-results" data-node-id="376:717">
+          <button class="story-icon story-search__close" type="button" aria-label="Закрыть поиск" aria-controls="article-search-form article-search-results" data-node-id="376:723">
+            <img src="./assets/figma/article/header/close.svg" alt="" width="32" height="32">
+          </button>
+        </form>
+        <div class="story-header__controls" data-node-id="272:123">
+          <button class="story-icon story-search-toggle" type="button" aria-label="Открыть поиск" aria-expanded="false" aria-controls="article-search-form article-search-results" data-node-id="272:124">
+            <img src="./assets/figma/article/header/search-toggle.svg" alt="" width="32" height="32">
+          </button>
+          <button class="story-icon story-menu-toggle" type="button" aria-label="Открыть навигацию" aria-expanded="false" aria-controls="article-menu" hidden>
+            <img src="./assets/figma/article/header/menu.svg" alt="" width="32" height="32" data-node-id="376:719">
+          </button>
+        </div>
+      </div>
+      <div class="story-search__results" id="article-search-results" data-node-id="263:254" hidden>
+        <div class="story-search__inner">
+          <p class="story-search__status" role="status" aria-live="polite" hidden></p>
+          <ul></ul>
+        </div>
+      </div>
+    </header>
+    <section class="landing-hero" aria-labelledby="landing-title" data-node-id="440:709">
+      <img class="landing-hero__photo" src="./assets/figma/landing/hero-collage.jpg" alt="" width="1440" height="836" fetchpriority="high">
+      <span class="ct-tags ct-tags--stuck landing-hero__tags"><span class="ct-tag" style="--tag-tilt: -4deg; --tag-nudge: 16px"><img class="ct-tag__sticker" src="./assets/stickers/fity.svg" alt="" decoding="async" loading="lazy"><span class="ct-tag__label">Фиты</span></span><span class="ct-tag" style="--tag-tilt: -5deg; --tag-nudge: 5px"><img class="ct-tag__sticker" src="./assets/stickers/udalyonnoe.svg" alt="" decoding="async" loading="lazy"><span class="ct-tag__label">Удалённое</span></span><span class="ct-tag" style="--tag-tilt: 3deg; --tag-nudge: 4px"><img class="ct-tag__sticker" src="./assets/stickers/sohranyonki.svg" alt="" decoding="async" loading="lazy"><span class="ct-tag__label">Сохранёнки</span></span></span>
+      <div class="landing-hero__content">
+        <h1 class="landing-hero__title type-display" id="landing-title"><span class="media-accent">CHINATOWN<wbr>.site</span> — гид и архив центра Москвы</h1>
+        <div class="landing-hero__row">
+          <p class="landing-hero__lead type-body">Куда пойти в центре Москвы, кроме бара, и что здесь происходило, пока сцена ещё жива.</p>
+          <a class="landing-hero__action" href="./article.html" data-media-route data-action-button>Читать первый материал</a>
+        </div>
+      </div>
+    </section>
+    <section class="landing-section" aria-labelledby="landing-about" data-node-id="440:715">
+      <h2 class="landing-section__label type-h3" id="landing-about">О нас</h2>
+      <div class="landing-section__content">
+        <p class="type-h2">Центр Москвы — больше, чем бар</p>
+        <p class="type-body">Обычно на Китай-городе всё решает один вопрос: куда пойдём пить? И все идут в знакомые места.</p>
+        <p class="type-body">Мы отвечаем на другие вопросы. Где позавтракать после тусы, выпить кофе с утра, проявить плёнку, найти аптеку или место, о котором вы ещё не слышали. Чтобы сегодня вечером пойти туда, куда раньше не ходили.</p>
+      </div>
+    </section>
+    <section class="landing-section" aria-labelledby="landing-inside" data-node-id="440:722">
+      <h2 class="landing-section__label type-h3" id="landing-inside">Что внутри</h2>
+      <div class="landing-section__wide">
+        <ul class="landing-cards"><li class="landing-card"><h3 class="type-h2">Гид по местам</h3><p class="type-body">Кофейни, завтраки, площадки и культурные места центра. Каждое место отмечено на карте и связано со статьёй.</p></li><li class="landing-card"><h3 class="type-h2">На любую тусу есть ответ</h3><p class="type-body">Теги: дневное или ночное, тусовочное или спокойное, безопасно или можно нарваться. Выбирайте под настроение.</p></li><li class="landing-card"><h3 class="type-h2">Разборы и истории</h3><p class="type-body">Треки строка за строкой, артисты, концерты и события, которые стали частью сцены.</p></li></ul>
+        <div class="landing-rubrics">
+          <h3 class="type-h3">Рубрики</h3>
+          <span class="ct-tags"><span class="ct-tag" style="--tag-tilt: -2deg; --tag-nudge: 2px"><img class="ct-tag__sticker" src="./assets/stickers/fity.svg" alt="" decoding="async" loading="lazy"><span class="ct-tag__label">Фиты</span></span><span class="ct-tag" style="--tag-tilt: 2deg; --tag-nudge: 2px"><img class="ct-tag__sticker" src="./assets/stickers/dropy.svg" alt="" decoding="async" loading="lazy"><span class="ct-tag__label">Дропы</span></span><span class="ct-tag" style="--tag-tilt: -4deg; --tag-nudge: 2px"><img class="ct-tag__sticker" src="./assets/stickers/bity.svg" alt="" decoding="async" loading="lazy"><span class="ct-tag__label">Биты</span></span><span class="ct-tag" style="--tag-tilt: 3deg; --tag-nudge: 6px"><img class="ct-tag__sticker" src="./assets/stickers/bify.svg" alt="" decoding="async" loading="lazy"><span class="ct-tag__label">Бифы</span></span><span class="ct-tag" style="--tag-tilt: 4deg; --tag-nudge: 14px"><img class="ct-tag__sticker" src="./assets/stickers/snippety.svg" alt="" decoding="async" loading="lazy"><span class="ct-tag__label">Сниппеты</span></span><span class="ct-tag" style="--tag-tilt: -4deg; --tag-nudge: 14px"><img class="ct-tag__sticker" src="./assets/stickers/udalyonnoe.svg" alt="" decoding="async" loading="lazy"><span class="ct-tag__label">Удалённое</span></span><span class="ct-tag" style="--tag-tilt: 5deg; --tag-nudge: 6px"><img class="ct-tag__sticker" src="./assets/stickers/propavshie.svg" alt="" decoding="async" loading="lazy"><span class="ct-tag__label">Пропавшие</span></span><span class="ct-tag" style="--tag-tilt: 4deg; --tag-nudge: 1px"><img class="ct-tag__sticker" src="./assets/stickers/klipy.svg" alt="" decoding="async" loading="lazy"><span class="ct-tag__label">Клипы</span></span><span class="ct-tag" style="--tag-tilt: -2deg; --tag-nudge: 3px"><img class="ct-tag__sticker" src="./assets/stickers/sohranyonki.svg" alt="" decoding="async" loading="lazy"><span class="ct-tag__label">Сохранёнки</span></span></span>
+        </div>
+      </div>
+    </section>
+    <section class="landing-section landing-section--closing" aria-labelledby="landing-why" data-node-id="440:735">
+      <h2 class="landing-section__label type-h3" id="landing-why">Почему сейчас</h2>
+      <div class="landing-section__content">
+        <p class="type-h2">Пока это ещё можно застать</p>
+        <p class="type-body">Нефор-культура меняется на глазах: артистам всё сложнее выступать, на Китай-городе всё больше полиции, места и люди пропадают. CHINATOWN собирает эту эпоху в один архив, чтобы от неё осталось больше, чем удалённые треки.</p>
+        <p class="landing-stat"><span class="type-quote">≈<span class="media-accent">100</span> материалов</span><span class="type-caption">выйдет за первые три месяца</span></p>
+      </div>
+    </section>
+    <section class="landing-feature film" aria-labelledby="landing-feature-title" data-node-id="440:744">
+      <img class="landing-feature__photo" src="./assets/figma/article/madk1d-concert.png" alt="" loading="lazy" width="3516" height="1984">
+      <div class="landing-feature__head">
+        <p class="type-h3">Первый материал</p>
+        <span class="ct-tags"><span class="ct-tag" style="--tag-tilt: 4deg; --tag-nudge: 8px"><img class="ct-tag__sticker" src="./assets/stickers/snippety.svg" alt="" decoding="async" loading="lazy"><span class="ct-tag__label">Сниппеты</span></span><span class="ct-tag" style="--tag-tilt: 4deg; --tag-nudge: 10px"><img class="ct-tag__sticker" src="./assets/stickers/klipy.svg" alt="" decoding="async" loading="lazy"><span class="ct-tag__label">Клипы</span></span></span>
+      </div>
+      <div class="landing-feature__row">
+        <h2 class="landing-feature__title type-h1" id="landing-feature-title"><span class="media-accent">madk1d</span>: слишком громко, чтобы было всё равно</h2>
+        <a class="ct-big-burst landing-feature__burst" data-media-route aria-describedby="landing-feature-title" href="./article.html"><svg class="ct-big-burst__shape ct-big-burst__shape--wide" viewBox="0 0 560 340" aria-hidden="true"><polygon class="ct-big-burst__backing" points="572.9,157.8 483.1,205.4 540.6,249.8 449.5,252.4 497.0,303.9 414.1,277.3 433.7,334.9 349.9,287.5 307.9,335.9 215.4,294.9 144.8,325.1 143.8,283.0 63.2,308.2 101.3,253.0 11.1,260.4 78.6,209.5 -2.2,154.6 87.6,136.3 18.3,78.2 94.2,88.1 56.3,33.0 153.0,62.9 128.8,3.6 207.8,47.1 254.3,-3.2 350.4,45.0 429.5,10.4 406.4,64.4 500.3,36.7 460.1,83.2 550.3,81.6 474.0,128.9" transform="translate(12 12) rotate(3 280 170)"/><g class="ct-big-burst__frames"><polygon points="550.2,161.7 471.5,209.2 541.1,256.0 460.1,248.1 503.7,299.0 413.6,272.2 429.1,335.8 349.2,287.4 268.2,347.6 215.0,289.6 134.9,321.8 144.9,274.2 73.0,300.8 99.5,254.6 15.0,261.2 82.9,207.1 12.2,166.7 85.1,136.8 18.1,81.8 100.3,89.6 64.2,39.6 147.6,59.5 131.1,9.0 214.2,45.4 296.7,3.6 350.3,53.8 425.0,4.7 409.5,61.2 497.5,31.0 460.0,90.2 542.1,89.2 480.9,132.9"/><polygon points="572.9,157.8 483.1,205.4 540.6,249.8 449.5,252.4 497.0,303.9 414.1,277.3 433.7,334.9 349.9,287.5 307.9,335.9 215.4,294.9 144.8,325.1 143.8,283.0 63.2,308.2 101.3,253.0 11.1,260.4 78.6,209.5 -2.2,154.6 87.6,136.3 18.3,78.2 94.2,88.1 56.3,33.0 153.0,62.9 128.8,3.6 207.8,47.1 254.3,-3.2 350.4,45.0 429.5,10.4 406.4,64.4 500.3,36.7 460.1,83.2 550.3,81.6 474.0,128.9"/><polygon points="556.5,167.2 485.7,206.0 547.9,250.9 448.4,250.8 501.6,305.3 417.2,274.6 418.3,330.8 338.4,287.6 298.0,333.4 213.4,295.0 131.4,334.9 145.0,280.2 69.8,303.4 98.3,251.4 26.5,254.1 86.5,210.5 -8.6,180.3 74.1,133.2 29.2,82.9 102.2,89.8 56.3,41.2 155.2,64.4 144.3,14.9 215.1,45.2 260.6,8.4 336.6,48.3 407.9,14.2 418.2,58.6 496.5,37.4 452.0,92.6 536.7,87.0 486.7,130.8"/></g></svg><svg class="ct-big-burst__shape ct-big-burst__shape--narrow" viewBox="0 0 358 300" aria-hidden="true"><polygon class="ct-big-burst__backing" points="356.7,156.4 300.3,190.2 340.4,238.4 280.8,229.3 298.2,277.1 244.1,254.6 222.1,306.1 149.3,254.9 90.7,293.2 94.6,245.7 38.3,264.4 58.7,213.9 0.6,199.8 50.4,160.9 -1.3,96.8 66.1,86.5 37.8,37.9 90.4,57.3 93.2,10.2 146.8,43.3 221.7,6.0 238.9,48.9 298.6,23.6 281.3,73.4 343.9,66.3 309.1,113.4" transform="translate(12 12) rotate(3 179 150)"/><g class="ct-big-burst__frames"><polygon points="350.7,157.5 308.6,191.9 342.0,240.9 282.4,230.8 294.5,275.9 240.2,254.3 223.2,297.2 146.7,256.8 82.3,298.3 92.9,239.8 39.0,263.0 59.1,215.2 1.8,201.3 49.3,145.3 2.1,100.7 60.5,89.2 27.1,39.4 98.2,57.8 97.5,13.5 148.6,45.7 227.3,-2.2 243.4,50.3 304.0,17.7 287.9,66.2 340.4,65.3 305.4,112.4"/><polygon points="356.7,156.4 300.3,190.2 340.4,238.4 280.8,229.3 298.2,277.1 244.1,254.6 222.1,306.1 149.3,254.9 90.7,293.2 94.6,245.7 38.3,264.4 58.7,213.9 0.6,199.8 50.4,160.9 -1.3,96.8 66.1,86.5 37.8,37.9 90.4,57.3 93.2,10.2 146.8,43.3 221.7,6.0 238.9,48.9 298.6,23.6 281.3,73.4 343.9,66.3 309.1,113.4"/><polygon points="355.9,139.4 304.6,186.6 345.5,239.6 284.2,228.8 306.5,283.3 245.3,255.8 225.0,291.4 150.9,256.8 85.9,297.5 93.6,242.6 31.9,260.5 63.3,213.8 1.3,212.5 53.5,160.3 1.9,92.7 59.7,85.3 28.7,30.3 96.4,55.0 93.7,12.5 149.6,45.5 228.7,-2.5 239.9,44.7 296.5,25.3 287.9,69.1 350.5,58.1 299.6,108.4"/></g></svg><span class="ct-big-burst__text"><span class="ct-big-burst__label">Читай первым →</span><span class="ct-big-burst__title">Открыть статью</span></span></a>
+      </div>
+    </section>
+    <section class="landing-section landing-section--closing" aria-labelledby="landing-contact" data-node-id="440:759">
+      <h2 class="landing-section__label type-h3" id="landing-contact">На связи</h2>
+      <div class="landing-section__content">
+        <p class="type-h2">Держим связь</p>
+        <p class="type-body">Новые места, материалы и розыгрыши мерча. Скоро — постеры по городу.</p>
+        <form class="landing-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+          <label class="visually-hidden" for="landing-email">Электропочта</label>
+          <input class="email-field" id="landing-email" name="email" type="email" placeholder="Электропочта" autocomplete="email" inputmode="email" aria-describedby="landing-status" required>
+          <button type="submit" data-action-button>Подписаться</button>
+          <p class="landing-form__status type-caption" id="landing-status" role="status" aria-live="polite"></p>
+        </form>
+        <div class="landing-socials">
+          <a class="text-button" href="https://t.me/chinatownsite" target="_blank" rel="noopener noreferrer"><span>ТГ-канал</span><img src="./assets/figma/intro-north-east.svg" alt="" aria-hidden="true"></a>
+          <span class="text-button" aria-disabled="true" title="Скоро"><span>TikTok</span><img src="./assets/figma/intro-north-east.svg" alt="" aria-hidden="true"></span>
+        </div>
+      </div>
+    </section>
   </div></main>
     <script type="module" src="./src/media-demo.js"></script>
     <script type="module" src="./src/site-cursor.js"></script>

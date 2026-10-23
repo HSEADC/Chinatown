@@ -65,6 +65,14 @@ export function createTagList(tags, seed = '') {
   return list;
 }
 
+// String twins of createTagList and createBurst for pages rendered as strings (the landing).
+export function tagListMarkup(labels, seed = '', className = '') {
+  return `<span class="ct-tags${className ? ` ${className}` : ''}">${labels.map(label => {
+    const { tilt, nudge } = scatter(`${seed}:${label}`);
+    return tagMarkup(label).replace('<span class="ct-tag">', `<span class="ct-tag" style="--tag-tilt: ${tilt}deg; --tag-nudge: ${nudge}px">`);
+  }).join('')}</span>`;
+}
+
 // Small sibling of the big burst: same white backing, outline and boil, but the small burst's outline and a single
 // word. It peeks out of a card's cover and sends the reader out to listen to the track or watch the clip.
 export function burstLinkMarkup({ label, href }) {

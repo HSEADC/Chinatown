@@ -1,0 +1,104 @@
+/* Landing «О нас»: Figma 440:696 (1440) / 415:399 (390).
+   Text roles and controls come from shared tokens; this file only places them. */
+.landing {
+  --landing-gutter: var(--page-gutter);
+  --landing-gap: var(--grid-gap);
+  --landing-section-space: 160px;
+  --landing-rule: rgb(183 183 183 / .3);
+  --landing-muted: #b7b7b7;
+  --landing-shade: 19 19 19;
+  background: #131313;
+  color: #fff;
+}
+.landing :where(h1, h2, h3, p, ul) { margin: 0; }
+
+.landing-hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: max(640px, calc(100svh - var(--media-header-height, var(--header-height))));
+  padding: 160px var(--landing-gutter) 32px;
+  overflow: clip;
+}
+.landing-hero__photo, .landing-feature__photo { position: absolute; z-index: -2; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.landing-hero::before, .landing-feature::before { position: absolute; z-index: -1; inset: 0; content: ''; }
+.landing-hero::before { background: linear-gradient(rgb(var(--landing-shade) / .35), rgb(var(--landing-shade))); }
+.landing-hero__content { display: flex; flex-direction: column; gap: 48px; }
+.landing-hero__title { text-transform: uppercase; }
+.landing-hero__row { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); column-gap: var(--landing-gap); align-items: end; }
+.landing-hero__lead { grid-column: 1 / span 2; }
+.landing-hero__action { grid-column: 4 / span 2; justify-self: end; width: auto; }
+
+.landing-section {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  column-gap: var(--landing-gap);
+  align-items: start;
+  padding: var(--landing-section-space) var(--landing-gutter) 0;
+}
+.landing-section--closing { padding-bottom: var(--landing-section-space); }
+.landing-section__label { grid-column: 1; padding-top: 16px; color: var(--landing-muted); }
+.landing-section__content { grid-column: 2 / span 3; display: flex; flex-direction: column; gap: 32px; }
+.landing-section__wide { grid-column: 2 / span 4; }
+
+.landing-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--landing-gap); padding: 0; list-style: none; }
+.landing-card { display: flex; flex-direction: column; gap: 16px; padding-top: 24px; border-top: 1px solid var(--landing-rule); }
+.landing-card > .type-body { color: var(--landing-muted); }
+
+.landing-stat { display: flex; flex-direction: column; gap: 16px; padding-top: 32px; }
+.landing-stat > .type-caption { color: var(--landing-muted); }
+
+.landing-feature {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 720px;
+  padding: 32px var(--landing-gutter);
+  overflow: clip;
+}
+.landing-feature::before { background: linear-gradient(rgb(var(--landing-shade) / .3), rgb(var(--landing-shade) / .9)); }
+.landing-feature__row { display: flex; align-items: flex-end; gap: 32px; }
+.landing-feature__title { flex: 1 1 auto; text-transform: uppercase; }
+.landing-feature__head { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
+.landing-feature__head .ct-tag, .landing-rubrics .ct-tag { rotate: var(--tag-tilt, 0deg); }
+.landing-feature__burst.ct-big-burst { flex: none; width: 420px; margin: 0; }
+/* Stickers slapped on the cover collage, clear of the wordmark. */
+.landing-hero__tags { --tags-right: var(--landing-gutter); --tags-bottom: auto; top: 40px; }
+.landing-rubrics { display: flex; flex-direction: column; gap: 8px; padding-top: 64px; }
+
+.landing-form { display: flex; flex-direction: column; gap: 32px; }
+.landing-form__status { min-height: var(--line-height-caption); margin-top: -16px; color: var(--landing-muted); }
+.landing-form__status:empty { display: none; }
+.landing-socials { display: flex; flex-wrap: wrap; gap: 64px; padding-top: 32px; }
+.landing-socials [aria-disabled='true'] { opacity: .4; cursor: default; }
+.landing .text-button { text-decoration: none; }
+
+@media (max-width: 760px) {
+  .landing { --landing-section-space: 96px; }
+  .landing-hero { min-height: max(560px, calc(100svh - var(--media-header-height, var(--header-height)))); padding-top: 96px; }
+  .landing-hero__content { gap: 24px; }
+  /* At 40px the wordmark only fits the 350px column without the display tracking. */
+  .landing-hero__title { letter-spacing: 0; }
+  .landing-hero__row { display: flex; flex-direction: column; align-items: stretch; gap: 24px; }
+  .landing-hero__action { width: 100%; }
+  .landing-section { display: flex; flex-direction: column; gap: 16px; }
+  .landing-section__label { padding-top: 0; }
+  .landing-section__content { gap: 20px; }
+  .landing-cards { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .landing-card { gap: 12px; padding: 20px 0 12px; }
+  .landing-stat { gap: 12px; padding-top: 20px; }
+  .landing-feature { min-height: 600px; gap: 20px; }
+  .landing-feature__row { flex-direction: column; align-items: flex-start; gap: 20px; }
+  /* The phone H1 (64px) cannot hold «СЛИШКОМ»; the teaser switches to the display role. */
+  .landing-feature__burst.ct-big-burst { align-self: flex-end; width: min(100%, 300px); }
+  .landing-hero__tags { top: 24px; }
+  .landing-rubrics { padding-top: 40px; }
+  .landing-feature__title { font-size: var(--font-size-display); line-height: var(--line-height-display); letter-spacing: var(--type-display-tracking); }
+  .landing-form { gap: 12px; }
+  .landing-form__status { margin-top: 0; }
+  .landing-socials { gap: 32px; padding-top: 20px; }
+}

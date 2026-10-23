@@ -5,7 +5,7 @@
 @import url('./src/components/film.css');
 
 /* Five-column editorial grid. Header: Figma 272:111 / 376:696. */
-.story-page, .media-site-header, body[data-media-page="article"] {
+.story-page, .media-site-header, .landing, body[data-media-page="article"] {
   --story-bg: #131313;
   --story-muted: #b7b7b7;
   --story-gutter: var(--dev-article-margin, var(--page-gutter));
