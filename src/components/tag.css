@@ -27,7 +27,7 @@
 .ct-burst polygon:nth-child(3) { animation-delay: -.4s; }
 .ct-burst__label { position: relative; padding-top: 3px; font: 800 var(--font-size-caption)/var(--line-height-caption) var(--font-display); letter-spacing: .02em; text-transform: uppercase; rotate: -6deg; }
 /* Burst as a button at the bottom-right of a context card: in the flow, so it never covers the card's text. */
-.ct-burst.ct-burst--action { position: relative; top: auto; right: auto; z-index: auto; display: grid; align-self: flex-end; margin: 16px 0 0 auto; color: #000; text-decoration: none; pointer-events: auto; }
+.ct-burst.ct-burst--action { --burst-width: 168px; --burst-height: 100px; position: relative; top: auto; right: auto; z-index: auto; display: grid; align-self: flex-end; margin: 16px 0 0 auto; color: #000; text-decoration: none; pointer-events: auto; }
 @keyframes ct-burst-frame { 0% { opacity: 1; } 33.333% { opacity: 0; } }
 @keyframes ct-burst-wobble { 0% { rotate: -3deg; } 33.333% { rotate: 2deg; } 66.666% { rotate: -1deg; } }
 
@@ -58,6 +58,7 @@
   .is-scene-rail-collapsed .ct-big-burst { translate: calc(var(--big-burst-reach, 0px) + 80px) 160px; scale: 1.4; margin-top: 120px; }
 }
 @media (max-width: 760px) {
+  .ct-burst.ct-burst--action { --burst-width: 150px; --burst-height: 90px; }
   .ct-big-burst { width: 100%; aspect-ratio: 358 / 300; margin: 40px 0 0; rotate: none; }
   .ct-big-burst__shape--wide { display: none; }
   .ct-big-burst__shape--narrow { display: block; }

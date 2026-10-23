@@ -1,5 +1,6 @@
 /* Content structure for editorial data. Mobile art direction is awaiting design. */
-.editorial-data { margin: 32px 0; min-width: 0; overflow-wrap: anywhere; }
+/* .editorial-prose raises specificity over the article reset, which loads later. */
+.editorial-data, .editorial-prose .editorial-data { margin: 48px 0; min-width: 0; overflow-wrap: anywhere; }
 .editorial-data > h3 { margin: 0 0 16px; font: 800 var(--font-size-label)/var(--line-height-label) var(--font-body); letter-spacing: .04em; text-transform: uppercase; }
 .editorial-data .editorial-data__scope { margin: 0 0 24px; color: var(--story-muted, #b7b7b7); font: 400 var(--font-size-caption)/var(--line-height-caption) var(--font-body); }
 .editorial-data__points { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 140px), 1fr)); gap: 24px; margin: 0; padding: 0; list-style: none; }

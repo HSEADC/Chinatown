@@ -63,9 +63,8 @@ function timelineView() {
   return `${editorialDataView({
     id: 'spread-timeline', title: timeline.title, scope: '«Так похуй» · Spotify · Украина · недельный чарт',
     points: timeline.points.map(point => ({ ...point, label: point.position })),
-    caption: timeline.caption, sources: [{ label: articleSources.kworb.label, href: articleSources.kworb.url }],
+    caption: timeline.caption, sources: [{ label: 'Kworb', href: articleSources.kworb.url }],
   })}
-  ${contextEntryView({ ...material('spread-method'), title: 'Источник и методика' })}
   ${contextMaterialView(material('spread-method'))}
   ${paragraphView('timeline', 0)}`;
 }
