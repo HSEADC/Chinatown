@@ -80,7 +80,8 @@ test('the former intermediate height settles to preview or expanded and is never
 });
 
 test('site search matches article titles and artists, normalizes whitespace and returns an empty result', () => {
-  assert.equal(searchArticles().length, 5);
+  assert.equal(searchArticles().length, 9);
+  assert.equal(new Set(searchArticles().map(item => item.image)).size, 9, 'Every preview has its own photo');
   assert.equal(searchArticles('  MADK1D  ')[0].id, 'madk1d');
   assert.equal(searchArticles('свой звук')[0].id, 'new-scene');
   assert.deepEqual(searchArticles('несуществующий запрос'), []);
