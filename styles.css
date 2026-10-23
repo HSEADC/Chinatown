@@ -395,9 +395,11 @@ p { line-height: var(--line-height-body); }
   line-height: var(--line-height-display);
   letter-spacing: 0;
 }
+/* The domain breaks only at its <wbr> points (after the dot, then between syllables) and the dash is glued
+   with &nbsp;. Breaking anywhere stays only as a last resort for a word wider than the line. */
 .intro__line { display: block; white-space: normal; overflow-wrap: anywhere; }
 .intro__accent { color: var(--landing-accent); }
-.intro__site-link { display: inline-block; max-width: 100%; overflow-wrap: anywhere; }
+.intro__site-link { display: inline; }
 .intro__about {
   grid-column: 5;
   grid-row: 1;
@@ -530,7 +532,6 @@ p { line-height: var(--line-height-body); }
   .intro__content { display: flex; flex-direction: column; align-items: flex-start; min-height: 100svh; padding: 12px 12px max(8px, env(safe-area-inset-bottom)); }
   .intro__headline { order: 0; flex: none; margin: 0 0 32px; }
   .intro__line { white-space: normal; }
-  .intro__site-link { display: inline; }
   .intro__about { order: 2; align-self: flex-start; margin: 24px 0 32px; text-decoration: none; }
 
 

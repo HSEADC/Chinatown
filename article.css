@@ -74,7 +74,7 @@
 @media (min-width: 1700px) { .story-search__results li[data-size="wide"] .story-search-result__body > span:first-child { font-size: var(--font-size-title); line-height: var(--line-height-title); } }
 .story-search-result .ct-big-burst.ct-big-burst--small { right: -28px; bottom: -36px; width: 360px; }
 .story-search-result .ct-big-burst--small .ct-big-burst__label { font-size: var(--font-size-card-artist); line-height: var(--line-height-card-artist); }
-.story-search-result .ct-big-burst--small .ct-big-burst__text { padding: 0 0 36px 8px; }
+.story-search-result .ct-big-burst--small .ct-big-burst__text { padding: 6px 0 0 8px; }
 .story-search__results li[data-size="small"] a.story-search-result { min-height: 260px; padding: 24px 20px 32px; --tags-right: 16px; }
 .story-search__results li[data-size="small"] .story-search-result__body > span:first-child { font-size: var(--font-size-label); line-height: var(--line-height-label); }
 .story-search__results li .story-search-result:has(.ct-burst) .story-search-result__body { padding-right: 100px; }
