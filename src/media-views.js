@@ -1,4 +1,5 @@
 import { siteHeaderView } from './article-view.js';
+import { bigBurstMarkup, tagListMarkup } from './components/tag.js';
 
 export { articleView } from './article-view.js';
 
@@ -14,6 +15,8 @@ const directions = [
   ['На любую тусу есть ответ', 'Теги: дневное или ночное, тусовочное или спокойное, безопасно или можно нарваться. Выбирайте под настроение.'],
   ['Разборы и истории', 'Треки строка за строкой, артисты, концерты и события, которые стали частью сцены.'],
 ];
+
+const rubrics = ['Фиты', 'Дропы', 'Биты', 'Бифы', 'Сниппеты', 'Удалённое', 'Пропавшие', 'Клипы', 'Сохранёнки'];
 
 const northEast = './assets/figma/intro-north-east.svg';
 
@@ -31,6 +34,7 @@ export function homeView() {
     ${siteHeaderView(landingMenu)}
     <section class="landing-hero" aria-labelledby="landing-title" data-node-id="440:709">
       <img class="landing-hero__photo" src="./assets/figma/landing/hero-collage.jpg" alt="" width="1440" height="836" fetchpriority="high">
+      ${tagListMarkup(['Фиты', 'Удалённое', 'Сохранёнки'], 'landing-hero', 'ct-tags--stuck landing-hero__tags')}
       <div class="landing-hero__content">
         <h1 class="landing-hero__title type-display" id="landing-title"><span class="media-accent">CHINATOWN<wbr>.site</span> — гид и архив центра Москвы</h1>
         <div class="landing-hero__row">
@@ -49,7 +53,13 @@ export function homeView() {
     </section>
     <section class="landing-section" aria-labelledby="landing-inside" data-node-id="440:722">
       ${sectionLabel('landing-inside', 'Что внутри')}
-      <div class="landing-section__wide">${cardsView(directions)}</div>
+      <div class="landing-section__wide">
+        ${cardsView(directions)}
+        <div class="landing-rubrics">
+          <h3 class="type-h3">Рубрики</h3>
+          ${tagListMarkup(rubrics, 'landing-rubrics')}
+        </div>
+      </div>
     </section>
     <section class="landing-section landing-section--closing" aria-labelledby="landing-why" data-node-id="440:735">
       ${sectionLabel('landing-why', 'Почему сейчас')}
@@ -59,12 +69,15 @@ export function homeView() {
         <p class="landing-stat"><span class="type-quote">≈<span class="media-accent">100</span> материалов</span><span class="type-caption">выйдет за первые три месяца</span></p>
       </div>
     </section>
-    <section class="landing-feature" aria-labelledby="landing-feature-title" data-node-id="440:744">
+    <section class="landing-feature film" aria-labelledby="landing-feature-title" data-node-id="440:744">
       <img class="landing-feature__photo" src="./assets/figma/article/madk1d-concert.png" alt="" loading="lazy" width="3516" height="1984">
-      <p class="type-h3">Первый материал</p>
+      <div class="landing-feature__head">
+        <p class="type-h3">Первый материал</p>
+        ${tagListMarkup(['Сниппеты', 'Клипы'], 'madk1d')}
+      </div>
       <div class="landing-feature__row">
         <h2 class="landing-feature__title type-h1" id="landing-feature-title"><span class="media-accent">madk1d</span>: слишком громко, чтобы было всё равно</h2>
-        <a class="text-button" href="./article.html" data-media-route aria-describedby="landing-feature-title"><span>Читать статью</span><img src="${northEast}" alt="" aria-hidden="true"></a>
+        ${bigBurstMarkup({ href: './article.html', label: 'Читай первым →', title: 'Открыть статью' }).replace('<a class="ct-big-burst"', '<a class="ct-big-burst landing-feature__burst" data-media-route aria-describedby="landing-feature-title"')}
       </div>
     </section>
     <section class="landing-section landing-section--closing" aria-labelledby="landing-contact" data-node-id="440:759">

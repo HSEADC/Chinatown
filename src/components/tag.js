@@ -65,6 +65,18 @@ export function createTagList(tags, seed = '') {
   return list;
 }
 
+// String twins of createTagList and createBurst for pages rendered as strings (the landing).
+export function tagListMarkup(labels, seed = '', className = '') {
+  return `<span class="ct-tags${className ? ` ${className}` : ''}">${labels.map(label => {
+    const { tilt, nudge } = scatter(`${seed}:${label}`);
+    return tagMarkup(label).replace('<span class="ct-tag">', `<span class="ct-tag" style="--tag-tilt: ${tilt}deg; --tag-nudge: ${nudge}px">`);
+  }).join('')}</span>`;
+}
+
+export function burstMarkup(label) {
+  return `<span class="ct-burst"><svg viewBox="0 0 100 60" aria-hidden="true">${burstFrames.map(points => `<polygon points="${points}"/>`).join('')}</svg><span class="ct-burst__label">${escape(label)}</span></span>`;
+}
+
 export function createBurst(label) {
   const burst = document.createElement('span');
   burst.className = 'ct-burst';
