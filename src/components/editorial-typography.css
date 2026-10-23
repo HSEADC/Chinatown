@@ -8,7 +8,7 @@
   color: #131313;
   background: var(--media-accent, #fc5cff);
 }
-.editorial-prose a:not(.story-footnote-ref, .action-button) {
+.editorial-prose a:not(.story-footnote-ref, .action-button, .ct-big-burst) {
   color: inherit;
   text-decoration-line: underline;
   text-decoration-style: solid;
@@ -18,13 +18,13 @@
   text-decoration-skip-ink: auto;
   transition: color 140ms ease-out, text-decoration-color 140ms ease-out, background-color 140ms ease-out;
 }
-.editorial-prose a:not(.story-footnote-ref, .action-button):hover {
+.editorial-prose a:not(.story-footnote-ref, .action-button, .ct-big-burst):hover {
   color: var(--media-accent, #fc5cff);
   text-decoration-color: currentColor;
 }
 /* Phones have no focus states (styles.css); desktop keeps the keyboard highlight. */
 @media (min-width: 761px) {
-  .editorial-prose a:not(.story-footnote-ref, .action-button):focus-visible {
+  .editorial-prose a:not(.story-footnote-ref, .action-button, .ct-big-burst):focus-visible {
     color: var(--media-accent, #fc5cff);
     text-decoration-color: currentColor;
   }
@@ -131,5 +131,5 @@
   .entity-card .article-context-sources a { padding-block: 10px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .editorial-prose a:not(.story-footnote-ref, .action-button) { transition: none; }
+  .editorial-prose a:not(.story-footnote-ref, .action-button, .ct-big-burst) { transition: none; }
 }

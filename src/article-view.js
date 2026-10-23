@@ -1,7 +1,8 @@
 import { editorialDataView } from './components/editorial-data.js';
 import { madk1dContext as context } from './article-context-data.js';
 import { contextMaterialView, contextEntryView } from './article-context-view.js';
-import { tagMarkup } from './components/tag.js';
+import { bigBurstMarkup, tagMarkup } from './components/tag.js';
+import { articleSearchItems } from './article-search-data.js';
 import { entityReferenceView } from './components/editorial-typography.js';
 import { articleCopy, articleSources } from './article-copy.js';
 const material = id => context.materials.find(item => item.id === id);
@@ -49,6 +50,12 @@ function sectionView(id, copyId, { analysis = false, afterParagraph = {}, after 
       ${after}
     </div>
   </section>`;
+}
+
+// The end of the article hands the reader on: the next story from search, as the big burst.
+function nextStoryView() {
+  const next = articleSearchItems.find(item => !context.articleId.startsWith(item.id));
+  return bigBurstMarkup({ href: './index.html', label: 'Читай дальше →', title: `${next.artist} — ${next.title}` });
 }
 
 function timelineView() {
@@ -180,7 +187,7 @@ export function articleView() {
           ${material('sexyswag-artwork').paragraphs.map(text => `<p class="story-artwork__summary">${escape(text)}</p>`).join('')}
           <p class="article-context-sources">${material('sexyswag-artwork').sources.map(source => `<a href="${escape(source.href)}">${escape(source.label)}</a>`).join(' · ')}</p>
         </figure>
-        ${sectionView('return', 'return')}
+        ${sectionView('return', 'return', { after: nextStoryView() })}
       </div>
     </article>
   </div>`.replace(/[ \t]+$/gm, '');
