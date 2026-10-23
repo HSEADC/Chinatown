@@ -1,0 +1,42 @@
+/* Tags and accent bursts. Printed graphics: worn edges and grain come from
+   pre-made textures, never from live filters. Text stays real HTML text. */
+:root {
+  --tag-height: 24px;
+  --tag-sticker: 32px;
+  --burst-width: 124px;
+  --burst-height: 74px;
+  --burst-ink: #39ff14;
+  --worn-mask: url('../../assets/textures/worn-mask.svg');
+}
+
+.ct-tags { display: flex; flex-wrap: wrap; gap: 10px 14px; padding-top: 14px; }
+/* Inside a card the tags leave the text flow and sit on the right like stickers. */
+.ct-tags--stuck { position: absolute; z-index: 1; right: var(--tags-right, 24px); bottom: var(--tags-bottom, 20px); flex-direction: column; flex-wrap: nowrap; align-items: flex-end; gap: 10px; padding: 0; pointer-events: none; }
+.ct-tags--stuck .ct-tag { rotate: var(--tag-tilt, 0deg); translate: calc(var(--tag-nudge, 0px) * -1) 0; }
+.ct-tag { position: relative; isolation: isolate; display: inline-flex; align-items: center; height: var(--tag-height); padding: 0 12px 0 calc(var(--tag-sticker) + 4px); color: #fff; font: 600 var(--font-size-caption)/var(--line-height-caption) var(--font-display); letter-spacing: .04em; text-transform: uppercase; white-space: nowrap; }
+.ct-tag::before { position: absolute; z-index: -1; inset: 0; background: #000 url('../../assets/textures/tag-outline.svg') center / 100% 100% no-repeat; -webkit-mask: var(--worn-mask) 0 0 / 160px; mask: var(--worn-mask) 0 0 / 160px; content: ""; }
+.ct-tag__label { padding-top: 3px; }
+.ct-tag__sticker { position: absolute; top: calc((var(--tag-height) - var(--tag-sticker)) / 2 - 2px); left: -6px; width: var(--tag-sticker); height: var(--tag-sticker); border: 2px solid #fff; object-fit: cover; background: #000; rotate: -7deg; }
+
+/* Three drawn frames swap on a slow, constant beat: hand-drawn boil, not a tween. */
+.ct-burst { position: absolute; z-index: 1; top: 6px; right: 6px; display: grid; place-items: center; width: var(--burst-width); height: var(--burst-height); color: #000; pointer-events: none; animation: ct-burst-wobble 1.2s step-end infinite; }
+.ct-burst > svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; fill: var(--burst-ink); -webkit-mask: var(--worn-mask) 0 0 / 120px; mask: var(--worn-mask) 0 0 / 120px; }
+.ct-burst polygon { opacity: 0; animation: ct-burst-frame 1.2s step-end infinite; }
+.ct-burst polygon:nth-child(2) { animation-delay: -.8s; }
+.ct-burst polygon:nth-child(3) { animation-delay: -.4s; }
+.ct-burst__label { position: relative; padding-top: 3px; font: 800 var(--font-size-caption)/var(--line-height-caption) var(--font-display); letter-spacing: .02em; text-transform: uppercase; rotate: -6deg; }
+@keyframes ct-burst-frame { 0% { opacity: 1; } 33.333% { opacity: 0; } }
+@keyframes ct-burst-wobble { 0% { rotate: -3deg; } 33.333% { rotate: 2deg; } 66.666% { rotate: -1deg; } }
+
+@media (max-width: 760px) {
+  :root { --tag-height: 20px; --tag-sticker: 26px; --burst-width: 100px; --burst-height: 60px; }
+  .ct-tags { gap: 6px 10px; padding-top: 6px; }
+  .ct-tags--stuck { gap: 8px; }
+  .ct-tag { padding: 0 10px 0 calc(var(--tag-sticker) + 2px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ct-burst { animation: none; rotate: -3deg; }
+  .ct-burst polygon { animation: none; }
+  .ct-burst polygon:first-child { opacity: 1; }
+}

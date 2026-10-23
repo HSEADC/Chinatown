@@ -1,6 +1,8 @@
 @import url('./src/components/action-button.css');
 @import url('./src/components/editorial-typography.css');
 @import url('./src/mobile-shell.css');
+@import url('./src/components/tag.css');
+@import url('./src/components/film.css');
 
 /* Five-column editorial grid. Header: Figma 272:111 / 376:696. */
 .story-page, .media-site-header, body[data-media-page="article"] {
@@ -54,8 +56,12 @@
 .story-search__results :is(a, button) { display: flex; align-items: center; width: 100%; min-height: 64px; padding: 12px 0 12px 80px; border: 0; background: transparent; color: #fff; font: 800 var(--font-size-label)/var(--line-height-caption) var(--font-body); letter-spacing: .04em; text-transform: uppercase; text-align: left; text-decoration: none; overflow-wrap: anywhere; }
 .story-search__results :is(a, button):hover { color: var(--media-accent); }
 .story-search__results.has-query { min-height: 240px; padding-block: 24px 40px; }
-.story-search__results a.story-search-result { position: relative; isolation: isolate; min-height: 96px; padding: 16px; overflow: clip; background: #0005; }
-.story-search-result > img { position: absolute; z-index: -1; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(.55); }
+.story-search__results a.story-search-result { position: relative; isolation: isolate; align-items: flex-start; min-height: 168px; padding: 32px 32px 40px; overflow: clip; background: #0005; -webkit-mask: var(--torn-edge-mask); mask: var(--torn-edge-mask); }
+.story-search__results a.story-search-result:hover { color: #fff; }
+.story-search-result__accent { color: var(--media-accent); }
+.story-search-result__body > span:first-child { font: 800 var(--font-size-card-title)/var(--line-height-card-title) var(--font-display); letter-spacing: .02em; }
+.story-search-result__body { display: flex; flex-direction: column; align-items: flex-start; min-width: 0; padding-right: 220px; }
+.story-search-result > img { position: absolute; z-index: -2; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(.55) var(--film-grade); }
 .story-cover { position: relative; isolation: isolate; display: flex; flex-direction: column; justify-content: space-between; gap: clamp(16px, 2.5svh, 24px); min-height: 90svh; margin-top: 0; padding: 32px var(--story-gutter); overflow: hidden; background: #232019; }
 .story-cover__photo { position: absolute; z-index: -2; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .story-cover__shade { position: absolute; z-index: -1; inset: 0; background: linear-gradient(180deg, #000, #0003 28%, rgb(0 0 0 / .33) 48%, #000 100%); }

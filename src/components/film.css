@@ -1,0 +1,18 @@
+/* Film look for 3D generations and covers: grain + a light faded grade only.
+   The grain tile is a static image animated by stepping its position. */
+:root {
+  --film-grade: contrast(.9) saturate(.82) sepia(.1);
+  /* Cards end in a torn paper edge instead of a straight line. */
+  --torn-edge-mask: linear-gradient(#000 0 0) top / 100% calc(100% - 9px) no-repeat, url('../../assets/textures/torn-edge.svg') bottom / 100% 10px no-repeat;
+}
+.film { position: relative; isolation: isolate; }
+.film > img { z-index: -2; filter: var(--film-grade); }
+.film::before { position: absolute; z-index: -1; inset: 0; background: url('../../assets/textures/film-grain.svg') 0 0 / 240px; mix-blend-mode: overlay; opacity: .55; pointer-events: none; content: ""; }
+
+/* One grain layer over the whole page. */
+.media-page::after { position: fixed; z-index: 2147483000; inset: -120px; background: url('../../assets/textures/film-grain.svg') 0 0 / 240px; opacity: .05; pointer-events: none; animation: film-grain .36s step-end infinite; content: ""; }
+@keyframes film-grain { 0% { translate: 0 0; } 33.333% { translate: -47px 31px; } 66.666% { translate: 29px -53px; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .media-page::after { animation: none; }
+}

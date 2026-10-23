@@ -2,6 +2,7 @@ import { createContextPager } from './context-pager.js';
 import { initialMobileShellState, reduceMobileShell, mobileSnapHeights, mobileSnapAfterDrag } from './mobile-shell-state.js';
 import { mountMobileCityVideo } from './mobile-city-video.js';
 import { searchArticles } from './article-search-data.js';
+import { createBurst, createTagList } from './components/tag.js';
 
 const asset = name => new URL(`../assets/figma/mobile-shell/${name}.svg`, import.meta.url).href;
 /** Durations live in design-tokens.css so CSS transitions and Web Animations share one scale. */
@@ -249,10 +250,14 @@ export function mountMobileShell(page, { onOverlayChange = () => {}, onVisibilit
       const artist = document.createElement('span');
       artist.textContent = item.artist;
       label.append(artist, ` — ${item.title}`);
-      const tag = document.createElement('span');
-      tag.className = 'mobile-search-result__tag';
-      tag.textContent = 'Скоро';
-      link.append(cover, label, tag);
+      const body = document.createElement('div');
+      body.className = 'mobile-search-result__body';
+      const tags = createTagList(item.tags.map(tag => ({ label: tag })), item.id);
+      tags.classList.add('ct-tags--stuck');
+      body.append(label);
+      link.classList.add('film');
+      link.append(cover, body, tags);
+      if (item.status === 'new') link.append(createBurst('Новое'));
       li.append(link);
       results.append(li);
     }

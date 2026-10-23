@@ -1,4 +1,5 @@
 import { searchArticles } from './article-search-data.js';
+import { createBurst, createTagList } from './components/tag.js';
 
 const motion = {
   searchDuration: 420,
@@ -111,9 +112,19 @@ export function mountArticleHeader(header, onChange, page = header.closest('.sto
       image.alt = '';
       image.style.objectPosition = article.position;
       const label = document.createElement('span');
-      label.textContent = `${article.artist} — ${article.title}`;
+      const accent = document.createElement('span');
+      accent.className = 'story-search-result__accent';
+      accent.textContent = article.artist;
+      label.append(accent, ` — ${article.title}`);
       link.setAttribute('aria-label', `${label.textContent}. Материал готовится, открыть вайт-лист`);
-      link.append(image, label);
+      const body = document.createElement('span');
+      body.className = 'story-search-result__body';
+      const tags = createTagList(article.tags.map(tag => ({ label: tag })), article.id);
+      tags.classList.add('ct-tags--stuck');
+      body.append(label);
+      link.className = 'story-search-result film';
+      link.append(image, body, tags);
+      if (article.status === 'new') link.append(createBurst('Новое'));
       item.append(link);
       list.append(item);
     }

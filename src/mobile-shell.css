@@ -129,12 +129,13 @@
   .mobile-search-field > input::placeholder { color: #777; opacity: 1; }
   .mobile-search-field > input::-webkit-search-cancel-button { -webkit-appearance: none; }
   .mobile-search-results { flex: 1; min-height: 0; margin: 0; padding: 0; overflow-y: auto; overscroll-behavior: contain; list-style: none; }
-  .mobile-search-result { position: relative; isolation: isolate; display: flex; align-items: flex-start; gap: 8px; min-height: 96px; padding: 4px 8px; overflow: clip; text-decoration: none; }
+  .mobile-search-results > li + li { margin-top: 12px; }
+  .mobile-search-result { --tags-right: 14px; --tags-bottom: 18px; position: relative; isolation: isolate; display: flex; align-items: flex-start; gap: 8px; min-height: 132px; padding: 16px 16px 24px; overflow: clip; text-decoration: none; -webkit-mask: var(--torn-edge-mask); mask: var(--torn-edge-mask); }
   .mobile-search-result::after { position: absolute; z-index: -1; inset: 0; background: rgb(0 0 0 / .4); content: ""; }
   .mobile-search-result > img { position: absolute; z-index: -2; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; }
-  .mobile-search-result > p { flex: 1; min-width: 0; padding-top: 2px; font: 700 var(--font-size-button)/var(--line-height-button) var(--font-display); letter-spacing: .02em; text-transform: uppercase; overflow-wrap: anywhere; }
-  .mobile-search-result > p > span { color: var(--mobile-accent); }
-  .mobile-search-result__tag { flex: none; font: 400 var(--font-size-caption)/var(--line-height-caption) var(--font-body); }
+  .mobile-search-result__body { flex: 1; min-width: 0; padding-right: 128px; }
+  .mobile-search-result__body > p { margin: 0; min-width: 0; padding-top: 2px; font: 800 var(--font-size-label)/var(--line-height-label) var(--font-display); letter-spacing: .02em; text-transform: uppercase; overflow-wrap: anywhere; }
+  .mobile-search-result__body > p > span { color: var(--mobile-accent); }
   .mobile-shell__search-status:not(.story-visually-hidden) { padding: 20px 12px; color: #b7b7b7; font: 400 var(--font-size-body)/var(--line-height-body) var(--font-body); }
   .mobile-city-video { position: relative; flex: 1; min-height: 0; overflow: clip; background: #171717; }
   .mobile-city-video > video { display: block; width: 100%; height: 100%; object-fit: cover; }
