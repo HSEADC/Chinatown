@@ -3,6 +3,7 @@ import { mountArticle } from './article.js';
 import { articleTitle } from './article-view.js';
 import { mountSceneRail } from './scene-rail.js';
 import { mountEditorialVideos } from './editorial-video.js';
+import { mountLanding } from './landing.js';
 
 const content = document.querySelector('#media-content');
 const headerRoot = document.createElement('div');
@@ -14,26 +15,30 @@ function syncHeaderHeight() {
 const headerSize = new ResizeObserver(syncHeaderHeight);
 headerSize.observe(headerRoot);
 const root = new URL('../', import.meta.url);
+const landingTitle = 'CHINATOWN.SITE — гид и архив центра Москвы';
 const routeUrls = new Set([new URL('about.html', root).pathname, new URL('article.html', root).pathname]);
 const sceneRail = mountSceneRail(content);
 let disposeArticle = () => {};
 let disposeVideos = () => {};
+let disposeLanding = () => {};
 let renderedRoute = '';
 
 function renderPage({ focus = false } = {}) {
   disposeArticle();
   disposeVideos();
+  disposeLanding();
   const isArticle = window.location.pathname === new URL('article.html', root).pathname;
   content.innerHTML = isArticle ? articleView() : homeView();
-  const header = content.querySelector('.story-header, .media-header');
+  const header = content.querySelector('.story-header');
   headerRoot.replaceChildren(header);
   syncHeaderHeight();
   document.body.dataset.mediaPage = isArticle ? 'article' : 'home';
   renderedRoute = location.pathname + location.search;
-  document.title = isArticle ? `${articleTitle} — CHINATOWN.RU` : 'О нас — CHINATOWN.RU';
+  document.title = isArticle ? `${articleTitle} — CHINATOWN.RU` : landingTitle;
   sceneRail.refresh();
   disposeArticle = mountArticle(content.querySelector('.story-page'), header, sceneRail);
   disposeVideos = mountEditorialVideos(content);
+  disposeLanding = isArticle ? () => {} : mountLanding(content.querySelector('.landing'), header);
   const heading = content.querySelector('h1');
   heading.tabIndex = -1;
   if (focus) heading.focus({ preventScroll: true });

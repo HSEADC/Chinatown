@@ -15,7 +15,7 @@ export async function writeStaticArticle() {
   await writeFile(file, updated);
   const aboutFile = new URL('../about.html', import.meta.url);
   const about = await readFile(aboutFile, 'utf8');
-  await writeFile(aboutFile, about.replace(/<title>[\s\S]*?<\/title>/, '<title>О нас — CHINATOWN.RU</title>').replace(/<main id="media-content">[\s\S]*?<\/main>/, () => `<main id="media-content">${homeView()}</main>`));
+  await writeFile(aboutFile, about.replace(/<title>[\s\S]*?<\/title>/, '<title>CHINATOWN.SITE — гид и архив центра Москвы</title>').replace(/<meta name="description" content="[^"]*">/, '<meta name="description" content="Куда пойти в центре Москвы, кроме бара, и архив сцены Китай-города, пока она ещё жива.">').replace(/<main id="media-content">[\s\S]*?<\/main>/, () => `<main id="media-content">${homeView()}</main>`));
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) await writeStaticArticle();

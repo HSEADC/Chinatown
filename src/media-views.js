@@ -1,9 +1,98 @@
+import { siteHeaderView } from './article-view.js';
+
 export { articleView } from './article-view.js';
 
+const landingMenu = [
+  { label: 'Статьи', href: './article.html', route: true },
+  { label: 'Карта артистов' },
+  { label: 'Тесты' },
+  { label: 'Мерч' },
+];
+
+const directions = [
+  ['Гид по местам', 'Кофейни, завтраки, площадки и культурные места центра. Каждое место отмечено на карте и связано со статьёй.'],
+  ['На любую тусу есть ответ', 'Теги: дневное или ночное, тусовочное или спокойное, безопасно или можно нарваться. Выбирайте под настроение.'],
+  ['Разборы и истории', 'Треки строка за строкой, артисты, концерты и события, которые стали частью сцены.'],
+];
+
+const team = [
+  ['Лёша', 'дизайн и код'],
+  ['Лиза', 'дизайн и коммуникации'],
+  ['Ксюша', 'код'],
+];
+
+const northEast = './assets/figma/intro-north-east.svg';
+
+function sectionLabel(id, label) {
+  return `<h2 class="landing-section__label type-h3" id="${id}">${label}</h2>`;
+}
+
+function cardsView(items, heading = 'h3') {
+  return `<ul class="landing-cards">${items.map(([title, text]) => `<li class="landing-card"><${heading} class="type-h2">${title}</${heading}><p class="type-body">${text}</p></li>`).join('')}</ul>`;
+}
+
+/** Landing «О нас», Figma 414:380 (1440) / 415:399 (390). */
 export function homeView() {
-  return `<div class="media-home" data-video-clip="kitay-night">
-    <header class="media-header"><a class="media-brand" href="./index.html">CHINATOWN.RU</a><span class="media-header__note">МЕДИА О НЕФОРАХ</span></header>
-    <section class="media-home__intro" data-scene-emphasis="featured" aria-labelledby="landing-title"><p class="media-eyebrow">Пока готовим большое</p><h1 id="landing-title">ТУТ БУДЕТ<br>ЛЕНДИНГ<span class="media-accent">*</span></h1><p class="media-home__lead">Медиа о людях, местах<br>и независимой культуре.</p><p class="editorial-prose"><a href="./article.html" data-media-route>Статья о madk1d</a></p></section>
-    <footer class="media-footer"><span>CHINATOWN.RU</span><a href="./glitch-test.html">Тест анимации заголовка ↗</a></footer>
+  return `<div class="landing" data-scene-rail="off">
+    ${siteHeaderView(landingMenu)}
+    <section class="landing-hero" aria-labelledby="landing-title" data-node-id="414:393">
+      <img class="landing-hero__photo" src="./assets/video/editorial/kitay-night-86bc7af48de9/poster.jpg" alt="" fetchpriority="high">
+      <div class="landing-hero__content">
+        <h1 class="landing-hero__title type-display" id="landing-title"><span class="media-accent">CHINATOWN<wbr>.site</span> — гид и архив центра Москвы</h1>
+        <div class="landing-hero__row">
+          <p class="landing-hero__lead type-body">Куда пойти в центре Москвы, кроме бара, и что здесь происходило, пока сцена ещё жива.</p>
+          <a class="landing-hero__action" href="./article.html" data-media-route data-action-button>Читать первый материал</a>
+        </div>
+      </div>
+    </section>
+    <section class="landing-section" aria-labelledby="landing-about" data-node-id="414:403">
+      ${sectionLabel('landing-about', 'О нас')}
+      <div class="landing-section__content">
+        <p class="type-h2">Центр Москвы — больше, чем бар</p>
+        <p class="type-body">Обычно на Китай-городе всё решает один вопрос: куда пойдём пить? И все идут в знакомые места.</p>
+        <p class="type-body">Мы отвечаем на другие вопросы. Где позавтракать после тусы, выпить кофе с утра, проявить плёнку, найти аптеку или место, о котором вы ещё не слышали. Чтобы сегодня вечером пойти туда, куда раньше не ходили.</p>
+      </div>
+    </section>
+    <section class="landing-section" aria-labelledby="landing-inside" data-node-id="414:413">
+      ${sectionLabel('landing-inside', 'Что внутри')}
+      <div class="landing-section__wide">${cardsView(directions)}</div>
+    </section>
+    <section class="landing-section landing-section--closing" aria-labelledby="landing-why" data-node-id="425:420">
+      ${sectionLabel('landing-why', 'Почему сейчас')}
+      <div class="landing-section__content">
+        <p class="type-h2">Пока это ещё можно застать</p>
+        <p class="type-body">Нефор-культура меняется на глазах: артистам всё сложнее выступать, на Китай-городе всё больше полиции, места и люди пропадают. CHINATOWN собирает эту эпоху в один архив, чтобы от неё осталось больше, чем удалённые треки.</p>
+        <p class="landing-stat"><span class="type-quote">≈<span class="media-accent">100</span> материалов</span><span class="type-caption">выйдет за первые три месяца</span></p>
+      </div>
+    </section>
+    <section class="landing-feature" aria-labelledby="landing-feature-title" data-node-id="414:426">
+      <img class="landing-feature__photo" src="./assets/figma/article/madk1d-concert.png" alt="" loading="lazy" width="3516" height="1984">
+      <p class="type-h3">Первый материал</p>
+      <div class="landing-feature__row">
+        <h2 class="landing-feature__title type-h1" id="landing-feature-title"><span class="media-accent">madk1d</span>: слишком громко, чтобы было всё равно</h2>
+        <a class="text-button" href="./article.html" data-media-route aria-describedby="landing-feature-title"><span>Читать статью</span><img src="${northEast}" alt="" aria-hidden="true"></a>
+      </div>
+    </section>
+    <section class="landing-section" aria-labelledby="landing-team" data-node-id="425:430">
+      ${sectionLabel('landing-team', 'Команда')}
+      <div class="landing-section__wide">${cardsView(team, 'p')}</div>
+    </section>
+    <section class="landing-section landing-section--closing" aria-labelledby="landing-contact" data-node-id="414:434">
+      ${sectionLabel('landing-contact', 'На связи')}
+      <div class="landing-section__content">
+        <p class="type-h2">Держим связь</p>
+        <p class="type-body">Новые места, материалы и розыгрыши мерча. Скоро — постеры по городу.</p>
+        <form class="landing-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+          <label class="visually-hidden" for="landing-email">Электропочта</label>
+          <input class="email-field" id="landing-email" name="email" type="email" placeholder="Электропочта" autocomplete="email" inputmode="email" aria-describedby="landing-status" required>
+          <button type="submit" data-action-button>Подписаться</button>
+          <p class="landing-form__status type-caption" id="landing-status" role="status" aria-live="polite"></p>
+        </form>
+        <div class="landing-socials">
+          <a class="text-button" href="https://t.me/chinatownsite" target="_blank" rel="noopener noreferrer"><span>ТГ-канал</span><img src="${northEast}" alt="" aria-hidden="true"></a>
+          <span class="text-button" aria-disabled="true" title="Скоро"><span>TikTok</span><img src="${northEast}" alt="" aria-hidden="true"></span>
+        </div>
+      </div>
+    </section>
   </div>`;
 }

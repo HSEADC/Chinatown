@@ -10,7 +10,6 @@
 .media-site-header > header { pointer-events: auto; }
 .media-site-header > .is-auto-hidden { pointer-events: none; }
 .media-site-header > .story-header { position: relative; }
-.media-site-header > .media-header { padding-inline: clamp(20px, 3.333333vw, 64px); background: #131313; }
 .has-scene-rail #media-content { margin-right: var(--scene-rail-width); transition: margin-right var(--scene-motion); }
 .scene-rail { position: fixed; z-index: 45; inset: var(--scene-rail-top, 0px) 0 0 auto; width: var(--scene-rail-width, 0px); overflow: visible; background: var(--scene-rail-bg); color: #fff; transition: width var(--scene-motion), top 220ms cubic-bezier(.16, 1, .3, 1); }
 .scene-rail__video, .scene-rail__shade { position: absolute; inset: 0; width: 100%; height: 100%; }
@@ -50,7 +49,6 @@
 }
 @container editorial (max-width: 1100px) {
   .story-page { --story-copy-span: 4; --story-wide-span: 4; }
-  .media-section-heading { flex-wrap: wrap; gap: 8px; }
 }
 @container editorial (max-width: 760px) {
   .story-page { --story-gutter: var(--dev-article-margin, var(--page-gutter)); }
@@ -62,10 +60,6 @@
   .story-quote { margin-block: 48px; }
   .story-quote-scene .story-quote-scene__lyrics { width: 100%; }
   .story-quote-scene { --quote-inset: 20px; --quote-gap: var(--type-lyric-gap); }
-  .media-home__intro { padding-block: 48px; }
-  .media-home__intro h1 { overflow-wrap: anywhere; }
-  .media-section-heading > span { white-space: normal; }
-  .media-footer { flex-wrap: wrap; }
 
 }
 @media (max-width: 760px) {
