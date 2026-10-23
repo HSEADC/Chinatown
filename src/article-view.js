@@ -1,6 +1,8 @@
 import { editorialDataView } from './components/editorial-data.js';
 import { madk1dContext as context } from './article-context-data.js';
 import { contextMaterialView, contextEntryView } from './article-context-view.js';
+import { bigBurstMarkup, tagMarkup } from './components/tag.js';
+import { articleSearchItems } from './article-search-data.js';
 import { entityReferenceView } from './components/editorial-typography.js';
 import { articleCopy, articleSources } from './article-copy.js';
 const material = id => context.materials.find(item => item.id === id);
@@ -48,6 +50,12 @@ function sectionView(id, copyId, { analysis = false, afterParagraph = {}, after 
       ${after}
     </div>
   </section>`;
+}
+
+// The end of the article hands the reader on: the next story from search, as the big burst.
+function nextStoryView() {
+  const next = articleSearchItems.find(item => !context.articleId.startsWith(item.id));
+  return bigBurstMarkup({ href: './index.html', label: 'Читай дальше →', title: `${next.artist} — ${next.title}` });
 }
 
 function timelineView() {
@@ -165,7 +173,7 @@ export function articleView() {
         <div class="story-cover__shade" aria-hidden="true"></div>
         <div class="story-cover__meta" data-node-id="290:70">
           <p class="media-eyebrow story-category" data-node-id="290:71">Новая сцена <span aria-hidden="true">/</span> Разбор</p>
-          <p class="story-meta" data-node-id="290:72">${articleCopy.readingMinutes} минут</p>
+          <p class="story-meta" data-node-id="290:72">${tagMarkup(`${articleCopy.readingMinutes} минут`, 'time')}</p>
         </div>
         <div class="story-cover__intro-row" data-node-id="293:210">
           <p class="story-cover__intro" data-node-id="293:209">${escape(articleDescription)}${sourcesView(articleCopy.sections.cover.paragraphSources[0])}</p>
@@ -188,13 +196,13 @@ export function articleView() {
         ${sectionView('album', 'album')}
         <figure class="story-artwork story-column entity-card entity-card--album" id="sexyswag-artwork" data-context-material="sexyswag-artwork" tabindex="-1" aria-labelledby="sexyswag-artwork-title">
           <h2 class="story-artwork__title" id="sexyswag-artwork-title">${escape(material('sexyswag-artwork').title)}</h2>
-          <p class="entity-card__type">Альбом</p>
+          <p class="entity-card__type">${tagMarkup('Альбом')}</p>
           <a href="${escape(articleSources.album.url)}" aria-label="Альбом sexyswag на Shazam"><img src="${artwork}rail/sexyswag.png" alt="Обложка альбома sexyswag, стилизованная под страницу поиска" width="642" height="634" loading="lazy"></a>
           <figcaption id="sexyswag-artwork-caption"><span class="story-artwork__artist">madk1d</span><span class="story-artwork__name">Марк Робертович Серков</span><span class="story-artwork__description">Обложка альбома sexyswag — madk1d.</span></figcaption>
           ${material('sexyswag-artwork').paragraphs.map(text => `<p class="story-artwork__summary">${escape(text)}</p>`).join('')}
           <p class="article-context-sources">${material('sexyswag-artwork').sources.map(source => `<a href="${escape(source.href)}">${escape(source.label)}</a>`).join(' · ')}</p>
         </figure>
-        ${sectionView('return', 'return')}
+        ${sectionView('return', 'return', { after: nextStoryView() })}
       </div>
     </article>
   </div>`.replace(/[ \t]+$/gm, '');

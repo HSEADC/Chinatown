@@ -96,14 +96,28 @@ export function mountArticleHeader(header, onChange, page = header.closest('.sto
     results.classList.remove('has-query');
   }
 
+  // Desktop rhythm: rows of 2, 3, a sudden 5, then 2 again; the last row takes what is left.
+  function searchRows(count) {
+    const pattern = [2, 3, 5, 2];
+    const sizes = [];
+    for (let row = 0; sizes.length < count; row++) {
+      const size = Math.min(pattern[row % pattern.length], count - sizes.length);
+      sizes.push(...Array(size).fill(size));
+    }
+    return sizes;
+  }
+
   function renderSearch() {
     clearResults();
     const query = input.value.trim().toLocaleLowerCase('ru');
     if (!searchOpen) return;
     const matches = searchArticles(query);
     status.textContent = matches.length ? 'Готовим новые материалы' : 'Ничего не найдено. Попробуй другое слово.';
-    for (const article of matches) {
+    const rows = searchRows(matches.length);
+    for (const [index, article] of matches.entries()) {
       const item = document.createElement('li');
+      item.style.setProperty('--row-count', rows[index]);
+      item.dataset.size = rows[index] <= 2 ? 'wide' : rows[index] === 3 ? 'mid' : 'small';
       const link = document.createElement('a');
       link.href = './index.html';
       link.className = 'story-search-result';

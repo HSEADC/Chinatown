@@ -8,7 +8,7 @@
   color: #131313;
   background: var(--media-accent, #fc5cff);
 }
-.editorial-prose a:not(.story-footnote-ref, .action-button) {
+.editorial-prose a:not(.story-footnote-ref, .action-button, .ct-big-burst) {
   color: inherit;
   text-decoration-line: underline;
   text-decoration-style: solid;
@@ -18,13 +18,13 @@
   text-decoration-skip-ink: auto;
   transition: color 140ms ease-out, text-decoration-color 140ms ease-out, background-color 140ms ease-out;
 }
-.editorial-prose a:not(.story-footnote-ref, .action-button):hover {
+.editorial-prose a:not(.story-footnote-ref, .action-button, .ct-big-burst):hover {
   color: var(--media-accent, #fc5cff);
   text-decoration-color: currentColor;
 }
 /* Phones have no focus states (styles.css); desktop keeps the keyboard highlight. */
 @media (min-width: 761px) {
-  .editorial-prose a:not(.story-footnote-ref, .action-button):focus-visible {
+  .editorial-prose a:not(.story-footnote-ref, .action-button, .ct-big-burst):focus-visible {
     color: var(--media-accent, #fc5cff);
     text-decoration-color: currentColor;
   }
@@ -94,12 +94,8 @@
 }
 .entity-card.article-context-material > :is(h2, p, figure, dl) { margin: 0; }
 .entity-card.article-context-material > h2 { font: 700 var(--font-size-card-title)/var(--line-height-card-title) var(--font-display); }
-.entity-card .entity-card__type {
-  color: var(--media-accent, #fc5cff);
-  font: 600 var(--font-size-label)/var(--line-height-label) var(--font-body);
-  letter-spacing: .1em;
-  text-transform: uppercase;
-}
+/* The material type is a tag with a sticker (src/components/tag.css), not a text label. */
+.entity-card .entity-card__type { display: flex; padding-top: 6px; }
 .entity-card .entity-card__subtitle { color: var(--story-muted, #b7b7b7); font: 400 var(--font-size-caption)/var(--line-height-caption) var(--font-body); }
 .entity-card .entity-card__details { display: grid; gap: 8px; font: 400 var(--font-size-caption)/var(--line-height-caption) var(--font-body); }
 .entity-card__details > div { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 16px; }
@@ -116,7 +112,7 @@
 .scene-rail .entity-card > p, .article-context-screen .entity-card > p { margin: 0; }
 .scene-rail .entity-card > p:not([class]), .scene-rail .entity-card .story-artwork__summary { font: 400 var(--font-size-body)/var(--line-height-body) var(--font-body); }
 .scene-rail__context-content > .entity-card > h2 { white-space: normal; overflow-wrap: anywhere; text-overflow: clip; line-height: var(--line-height-card-title); }
-.scene-rail__context-content > .entity-card > h2 + .entity-card__type { margin-top: -8px; }
+.scene-rail__context-content > .entity-card > h2 + .entity-card__type { margin-top: 0; }
 .scene-rail__context-content > .entity-card.article-context-material > h2 { margin-bottom: 0; }
 .scene-rail .scene-rail__context-content > .entity-card--artist > h2 { text-transform: none; }
 .article-context-screen .entity-card > h2 { display: block; margin: 0; color: #fff; font: 700 var(--font-size-card-title)/var(--line-height-card-title) var(--font-display); }
@@ -135,5 +131,5 @@
   .entity-card .article-context-sources a { padding-block: 10px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .editorial-prose a:not(.story-footnote-ref, .action-button) { transition: none; }
+  .editorial-prose a:not(.story-footnote-ref, .action-button, .ct-big-burst) { transition: none; }
 }

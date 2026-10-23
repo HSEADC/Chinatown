@@ -16,11 +16,12 @@
 .ct-tag { position: relative; isolation: isolate; display: inline-flex; align-items: center; height: var(--tag-height); padding: 0 12px 0 calc(var(--tag-sticker) + 4px); color: #fff; font: 600 var(--font-size-caption)/var(--line-height-caption) var(--font-display); letter-spacing: .04em; text-transform: uppercase; white-space: nowrap; }
 .ct-tag::before { position: absolute; z-index: -1; inset: 0; background: #000 url('../../assets/textures/tag-outline.svg') center / 100% 100% no-repeat; -webkit-mask: var(--worn-mask) 0 0 / 160px; mask: var(--worn-mask) 0 0 / 160px; content: ""; }
 .ct-tag__label { padding-top: 3px; }
-.ct-tag__sticker { position: absolute; top: calc((var(--tag-height) - var(--tag-sticker)) / 2 - 2px); left: -6px; width: var(--tag-sticker); height: var(--tag-sticker); border: 2px solid #fff; object-fit: cover; background: #000; rotate: -7deg; }
+/* Doubled class: card content styles every img (full width, 4:3); the sticker must not inherit that. */
+.ct-tag > img.ct-tag__sticker.ct-tag__sticker { display: block; max-width: none; aspect-ratio: 1; position: absolute; top: calc((var(--tag-height) - var(--tag-sticker)) / 2 - 2px); left: -6px; width: var(--tag-sticker); height: var(--tag-sticker); border: 2px solid #fff; object-fit: cover; background: #000; rotate: -7deg; }
 
 /* Three drawn frames swap on a slow, constant beat: hand-drawn boil, not a tween. */
 .ct-burst { position: absolute; z-index: 1; top: 6px; right: 6px; display: grid; place-items: center; width: var(--burst-width); height: var(--burst-height); color: #000; pointer-events: none; animation: ct-burst-wobble 1.2s step-end infinite; }
-.ct-burst > svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; fill: var(--burst-ink); -webkit-mask: var(--worn-mask) 0 0 / 120px; mask: var(--worn-mask) 0 0 / 120px; }
+.ct-burst > svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; fill: var(--burst-ink); }
 .ct-burst polygon { opacity: 0; animation: ct-burst-frame 1.2s step-end infinite; }
 .ct-burst polygon:nth-child(2) { animation-delay: -.8s; }
 .ct-burst polygon:nth-child(3) { animation-delay: -.4s; }
@@ -35,8 +36,34 @@
   .ct-tag { padding: 0 10px 0 calc(var(--tag-sticker) + 2px); }
 }
 
+/* Big burst: a whole-burst link at the end of an article. Same ink and boil as the small burst, plus a white
+   offset backing; the text stays still so it can be read. Desktop and mobile swap their own outline. */
+.ct-big-burst { position: relative; isolation: isolate; display: grid; place-items: center; width: 560px; max-width: 100%; aspect-ratio: 560 / 340; margin: 64px 0 0 auto; color: #000; text-align: center; text-decoration: none; rotate: -4deg; }
+.ct-big-burst__shape { position: absolute; z-index: -1; inset: 0; width: 100%; height: 100%; overflow: visible; animation: ct-burst-wobble 1.2s step-end infinite; }
+.ct-big-burst__shape--narrow { display: none; }
+.ct-big-burst__backing { fill: #fff; }
+.ct-big-burst__frames polygon { fill: var(--burst-ink); stroke: #000; stroke-width: 3; opacity: 0; animation: ct-burst-frame 1.2s step-end infinite; }
+.ct-big-burst__frames polygon:nth-child(2) { animation-delay: -.8s; }
+.ct-big-burst__frames polygon:nth-child(3) { animation-delay: -.4s; }
+.ct-big-burst__text { display: flex; flex-direction: column; align-items: center; gap: 12px; max-width: 340px; color: #000; }
+.ct-big-burst__label { font: 800 var(--font-size-caption)/var(--line-height-caption) var(--font-display); letter-spacing: .04em; text-transform: uppercase; }
+.ct-big-burst__title { font: 800 var(--font-size-card-artist)/var(--line-height-card-artist) var(--font-display); letter-spacing: .02em; text-transform: uppercase; }
+/* Collapsing the right rail frees the bottom-right corner: the burst slides there and grows from that corner. */
+@media (min-width: 761px) {
+  .ct-big-burst { transform-origin: 100% 100%; transition: translate var(--scene-shell-motion, 280ms ease), scale var(--scene-shell-motion, 280ms ease), margin-top var(--scene-shell-motion, 280ms ease); }
+  .is-scene-rail-collapsed .ct-big-burst { translate: calc(var(--big-burst-reach, 0px) - 16px) 0; scale: 1.4; margin-top: 200px; }
+}
+@media (max-width: 760px) {
+  .ct-big-burst { width: 100%; aspect-ratio: 358 / 300; margin: 40px 0 0; rotate: none; }
+  .ct-big-burst__shape--wide { display: none; }
+  .ct-big-burst__shape--narrow { display: block; }
+  .ct-big-burst__text { max-width: 264px; }
+}
 @media (prefers-reduced-motion: reduce) {
   .ct-burst { animation: none; rotate: -3deg; }
   .ct-burst polygon { animation: none; }
   .ct-burst polygon:first-child { opacity: 1; }
+  .ct-big-burst__shape, .ct-big-burst__frames polygon { animation: none; }
+  .ct-big-burst { transition: none; }
+  .ct-big-burst__frames polygon:first-child { opacity: 1; }
 }
