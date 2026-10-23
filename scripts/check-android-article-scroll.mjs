@@ -27,6 +27,7 @@ const read = () => page.evaluate(() => ({
   touchAction: getComputedStyle(document.querySelector('#media-content')).touchAction,
   coverTop: document.querySelector('.story-cover').getBoundingClientRect().top,
 }));
+const collapseSheet = () => page.keyboard.press('Escape');
 
 async function swipe(direction) {
   const before = await read();
@@ -57,7 +58,7 @@ try {
   await page.locator('#artist-intro').evaluate(element => scrollTo(0, scrollY + element.getBoundingClientRect().top - 160));
   await page.waitForTimeout(500);
   if (await page.locator('.mobile-shell').getAttribute('data-snap') === 'hidden') await page.locator('[data-mobile-mode="context"]').click();
-  if (await page.locator('.mobile-shell').getAttribute('data-snap') === 'expanded') await page.locator('.mobile-shell__collapse').click();
+  if (await page.locator('.mobile-shell').getAttribute('data-snap') === 'expanded') await collapseSheet();
   await page.waitForTimeout(400);
   await page.evaluate(() => {
     window.__sheetViewportTrace = { running: true, frames: [] };
@@ -66,7 +67,9 @@ try {
       const sheet = document.querySelector('.mobile-shell__sheet');
       trace.frames.push({
         height: innerHeight, visualHeight: visualViewport.height,
-        bottomGap: innerHeight - sheet.getBoundingClientRect().bottom,
+        // The sheet's box stays anchored at bottom: 0; snaps move it with transform, so its visible edge is measured separately.
+        bottomGap: innerHeight - sheet.offsetTop - sheet.offsetHeight,
+        visible: innerHeight - sheet.getBoundingClientRect().top,
         cssBottom: parseFloat(getComputedStyle(sheet).bottom),
         searchInset: parseFloat(document.querySelector('.mobile-shell').style.getPropertyValue('--mobile-search-inset')),
       });
@@ -81,9 +84,9 @@ try {
   await page.waitForTimeout(400);
   const viewportFrames = await page.evaluate(() => { window.__sheetViewportTrace.running = false; return window.__sheetViewportTrace.frames; });
   assert(viewportFrames.every(frame => Math.abs(frame.bottomGap) < 1 && frame.cssBottom === 0), 'Rapid reverse scrolling detached the sheet from the viewport bottom');
+  assert(viewportFrames.every(frame => Math.abs(frame.visible - viewportFrames[0].visible) < 1), 'Browser toolbar changes must not move the preview edge');
   await page.screenshot({ path: fileURLToPath(new URL('sheet-after-fast-reverse-scroll.png', output)) });
-  const collapse = page.locator('.mobile-shell__collapse');
-  if (await collapse.isVisible()) await collapse.click();
+  if (await page.locator('.mobile-shell').getAttribute('data-mode') === 'context') await collapseSheet();
   for (const mode of ['menu', 'search']) {
     await page.locator(`[data-mobile-mode="${mode}"]`).click();
     assert.equal(await page.evaluate(() => document.documentElement.style.overflow), 'hidden');
@@ -95,11 +98,11 @@ try {
     await page.waitForTimeout(500);
     assert(!['hidden', 'clip'].includes((await read()).rootOverflowY));
     await swipe('forward');
-    if (await collapse.isVisible()) await collapse.click();
+    if (await page.locator('.mobile-shell').getAttribute('data-mode') === 'context') await collapseSheet();
   }
   assert.deepEqual(errors, []);
   const activity = adb(['shell', 'dumpsys', 'activity', 'activities']).split('\n').find(line => line.includes('topResumedActivity='))?.trim();
-  const viewport = { frames: viewportFrames.length, maxBottomGap: Math.max(...viewportFrames.map(frame => Math.abs(frame.bottomGap))), maxSearchInset: Math.max(...viewportFrames.map(frame => frame.searchInset)) };
+  const viewport = { frames: viewportFrames.length, maxBottomGap: Math.max(...viewportFrames.map(frame => Math.abs(frame.bottomGap))), previewVisible: viewportFrames[0].visible, maxSearchInset: Math.max(...viewportFrames.map(frame => frame.searchInset)) };
   await writeFile(new URL('validation.json', output), JSON.stringify({ userAgent: await page.evaluate(() => navigator.userAgent), activity, input: 'adb shell input swipe', initial, swipes, viewport, errors }, null, 2));
   console.log(JSON.stringify({ activity, nativeSwipes: swipes.length + 2, viewport, errors }, null, 2));
 } finally {

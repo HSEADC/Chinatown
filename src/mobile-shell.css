@@ -1,11 +1,12 @@
-/* Figma FAB 404:664; sheets 400:443 / 517 / 598. Controls use the shared UIKIT. */
+/* Figma FAB 404:664 / 408:855; sheets 400:443 / 517 / 598. Controls use the shared UIKIT. */
 .mobile-shell { display: none; }
-.story-context-source > [data-context-text] {
-  background: rgb(252 92 255 / .24);
+/* The highlight fades in and out on the same inline box; no layout properties change. */
+.story-page [data-context-text] {
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
-  transition: background-color 180ms ease;
+  transition: background-color var(--motion-enter) ease;
 }
+.story-context-source > [data-context-text] { background-color: rgb(252 92 255 / .24); }
 @media (max-width: 760px) {
   .has-mobile-shell .media-site-header { display: none; }
   .has-mobile-shell { --media-header-height: 0px !important; }
@@ -30,10 +31,15 @@
   .mobile-shell :where(button, a, input):focus-visible { outline: 2px solid var(--mobile-accent); outline-offset: -2px; }
   .mobile-shell :where(p, h2, figure, dl) { margin: 0; }
   .mobile-shell a:where(:not(.action-button)) { color: inherit; }
-  .mobile-shell__fabs { position: fixed; right: var(--mobile-edge); bottom: calc(var(--mobile-edge) + env(safe-area-inset-bottom)); display: flex; flex-direction: column; align-items: end; gap: var(--fab-gap); }
+  /* The group keeps the 404:664 layout; 408:855 is reached with transforms only, so the same buttons glide without reflow. */
+  .mobile-shell__fabs { position: fixed; z-index: 3; right: var(--mobile-edge); bottom: calc(var(--mobile-edge) + env(safe-area-inset-bottom)); display: flex; flex-direction: column; align-items: end; gap: var(--fab-gap); pointer-events: none; transition: opacity var(--motion-enter) var(--motion-ease), visibility 0s; }
+  .mobile-shell[data-mode="menu"] .mobile-shell__fabs, .mobile-shell[data-mode="search"] .mobile-shell__fabs { opacity: 0; visibility: hidden; transition: opacity var(--motion-exit) var(--motion-ease-exit), visibility 0s linear var(--motion-exit); }
+  .mobile-shell__fabs > .mobile-fab { pointer-events: auto; transition: transform var(--motion-enter) var(--motion-ease), opacity var(--motion-enter) var(--motion-ease), visibility 0s; }
   /* The separate menu-close control keeps its existing 44px hit area. */
   .mobile-fab { position: relative; display: flex; align-items: center; justify-content: end; width: 44px; height: 44px; padding: 0 6px 0 0; background: transparent; }
-  .mobile-fab > span { position: relative; display: grid; place-items: center; width: 24px; height: 24px; background: var(--mobile-control); }
+  .mobile-fab > span { position: relative; display: grid; place-items: center; width: 24px; height: 24px; background: var(--mobile-control); transition: filter var(--motion-release) ease-out; }
+  /* Press feedback: brightness only, so the surface, icon and hit area stay put. */
+  .mobile-fab:active > span { filter: brightness(1.35); transition-duration: var(--motion-press); }
   .mobile-fab img { display: block; flex: none; max-width: none; }
   .mobile-fab--context > span { background: var(--mobile-accent); }
   .mobile-shell__fabs .mobile-fab { justify-content: center; width: var(--fab-secondary-size); height: var(--fab-secondary-size); padding: 0; }
@@ -42,7 +48,14 @@
   .mobile-shell__fabs .mobile-fab::after { position: absolute; inset: var(--button-hit-extension); content: ""; }
   .mobile-shell__fabs .mobile-fab--context, .mobile-shell__fabs .mobile-fab--context > span { width: var(--fab-primary-size); height: var(--fab-primary-size); }
   .mobile-shell__fabs .mobile-fab--context::after { inset: 0; }
-  .mobile-fab__unread { position: absolute; top: -3px; right: -3px; width: 8px; height: 8px; border: 2px solid #131313; background: #fff; }
+  /* Figma 408:855: menu/search settle over the open sheet with an 8px gap; the restore FAB leaves below the edge. */
+  .mobile-shell[data-fabs="compact"] .mobile-fab[data-mobile-mode="search"] { transform: translateY(calc(var(--fab-primary-size) + var(--fab-gap))); }
+  .mobile-shell[data-fabs="compact"] .mobile-fab[data-mobile-mode="menu"] { transform: translateY(calc(var(--fab-primary-size) + 2 * var(--fab-gap) - var(--fab-sheet-gap))); }
+  .mobile-shell[data-fabs="compact"] .mobile-fab--context { opacity: 0; visibility: hidden; transform: translateY(calc(var(--fab-primary-size) + var(--fab-gap))); transition: transform var(--motion-enter) var(--motion-ease), opacity var(--motion-exit) var(--motion-ease-exit), visibility 0s linear var(--motion-enter); }
+  /* Split the 8px gap between 44px hit areas so the controls never overlap. */
+  .mobile-shell[data-fabs="compact"] .mobile-fab[data-mobile-mode="menu"]::after { inset: -8px -6px -4px; }
+  .mobile-shell[data-fabs="compact"] .mobile-fab[data-mobile-mode="search"]::after { inset: -4px -6px -8px; }
+  .mobile-fab__unread { position: absolute; top: -3px; right: -3px; width: 8px; height: 8px; border: 2px solid #131313; background: #fff; animation: mobile-unread-in var(--motion-enter) var(--motion-ease) both; }
   .mobile-shell__sheet {
     position: fixed;
     right: 0;
@@ -50,27 +63,33 @@
     left: 0;
     display: flex;
     flex-direction: column;
-    height: var(--mobile-sheet-height);
+    /* Full height stays fixed; snaps and drags move the sheet with transform only.
+       Percentages keep the native bottom anchoring when the browser toolbar resizes the viewport. */
+    height: var(--mobile-sheet-full);
     min-height: 0;
     padding-bottom: env(safe-area-inset-bottom);
     overflow: clip;
     background: var(--mobile-surface);
-    transform: translateY(calc(100% + 16px));
+    transform: translateY(100%);
     visibility: hidden;
-    transition: height 280ms cubic-bezier(.22, 1, .36, 1), transform 280ms cubic-bezier(.22, 1, .36, 1), visibility 280ms;
+    transition: transform var(--mobile-sheet-settle, var(--motion-exit)) var(--motion-ease-exit), opacity var(--motion-exit) var(--motion-ease-exit), visibility 0s linear var(--mobile-sheet-settle, var(--motion-exit));
     pointer-events: none;
   }
-  .mobile-shell[data-mode="context"]:not([data-snap="hidden"]) .mobile-shell__sheet { visibility: visible; transform: translateY(0); pointer-events: auto; }
-  .mobile-shell.is-dragging .mobile-shell__sheet { transition: none; }
+  .mobile-shell[data-snap="preview"] .mobile-shell__sheet { transform: translateY(calc(100% - var(--mobile-sheet-preview))); }
+  .mobile-shell[data-snap="expanded"] .mobile-shell__sheet { transform: translateY(0); }
+  .mobile-shell[data-sheet="open"] .mobile-shell__sheet { visibility: visible; pointer-events: auto; transition: transform var(--mobile-sheet-settle, var(--motion-enter)) var(--motion-ease), opacity var(--motion-enter) var(--motion-ease), visibility 0s; }
+  /* Menu and search cover the sheet where it stands; it fades under them and returns in place. */
+  .mobile-shell[data-sheet="covered"] .mobile-shell__sheet { opacity: 0; }
+  .mobile-shell.is-dragging .mobile-shell__sheet { transform: translateY(calc(100% - var(--mobile-sheet-drag))); transition: none; }
   .mobile-shell__handle { position: relative; z-index: 2; flex: none; touch-action: none; user-select: none; }
   .mobile-shell__grab { display: grid; place-items: center; width: 100%; height: 12px; padding: 0; background: transparent; }
   .mobile-shell__grab > span { display: block; width: 32px; height: 3px; background: #797979; }
   .mobile-shell__heading { display: flex; align-items: center; min-height: 32px; }
   .mobile-shell__title { flex: 1; min-width: 0; padding: var(--button-label-padding); padding-right: 12px; background: transparent; text-align: left; font: 700 var(--font-size-button)/var(--line-height-button) var(--font-display); text-transform: uppercase; overflow-wrap: anywhere; }
-  .mobile-shell__collapse { position: relative; display: grid; place-items: center; flex: none; width: 44px; height: 32px; padding: 0 6px; background: transparent; }
-  .mobile-shell__collapse::after { position: absolute; inset: -12px 0 0; content: ""; }
+  .mobile-shell[data-snap="preview"] .mobile-shell__heading { padding-right: calc(var(--mobile-edge) + var(--fab-secondary-size) + 12px); }
   .mobile-shell__pages { position: relative; flex: 1; min-height: 0; overflow: clip; }
   .mobile-shell__content { position: absolute; inset: 0; overflow-x: hidden; overflow-y: auto; overscroll-behavior: contain; padding: 0 var(--mobile-edge) 16px; background: var(--mobile-surface); }
+  .mobile-shell[data-snap="expanded"] .mobile-shell__content { padding-bottom: calc(16px + var(--fab-secondary-size) + var(--fab-sheet-gap)); }
   .mobile-shell__outgoing { pointer-events: none; }
   .mobile-shell__content > :is(.article-context-material, .story-artwork) { display: flex; flex-direction: column; gap: 12px; width: 100%; margin: 0 !important; padding: 0; border: 0; color: #fff; font: 400 var(--font-size-body)/var(--line-height-body) var(--font-body); }
   .mobile-shell__content > [data-context-material] > :is(h2, .entity-card__type) { display: none; }
@@ -85,14 +104,19 @@
   .mobile-shell__content .story-artwork__description, .mobile-shell .article-context-backlink { display: none; }
   .mobile-shell__content .article-context-sources { display: flex; flex-direction: column; gap: 8px; }
   .mobile-shell__content .article-context-sources a { padding-block: 8px; font: 400 var(--font-size-caption)/var(--line-height-caption) var(--font-body); text-underline-offset: .2em; }
-  .mobile-shell__format { flex: none; padding: 0 12px; }
+  .mobile-shell__format { flex: none; padding: 0 calc(var(--mobile-edge) + var(--fab-secondary-size) + 12px) 0 12px; }
   .mobile-shell__format > button { min-height: 44px; padding: 8px 0; background: transparent; color: #b7b7b7; font: 400 var(--font-size-caption)/var(--line-height-caption) var(--font-body); text-decoration: underline; text-underline-offset: .2em; }
   .mobile-shell[data-snap="preview"] :is(.mobile-shell__format, .mobile-city-video__controls, .mobile-city-video__status) { display: none; }
   .mobile-shell[data-snap="preview"] :is(.mobile-shell__pages, .mobile-city-video) { pointer-events: none; }
   .mobile-shell[data-snap="preview"] .mobile-shell__content { overflow-y: hidden; overscroll-behavior: auto; }
   /* Preview taps expand the card; native vertical swipes continue scrolling the article. */
   .mobile-shell__preview-toggle { position: absolute; z-index: 1; inset: 0; width: 100%; padding: 0; background: transparent; touch-action: pan-y pinch-zoom; }
-  .mobile-shell__backdrop { position: fixed; inset: 0; background: rgb(0 0 0 / .6); }
+  /* Menu and search rise from the bottom edge with the dimming; closing reverses from the current position. */
+  .mobile-shell__backdrop { position: fixed; z-index: 4; inset: 0; background: rgb(0 0 0 / .6); opacity: 0; visibility: hidden; pointer-events: none; transition: opacity var(--motion-exit) var(--motion-ease-exit), visibility 0s linear var(--motion-exit); }
+  .mobile-shell[data-mode="menu"] .mobile-shell__backdrop, .mobile-shell[data-mode="search"] .mobile-shell__backdrop { opacity: 1; visibility: visible; pointer-events: auto; transition: opacity var(--motion-enter) var(--motion-ease), visibility 0s; }
+  /* Above the fading FAB group, so leaving controls never draw over the incoming surface. */
+  .mobile-shell__menu-surface, .mobile-shell__search { z-index: 5; visibility: hidden; transform: translateY(calc(100% + var(--mobile-search-inset))); transition: transform var(--motion-exit) var(--motion-ease-exit), visibility 0s linear var(--motion-exit); }
+  .mobile-shell[data-mode="menu"] .mobile-shell__menu-surface, .mobile-shell[data-mode="search"] .mobile-shell__search { visibility: visible; transform: translateY(0); transition: transform var(--motion-enter) var(--motion-ease), visibility 0s; }
   .mobile-shell__menu-surface { position: fixed; right: 0; bottom: 0; left: 0; max-height: calc(var(--mobile-viewport-height) - 12px); overflow-y: auto; padding-top: 56px; }
   .mobile-shell__menu-close { position: absolute; top: 0; right: 6px; }
   .mobile-shell__menu-close > span { width: 32px; height: 32px; }
@@ -115,10 +139,14 @@
   .mobile-shell__search-status:not(.story-visually-hidden) { padding: 20px 12px; color: #b7b7b7; font: 400 var(--font-size-body)/var(--line-height-body) var(--font-body); }
   .mobile-city-video { position: relative; flex: 1; min-height: 0; overflow: clip; background: #171717; }
   .mobile-city-video > video { display: block; width: 100%; height: 100%; object-fit: cover; }
-  .mobile-city-video__controls { position: absolute; right: 0; bottom: 0; left: 0; display: flex; flex-wrap: wrap; gap: 4px 12px; padding: 24px 12px 8px; background: linear-gradient(transparent, #000c); }
+  .mobile-city-video__controls { position: absolute; right: 0; bottom: 0; left: 0; display: flex; flex-wrap: wrap; gap: 4px 12px; padding: 24px calc(var(--mobile-edge) + var(--fab-secondary-size) + 12px) 8px 12px; background: linear-gradient(transparent, #000c); }
   .mobile-city-video__controls button { min-height: 44px; padding: 8px 0; background: transparent; font: 400 var(--font-size-caption)/var(--line-height-caption) var(--font-body); }
   .mobile-city-video__status { position: absolute; top: 12px; left: 12px; right: 12px; background: #0008; font: 400 var(--font-size-caption)/var(--line-height-caption) var(--font-body); }
 }
+@keyframes mobile-unread-in {
+  from { opacity: 0; transform: scale(.4); }
+  to { opacity: 1; transform: scale(1); }
+}
 @media (prefers-reduced-motion: reduce) {
-  .mobile-shell *, .story-context-source > [data-context-text] { transition: none !important; animation: none !important; }
+  .mobile-shell *, .story-page [data-context-text] { transition: none !important; animation: none !important; }
 }

@@ -1,6 +1,6 @@
 {
   "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36",
-  "activity": "topResumedActivity=ActivityRecord{141405164 u0 com.android.chrome/org.chromium.chrome.browser.customtabs.CustomTabActivity t21}",
+  "activity": "topResumedActivity=ActivityRecord{176133110 u0 com.android.chrome/org.chromium.chrome.browser.ChromeTabbedActivity t33}",
   "input": "adb shell input swipe",
   "initial": {
     "y": 0,
@@ -24,103 +24,104 @@
         "coverTop": 0
       },
       "after": {
-        "y": 505.81817626953125,
+        "y": 508,
         "height": 721,
         "visualHeight": 721.4545288085938,
         "rootOverflowY": "visible",
         "bodyOverflow": "visible",
         "touchAction": "auto",
-        "coverTop": -505.8182067871094
+        "coverTop": -508
       }
     },
     {
       "direction": "backward",
       "before": {
-        "y": 505.81817626953125,
+        "y": 508,
         "height": 721,
         "visualHeight": 721.0908813476562,
         "rootOverflowY": "visible",
         "bodyOverflow": "visible",
         "touchAction": "auto",
-        "coverTop": -505.8182067871094
+        "coverTop": -508
       },
       "after": {
-        "y": 4,
+        "y": 0,
         "height": 721,
         "visualHeight": 721.0908813476562,
         "rootOverflowY": "visible",
         "bodyOverflow": "visible",
         "touchAction": "auto",
-        "coverTop": -4
+        "coverTop": 0
       }
     },
     {
       "direction": "forward",
       "before": {
-        "y": 4,
+        "y": 0,
         "height": 721,
         "visualHeight": 721.0908813476562,
         "rootOverflowY": "visible",
         "bodyOverflow": "visible",
         "touchAction": "auto",
-        "coverTop": -4
+        "coverTop": 0
       },
       "after": {
-        "y": 510.5454406738281,
+        "y": 505.0909118652344,
         "height": 721,
         "visualHeight": 721.0908813476562,
         "rootOverflowY": "visible",
         "bodyOverflow": "visible",
         "touchAction": "auto",
-        "coverTop": -510.54547119140625
+        "coverTop": -505.0909118652344
       }
     },
     {
       "direction": "forward",
       "before": {
-        "y": 701.0908813476562,
+        "y": 0,
         "height": 721,
         "visualHeight": 721.0908813476562,
         "rootOverflowY": "visible",
         "bodyOverflow": "visible",
         "touchAction": "auto",
-        "coverTop": -701.0909423828125
+        "coverTop": 0
       },
       "after": {
-        "y": 1205.8182373046875,
+        "y": 506.9090881347656,
         "height": 721,
         "visualHeight": 721.0908813476562,
         "rootOverflowY": "visible",
         "bodyOverflow": "visible",
         "touchAction": "auto",
-        "coverTop": -1205.8182373046875
+        "coverTop": -506.90911865234375
       }
     },
     {
       "direction": "forward",
       "before": {
-        "y": 1205.8182373046875,
+        "y": 506.9090881347656,
         "height": 721,
         "visualHeight": 721.4545288085938,
         "rootOverflowY": "visible",
         "bodyOverflow": "visible",
         "touchAction": "auto",
-        "coverTop": -1205.8182373046875
+        "coverTop": -506.90911865234375
       },
       "after": {
-        "y": 1657.45458984375,
+        "y": 958.9091186523438,
         "height": 777,
         "visualHeight": 777.4545288085938,
         "rootOverflowY": "visible",
         "bodyOverflow": "visible",
         "touchAction": "auto",
-        "coverTop": -1657.45458984375
+        "coverTop": -958.9091186523438
       }
     }
   ],
   "viewport": {
-    "frames": 48,
-    "maxBottomGap": 0.0909423828125,
+    "frames": 67,
+    "maxBottomGap": 0,
+    "previewVisible": 87.9090576171875,
     "maxSearchInset": 0
   },
   "errors": []

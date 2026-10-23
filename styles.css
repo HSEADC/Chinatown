@@ -453,7 +453,7 @@ p { line-height: var(--line-height-body); }
 
 .subscribe-modal[hidden] { display: none; }
 .subscribe-modal { position: fixed; z-index: 200; inset: 0; color: #fff; }
-.subscribe-modal__backdrop { position: absolute; inset: 0; background: rgba(0, 0, 0, .3); backdrop-filter: blur(4px); }
+.subscribe-modal__backdrop { position: absolute; inset: 0; background: rgba(0, 0, 0, .3); backdrop-filter: blur(4px); opacity: 0; transition: opacity var(--motion-exit) var(--motion-ease-exit); }
 .subscribe-modal__panel {
   position: absolute;
   right: 0;
@@ -467,23 +467,15 @@ p { line-height: var(--line-height-body); }
   overflow-y: auto;
   padding: 32px var(--landing-gutter) calc(32px + env(safe-area-inset-bottom));
   background: #131313;
+  /* Same bottom-surface motion as the article shell; keyboard resizing stays native (bottom/max-height are not animated). */
+  transform: translateY(100%);
+  transition: transform var(--motion-exit) var(--motion-ease-exit);
 }
-.subscribe-modal:not([hidden]) .subscribe-modal__backdrop { animation: subscribe-backdrop-in 220ms ease-out both; }
-.subscribe-modal:not([hidden]) .subscribe-modal__panel { animation: subscribe-panel-in 320ms cubic-bezier(.22, 1, .36, 1) both; }
-
-@keyframes subscribe-backdrop-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes subscribe-panel-in {
-  from { opacity: 0; transform: translateY(32px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+.subscribe-modal[data-state="open"] .subscribe-modal__backdrop { opacity: 1; transition: opacity var(--motion-enter) var(--motion-ease); }
+.subscribe-modal[data-state="open"] .subscribe-modal__panel { transform: translateY(0); transition: transform var(--motion-enter) var(--motion-ease); }
 
 @media (prefers-reduced-motion: reduce) {
-  .subscribe-modal:not([hidden]) .subscribe-modal__backdrop,
-  .subscribe-modal:not([hidden]) .subscribe-modal__panel { animation: none; }
+  .subscribe-modal__backdrop, .subscribe-modal__panel { transition: none !important; }
 }
 
 .subscribe-modal__body {
@@ -540,12 +532,16 @@ p { line-height: var(--line-height-body); }
 
 
   .intro__bottom { display: contents; }
-  .intro .intro__whitelist { order: 3; flex: none; width: calc(100% + 8px); margin: auto -4px 0; }
+  .intro .intro__whitelist { order: 3; flex: none; align-self: stretch; width: 100%; margin: auto 0 0; }
   .intro__socials { order: 1; flex: none; flex-direction: column; align-items: flex-start; gap: 24px; margin-top: auto; }
   .intro__socials > :is(span, a) { position: relative; padding: 10px 0 6px; }
   .intro__socials > a::after { position: absolute; inset: -6px; content: ""; }
   .subscribe-modal__body { grid-column: 1 / -1; gap: 24px; }
   .subscribe-modal__panel { min-height: 0; padding-top: 64px; }
+  .subscribe-modal.is-entering-email .subscribe-modal__panel {
+    bottom: var(--subscribe-input-bottom, 0px);
+    max-height: calc(var(--subscribe-input-height, 100dvh) - 24px);
+  }
   .subscribe-modal__deco { display: none; }
   .subscribe-modal__status { position: static; }
   .intro__wall { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(3, minmax(0, 1fr)); }

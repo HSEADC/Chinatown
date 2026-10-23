@@ -4,6 +4,8 @@ import { mountMobileCityVideo } from './mobile-city-video.js';
 import { searchArticles } from './article-search-data.js';
 
 const asset = name => new URL(`../assets/figma/mobile-shell/${name}.svg`, import.meta.url).href;
+/** Durations live in design-tokens.css so CSS transitions and Web Animations share one scale. */
+const motionMs = (name, fallback) => parseFloat(getComputedStyle(document.documentElement).getPropertyValue(name)) || fallback;
 const img = (name, size) => `<img src="${asset(name)}" alt="" width="${size}" height="${size}" aria-hidden="true">`;
 
 /** Phone-only shell: one content sheet, site search, navigation and three Figma FABs. */
@@ -22,6 +24,7 @@ export function mountMobileShell(page, { onOverlayChange = () => {}, onVisibilit
   let lastOverlay = false;
   let drag = null;
   let dragMoved = false;
+  let settleMs = null;
   let pointerDown = false;
   let shake = null;
   let ownedHistory = false;
@@ -38,25 +41,24 @@ export function mountMobileShell(page, { onOverlayChange = () => {}, onVisibilit
       <button class="mobile-fab" type="button" data-mobile-mode="search" aria-label="Поиск статей" aria-expanded="false" aria-controls="mobile-site-search" data-node-id="404:667"><span>${img('search-24', 24)}</span></button>
       <button class="mobile-fab mobile-fab--context" type="button" data-mobile-mode="context" aria-label="Открыть дополнительный материал" aria-expanded="false" aria-controls="mobile-context-sheet" data-node-id="404:671"><span>${img('arrow-up', 32)}<i class="mobile-fab__unread" hidden></i></span></button>
     </div>
-    <div class="mobile-shell__backdrop" hidden></div>
+    <div class="mobile-shell__backdrop"></div>
     <section class="mobile-shell__sheet" id="mobile-context-sheet" aria-label="Рядом со статьёй" inert>
       <div class="mobile-shell__handle" data-sheet-handle>
         <button class="mobile-shell__grab" type="button" aria-label="Развернуть плашку"><span></span></button>
-        <div class="mobile-shell__heading"><button class="mobile-shell__title" type="button"></button>
-          <button class="mobile-shell__collapse" type="button" aria-label="Свернуть плашку">${img('arrow-down', 32)}</button></div>
+        <div class="mobile-shell__heading"><button class="mobile-shell__title" type="button"></button></div>
       </div>
       <div class="mobile-shell__pages"><div class="mobile-shell__content"></div></div>
       <div class="mobile-city-video" hidden></div>
       <div class="mobile-shell__format"><button type="button" data-city-toggle>Смотреть Китай-город ↗</button></div>
       <button class="mobile-shell__preview-toggle" type="button" aria-label="Развернуть дополнительный материал" hidden></button>
     </section>
-    <section class="mobile-shell__menu-surface" role="dialog" aria-modal="true" aria-label="Меню сайта" hidden>
+    <section class="mobile-shell__menu-surface" role="dialog" aria-modal="true" aria-label="Меню сайта" inert>
       <button class="mobile-fab mobile-shell__menu-close" type="button" aria-label="Закрыть меню"><span>${img('arrow-down', 32)}</span></button>
       <nav id="mobile-site-menu" aria-label="Навигация Чайнатаун">
         <a href="./index.html">Статьи</a><a href="./index.html">Мерч</a><a href="./index.html">Тесты</a><a href="./index.html">Карта артистов</a>
       </nav>
     </section>
-    <section class="mobile-shell__search" id="mobile-site-search" role="dialog" aria-modal="true" aria-label="Поиск статей" hidden>
+    <section class="mobile-shell__search" id="mobile-site-search" role="dialog" aria-modal="true" aria-label="Поиск статей" inert>
       <form class="mobile-search-field" role="search" aria-label="Поиск статей">
         <button type="submit" aria-label="Найти статьи">${img('search-field', 24)}</button>
         <label class="story-visually-hidden" for="mobile-article-query">О чем скучаешь? Поиск статей</label>
@@ -91,6 +93,7 @@ export function mountMobileShell(page, { onOverlayChange = () => {}, onVisibilit
   const pager = createContextPager(contextHost, {
     outgoingClassName: 'mobile-shell__content mobile-shell__outgoing',
     canAnimate: () => isContextOpen() && !reducedMotion.matches && !frozen && !document.hidden,
+    duration: motionMs('--motion-enter', 260),
     onUpdate() {},
   });
 
@@ -110,9 +113,10 @@ export function mountMobileShell(page, { onOverlayChange = () => {}, onVisibilit
     render();
     if (state.unread && !before.unread && phone.matches && !reducedMotion.matches) {
       shake?.cancel();
+      // One short turn and back; a still-unread badge never retriggers it.
       shake = contextButton.querySelector('span').animate([
-        { transform: 'rotate(0)' }, { transform: 'rotate(-9deg)' }, { transform: 'rotate(7deg)' }, { transform: 'rotate(-3deg)' }, { transform: 'rotate(0)' },
-      ], { duration: 440, easing: 'ease-out' });
+        { transform: 'rotate(0)' }, { transform: 'rotate(-14deg)', offset: .4 }, { transform: 'rotate(0)' },
+      ], { duration: motionMs('--motion-enter', 260), easing: 'ease-in-out' });
     }
   }
   function lockArticle(lock) {
@@ -131,26 +135,43 @@ export function mountMobileShell(page, { onOverlayChange = () => {}, onVisibilit
   function syncViewport() {
     const height = viewportHeight();
     const searchInset = Math.max(0, innerHeight - height - (window.visualViewport?.offsetTop || 0));
+    const heights = mobileSnapHeights(height);
     root.style.setProperty('--mobile-viewport-height', `${height}px`);
     root.style.setProperty('--mobile-search-inset', `${searchInset}px`);
-    if (!drag) root.style.setProperty('--mobile-sheet-height', `${mobileSnapHeights(height)[state.snap]}px`);
+    // Only resizes touch these; snaps themselves are transforms relative to the sheet's own height.
+    root.style.setProperty('--mobile-sheet-full', `${heights.expanded}px`);
+    root.style.setProperty('--mobile-sheet-preview', `${heights.preview}px`);
+  }
+  /** The sheet's visible height right now, including an unfinished transition. */
+  function visibleSheetHeight() {
+    const transform = getComputedStyle(sheet).transform;
+    return Math.max(0, sheet.offsetHeight - (transform === 'none' ? 0 : new DOMMatrixReadOnly(transform).m42));
   }
   function render() {
     root.hidden = !phone.matches;
     root.inert = !phone.matches || frozen;
-    root.dataset.mode = state.mode || 'closed';
-    root.dataset.snap = state.snap;
     const contentOpen = isContextOpen();
     const overlay = isOverlay();
     const videoVisible = contentOpen && (!context.id || showVideo);
+    // Visual states are data attributes; CSS transitions start from the current position, so any change can interrupt another.
+    if (settleMs) root.style.setProperty('--mobile-sheet-settle', `${settleMs}ms`);
+    else root.style.removeProperty('--mobile-sheet-settle');
+    settleMs = null;
+    root.dataset.mode = state.mode || 'closed';
+    root.dataset.snap = state.snap;
+    root.dataset.sheet = contentOpen ? 'open' : overlay && state.snap !== 'hidden' ? 'covered' : 'hidden';
+    root.dataset.fabs = phone.matches && state.snap !== 'hidden' ? 'compact' : 'full';
+    // Leaving surfaces stop taking input at once and finish their exit visually.
     sheet.inert = !contentOpen || frozen;
     sheet.setAttribute('aria-hidden', String(!contentOpen));
     previewToggle.hidden = !contentOpen || state.snap !== 'preview';
     contextHost.inert = state.snap === 'preview';
-    fabs.hidden = contentOpen || overlay;
-    backdrop.hidden = !overlay;
-    menu.hidden = !phone.matches || state.mode !== 'menu';
-    search.hidden = !phone.matches || state.mode !== 'search';
+    fabs.inert = overlay;
+    fabs.dataset.nodeId = contentOpen ? '408:855' : '404:664';
+    contextButton.inert = contentOpen;
+    contextButton.setAttribute('aria-hidden', String(contentOpen));
+    menu.inert = !phone.matches || state.mode !== 'menu';
+    search.inert = !phone.matches || state.mode !== 'search';
     for (const button of fabs.querySelectorAll('[data-mobile-mode]')) button.setAttribute('aria-expanded', String(phone.matches && state.mode === button.dataset.mobileMode));
     badge.hidden = !state.unread;
     contextButton.setAttribute('aria-label', state.unread ? 'Новый дополнительный материал. Открыть плашку' : 'Открыть дополнительный материал');
@@ -158,13 +179,16 @@ export function mountMobileShell(page, { onOverlayChange = () => {}, onVisibilit
       liveStatus.textContent = `Дополнительный материал: ${context.title}`;
       announcedId = context.id;
     }
-    title.textContent = videoVisible ? 'Китай-город' : context.title;
-    title.setAttribute('aria-label', `${title.textContent}. Развернуть плашку`);
+    // A leaving sheet keeps its last content so the exit shows what the reader saw.
+    if (contentOpen) {
+      title.textContent = videoVisible ? 'Китай-город' : context.title;
+      title.setAttribute('aria-label', `${title.textContent}. Развернуть плашку`);
+      cityHost.hidden = !videoVisible;
+      pages.hidden = videoVisible || !context.id;
+      format.hidden = !context.id;
+      cityToggle.textContent = showVideo ? '← К материалу' : 'Смотреть Китай-город ↗';
+    }
     grab.setAttribute('aria-label', state.snap === 'expanded' ? 'Уменьшить плашку' : 'Развернуть плашку');
-    cityHost.hidden = !videoVisible;
-    pages.hidden = videoVisible || !context.id;
-    format.hidden = !contentOpen || !context.id;
-    cityToggle.textContent = showVideo ? '← К материалу' : 'Смотреть Китай-город ↗';
     city.setActive(videoVisible && !frozen && phone.matches);
     document.body.classList.toggle('has-mobile-shell', phone.matches);
     document.body.classList.toggle('has-mobile-overlay', overlay);
@@ -258,7 +282,6 @@ export function mountMobileShell(page, { onOverlayChange = () => {}, onVisibilit
   backdrop.addEventListener('click', () => closeOverlay(), options);
   root.querySelector('.mobile-shell__menu-close').addEventListener('click', () => closeOverlay(), options);
   search.querySelector('[data-search-close]').addEventListener('click', () => closeOverlay(), options);
-  root.querySelector('.mobile-shell__collapse').addEventListener('click', collapse, options);
   for (const control of [grab, title, previewToggle]) control.addEventListener('click', toggleSheet, options);
   input.addEventListener('input', renderSearch, options);
   search.querySelector('form').addEventListener('submit', event => {
@@ -269,40 +292,53 @@ export function mountMobileShell(page, { onOverlayChange = () => {}, onVisibilit
   }, options);
   cityToggle.addEventListener('click', () => { showVideo = !showVideo; render(); }, options);
   handle.addEventListener('pointerdown', event => {
-    if (event.button !== 0 || event.target.closest('.mobile-shell__collapse')) return;
+    if (event.button !== 0) return;
     dragMoved = false;
-    drag = { id: event.pointerId, startY: event.clientY, lastY: event.clientY, lastTime: performance.now(), velocity: 0, snap: state.snap, height: sheet.getBoundingClientRect().height };
+    drag = { id: event.pointerId, startY: event.clientY, lastY: event.clientY, lastTime: performance.now(), velocity: 0, snap: state.snap, origin: 0, visible: 0 };
   }, options);
   handle.addEventListener('pointermove', event => {
     if (!drag || drag.id !== event.pointerId) return;
     const now = performance.now();
-    const distance = event.clientY - drag.startY;
-    dragMoved ||= Math.abs(distance) > 6;
-    if (!dragMoved) return;
-    if (!handle.hasPointerCapture(event.pointerId)) handle.setPointerCapture(event.pointerId);
+    if (!dragMoved) {
+      if (Math.abs(event.clientY - drag.startY) <= 6) return;
+      dragMoved = true;
+      handle.setPointerCapture(event.pointerId);
+      // Pick the sheet up where it is, even mid-transition, so the finger never causes a jump.
+      drag.origin = visibleSheetHeight();
+      drag.startY = event.clientY;
+      drag.lastY = event.clientY;
+      drag.lastTime = now;
+    }
     drag.velocity = (event.clientY - drag.lastY) / Math.max(1, now - drag.lastTime);
     drag.lastY = event.clientY;
     drag.lastTime = now;
+    drag.visible = Math.max(0, Math.min(sheet.offsetHeight, drag.origin - (event.clientY - drag.startY)));
+    root.style.setProperty('--mobile-sheet-drag', `${drag.visible}px`);
     root.classList.add('is-dragging');
-    root.style.setProperty('--mobile-sheet-height', `${Math.max(0, Math.min(viewportHeight() - 48, drag.height - distance))}px`);
   }, options);
   function finishDrag(event, cancelled = false) {
     if (!drag || drag.id !== event.pointerId) return;
     const previous = drag;
-    const height = sheet.getBoundingClientRect().height;
     drag = null;
-    root.classList.remove('is-dragging');
     if (handle.hasPointerCapture(event.pointerId)) handle.releasePointerCapture(event.pointerId);
-    if (cancelled || !dragMoved) { syncViewport(); return; }
-    const velocity = performance.now() - previous.lastTime > 100 ? 0 : previous.velocity;
-    const snap = mobileSnapAfterDrag({ snap: previous.snap, height, viewportHeight: viewportHeight(), velocity });
-    setSnap(snap);
+    if (!dragMoved) return;
+    const velocity = cancelled || performance.now() - previous.lastTime > 100 ? 0 : previous.velocity;
+    const snap = cancelled ? previous.snap : mobileSnapAfterDrag({ snap: previous.snap, height: previous.visible, viewportHeight: viewportHeight(), velocity });
+    const target = mobileSnapHeights(viewportHeight())[snap];
+    // Continue the finger's speed: the ease curve starts at ~4.5x its average speed.
+    if (Math.abs(velocity) > .05) settleMs = Math.round(Math.max(180, Math.min(280, 4.5 * Math.abs(target - previous.visible) / Math.abs(velocity))));
+    // The class and the new snap change in one style pass, so the transition starts from the released position.
+    root.classList.remove('is-dragging');
+    if (cancelled) render();
+    else setSnap(snap);
     // Suppress the click generated by a completed drag, without blocking the next tap.
     setTimeout(() => { dragMoved = false; }, 0);
   }
   handle.addEventListener('pointerup', finishDrag, options);
   handle.addEventListener('pointercancel', event => finishDrag(event, true), options);
   root.addEventListener('pointerdown', () => { pointerDown = true; }, options);
+  // A passive listener lets mobile Safari apply :active press feedback; it never intercepts scrolling.
+  root.addEventListener('touchstart', () => {}, { ...options, passive: true });
   for (const type of ['pointerup', 'pointercancel', 'blur']) window.addEventListener(type, () => { pointerDown = false; }, options);
   document.addEventListener('keydown', event => {
     if (!phone.matches || frozen || event.defaultPrevented) return;

@@ -190,8 +190,8 @@
       "width": 390,
       "height": 844,
       "id": "quote",
-      "nativeForward": 301,
-      "nativeBackward": -311
+      "nativeForward": 238,
+      "nativeBackward": -238
     },
     {
       "width": 390,
@@ -288,8 +288,8 @@
       "width": 390,
       "height": 844,
       "id": "verse-excerpt",
-      "nativeForward": 239,
-      "nativeBackward": -315
+      "nativeForward": 238,
+      "nativeBackward": -308
     },
     {
       "width": 390,

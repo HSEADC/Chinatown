@@ -1,0 +1,56 @@
+{
+  "browser": "Chromium, CDP touch input",
+  "recorded": false,
+  "checks": [
+    {
+      "width": 390,
+      "height": 844,
+      "fabTravel": 80,
+      "fabFrames": 54,
+      "menuInterruptedAt": 624,
+      "dragOffsetSpread": 0,
+      "fastScrollMaxOutgoing": 1,
+      "unreadTurns": 1
+    },
+    {
+      "width": 320,
+      "height": 510,
+      "fabTravel": 80,
+      "fabFrames": 54,
+      "menuInterruptedAt": 292,
+      "dragOffsetSpread": 0,
+      "fastScrollMaxOutgoing": 1,
+      "unreadTurns": 1
+    },
+    {
+      "width": 760,
+      "height": 360,
+      "fabTravel": 80,
+      "fabFrames": 54,
+      "menuInterruptedAt": 142,
+      "dragOffsetSpread": 0,
+      "fastScrollMaxOutgoing": 1,
+      "unreadTurns": 1
+    },
+    {
+      "reducedMotion": "no transitions or animations"
+    },
+    {
+      "whitelist": "390x844",
+      "keyboardFit": true
+    },
+    {
+      "whitelist": "320x568",
+      "keyboardFit": true
+    },
+    {
+      "desktop": 761,
+      "mobileShell": "hidden"
+    },
+    {
+      "desktop": 1440,
+      "mobileShell": "hidden"
+    }
+  ],
+  "errors": []
+}

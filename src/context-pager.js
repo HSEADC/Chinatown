@@ -1,5 +1,5 @@
 /** Slide the actual editorial nodes; retiring a page returns it to its article home. */
-export function createContextPager(host, { canAnimate, onUpdate, outgoingClassName = 'scene-rail__context-content scene-rail__context-outgoing' }) {
+export function createContextPager(host, { canAnimate, onUpdate, outgoingClassName = 'scene-rail__context-content scene-rail__context-outgoing', duration = 360 }) {
   const panel = host.parentElement;
   let current = null;
   let outgoing = null;
@@ -73,7 +73,7 @@ export function createContextPager(host, { canAnimate, onUpdate, outgoingClassNa
       finish();
       return;
     }
-    const timing = { duration: 360, easing: 'cubic-bezier(.22, 1, .36, 1)', fill: 'both' };
+    const timing = { duration, easing: 'cubic-bezier(.22, 1, .36, 1)', fill: 'both' };
     const translate = x => `translateX(${x}px)`;
     if (outgoing) animations.push(outgoing.host.animate([
       { transform: translate(positions.current) },
