@@ -100,19 +100,22 @@ function referencesView() {
   return contextMaterialView(withSources(material('references'), genius));
 }
 
-/** The complete article, shared by the static page and client-side navigation. */
-export function articleView() {
-  return `<div class="story-page" data-node-id="250:107" data-video-clip="kitay-night" data-article-id="${context.articleId}">
-    <div class="story-club" data-story-club aria-hidden="true">
-      <div class="story-club__haze"></div>
-      <div class="story-club__bloom"></div>
-      <div class="story-club__beam story-club__beam--pink"></div>
-      <div class="story-club__beam story-club__beam--blue"></div>
-      <div class="story-club__beam story-club__beam--green"></div>
-      <div class="story-club__seam"></div>
-    </div>
-    <a class="story-skip" href="#article-content">Перейти к статье</a>
-    <header class="story-header" data-node-id="272:111">
+const articleMenu = [
+  { label: 'Карта артистов', node: '272:118' },
+  { label: 'Статьи', href: '#article-content', node: '272:120' },
+  { label: 'Тесты', node: '272:121' },
+  { label: 'Мерч', node: '272:122' },
+];
+
+function menuItemView({ label, href, route, node }) {
+  const nodeId = node ? ` data-node-id="${node}"` : '';
+  if (href) return `          <a class="story-menu__item" href="${href}"${route ? ' data-media-route' : ''}${nodeId}>${label}</a>`;
+  return `          <button class="story-menu__item" type="button" aria-disabled="true" title="Раздел готовится"${nodeId}>${label}</button>`;
+}
+
+/** Shared site header (Figma 272:111 / 376:696); pages choose the menu items. */
+export function siteHeaderView(items = articleMenu) {
+  return `<header class="story-header" data-node-id="272:111">
       <div class="story-header__bar">
         <div class="story-header__identity" data-node-id="272:112">
           <button class="story-icon story-brand" type="button" aria-label="Навигация Чайнатаун" aria-controls="article-menu" aria-expanded="true" data-node-id="272:113">
@@ -120,10 +123,7 @@ export function articleView() {
           </button>
         </div>
         <nav class="story-menu" id="article-menu" aria-label="Навигация Чайнатаун" data-node-id="272:116">
-          <button class="story-menu__item" type="button" aria-disabled="true" title="Раздел готовится" data-node-id="272:118">Карта артистов</button>
-          <a class="story-menu__item" href="#article-content" data-node-id="272:120">Статьи</a>
-          <button class="story-menu__item" type="button" aria-disabled="true" title="Раздел готовится" data-node-id="272:121">Тесты</button>
-          <button class="story-menu__item" type="button" aria-disabled="true" title="Раздел готовится" data-node-id="272:122">Мерч</button>
+${items.map(menuItemView).join('\n')}
         </nav>
         <form class="story-search" id="article-search-form" role="search" aria-label="Поиск статей" data-node-id="376:712" inert>
           <button class="story-icon story-search__submit" type="submit" aria-label="Найти статьи" data-node-id="376:713">
@@ -150,7 +150,22 @@ export function articleView() {
           <ul></ul>
         </div>
       </div>
-    </header>
+    </header>`;
+}
+
+/** The complete article, shared by the static page and client-side navigation. */
+export function articleView() {
+  return `<div class="story-page" data-node-id="250:107" data-video-clip="kitay-night" data-article-id="${context.articleId}">
+    <div class="story-club" data-story-club aria-hidden="true">
+      <div class="story-club__haze"></div>
+      <div class="story-club__bloom"></div>
+      <div class="story-club__beam story-club__beam--pink"></div>
+      <div class="story-club__beam story-club__beam--blue"></div>
+      <div class="story-club__beam story-club__beam--green"></div>
+      <div class="story-club__seam"></div>
+    </div>
+    <a class="story-skip" href="#article-content">Перейти к статье</a>
+    ${siteHeaderView()}
     <article class="story" aria-labelledby="article-title">
       <header class="story-cover film" data-node-id="290:69">
         <img class="story-cover__photo" src="${artwork}madk1d-concert.png" alt="madk1d выступает перед зрителями на освещённой сцене" width="3516" height="1984" fetchpriority="high">

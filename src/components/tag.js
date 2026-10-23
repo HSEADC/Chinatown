@@ -65,6 +65,14 @@ export function createTagList(tags, seed = '') {
   return list;
 }
 
+// String twins of createTagList and createBurst for pages rendered as strings (the landing).
+export function tagListMarkup(labels, seed = '', className = '') {
+  return `<span class="ct-tags${className ? ` ${className}` : ''}">${labels.map(label => {
+    const { tilt, nudge } = scatter(`${seed}:${label}`);
+    return tagMarkup(label).replace('<span class="ct-tag">', `<span class="ct-tag" style="--tag-tilt: ${tilt}deg; --tag-nudge: ${nudge}px">`);
+  }).join('')}</span>`;
+}
+
 // Burst family names used in design talk: «бах-бейдж» is the static НОВОЕ marker (createBurst), «бах-кнопка» the
 // small one-word button (this function), «большой бах» the whole-burst «Читай дальше» link (bigBurstMarkup).
 // Бах-кнопка: same white backing, outline and boil as the big one. It peeks out of a cover's corner and sends the

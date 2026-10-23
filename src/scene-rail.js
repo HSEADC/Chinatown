@@ -80,6 +80,8 @@ export function mountSceneRail(content) {
   let contextFrozen = false;
   let suspended = false;
   let manifestFailed = false;
+  // Pages such as the landing opt out of the city-video rail entirely.
+  let railOff = false;
   let collapsed = false;
   let pointerWithin = false;
   let focusPreview = false;
@@ -131,7 +133,7 @@ export function mountSceneRail(content) {
   }
 
   function playbackAllowed() {
-    return wide.matches && !collapsed && !document.hidden && !userPaused && !failed && !suspended && !coverVisible && !textVisible;
+    return wide.matches && !railOff && !collapsed && !document.hidden && !userPaused && !failed && !suspended && !coverVisible && !textVisible;
   }
 
   function syncAvailability() {
@@ -195,7 +197,7 @@ export function mountSceneRail(content) {
     frame = 0;
     const nextCoverVisible = !!cover && cover.getBoundingClientRect().bottom > 0;
     // Keep the article rail rendered so CSS can animate both entry and exit.
-    rail.hidden = manifestFailed && !article;
+    rail.hidden = (manifestFailed || railOff) && !article;
     document.body.classList.toggle('is-story-cover-active', nextCoverVisible);
     if (coverVisible !== nextCoverVisible) {
       coverVisible = nextCoverVisible;
@@ -239,6 +241,7 @@ export function mountSceneRail(content) {
   }
   function refresh() {
     article = !!content.querySelector('[data-article-id]');
+    railOff = !article && !!content.querySelector('[data-scene-rail="off"]');
     const page = content.querySelector('.story-page');
     if (page && !page.parentElement.classList.contains('scene-reading-layout')) {
       // A stable reading container avoids rewrapping text or remeasuring every
@@ -254,7 +257,7 @@ export function mountSceneRail(content) {
     rail.setAttribute('aria-label', article ? 'Рядом со статьёй' : 'Городское видео');
     size.hidden = article;
     auto.hidden = article || !manualEmphasis;
-    document.body.classList.toggle('has-scene-rail', article || !manifestFailed);
+    document.body.classList.toggle('has-scene-rail', article || !(manifestFailed || railOff));
     if (article) delete document.body.dataset.sceneEmphasis;
     syncShell();
     markers = [...content.querySelectorAll('[data-scene-emphasis]')];
