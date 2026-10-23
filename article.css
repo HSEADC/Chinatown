@@ -50,8 +50,10 @@
 .story-search input:focus, .story-search input:focus-visible { outline: none; box-shadow: none; }
 .story-search__results { position: absolute; z-index: 5; top: 100%; left: 0; right: 0; min-height: 598px; max-height: calc(100dvh - var(--story-header-height)); padding: 0 var(--story-gutter) 94px; overflow: auto; background: var(--story-header-bg); }
 .story-search__inner { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); column-gap: var(--story-grid-gap); }
-.story-search__status { grid-column: 2 / span 3; margin: 0 0 24px 80px !important; color: var(--story-muted); font-size: var(--font-size-caption); line-height: var(--line-height-caption); }
-.story-search__results ul { grid-column: 2 / span 3; display: grid; gap: 24px; margin: 0; padding: 0; list-style: none; }
+.story-search__status { grid-column: 1 / -1; margin: 0 0 24px !important; color: var(--story-muted); font-size: var(--font-size-caption); line-height: var(--line-height-caption); }
+.story-search__results ul { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 24px; margin: 0; padding: 0; list-style: none; }
+.story-search__results li { display: flex; flex: 1 1 calc((100% - (var(--row-count, 1) - 1) * 24px) / var(--row-count, 1)); min-width: 220px; }
+.story-search__results li > a { flex: 1; }
 .story-search__results ul:empty { display: none; }
 .story-search__results :is(a, button) { display: flex; align-items: center; width: 100%; min-height: 64px; padding: 12px 0 12px 80px; border: 0; background: transparent; color: #fff; font: 800 var(--font-size-label)/var(--line-height-caption) var(--font-body); letter-spacing: .04em; text-transform: uppercase; text-align: left; text-decoration: none; overflow-wrap: anywhere; }
 .story-search__results :is(a, button):hover { color: var(--media-accent); }
@@ -60,7 +62,14 @@
 .story-search__results a.story-search-result:hover { color: #fff; }
 .story-search-result__accent { color: var(--media-accent); }
 .story-search-result__body > span:first-child { font: 800 var(--font-size-card-title)/var(--line-height-card-title) var(--font-display); letter-spacing: .02em; }
-.story-search-result__body { display: flex; flex-direction: column; align-items: flex-start; min-width: 0; padding-right: 220px; }
+/* Card width sets the voice: wide rows speak loud, the sudden row of five whispers. */
+.story-search__results li[data-size="wide"] a.story-search-result { min-height: 320px; }
+.story-search__results li[data-size="wide"] .story-search-result__body > span:first-child { font-size: var(--font-size-card-artist); line-height: var(--line-height-card-artist); }
+.story-search__results li[data-size="mid"] a.story-search-result { min-height: 280px; }
+.story-search__results li[data-size="small"] a.story-search-result { min-height: 260px; padding: 24px 20px 32px; --tags-right: 16px; }
+.story-search__results li[data-size="small"] .story-search-result__body > span:first-child { font-size: var(--font-size-label); line-height: var(--line-height-label); }
+.story-search__results li .story-search-result:has(.ct-burst) .story-search-result__body { padding-right: 100px; }
+.story-search-result__body { display: flex; flex-direction: column; align-items: flex-start; min-width: 0; padding-right: 0; }
 .story-search-result > img { position: absolute; z-index: -2; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(.55) var(--film-grade); }
 .story-cover { position: relative; isolation: isolate; display: flex; flex-direction: column; justify-content: space-between; gap: clamp(16px, 2.5svh, 24px); min-height: 90svh; margin-top: 0; padding: 32px var(--story-gutter); overflow: hidden; background: #232019; }
 .story-cover__photo { position: absolute; z-index: -2; inset: 0; width: 100%; height: 100%; object-fit: cover; }
@@ -350,6 +359,7 @@ html.has-site-cursor .article-image-viewer :is(button, a) { cursor: var(--cursor
   .story-search__inner { display: block; }
   .story-search__status { margin: 0 0 16px !important; font-size: var(--font-size-caption); line-height: var(--line-height-caption); }
   .story-search__results ul { gap: 12px; }
+  .story-search__results li { flex-basis: 100%; }
   .story-search__results :is(a, button) { min-height: 48px; padding: 12px 0 12px 8px; font-size: 12px; }
   .story-search__results.has-query { min-height: 160px; }
   .story-cover { justify-content: flex-start; gap: 20px; padding: 12px; }
