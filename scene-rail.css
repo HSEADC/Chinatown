@@ -46,7 +46,7 @@
   .story-page { --story-copy-span: 3; }
   .story-margin-note { grid-column: 2 / span var(--story-copy-span); margin-top: 0; }
   .story-artwork { grid-column: 2 / span var(--story-copy-span); }
-  .story-artwork > a { grid-column: 1 / span 2; }
+  .story-artwork > .story-artwork__cover { grid-column: 1 / span 2; }
 }
 @container editorial (max-width: 1100px) {
   .story-page { --story-copy-span: 4; --story-wide-span: 4; }
@@ -127,7 +127,7 @@
 .scene-rail:not(.is-collapsed):is(.is-hovered, :has(:focus-visible)) .scene-rail__context-content > [data-context-material] > h2 { padding-left: 40px; }
 .scene-rail .story-artwork { display: flex; flex-direction: column; gap: 16px; width: 100%; }
 .scene-rail .story-artwork .story-artwork__title { display: block; flex: none; width: 100%; margin: 0; }
-.scene-rail .story-artwork > :is(a, .context-image-trigger) { position: relative; display: block; flex: none; width: 100%; aspect-ratio: 1; overflow: clip; }
+.scene-rail .story-artwork__cover > :is(a, .context-image-trigger) { position: relative; display: block; flex: none; width: 100%; aspect-ratio: 1; overflow: clip; }
 /* Figma's source fill is cropped inside the square cover, without editing it. */
 .scene-rail .story-artwork img { position: absolute; top: 0; left: -.63%; display: block; width: 101.59%; max-width: none; height: 100.325%; aspect-ratio: auto; }
 .scene-rail .story-artwork .context-image-trigger:is(:hover, :focus-visible, :active) { transform: none; filter: none; }

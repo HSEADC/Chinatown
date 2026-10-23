@@ -83,7 +83,7 @@ function quoteSceneView({ id, text, caption, hasLyrics = true, figma = false }) 
       <div class="story-quote-scene__shade"${figma ? ' data-node-id="125:5"' : ''}></div>
     </div>
     <div class="story-quote-scene__scroll"><div class="story-quote-scene__stage">${text}</div></div>
-    <figcaption>${caption}</figcaption>
+    ${caption ? `<figcaption>${caption}</figcaption>` : ''}
   </figure>`;
 }
 
@@ -168,7 +168,7 @@ export function articleView() {
           afterParagraph: { 0: contextMaterialView(material('artist-madk1d')) + contextMaterialView(material('track-tak-pohuy')) },
           after: `<div id="chorus">${contextEntryView(material('madk1d-live'))}</div>${contextMaterialView(material('madk1d-live'))}`,
         })}
-        ${quoteSceneView({ id: 'quote', text: concertTextView(), caption: `madk1d — «Так похуй», концертная запись. <a href="${escape(articleSources.live.url)}">Смотреть выступление с 6:57</a>.`, hasLyrics: !!articleCopy.concert.lyrics.length, figma: true })}
+        ${quoteSceneView({ id: 'quote', text: concertTextView(), hasLyrics: !!articleCopy.concert.lyrics.length, figma: true })}
         ${sectionView('chorus-freedom', 'analysis', { analysis: true, afterParagraph: { 0: contextMaterialView(material('address-note')) } })}
         ${sectionView('delivery', 'delivery', { afterParagraph: { 1: contextMaterialView(material('footnote-1')) } })}
         ${sectionView('verse', 'verse', { to: 1 })}
@@ -180,11 +180,10 @@ export function articleView() {
         <figure class="story-artwork story-column entity-card entity-card--album" id="sexyswag-artwork" data-context-material="sexyswag-artwork" tabindex="-1" aria-labelledby="sexyswag-artwork-title">
           <h2 class="story-artwork__title" id="sexyswag-artwork-title">${escape(material('sexyswag-artwork').title)}</h2>
           <p class="entity-card__type">${tagMarkup('Альбом')}</p>
-          <a href="${escape(articleSources.album.url)}" aria-label="Альбом sexyswag на Shazam"><img src="${artwork}rail/sexyswag.png" alt="Обложка альбома sexyswag, стилизованная под страницу поиска" width="642" height="634" loading="lazy"></a>
+          <div class="story-artwork__cover"><a href="${escape(articleSources.album.url)}" aria-label="Альбом sexyswag на Shazam"><img src="${artwork}rail/sexyswag.png" alt="Обложка альбома sexyswag, стилизованная под страницу поиска" width="642" height="634" loading="lazy"></a>${burstLinkMarkup(material('sexyswag-artwork').listen)}</div>
           <figcaption id="sexyswag-artwork-caption"><span class="story-artwork__artist">madk1d</span><span class="story-artwork__name">Марк Робертович Серков</span><span class="story-artwork__description">Обложка альбома sexyswag — madk1d.</span></figcaption>
           ${material('sexyswag-artwork').paragraphs.map(text => `<p class="story-artwork__summary">${escape(text)}</p>`).join('')}
           <p class="article-context-sources">${material('sexyswag-artwork').sources.map(source => `<a href="${escape(source.href)}">${escape(source.label)}</a>`).join(' · ')}</p>
-          ${burstLinkMarkup(material('sexyswag-artwork').listen)}
         </figure>
         ${sectionView('return', 'return', { after: nextStoryView() })}
       </div>

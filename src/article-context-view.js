@@ -10,12 +10,11 @@ export function contextMaterialView(material) {
   return `<aside class="article-context-material${entity ? ` entity-card entity-card--${escape(entity.type)}` : ''}" id="${escape(id)}" data-context-material="${escape(id)}" tabindex="-1"${kind === 'footnote' ? ' role="doc-footnote"' : ''}${title ? ` aria-labelledby="${escape(id)}-title"` : ' aria-label="Пояснение к тексту"'}>
     ${title ? `<h2 id="${escape(id)}-title">${escape(title)}</h2>` : ''}
     ${entity && entityTypes[entity.type] ? `<p class="entity-card__type">${tagMarkup(entityTypes[entity.type])}</p>` : ''}
-    ${image ? `<figure><img src="${safeUrl(image.src)}" alt="${escape(image.alt)}" width="${image.width}" height="${image.height}" loading="lazy">${image.credit ? `<figcaption>${escape(image.credit)}</figcaption>` : ''}</figure>` : ''}
+    ${image ? `<figure${listen ? ' class="entity-card__cover"' : ''}><img src="${safeUrl(image.src)}" alt="${escape(image.alt)}" width="${image.width}" height="${image.height}" loading="lazy">${image.credit ? `<figcaption>${escape(image.credit)}</figcaption>` : ''}${listen && safeUrl(listen.href) ? burstLinkMarkup(listen) : ''}</figure>` : ''}
     ${entity?.subtitle ? `<p class="entity-card__subtitle">${escape(entity.subtitle)}</p>` : ''}
     ${entity?.details?.length ? `<dl class="entity-card__details">${entity.details.map(item => `<div><dt>${escape(item.label)}</dt><dd>${escape(item.value)}</dd></div>`).join('')}</dl>` : ''}
     ${paragraphs.map(text => `<p>${escape(text)}</p>`).join('')}
     ${sources?.length ? `<p class="article-context-sources">${sources.map(source => `<a href="${safeUrl(source.href)}">${escape(source.label)}</a>`).join(entity ? '' : ' · ')}</p>` : ''}
-    ${listen && safeUrl(listen.href) ? burstLinkMarkup(listen) : ''}
     ${backTo ? `<a class="article-context-backlink" href="#${escape(backTo)}" role="doc-backlink">К тексту ↑</a>` : ''}
   </aside>`;
 }

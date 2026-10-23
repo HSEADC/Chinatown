@@ -183,7 +183,7 @@
 .story-section sup { margin-left: 2px; font-size: .7em; line-height: 0; }
 .story-footnote-ref { padding: 4px 3px; color: var(--media-accent) !important; text-decoration: none; }
 .story-artwork { grid-column: 4 / span var(--story-artwork-span, 2); display: grid; grid-template-columns: subgrid; align-self: start; margin: 0 !important; }
-.story-artwork > a { grid-column: 1; display: block; width: 100%; }
+.story-artwork > .story-artwork__cover { grid-column: 1; display: block; width: 100%; }
 .story-artwork img { display: block; width: 100%; height: auto; aspect-ratio: 1; }
 .story-artwork figcaption { grid-column: 1 / -1; margin-top: 16px; }
 .story-artwork__title, .story-artwork__artist, .story-artwork__name { display: none; }
@@ -332,7 +332,7 @@ html.has-site-cursor .article-image-viewer :is(button, a) { cursor: var(--cursor
   .story-page { --story-copy-span: 3; }
   .story-margin-note { grid-column: 2 / span var(--story-copy-span); margin-top: 0; }
   .story-artwork { grid-column: 2 / span var(--story-copy-span); }
-  .story-artwork > a { grid-column: 1 / span 2; }
+  .story-artwork > .story-artwork__cover { grid-column: 1 / span 2; }
 }
 @media (min-width: 761px) and (max-width: 1000px) {
   .story-page { --story-copy-span: 4; --story-wide-span: 4; }

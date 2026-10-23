@@ -95,7 +95,7 @@
   .mobile-shell__content [data-context-material] > :is(p, figure, dl) { margin: 0; }
   .mobile-shell__content [data-context-material] :is(p, li) { font: 400 var(--font-size-body)/var(--line-height-body) var(--font-body); }
   .mobile-shell__content [data-context-material] img { display: block; width: 100%; height: auto; }
-  .mobile-shell__content .story-artwork > :is(a, .context-image-trigger) { position: relative; display: block; width: 100%; aspect-ratio: 1; overflow: clip; }
+  .mobile-shell__content .story-artwork__cover > :is(a, .context-image-trigger) { position: relative; display: block; width: 100%; aspect-ratio: 1; overflow: clip; }
   .mobile-shell__content .story-artwork img { position: absolute; top: 0; left: -.63%; width: 101.59%; max-width: none; height: 100.44%; aspect-ratio: auto; }
   .mobile-shell__content .story-artwork figcaption { display: flex; flex-direction: column; gap: 4px; margin: 0; }
   .mobile-shell__content .story-artwork__artist { display: block; font: 700 var(--font-size-card-artist)/var(--line-height-card-artist) var(--font-display); }
