@@ -67,11 +67,14 @@
 .story-search-result__body > span:first-child { font: 800 var(--font-size-card-title)/var(--line-height-card-title) var(--font-display); letter-spacing: .02em; }
 /* Card width sets the voice: wide rows speak loud, the sudden row of five whispers. */
 .story-search__results li[data-size="wide"] a.story-search-result { min-height: max(560px, 64dvh); }
-.story-search__results li[data-size="wide"] a.story-search-result { --tags-bottom: 132px; }
-.story-search-result .ct-big-burst.ct-big-burst--small { right: -36px; bottom: -32px; width: 248px; }
-.story-search-result .ct-big-burst--small .ct-big-burst__label { font-size: var(--font-size-card-title); line-height: var(--line-height-card-title); }
-.story-search-result .ct-big-burst--small .ct-big-burst__text { padding: 0 32px 12px 0; }
-.story-search__results li[data-size="wide"] .story-search-result__body > span:first-child { font-size: var(--font-size-card-artist); line-height: var(--line-height-card-artist); }
+/* Big cards (rows of 2): display-size title, larger tags and a large бах-кнопка ЧИТАТЬ peeking from the corner. */
+.story-search__results li[data-size="wide"] a.story-search-result { --tag-height: 40px; --tag-sticker: 52px; --tags-right: 40px; --tags-bottom: 196px; padding: 48px 48px 56px; }
+.story-search__results li[data-size="wide"] .ct-tag { padding: 0 18px 0 calc(var(--tag-sticker) + 8px); font-size: var(--font-size-card-title); line-height: var(--line-height-card-title); }
+.story-search__results li[data-size="wide"] .story-search-result__body > span:first-child { font-size: var(--font-size-heading); line-height: var(--line-height-heading); }
+@media (min-width: 1700px) { .story-search__results li[data-size="wide"] .story-search-result__body > span:first-child { font-size: var(--font-size-title); line-height: var(--line-height-title); } }
+.story-search-result .ct-big-burst.ct-big-burst--small { right: -28px; bottom: -36px; width: 360px; }
+.story-search-result .ct-big-burst--small .ct-big-burst__label { font-size: var(--font-size-card-artist); line-height: var(--line-height-card-artist); }
+.story-search-result .ct-big-burst--small .ct-big-burst__text { padding: 0 0 36px 8px; }
 .story-search__results li[data-size="small"] a.story-search-result { min-height: 260px; padding: 24px 20px 32px; --tags-right: 16px; }
 .story-search__results li[data-size="small"] .story-search-result__body > span:first-child { font-size: var(--font-size-label); line-height: var(--line-height-label); }
 .story-search__results li .story-search-result:has(.ct-burst) .story-search-result__body { padding-right: 100px; }

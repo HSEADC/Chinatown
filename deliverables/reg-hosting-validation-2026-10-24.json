@@ -6,12 +6,12 @@
   "byte_range": {
     "path": "assets/video/concert.mp4",
     "ok": true,
-    "headers": "HTTP/2 206 \r\nserver: nginx\r\ndate: Fri, 23 Oct 2026 22:50:59 GMT\r\ncontent-type: video/mp4\r\ncontent-length: 1\r\nlast-modified: Fri, 23 Oct 2026 22:45:10 GMT\r\netag: \"6adbe376-21135e\"\r\nexpires: Mon, 07 Dec 2026 22:50:59 GMT\r\ncache-control: max-age=3888000\r\ncontent-range: bytes 0-0/2167646\r\n\r\n"
+    "headers": "HTTP/2 206 \r\nserver: nginx\r\ndate: Fri, 23 Oct 2026 23:01:21 GMT\r\ncontent-type: video/mp4\r\ncontent-length: 1\r\nlast-modified: Fri, 23 Oct 2026 22:45:10 GMT\r\netag: \"6adbe376-21135e\"\r\nexpires: Mon, 07 Dec 2026 23:01:21 GMT\r\ncache-control: max-age=3888000\r\ncontent-range: bytes 0-0/2167646\r\n\r\n"
   },
   "files": [
     {
       "path": "about.html",
-      "size": 17424,
+      "size": 17420,
       "ok": true,
       "errors": []
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "path": "src/media-views.js",
-      "size": 7598,
+      "size": 7594,
       "ok": true,
       "errors": []
     },

@@ -85,7 +85,7 @@ export function homeView() {
       <div class="landing-section__content">
         <p class="type-h2">Держим связь</p>
         <p class="type-body">Новые места, материалы и розыгрыши мерча. Скоро — постеры по городу.</p>
-        <form class="landing-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+        <form class="landing-form" action="https://formspree.io/f/xkjjgwgy" method="POST" novalidate>
           <label class="visually-hidden" for="landing-email">Электропочта</label>
           <input class="email-field" id="landing-email" name="email" type="email" placeholder="Электропочта" autocomplete="email" inputmode="email" aria-describedby="landing-status" required>
           <button type="submit" data-action-button>Подписаться</button>
