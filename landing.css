@@ -65,7 +65,9 @@
 .landing-feature__title { flex: 1 1 auto; text-transform: uppercase; }
 .landing-feature__head { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
 .landing-feature__head .ct-tag, .landing-rubrics .ct-tag { rotate: var(--tag-tilt, 0deg); }
-.landing-feature__burst.ct-big-burst { flex: none; width: 420px; margin: 0; }
+.landing-feature__burst.ct-big-burst { flex: none; width: 420px; margin: 0 0 32px; }
+/* The rail is off here, but a collapsed rail remembered from an article must not slide and grow the burst out of the block. */
+.is-scene-rail-collapsed .landing-feature__burst.ct-big-burst { translate: none; scale: none; margin-top: 0; }
 /* Stickers slapped on the cover collage, clear of the wordmark. */
 .landing-hero__tags { --tags-right: var(--landing-gutter); --tags-bottom: auto; top: 40px; }
 .landing-rubrics { display: flex; flex-direction: column; gap: 8px; padding-top: 64px; }
