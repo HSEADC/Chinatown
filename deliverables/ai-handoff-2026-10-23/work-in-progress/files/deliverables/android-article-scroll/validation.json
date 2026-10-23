@@ -1,0 +1,122 @@
+{
+  "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36",
+  "activity": "topResumedActivity=ActivityRecord{132648269 u0 com.duckduckgo.mobile.android/com.duckduckgo.app.browser.customtabs.CustomTabActivity t19}",
+  "input": "adb shell input swipe",
+  "initial": {
+    "y": 0,
+    "height": 713,
+    "visualHeight": 713.4545288085938,
+    "rootOverflowY": "auto",
+    "bodyOverflow": "visible",
+    "touchAction": "pan-y pinch-zoom",
+    "coverTop": 0
+  },
+  "swipes": [
+    {
+      "direction": "forward",
+      "before": {
+        "y": 0,
+        "height": 713,
+        "visualHeight": 713.4545288085938,
+        "rootOverflowY": "auto",
+        "bodyOverflow": "visible",
+        "touchAction": "pan-y pinch-zoom",
+        "coverTop": 0
+      },
+      "after": {
+        "y": 481.81817626953125,
+        "height": 777,
+        "visualHeight": 777.4545288085938,
+        "rootOverflowY": "auto",
+        "bodyOverflow": "visible",
+        "touchAction": "pan-y pinch-zoom",
+        "coverTop": -481.8182067871094
+      }
+    },
+    {
+      "direction": "backward",
+      "before": {
+        "y": 481.81817626953125,
+        "height": 777,
+        "visualHeight": 777.0908813476562,
+        "rootOverflowY": "auto",
+        "bodyOverflow": "visible",
+        "touchAction": "pan-y pinch-zoom",
+        "coverTop": -481.8182067871094
+      },
+      "after": {
+        "y": 0,
+        "height": 713,
+        "visualHeight": 713.4545288085938,
+        "rootOverflowY": "auto",
+        "bodyOverflow": "visible",
+        "touchAction": "pan-y pinch-zoom",
+        "coverTop": 0
+      }
+    },
+    {
+      "direction": "forward",
+      "before": {
+        "y": 0,
+        "height": 713,
+        "visualHeight": 713.4545288085938,
+        "rootOverflowY": "auto",
+        "bodyOverflow": "visible",
+        "touchAction": "pan-y pinch-zoom",
+        "coverTop": 0
+      },
+      "after": {
+        "y": 476.7272644042969,
+        "height": 777,
+        "visualHeight": 777.4545288085938,
+        "rootOverflowY": "auto",
+        "bodyOverflow": "visible",
+        "touchAction": "pan-y pinch-zoom",
+        "coverTop": -476.727294921875
+      }
+    },
+    {
+      "direction": "forward",
+      "before": {
+        "y": 476.7272644042969,
+        "height": 777,
+        "visualHeight": 777.4545288085938,
+        "rootOverflowY": "auto",
+        "bodyOverflow": "visible",
+        "touchAction": "pan-y pinch-zoom",
+        "coverTop": -476.727294921875
+      },
+      "after": {
+        "y": 981.0908813476562,
+        "height": 777,
+        "visualHeight": 777.4545288085938,
+        "rootOverflowY": "auto",
+        "bodyOverflow": "visible",
+        "touchAction": "pan-y pinch-zoom",
+        "coverTop": -981.0909423828125
+      }
+    },
+    {
+      "direction": "forward",
+      "before": {
+        "y": 981.0908813476562,
+        "height": 777,
+        "visualHeight": 777.4545288085938,
+        "rootOverflowY": "auto",
+        "bodyOverflow": "visible",
+        "touchAction": "pan-y pinch-zoom",
+        "coverTop": -981.0909423828125
+      },
+      "after": {
+        "y": 1486.9090576171875,
+        "height": 777,
+        "visualHeight": 777.4545288085938,
+        "rootOverflowY": "auto",
+        "bodyOverflow": "visible",
+        "touchAction": "pan-y pinch-zoom",
+        "coverTop": -1486.9091796875
+      }
+    }
+  ],
+  "errors": []
+}

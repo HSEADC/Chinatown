@@ -1,0 +1,306 @@
+diff --git a/deliverables/android-article-scroll/validation.json b/deliverables/android-article-scroll/validation.json
+new file mode 100644
+--- /dev/null
++++ b/deliverables/android-article-scroll/validation.json
+@@ -0,0 +1,122 @@
++{
++  "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36",
++  "activity": "topResumedActivity=ActivityRecord{132648269 u0 com.duckduckgo.mobile.android/com.duckduckgo.app.browser.customtabs.CustomTabActivity t19}",
++  "input": "adb shell input swipe",
++  "initial": {
++    "y": 0,
++    "height": 713,
++    "visualHeight": 713.4545288085938,
++    "rootOverflowY": "auto",
++    "bodyOverflow": "visible",
++    "touchAction": "pan-y pinch-zoom",
++    "coverTop": 0
++  },
++  "swipes": [
++    {
++      "direction": "forward",
++      "before": {
++        "y": 0,
++        "height": 713,
++        "visualHeight": 713.4545288085938,
++        "rootOverflowY": "auto",
++        "bodyOverflow": "visible",
++        "touchAction": "pan-y pinch-zoom",
++        "coverTop": 0
++      },
++      "after": {
++        "y": 481.81817626953125,
++        "height": 777,
++        "visualHeight": 777.4545288085938,
++        "rootOverflowY": "auto",
++        "bodyOverflow": "visible",
++        "touchAction": "pan-y pinch-zoom",
++        "coverTop": -481.8182067871094
++      }
++    },
++    {
++      "direction": "backward",
++      "before": {
++        "y": 481.81817626953125,
++        "height": 777,
++        "visualHeight": 777.0908813476562,
++        "rootOverflowY": "auto",
++        "bodyOverflow": "visible",
++        "touchAction": "pan-y pinch-zoom",
++        "coverTop": -481.8182067871094
++      },
++      "after": {
++        "y": 0,
++        "height": 713,
++        "visualHeight": 713.4545288085938,
++        "rootOverflowY": "auto",
++        "bodyOverflow": "visible",
++        "touchAction": "pan-y pinch-zoom",
++        "coverTop": 0
++      }
++    },
++    {
++      "direction": "forward",
++      "before": {
++        "y": 0,
++        "height": 713,
++        "visualHeight": 713.4545288085938,
++        "rootOverflowY": "auto",
++        "bodyOverflow": "visible",
++        "touchAction": "pan-y pinch-zoom",
++        "coverTop": 0
++      },
++      "after": {
++        "y": 476.7272644042969,
++        "height": 777,
++        "visualHeight": 777.4545288085938,
++        "rootOverflowY": "auto",
++        "bodyOverflow": "visible",
++        "touchAction": "pan-y pinch-zoom",
++        "coverTop": -476.727294921875
++      }
++    },
++    {
++      "direction": "forward",
++      "before": {
++        "y": 476.7272644042969,
++        "height": 777,
++        "visualHeight": 777.4545288085938,
++        "rootOverflowY": "auto",
++        "bodyOverflow": "visible",
++        "touchAction": "pan-y pinch-zoom",
++        "coverTop": -476.727294921875
++      },
++      "after": {
++        "y": 981.0908813476562,
++        "height": 777,
++        "visualHeight": 777.4545288085938,
++        "rootOverflowY": "auto",
++        "bodyOverflow": "visible",
++        "touchAction": "pan-y pinch-zoom",
++        "coverTop": -981.0909423828125
++      }
++    },
++    {
++      "direction": "forward",
++      "before": {
++        "y": 981.0908813476562,
++        "height": 777,
++        "visualHeight": 777.4545288085938,
++        "rootOverflowY": "auto",
++        "bodyOverflow": "visible",
++        "touchAction": "pan-y pinch-zoom",
++        "coverTop": -981.0909423828125
++      },
++      "after": {
++        "y": 1486.9090576171875,
++        "height": 777,
++        "visualHeight": 777.4545288085938,
++        "rootOverflowY": "auto",
++        "bodyOverflow": "visible",
++        "touchAction": "pan-y pinch-zoom",
++        "coverTop": -1486.9091796875
++      }
++    }
++  ],
++  "errors": []
++}diff --git a/deliverables/mobile-sheet-scroll/validation.json b/deliverables/mobile-sheet-scroll/validation.json
+--- a/deliverables/mobile-sheet-scroll/validation.json
++++ b/deliverables/mobile-sheet-scroll/validation.json
+@@ -6,27 +6,30 @@
+       "height": 510,
+       "previewHeight": 88,
+       "expandedHeight": 462,
+-      "articleSwipe": 209,
+-      "reverseSwipe": -209,
+-      "swipeStartingOnPreview": 360
++      "coverSwipe": 246,
++      "articleSwipe": 220,
++      "reverseSwipe": -210,
++      "swipeStartingOnPreview": 350
+     },
+     {
+       "width": 390,
+       "height": 844,
+       "previewHeight": 88,
+       "expandedHeight": 796,
+-      "articleSwipe": 389,
+-      "reverseSwipe": -380,
+-      "swipeStartingOnPreview": 349
++      "coverSwipe": 448,
++      "articleSwipe": 393,
++      "reverseSwipe": -385,
++      "swipeStartingOnPreview": 340
+     },
+     {
+       "width": 760,
+       "height": 360,
+       "previewHeight": 88,
+       "expandedHeight": 312,
+-      "articleSwipe": 138,
++      "coverSwipe": 163,
++      "articleSwipe": 144,
+       "reverseSwipe": -138,
+-      "swipeStartingOnPreview": 353
++      "swipeStartingOnPreview": 343
+     }
+   ],
+   "errors": []
+diff --git a/docs/mobile-shell.md b/docs/mobile-shell.md
+--- a/docs/mobile-shell.md
++++ b/docs/mobile-shell.md
+@@ -3,6 +3,8 @@
+ Figma: [заглушка 400:358](https://www.figma.com/design/r9ZKy9SrKAYfBTndGQpbct/?node-id=400-358), [FAB 404:664](https://www.figma.com/design/r9ZKy9SrKAYfBTndGQpbct/?node-id=404-664), [поиск 400:598](https://www.figma.com/design/r9ZKy9SrKAYfBTndGQpbct/?node-id=400-598), [контекст 400:443](https://www.figma.com/design/r9ZKy9SrKAYfBTndGQpbct/?node-id=400-443), [меню 400:517](https://www.figma.com/design/r9ZKy9SrKAYfBTndGQpbct/?node-id=400-517).
+ 
+ Панель включается до 760 px включительно и заменяет верхнюю шапку статьи. На 761–1199 px остаются шапка и прежние мобильные справки, от 1200 px — правое окно. Это структурные границы; типографических профилей по-прежнему два. Размеры текста и кнопок берутся из `src/design-tokens.css`, включая мобильный UIKIT 388:748–793. Текст и заголовок статьи сохраняются из редакционного источника, а не из старого текста макетов.
++
++На телефоне документ явно сохраняет нативную вертикальную прокрутку: `html` использует `overflow-y: auto`, `body` не обрезает переполнение, основной контент разрешает `pan-y pinch-zoom`. Обрезание документа для выезжающего десктопного окна на телефон не переносится. Поиск, меню и просмотр изображения по-прежнему временно блокируют прокрутку через inline-стиль корневого элемента.
+ 
+ ## Состояния
+ 
+@@ -37,3 +39,5 @@
+ Регрессия прокрутки от 23.10.2026: `node scripts/check-mobile-sheet.mjs` проверяет настоящие touch-события в Chromium: свайпы статьи в обе стороны, свайп с края превью, прямое раскрытие без промежуточного положения, отдельную прокрутку полной карточки и освобождение страницы после меню, поиска и просмотра изображения. Нужен доступный модуль Playwright (либо путь в `PLAYWRIGHT_MODULE`); `MEDIA_TEST_URL` задаёт адрес локального сервера, `CHROMIUM_EXECUTABLE` — необязательный путь к браузеру. Снимки и результаты сохраняются в `deliverables/mobile-sheet-scroll/`.
+ 
+ `node scripts/check-quote-scenes.mjs` с теми же переменными окружения проверяет обе песенные сцены на ширинах 320, 390, 760, 761 и 1440 px: выделение каждой исходной строки, фон, прямую и обратную прокрутку, возврат к разбору, изменение высоты окна, reduced motion и фотографию при недоступном видео. Результаты — `deliverables/mobile-lyric-scenes/`.
++
++`node scripts/check-android-article-scroll.mjs` проверяет начало статьи настоящим Android-вводом `adb shell input swipe`: обложка должна двигаться вместе с документом, а не только скрывать панель браузера. Проверяются оба направления, следующий жест после изменения высоты окна и освобождение прокрутки после поиска/меню. Нужны открытая тестовая страница на Android, ADB и проброшенный DevTools WebView (`ANDROID_CDP_URL`); для нескольких устройств используется `ANDROID_SERIAL`. Последняя проверка: Android-эмулятор, DuckDuckGo 5.299.0, `CustomTabActivity` с нижней адресной строкой, WebView 149.0.7827.5. Результаты — `deliverables/android-article-scroll/`. Исходный сбой из пользовательской записи на этой версии WebView не воспроизвёлся; проверка на исходном устройстве остаётся необходимой.
+diff --git a/scene-rail.css b/scene-rail.css
+--- a/scene-rail.css
++++ b/scene-rail.css
+@@ -152,6 +152,11 @@
+   .has-scene-rail[data-media-page="article"] .story-club { display: none; }
+ }
+ @media (max-width: 760px) {
++  /* Keep the viewport as the native scroll owner in Android custom tabs.
++     The desktop rail is absent here, so the document needs no overflow clip. */
++  html:has(body[data-media-page="article"]) { overflow-y: auto; }
++  .has-scene-rail[data-media-page="article"] { overflow: visible; }
++  .has-mobile-shell #media-content { touch-action: pan-y pinch-zoom; }
+   [data-media-page="article"] .article-context-material { font-size: var(--font-size-body); }
+ }
+ @media (prefers-reduced-motion: reduce) {
+diff --git a/scripts/check-android-article-scroll.mjs b/scripts/check-android-article-scroll.mjs
+new file mode 100644
+--- /dev/null
++++ b/scripts/check-android-article-scroll.mjs
+@@ -0,0 +1,74 @@
++// Native Android regression. Open the article in the browser/custom tab first,
++// forward its DevTools socket, and set ANDROID_CDP_URL to that endpoint.
++import assert from 'node:assert/strict';
++import { execFileSync } from 'node:child_process';
++import { mkdir, writeFile } from 'node:fs/promises';
++import { fileURLToPath } from 'node:url';
++
++const { chromium } = await import(process.env.PLAYWRIGHT_MODULE || 'playwright');
++const browser = await chromium.connectOverCDP(process.env.ANDROID_CDP_URL || 'http://localhost:9224');
++const adb = args => execFileSync(process.env.ADB_EXECUTABLE || 'adb', [...(process.env.ANDROID_SERIAL ? ['-s', process.env.ANDROID_SERIAL] : []), ...args], { encoding: 'utf8' }).trim();
++const output = new URL('../deliverables/android-article-scroll/', import.meta.url);
++await mkdir(output, { recursive: true });
++const context = browser.contexts()[0];
++const page = context.pages().find(page => page.url().includes('article.html')) || context.pages()[0];
++assert(page, 'Open the article in the Android browser before running the check');
++const size = adb(['shell', 'wm', 'size']).match(/Physical size: (\d+)x(\d+)/);
++assert(size, 'ADB must report a screen size');
++const width = Number(size[1]);
++const height = Number(size[2]);
++const errors = [];
++const swipes = [];
++page.on('pageerror', error => errors.push(error.message));
++const read = () => page.evaluate(() => ({
++  y: scrollY, height: innerHeight, visualHeight: visualViewport.height,
++  rootOverflowY: getComputedStyle(document.documentElement).overflowY,
++  bodyOverflow: getComputedStyle(document.body).overflow,
++  touchAction: getComputedStyle(document.querySelector('#media-content')).touchAction,
++  coverTop: document.querySelector('.story-cover').getBoundingClientRect().top,
++}));
++
++async function swipe(direction) {
++  const before = await read();
++  const start = direction === 'forward' ? .72 : .28;
++  const end = direction === 'forward' ? .28 : .72;
++  adb(['shell', 'input', 'swipe', String(Math.round(width / 2)), String(Math.round(height * start)), String(Math.round(width / 2)), String(Math.round(height * end)), '450']);
++  await page.waitForTimeout(800);
++  const after = await read();
++  const delta = after.y - before.y;
++  assert(direction === 'forward' ? delta > 40 : delta < -40, `Android ${direction} swipe moved the article only ${delta}px`);
++  swipes.push({ direction, before, after });
++}
++
++try {
++  await page.goto(new URL('article.html?dev=0', process.env.MEDIA_TEST_URL || 'http://localhost:4182/').href);
++  await page.evaluate(() => document.fonts.ready);
++  await page.waitForTimeout(500);
++  const initial = await read();
++  assert.equal(initial.y, 0);
++  assert.equal(initial.rootOverflowY, 'auto');
++  assert.equal(initial.bodyOverflow, 'visible');
++  await swipe('forward');
++  assert((await read()).coverTop < -40, 'The cover itself must move, not just the browser toolbar');
++  await page.screenshot({ path: fileURLToPath(new URL('cover-after-native-swipe.png', output)) });
++  await swipe('backward');
++  // Exercise a second gesture after the native toolbar changes viewport height.
++  await swipe('forward');
++  const collapse = page.locator('.mobile-shell__collapse');
++  if (await collapse.isVisible()) await collapse.click();
++  for (const mode of ['menu', 'search']) {
++    await page.locator(`[data-mobile-mode="${mode}"]`).click();
++    assert.equal(await page.evaluate(() => document.documentElement.style.overflow), 'hidden');
++    await page.goBack();
++    await page.waitForTimeout(500);
++    assert.equal((await read()).rootOverflowY, 'auto');
++    await swipe('forward');
++    if (await collapse.isVisible()) await collapse.click();
++  }
++  assert.deepEqual(errors, []);
++  const activity = adb(['shell', 'dumpsys', 'activity', 'activities']).split('\n').find(line => line.includes('topResumedActivity='))?.trim();
++  await writeFile(new URL('validation.json', output), JSON.stringify({ userAgent: await page.evaluate(() => navigator.userAgent), activity, input: 'adb shell input swipe', initial, swipes, errors }, null, 2));
++  console.log(JSON.stringify({ activity, nativeSwipes: swipes.length, errors }, null, 2));
++} finally {
++  await browser.close();
++}
+diff --git a/scripts/check-mobile-sheet.mjs b/scripts/check-mobile-sheet.mjs
+--- a/scripts/check-mobile-sheet.mjs
++++ b/scripts/check-mobile-sheet.mjs
+@@ -39,6 +39,13 @@
+   }
+   await page.goto(url);
+   await page.evaluate(() => document.fonts.ready);
++  await settle();
++  assert.equal(await page.evaluate(() => getComputedStyle(document.documentElement).overflowY), 'auto');
++  assert.equal(await page.evaluate(() => getComputedStyle(document.body).overflow), 'visible');
++  assert.equal(await articleY(), 0);
++  const coverSwipe = await assertArticleSwipe(height * .65, height * .25);
++  assert(await page.locator('.story-cover').evaluate(element => element.getBoundingClientRect().top < -40));
++  await assertArticleSwipe(height * .25, height * .65);
+   await page.locator('#artist-intro').evaluate(element => scrollTo(0, scrollY + element.getBoundingClientRect().top - Math.min(160, innerHeight * .25)));
+   await settle();
+   assert.equal(await snap(), 'preview');
+@@ -102,7 +109,7 @@
+     await assertArticleSwipe(height - 16, height - 250);
+   }
+   assert.equal(await page.evaluate(() => document.documentElement.scrollWidth), width);
+-  checks.push({ width, height, previewHeight, expandedHeight, articleSwipe: forward, reverseSwipe: backward, swipeStartingOnPreview: previewSwipe });
++  checks.push({ width, height, previewHeight, expandedHeight, coverSwipe, articleSwipe: forward, reverseSwipe: backward, swipeStartingOnPreview: previewSwipe });
+   await context.close();
+ }
+ 

@@ -1,0 +1,562 @@
+{
+  "date": "2026-10-22",
+  "head": "7b4da4a80615988da8428ed963778393cfbfc4db",
+  "scope": "Local tracked source at HEAD before audit artifacts; no external source verification; module reachability includes literal dynamic imports; asset candidates manually checked for computed URL factories.",
+  "tracked": {
+    "total": 523,
+    "groups": {
+      "src/": {
+        "files": 53,
+        "bytes": 372871
+      },
+      "assets/": {
+        "files": 106,
+        "bytes": 40572227
+      },
+      "assets/fonts/": {
+        "files": 28,
+        "bytes": 1688288
+      },
+      "assets/video/": {
+        "files": 32,
+        "bytes": 19973389
+      },
+      "deliverables/": {
+        "files": 319,
+        "bytes": 68345435
+      },
+      "docs/": {
+        "files": 9,
+        "bytes": 153081
+      },
+      "test/": {
+        "files": 10,
+        "bytes": 32609
+      }
+    }
+  },
+  "build": {
+    "files": 181,
+    "bytes": 41272581,
+    "tests": {
+      "total": 47,
+      "pass": 47,
+      "fail": 0
+    },
+    "commands": [
+      "npm test",
+      "npm run build"
+    ],
+    "tracked_source_changed_by_build": false
+  },
+  "modules": {
+    "count": 43,
+    "production_entrypoints": [
+      "src/intro.js",
+      "src/subscribe-modal.js",
+      "src/site-cursor.js",
+      "src/dev-tools.js",
+      "src/media-demo.js"
+    ],
+    "tool_entrypoints": [
+      "src/component-catalog.js",
+      "src/component-preview.js",
+      "src/glitch-preview.js"
+    ],
+    "production_reachable": [
+      "src/article-context-data.js",
+      "src/article-context-state.js",
+      "src/article-context-view.js",
+      "src/article-context.js",
+      "src/article-copy.js",
+      "src/article-header.js",
+      "src/article-images.js",
+      "src/article-search-data.js",
+      "src/article-view.js",
+      "src/article.js",
+      "src/components/action-button.js",
+      "src/components/context-title.js",
+      "src/components/editorial-data.js",
+      "src/components/editorial-typography.js",
+      "src/context-pager.js",
+      "src/dev-panel.js",
+      "src/dev-settings.js",
+      "src/dev-tools.js",
+      "src/drag-hint.js",
+      "src/editorial-video.js",
+      "src/headline-glitch.js",
+      "src/intro.js",
+      "src/media-demo.js",
+      "src/media-views.js",
+      "src/mobile-city-video.js",
+      "src/mobile-shell-state.js",
+      "src/mobile-shell.js",
+      "src/quote-background-video.js",
+      "src/quote-scene.js",
+      "src/quote-scroll-state.js",
+      "src/scene-rail.js",
+      "src/section-headings.js",
+      "src/site-cursor.js",
+      "src/story-club-editor.js",
+      "src/story-club-settings.js",
+      "src/story-club.js",
+      "src/subscribe-modal.js",
+      "src/video-sphere.js"
+    ],
+    "tool_only": [
+      "src/component-catalog-data.js",
+      "src/component-catalog.js",
+      "src/component-preview.js",
+      "src/components/typography.js",
+      "src/glitch-preview.js"
+    ],
+    "unreachable_from_any_html": [],
+    "imports": {
+      "src/article-context-data.js": [],
+      "src/article-context-state.js": [],
+      "src/article-context-view.js": [],
+      "src/article-context.js": [
+        "src/article-context-data.js",
+        "src/article-context-state.js"
+      ],
+      "src/article-copy.js": [],
+      "src/article-header.js": [
+        "src/article-search-data.js"
+      ],
+      "src/article-images.js": [],
+      "src/article-search-data.js": [],
+      "src/article-view.js": [
+        "src/article-context-data.js",
+        "src/article-context-view.js",
+        "src/article-copy.js",
+        "src/components/editorial-data.js",
+        "src/components/editorial-typography.js"
+      ],
+      "src/article.js": [
+        "src/article-context.js",
+        "src/article-header.js",
+        "src/article-images.js",
+        "src/components/action-button.js",
+        "src/dev-tools.js",
+        "src/headline-glitch.js",
+        "src/mobile-shell.js",
+        "src/quote-scene.js",
+        "src/section-headings.js",
+        "src/story-club.js"
+      ],
+      "src/component-catalog-data.js": [],
+      "src/component-catalog.js": [
+        "src/component-catalog-data.js"
+      ],
+      "src/component-preview.js": [
+        "src/article-context-data.js",
+        "src/article-copy.js",
+        "src/article-view.js",
+        "src/article.js",
+        "src/component-catalog-data.js",
+        "src/components/action-button.js",
+        "src/components/editorial-data.js",
+        "src/components/editorial-typography.js",
+        "src/components/typography.js",
+        "src/dev-panel.js",
+        "src/intro.js",
+        "src/quote-scene.js",
+        "src/scene-rail.js",
+        "src/story-club.js",
+        "src/subscribe-modal.js"
+      ],
+      "src/components/action-button.js": [],
+      "src/components/context-title.js": [],
+      "src/components/editorial-data.js": [],
+      "src/components/editorial-typography.js": [],
+      "src/components/typography.js": [],
+      "src/context-pager.js": [],
+      "src/dev-panel.js": [
+        "src/dev-settings.js",
+        "src/story-club-editor.js"
+      ],
+      "src/dev-settings.js": [],
+      "src/dev-tools.js": [
+        "src/dev-panel.js",
+        "src/dev-settings.js"
+      ],
+      "src/drag-hint.js": [],
+      "src/editorial-video.js": [],
+      "src/glitch-preview.js": [
+        "src/headline-glitch.js"
+      ],
+      "src/headline-glitch.js": [],
+      "src/intro.js": [
+        "src/headline-glitch.js",
+        "src/video-sphere.js"
+      ],
+      "src/media-demo.js": [
+        "src/article-view.js",
+        "src/article.js",
+        "src/editorial-video.js",
+        "src/media-views.js",
+        "src/scene-rail.js"
+      ],
+      "src/media-views.js": [
+        "src/article-view.js"
+      ],
+      "src/mobile-city-video.js": [],
+      "src/mobile-shell-state.js": [],
+      "src/mobile-shell.js": [
+        "src/article-search-data.js",
+        "src/context-pager.js",
+        "src/mobile-city-video.js",
+        "src/mobile-shell-state.js"
+      ],
+      "src/quote-background-video.js": [],
+      "src/quote-scene.js": [
+        "src/quote-background-video.js",
+        "src/quote-scroll-state.js"
+      ],
+      "src/quote-scroll-state.js": [],
+      "src/scene-rail.js": [
+        "src/components/context-title.js",
+        "src/context-pager.js"
+      ],
+      "src/section-headings.js": [],
+      "src/site-cursor.js": [],
+      "src/story-club-editor.js": [
+        "src/story-club-settings.js"
+      ],
+      "src/story-club-settings.js": [],
+      "src/story-club.js": [
+        "src/story-club-settings.js"
+      ],
+      "src/subscribe-modal.js": [
+        "src/components/action-button.js"
+      ],
+      "src/video-sphere.js": [
+        "src/drag-hint.js"
+      ]
+    }
+  },
+  "unused_asset_candidates": {
+    "count": 20,
+    "bytes": 73907,
+    "files": [
+      {
+        "path": "assets/figma/article/navigation/logo-menu.svg",
+        "bytes": 3697
+      },
+      {
+        "path": "assets/figma/article/navigation/logo.svg",
+        "bytes": 3697
+      },
+      {
+        "path": "assets/figma/article/navigation/menu-open.svg",
+        "bytes": 458
+      },
+      {
+        "path": "assets/figma/article/navigation/menu-trail.svg",
+        "bytes": 458
+      },
+      {
+        "path": "assets/figma/article/navigation/menu.svg",
+        "bytes": 456
+      },
+      {
+        "path": "assets/figma/article/navigation/search-chevron.svg",
+        "bytes": 475
+      },
+      {
+        "path": "assets/figma/article/navigation/search-toggle.svg",
+        "bytes": 947
+      },
+      {
+        "path": "assets/figma/article/navigation/search.svg",
+        "bytes": 930
+      },
+      {
+        "path": "assets/figma/article/navigation/star.svg",
+        "bytes": 3698
+      },
+      {
+        "path": "assets/figma/article/arrow-left.svg",
+        "bytes": 482
+      },
+      {
+        "path": "assets/figma/article/arrow-right.svg",
+        "bytes": 482
+      },
+      {
+        "path": "assets/figma/article/star.svg",
+        "bytes": 3685
+      },
+      {
+        "path": "assets/figma/article/sexyswag-cover.webp",
+        "bytes": 12390
+      },
+      {
+        "path": "assets/figma/clear.svg",
+        "bytes": 576
+      },
+      {
+        "path": "assets/figma/north-east.svg",
+        "bytes": 404
+      },
+      {
+        "path": "assets/icons/intro-north-east.svg",
+        "bytes": 482
+      },
+      {
+        "path": "assets/icons/content-copy-sharp.svg",
+        "bytes": 285
+      },
+      {
+        "path": "assets/icons/navigate-next-sharp.svg",
+        "bytes": 218
+      },
+      {
+        "path": "assets/link.svg",
+        "bytes": 479
+      },
+      {
+        "path": "assets/fonts/Benzin-Input-Mobile-Bold.woff2",
+        "bytes": 39608
+      }
+    ]
+  },
+  "unused_video_derivative_candidates": {
+    "count": 10,
+    "bytes": 4055620,
+    "requires_exporter_manifest_test_changes": true,
+    "files": [
+      {
+        "clip": "kitay-night",
+        "field": "rail.small",
+        "path": "assets/video/editorial/kitay-night-86bc7af48de9/rail-small.mp4",
+        "bytes": 427474
+      },
+      {
+        "clip": "kitay-street",
+        "field": "rail.small",
+        "path": "assets/video/editorial/kitay-street-c41b36032219/rail-small.mp4",
+        "bytes": 303769
+      },
+      {
+        "clip": "kitay-people",
+        "field": "rail.small",
+        "path": "assets/video/editorial/kitay-people-0dd1e134849b/rail-small.mp4",
+        "bytes": 304680
+      },
+      {
+        "clip": "concert-crowd",
+        "field": "rail.small",
+        "path": "assets/video/editorial/concert-crowd-7026abb1ab1c/rail-small.mp4",
+        "bytes": 257707
+      },
+      {
+        "clip": "concert-crowd",
+        "field": "article",
+        "path": "assets/video/editorial/concert-crowd-7026abb1ab1c/article.mp4",
+        "bytes": 1448554
+      },
+      {
+        "clip": "concert-crowd",
+        "field": "articlePoster",
+        "path": "assets/video/editorial/concert-crowd-7026abb1ab1c/article-poster.jpg",
+        "bytes": 55295
+      },
+      {
+        "clip": "madk1d-chorus",
+        "field": "rail.small",
+        "path": "assets/video/editorial/madk1d-chorus-6e39d25cf629/rail-small.mp4",
+        "bytes": 590166
+      },
+      {
+        "clip": "madk1d-chorus",
+        "field": "rail.large",
+        "path": "assets/video/editorial/madk1d-chorus-6e39d25cf629/rail-large.mp4",
+        "bytes": 653218
+      },
+      {
+        "clip": "madk1d-chorus",
+        "field": "poster",
+        "path": "assets/video/editorial/madk1d-chorus-6e39d25cf629/poster.jpg",
+        "bytes": 5185
+      },
+      {
+        "clip": "madk1d-chorus",
+        "field": "articlePoster",
+        "path": "assets/video/editorial/madk1d-chorus-6e39d25cf629/article-poster.jpg",
+        "bytes": 9572
+      }
+    ]
+  },
+  "css_class_names_absent_from_current_html_js": {
+    "caveat": "Absence is a conservative first pass; each selector needs checking for generated classes and fallback behavior before deletion.",
+    "items": [
+      {
+        "file": "article.css",
+        "class": "story-footnote-back",
+        "lines": [
+          208
+        ]
+      },
+      {
+        "file": "article.css",
+        "class": "story-footnotes",
+        "lines": [
+          206,
+          207,
+          378
+        ]
+      },
+      {
+        "file": "article.css",
+        "class": "story-margin-note",
+        "lines": [
+          163,
+          318,
+          358
+        ]
+      },
+      {
+        "file": "light-editor.css",
+        "class": "story-footer",
+        "lines": [
+          63
+        ]
+      },
+      {
+        "file": "media.css",
+        "class": "media-section-heading",
+        "lines": [
+          17,
+          18,
+          19,
+          30,
+          31
+        ]
+      },
+      {
+        "file": "scene-rail.css",
+        "class": "media-section-heading",
+        "lines": [
+          50,
+          64
+        ]
+      },
+      {
+        "file": "scene-rail.css",
+        "class": "story-footnotes",
+        "lines": [
+          57
+        ]
+      },
+      {
+        "file": "scene-rail.css",
+        "class": "story-margin-note",
+        "lines": [
+          44,
+          57
+        ]
+      },
+      {
+        "file": "scene-rail.css",
+        "class": "story-video",
+        "lines": [
+          38
+        ]
+      },
+      {
+        "file": "src/component-preview.css",
+        "class": "specimen-type-display",
+        "lines": [
+          12
+        ]
+      },
+      {
+        "file": "src/component-preview.css",
+        "class": "specimen-type-heading",
+        "lines": [
+          13
+        ]
+      },
+      {
+        "file": "src/components/editorial-typography.css",
+        "class": "editorial-quote__mark",
+        "lines": [
+          124
+        ]
+      },
+      {
+        "file": "styles.css",
+        "class": "landing-placeholder",
+        "lines": [
+          336,
+          337,
+          338,
+          339,
+          340
+        ]
+      },
+      {
+        "file": "styles.css",
+        "class": "landing-placeholder__test-link",
+        "lines": [
+          340
+        ]
+      }
+    ]
+  },
+  "confirmed_disconnected_features": {
+    "article_end_marker_count": 0,
+    "editorial_video_node_count": 0,
+    "compact_mode_external_call_count": 0
+  },
+  "browser_checks": [
+    {
+      "url": "/article.html?dev=0",
+      "observed": {
+        "article_end_marker_count": 0,
+        "club_host_has_enabled_class": false,
+        "lyric_scenes": [
+          {
+            "id": "quote",
+            "source_lines": 4,
+            "following_analysis": "chorus-freedom"
+          },
+          {
+            "id": "verse-excerpt",
+            "source_lines": 5,
+            "following_analysis": "verse-analysis"
+          }
+        ]
+      }
+    },
+    {
+      "url": "/article.html?dev=0",
+      "action": "Open desktop search",
+      "observed": {
+        "result_count": 5,
+        "all_result_hrefs": "./index.html",
+        "existing_madk1d_article_also_announced_as_upcoming": true
+      }
+    },
+    {
+      "url": "/article.html?dev=1&light-editor=1",
+      "action": "Enable light preview",
+      "observed": {
+        "checked": true,
+        "club_enabled": false,
+        "computed_display": "none",
+        "computed_opacity": "0"
+      }
+    },
+    {
+      "url": "/index.html?dev=0",
+      "observed": {
+        "intro_classes": "intro intro--revealed intro--sphere-ready",
+        "hint_opacity": "0",
+        "video_elements": 3,
+        "subscribe_action": "https://formspree.io/f/YOUR_FORM_ID"
+      }
+    }
+  ]
+}

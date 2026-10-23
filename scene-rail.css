@@ -102,7 +102,6 @@
 .scene-rail__context { position: absolute; inset: 0; overflow: clip; }
 .scene-rail__context-content { position: absolute; inset: 0; overflow-x: hidden; overflow-y: auto; overscroll-behavior: contain; padding: 16px; background: var(--scene-rail-bg); }
 .scene-rail__context-outgoing { pointer-events: none; }
-.scene-rail.is-suspended { opacity: 0; visibility: hidden; pointer-events: none; transition: none; }
 .scene-rail--article .scene-rail__status, .scene-rail--article .scene-rail__credit { font: 400 var(--font-size-caption)/var(--line-height-caption) var(--font-body); }
 .article-context-material { min-width: 0; margin-block: 24px; padding: 24px 0 24px 20px; border-left: 1px solid var(--media-accent); color: var(--story-muted, #b7b7b7); font: 400 var(--font-size-body)/var(--line-height-body) var(--font-body); overflow-wrap: anywhere; }
 .article-context-material h2 { margin: 0 0 24px; color: #fff; font: 800 var(--font-size-heading)/var(--line-height-heading) var(--font-body); text-wrap: balance; }
@@ -163,6 +162,10 @@
 .scene-rail.is-collapsed .scene-rail__viewport { pointer-events: none; }
 .scene-rail__surface { position: absolute; inset: 0 auto 0 0; width: var(--scene-rail-full-width); opacity: 1; transform: translateX(0); transition: transform var(--scene-shell-motion), opacity var(--scene-shell-motion); }
 .scene-rail.is-collapsed { transition: transform 480ms cubic-bezier(.22, 1, .36, 1), opacity 360ms ease-out, visibility 0s linear, top 220ms cubic-bezier(.16, 1, .3, 1), width var(--scene-shell-motion); }
+/* Quote scenes and header overlays suspend the rail: it leaves with the shared exit motion
+   (tokens in src/design-tokens.css) and returns with its usual entry transition. Placed after
+   .is-collapsed so a collapsed rail leaves the same way. */
+.scene-rail.is-suspended { opacity: 0; visibility: hidden; pointer-events: none; transition: transform var(--motion-exit) var(--motion-ease-exit), opacity var(--motion-exit) var(--motion-ease-exit), visibility 0s linear var(--motion-exit), top 220ms cubic-bezier(.16, 1, .3, 1), width var(--scene-motion); }
 .scene-rail.is-collapsed .scene-rail__surface { opacity: 0; transform: translateX(var(--scene-rail-peek-width)); }
 .scene-rail.is-collapsed.is-peeking { width: var(--scene-rail-peek-width); }
 .scene-rail.is-collapsed.is-peeking .scene-rail__surface { opacity: .5; transform: translateX(var(--scene-rail-peek-inset)); }
@@ -190,5 +193,5 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .has-scene-rail { --scene-shell-motion: 0s; }
-  .scene-rail.is-collapsed, .scene-rail__surface, .scene-rail__toggle, .scene-rail__context-content > [data-context-material] > h2, .has-scene-rail.is-scene-rail-switching #media-content { transition: none; }
+  .scene-rail.is-collapsed, .scene-rail.is-suspended, .scene-rail__surface, .scene-rail__toggle, .scene-rail__context-content > [data-context-material] > h2, .has-scene-rail.is-scene-rail-switching #media-content { transition: none; }
 }
