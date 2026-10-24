@@ -71,10 +71,7 @@ export function homeView() {
     </section>
     <section class="landing-feature film" aria-labelledby="landing-feature-title" data-node-id="440:744">
       <img class="landing-feature__photo" src="./assets/figma/article/madk1d-concert.png" alt="" loading="lazy" width="3516" height="1984">
-      <div class="landing-feature__head">
-        <p class="type-h3">Первый материал</p>
-        ${tagListMarkup(['Сниппеты', 'Клипы'], 'madk1d')}
-      </div>
+      <div class="landing-feature__head">${tagListMarkup(['Сниппеты', 'Клипы'], 'madk1d')}</div>
       <div class="landing-feature__row">
         <h2 class="landing-feature__title type-h1" id="landing-feature-title"><span class="media-accent">madk1d</span>: слишком громко, чтобы было всё равно</h2>
         ${bigBurstMarkup({ href: './article.html', label: 'Читай первым →', title: 'Открыть статью' }).replace('<a class="ct-big-burst"', '<a class="ct-big-burst landing-feature__burst" data-media-route aria-describedby="landing-feature-title"')}
