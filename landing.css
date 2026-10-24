@@ -65,6 +65,12 @@
 .landing-feature__title { flex: 1 1 auto; text-transform: uppercase; }
 .landing-feature__head { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
 .landing-feature__head .ct-tag, .landing-rubrics .ct-tag { rotate: var(--tag-tilt, 0deg); }
+/* Sizes of the big search cards (rows of 2): large tags and a louder burst label. */
+@media (min-width: 761px) {
+  .landing-feature__head { --tag-height: 40px; --tag-sticker: 52px; }
+  .landing-feature__head .ct-tag { padding: 0 18px 0 calc(var(--tag-sticker) + 8px); font-size: var(--font-size-card-title); line-height: var(--line-height-card-title); }
+  .landing-feature__burst .ct-big-burst__label { font-size: var(--font-size-card-title); line-height: var(--line-height-card-title); }
+}
 .landing-feature__burst.ct-big-burst { flex: none; width: 420px; margin: 0 0 96px; }
 /* The rail is off here, but a collapsed rail remembered from an article must not slide and grow the burst out of the block. */
 .is-scene-rail-collapsed .landing-feature__burst.ct-big-burst { translate: none; scale: none; margin-top: 0; }
