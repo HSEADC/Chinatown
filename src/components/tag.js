@@ -119,19 +119,38 @@ export function bigBurstMarkup({ href, label, title }) {
   return `<a class="ct-big-burst" href="${escape(href)}">${bigBurstShape('wide', 560, 340)}${bigBurstShape('narrow', 358, 300)}<span class="ct-big-burst__text"><span class="ct-big-burst__label">${escape(label)}</span><span class="ct-big-burst__title">${escape(title)}</span></span></a>`;
 }
 
-// With the right rail collapsed the big burst slides into the bottom-right corner and past the screen edge. Its column
-// does not reflow, so the reach to that edge is measured here and kept in --big-burst-reach for the CSS.
+// The article ends with the last paragraph and the big burst side by side. When the free space right of the column
+// (up to the right rail, or the screen edge when the rail is folded) fits the burst, it hangs there beside the
+// paragraph; otherwise the paragraph narrows and shares the column with it. The room is kept in --big-burst-room.
 export function mountBigBursts(root) {
-  const bursts = [...root.querySelectorAll('.ct-big-burst:not(.ct-big-burst--small)')];
-  if (!bursts.length) return () => {};
+  const ends = [...root.querySelectorAll('.story-end')];
+  if (!ends.length) return () => {};
+  const rail = document.querySelector('.scene-rail');
+  let frame = 0;
   function measure() {
-    for (const burst of bursts) {
-      const reach = document.documentElement.clientWidth - burst.parentElement.getBoundingClientRect().right;
-      burst.style.setProperty('--big-burst-reach', `${Math.max(0, Math.round(reach))}px`);
+    cancelAnimationFrame(frame);
+    frame = 0;
+    const railBox = rail?.getBoundingClientRect();
+    const railShown = railBox && railBox.width > 0 && getComputedStyle(rail).visibility !== 'hidden';
+    const edge = Math.min(document.documentElement.clientWidth, railShown ? railBox.left : Infinity);
+    for (const end of ends) {
+      const room = Math.max(0, Math.round(edge - end.getBoundingClientRect().right));
+      end.style.setProperty('--big-burst-room', `${room}px`);
+      end.dataset.place = room >= 360 ? 'beside' : 'inline';
     }
   }
-  const size = new ResizeObserver(measure);
-  size.observe(root);
+  const schedule = () => { if (!frame) frame = requestAnimationFrame(measure); };
+  const size = new ResizeObserver(schedule);
+  size.observe(document.documentElement);
+  ends.forEach(end => size.observe(end));
+  if (rail) size.observe(rail);
+  // Folding the rail slides it out over the shell motion; measure again once it has settled.
+  const shell = new MutationObserver(() => { schedule(); setTimeout(schedule, 340); });
+  shell.observe(document.body, { attributes: true, attributeFilter: ['class'] });
   measure();
-  return () => size.disconnect();
+  return () => {
+    cancelAnimationFrame(frame);
+    size.disconnect();
+    shell.disconnect();
+  };
 }

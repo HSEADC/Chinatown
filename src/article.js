@@ -9,6 +9,8 @@ import { mountArticleImages } from './article-images.js';
 import { mountActionButtons } from './components/action-button.js';
 import { mountMobileShell } from './mobile-shell.js';
 import { mountBigBursts } from './components/tag.js';
+import { mountSubscribeDialog } from './components/subscribe-dialog.js';
+import { articleCopy } from './article-copy.js';
 
 /** Attach article anchors and the shared headline effect. */
 export function mountArticle(page, header = page?.querySelector('.story-header'), sceneRail) {
@@ -24,6 +26,14 @@ export function mountArticle(page, header = page?.querySelector('.story-header')
   let context;
   const images = mountArticleImages(page, { onOpenChange: value => context?.setFrozen(value) });
   const disposeBigBursts = mountBigBursts(page);
+  // The pink call to action also comes to the reader: the subscribe dialog prompts once a fifth of the reading time has passed.
+  // The dialog lives beside the page, so the page can go inert under it.
+  const subscribeModal = page.querySelector('#subscribe-modal');
+  document.body.append(subscribeModal);
+  const subscribe = mountSubscribeDialog(subscribeModal, {
+    background: page,
+    delayMs: articleCopy.readingMinutes * 60_000 / 5,
+  });
   function syncHeadline() {
     const headerOverlay = header.classList.contains('is-search-open') || header.classList.contains('is-nav-open');
     const overlayOpen = headerOverlay || mobileOverlay;
@@ -81,6 +91,8 @@ export function mountArticle(page, header = page?.querySelector('.story-header')
     headlineGlitch.destroy();
     images.dispose();
     disposeBigBursts();
+    subscribe.dispose();
+    subscribeModal.remove();
     context.dispose();
     mobileShell.dispose();
     document.body.classList.remove('is-story-quote-active');
