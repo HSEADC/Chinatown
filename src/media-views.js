@@ -1,4 +1,5 @@
 import { siteHeaderView } from './article-view.js';
+import { siteFooterMarkup } from './components/site-footer.js';
 import { bigBurstMarkup, tagListMarkup } from './components/tag.js';
 
 export { articleView } from './article-view.js';
@@ -18,7 +19,6 @@ const directions = [
 
 const rubrics = ['Фиты', 'Дропы', 'Биты', 'Бифы', 'Сниппеты', 'Удалённое', 'Пропавшие', 'Клипы', 'Сохранёнки'];
 
-const northEast = './assets/figma/intro-north-east.svg';
 
 function sectionLabel(id, label) {
   return `<h2 class="landing-section__label type-h3" id="${id}">${label}</h2>`;
@@ -77,22 +77,6 @@ export function homeView() {
         ${bigBurstMarkup({ href: './article.html', words: ['Открыть', 'статью'] }).replace('<a class="ct-big-burst"', '<a class="ct-big-burst landing-feature__burst" data-media-route aria-describedby="landing-feature-title"')}
       </div>
     </section>
-    <section class="landing-section landing-section--closing" aria-labelledby="landing-contact" data-node-id="440:759">
-      ${sectionLabel('landing-contact', 'На связи')}
-      <div class="landing-section__content">
-        <p class="type-h2">Держим связь</p>
-        <p class="type-body">Новые места, материалы и розыгрыши мерча. Скоро — постеры по городу.</p>
-        <form class="landing-form" action="https://formspree.io/f/xkjjgwgy" method="POST" novalidate>
-          <label class="visually-hidden" for="landing-email">Электропочта</label>
-          <input class="email-field" id="landing-email" name="email" type="email" placeholder="Электропочта" autocomplete="email" inputmode="email" aria-describedby="landing-status" required>
-          <button type="submit" data-action-button>Подписаться</button>
-          <p class="landing-form__status type-caption" id="landing-status" role="status" aria-live="polite"></p>
-        </form>
-        <div class="landing-socials">
-          <a class="text-button" href="https://t.me/chinatownsite" target="_blank" rel="noopener noreferrer"><span>ТГ-канал</span><img src="${northEast}" alt="" aria-hidden="true"></a>
-          <a class="text-button" href="https://www.tiktok.com/@chinatownmedia" target="_blank" rel="noopener noreferrer"><span>TikTok</span><img src="${northEast}" alt="" aria-hidden="true"></a>
-        </div>
-      </div>
-    </section>
+    ${siteFooterMarkup()}
   </div>`;
 }

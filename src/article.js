@@ -9,6 +9,7 @@ import { mountArticleImages } from './article-images.js';
 import { mountActionButtons } from './components/action-button.js';
 import { mountMobileShell } from './mobile-shell.js';
 import { mountBigBursts } from './components/tag.js';
+import { mountSiteFooter } from './components/site-footer.js';
 import { mountSubscribeDialog } from './components/subscribe-dialog.js';
 import { articleCopy } from './article-copy.js';
 
@@ -18,6 +19,7 @@ export function mountArticle(page, header = page?.querySelector('.story-header')
   mountActionButtons(page);
   const title = page.querySelector('#article-title');
   const controller = new AbortController();
+  mountSiteFooter(page, { signal: controller.signal });
   const headlineGlitch = mountHeadlineGlitch(title, { scroll: true, multiline: true });
   let quoteActive = false;
   let mobileOverlay = false;

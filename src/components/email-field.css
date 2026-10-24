@@ -22,3 +22,10 @@
   .email-field:focus-visible { border-color: var(--landing-accent, #fc5cff); }
 }
 .email-field[aria-invalid='true'] { border-color: #ff7b8b; }
+/* On a pink surface (the site footer, Figma 444:725): black line and text. */
+.email-field--ink { border-color: #000; color: #000; }
+.email-field--ink::placeholder { color: rgb(0 0 0 / .3); }
+@media (min-width: 761px) {
+  .email-field--ink:focus-visible { border-color: #fff; }
+}
+.email-field--ink[aria-invalid='true'] { border-color: #8a0010; }

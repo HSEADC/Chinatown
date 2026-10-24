@@ -4,6 +4,7 @@
 @import url('./src/components/email-field.css');
 @import url('./src/components/typography.css');
 @import url('./src/components/tag.css');
+@import url('./src/components/site-footer.css');
 
 :root {
   font-family: var(--font-body);
@@ -47,12 +48,14 @@ button { font: inherit; cursor: pointer; }
 .text-button:disabled > img { transform: none; }
 
 body.intro-active { overflow: hidden; }
+.intro > .site-footer { z-index: 2; }
 .intro[hidden], .intro__content[hidden] { display: none; }
 /* A focused control leaving the screen must not scroll the scene with it. */
 .intro { position: fixed; inset: 0; z-index: 100; overflow-x: clip; overflow-y: auto; background: #101010; color: var(--color-on-media); }
 .intro__wall { position: absolute; inset: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(0, 1fr)); overflow: hidden; }
 .intro__wall img { display: block; width: 100%; height: 100%; min-width: 0; min-height: 0; object-fit: cover; filter: saturate(.72); }
-.intro__sphere { position: absolute; inset: 0; z-index: 1; overflow: hidden; touch-action: none; overscroll-behavior: none; cursor: grab; }
+/* A vertical swipe scrolls on to the footer; a sideways one turns the sphere. */
+.intro__sphere { position: absolute; inset: 0; z-index: 1; overflow: hidden; touch-action: pan-y; overscroll-behavior-x: none; cursor: grab; }
 .intro__sphere--unavailable { pointer-events: none; cursor: default; }
 .intro__sphere.is-dragging { cursor: grabbing; }
 .intro__sphere:focus-visible { outline: 3px solid #fff; outline-offset: -8px; }

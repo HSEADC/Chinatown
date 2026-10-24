@@ -1,0 +1,52 @@
+/* Site footer, Figma 444:737 (1920). The band carries the page's last word: subscribe.
+   Type and controls come from shared tokens; this file places them on the pink band. */
+.site-footer {
+  position: relative;
+  /* The star reaches past the band, as in the mock-up: the page edge cuts its right ray, and the dark above and below
+     keeps its other rays off the page content. */
+  overflow-x: clip;
+  padding: 120px 0 80px;
+  background: #131313;
+  color: #000;
+}
+.site-footer__band {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  column-gap: var(--grid-gap);
+  align-items: start;
+  padding: 72px var(--page-gutter);
+  background: #fc5cff;
+  container-type: inline-size;
+}
+.site-footer__copy { grid-column: 1 / span 2; display: flex; flex-direction: column; gap: 16px; max-width: 629px; }
+.site-footer__title { margin: 0; font: 700 var(--font-size-title)/var(--line-height-title) var(--font-body); letter-spacing: -.04em; text-transform: lowercase; }
+.site-footer__text { margin: 0; font: 400 var(--font-size-body)/var(--line-height-body) var(--font-body); }
+.site-footer__text strong { font-weight: 600; }
+.site-footer__form { position: relative; grid-column: 3 / span 2; display: flex; flex-direction: column; gap: 24px; max-width: 629px; }
+.site-footer__status { position: absolute; top: calc(100% + 8px); left: 0; right: 0; margin: 0; font: 600 var(--font-size-caption)/var(--line-height-caption) var(--font-body); }
+.site-footer__status:empty { display: none; }
+.site-footer__star {
+  position: absolute;
+  z-index: -1;
+  /* Figma at 1920: a 474 px star centred 175 px from the band's right edge and 139 px below its top; the file adds its glow
+     around it (515 px). A narrower band (the article beside its rail) shrinks it so it stays in the last column, clear of the form. */
+  --star-size: clamp(300px, 26.8cqi, 515px);
+  top: calc(var(--star-size) * -.23);
+  right: calc(var(--star-size) * -.16);
+  width: var(--star-size);
+  height: var(--star-size);
+  max-width: none;
+  pointer-events: none;
+  user-select: none;
+}
+
+@media (max-width: 760px) {
+  .site-footer { padding: 96px 0 48px; }
+  .site-footer__band { display: flex; flex-direction: column; gap: 32px; padding: 48px var(--page-gutter); }
+  .site-footer__copy, .site-footer__form { max-width: none; width: 100%; }
+  .site-footer__form { gap: 16px; }
+  .site-footer__status { position: static; }
+  .site-footer__star { --star-size: 240px; }
+}

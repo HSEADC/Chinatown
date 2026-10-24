@@ -5,6 +5,7 @@ import { bigBurstMarkup, burstLinkMarkup, tagMarkup } from './components/tag.js'
 import { articleSearchItems } from './article-search-data.js';
 import { entityReferenceView } from './components/editorial-typography.js';
 import { articleCopy, articleSources } from './article-copy.js';
+import { siteFooterMarkup } from './components/site-footer.js';
 import { subscribeDialogMarkup } from './components/subscribe-dialog.js';
 const material = id => context.materials.find(item => item.id === id);
 const entity = (id, label) => entityReferenceView(material(id), label);
@@ -58,20 +59,6 @@ function sectionView(id, copyId, { analysis = false, afterParagraph = {}, after 
 function nextStoryView() {
   const next = articleSearchItems.find(item => !context.articleId.startsWith(item.id));
   return bigBurstMarkup({ href: './index.html', words: ['Читать', 'дальше'], label: `Читать дальше: ${next.artist} — ${next.title}` });
-}
-
-// After the story: the site's one pink call to action, then the footer.
-function followView() {
-  return `<section class="story-follow story-column" aria-labelledby="story-follow-title">
-          <h2 class="story-follow__title" id="story-follow-title">Держим связь</h2>
-          <p class="story-follow__text">Новые материалы, места и розыгрыши мерча.</p>
-          <button class="story-follow__action" type="button" data-action-button data-subscribe-open aria-haspopup="dialog" aria-controls="subscribe-modal">Следить за обновлениями</button>
-        </section>
-        <footer class="story-footer">
-          <p>chinatown.site — гид и архив Китай-города</p>
-          <nav class="story-footer__links" aria-label="Ссылки проекта"><a href="./about.html" data-media-route>О проекте</a><a href="https://t.me/chinatownsite" target="_blank" rel="noopener noreferrer">ТГ-канал ↗</a></nav>
-        </footer>
-        ${subscribeDialogMarkup()}`;
 }
 
 function timelineView() {
@@ -217,8 +204,9 @@ export function articleView() {
           <p class="article-context-sources">${material('sexyswag-artwork').sources.map(source => `<a href="${escape(source.href)}">${escape(source.label)}</a>`).join(' · ')}</p>
         </figure>
         ${sectionView('return', 'return', { to: 1, after: `<div class="story-end">${paragraphView('return', 1)}${nextStoryView()}</div>` })}
-        ${followView()}
       </div>
     </article>
+    ${siteFooterMarkup()}
+    ${subscribeDialogMarkup()}
   </div>`.replace(/[ \t]+$/gm, '');
 }
