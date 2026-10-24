@@ -2,7 +2,8 @@ import { mountEmailSubscribe } from '../email-subscribe.js';
 import { createActionButton } from './action-button.js';
 
 const PROMPT_SHOWN_KEY = 'chinatown:subscribe-prompt-shown';
-const asset = path => new URL(`../../assets/${path}`, import.meta.url).href;
+// Page-relative, like the article template: the markup is baked into article.html at build time, where import.meta.url is a file:// path.
+const asset = path => `./assets/${path}`;
 
 /** The intro's «держим связь» dialog as a string, for pages rendered from templates (the article). */
 export function subscribeDialogMarkup() {
