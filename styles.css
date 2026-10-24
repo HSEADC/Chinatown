@@ -415,6 +415,7 @@ p { line-height: var(--line-height-body); }
   pointer-events: auto;
   font-size: var(--font-size-button);
   letter-spacing: var(--button-tracking);
+  text-decoration: none;
   transition: none;
 }
 .intro__about > span { padding: var(--button-label-padding); }
@@ -532,7 +533,7 @@ p { line-height: var(--line-height-body); }
   .intro__content { display: flex; flex-direction: column; align-items: flex-start; min-height: 100svh; padding: 12px 12px max(8px, env(safe-area-inset-bottom)); }
   .intro__headline { order: 0; flex: none; margin: 0 0 32px; }
   .intro__line { white-space: normal; }
-  .intro__about { order: 2; align-self: flex-start; margin: 24px 0 32px; text-decoration: none; }
+  .intro__about { order: 2; align-self: flex-start; margin: 24px 0 32px; }
 
 
   .intro__bottom { display: contents; }
