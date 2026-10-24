@@ -40,13 +40,17 @@
   /* Press feedback: brightness only, so the surface, icon and hit area stay put. */
   .mobile-fab:active > span { filter: brightness(1.35); transition-duration: var(--motion-press); }
   .mobile-fab img { display: block; flex: none; max-width: none; }
-  .mobile-fab--context > span { background: var(--mobile-accent); }
   .mobile-shell__fabs .mobile-fab { justify-content: center; width: var(--fab-secondary-size); height: var(--fab-secondary-size); padding: 0; }
   .mobile-shell__fabs .mobile-fab > span { width: var(--fab-secondary-size); height: var(--fab-secondary-size); }
   /* Expand the small buttons' hit areas without changing the Figma surfaces or gaps. */
   .mobile-shell__fabs .mobile-fab::after { position: absolute; inset: var(--button-hit-extension); content: ""; }
   .mobile-shell__fabs .mobile-fab--context, .mobile-shell__fabs .mobile-fab--context > span { width: var(--fab-primary-size); height: var(--fab-primary-size); }
   .mobile-shell__fabs .mobile-fab--context::after { inset: 0; }
+  /* The main FAB leads to the story's extra material, so it is a бах-кнопка: the burst overflows its square hit area. */
+  .mobile-fab--context > span { background: none; }
+  .mobile-fab--context .ct-big-burst.ct-big-burst--small { top: 50%; right: auto; bottom: auto; left: 50%; width: 120px; max-width: none; translate: -58% -50%; rotate: -8deg; }
+  .mobile-fab--context .ct-big-burst--small .ct-big-burst__label { font-size: var(--font-size-label); line-height: var(--line-height-label); }
+  .mobile-fab--context .mobile-fab__unread { z-index: 3; top: -10px; right: -2px; }
   /* Figma 408:855: menu/search settle over the open sheet with an 8px gap; the restore FAB leaves below the edge. */
   .mobile-shell[data-fabs="compact"] .mobile-fab[data-mobile-mode="search"] { transform: translateY(calc(var(--fab-primary-size) + var(--fab-gap))); }
   .mobile-shell[data-fabs="compact"] .mobile-fab[data-mobile-mode="menu"] { transform: translateY(calc(var(--fab-primary-size) + 2 * var(--fab-gap) - var(--fab-sheet-gap))); }

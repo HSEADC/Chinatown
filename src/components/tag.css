@@ -1,12 +1,11 @@
-/* Tags and accent bursts. Printed graphics: worn edges and grain come from
-   pre-made textures, never from live filters. Text stays real HTML text. */
+/* Tags and accent bursts. Vector and a little grungy: jagged hand-drawn outlines, no worn texture masks,
+   never live filters. Text stays real HTML text. */
 :root {
   --tag-height: 24px;
   --tag-sticker: 32px;
   --burst-width: 124px;
   --burst-height: 74px;
   --burst-ink: #39ff14;
-  --worn-mask: url('../../assets/textures/worn-mask.svg');
 }
 
 .ct-tags { display: flex; flex-wrap: wrap; gap: 10px 14px; padding-top: 14px; }
@@ -14,7 +13,7 @@
 .ct-tags--stuck { position: absolute; z-index: 1; right: var(--tags-right, 24px); bottom: var(--tags-bottom, 20px); flex-direction: column; flex-wrap: nowrap; align-items: flex-end; gap: 10px; padding: 0; pointer-events: none; }
 .ct-tags--stuck .ct-tag { rotate: var(--tag-tilt, 0deg); translate: calc(var(--tag-nudge, 0px) * -1) 0; }
 .ct-tag { position: relative; isolation: isolate; display: inline-flex; align-items: center; height: var(--tag-height); padding: 0 12px 0 calc(var(--tag-sticker) + 4px); color: #fff; font: 600 var(--font-size-caption)/var(--line-height-caption) var(--font-display); letter-spacing: .04em; text-transform: uppercase; white-space: nowrap; }
-.ct-tag::before { position: absolute; z-index: -1; inset: 0; background: #000 url('../../assets/textures/tag-outline.svg') center / 100% 100% no-repeat; -webkit-mask: var(--worn-mask) 0 0 / 160px; mask: var(--worn-mask) 0 0 / 160px; content: ""; }
+.ct-tag::before { position: absolute; z-index: -1; inset: 0; background: #000 url('../../assets/textures/tag-outline.svg') center / 100% 100% no-repeat; content: ""; }
 .ct-tag__label { padding-top: 3px; }
 /* Doubled class: card content styles every img (full width, 4:3); the sticker must not inherit that. */
 .ct-tag > img.ct-tag__sticker.ct-tag__sticker { display: block; max-width: none; aspect-ratio: 1; position: absolute; top: calc((var(--tag-height) - var(--tag-sticker)) / 2 - 2px); left: -6px; width: var(--tag-sticker); height: var(--tag-sticker); border: 2px solid #fff; object-fit: cover; background: #000; rotate: -7deg; }
@@ -53,14 +52,17 @@
 :is(.entity-card__cover, .story-artwork__cover) { position: relative; overflow: clip; }
 .ct-big-burst.ct-big-burst--small { position: absolute; z-index: 2; right: -28px; bottom: -24px; width: 168px; margin: 0; rotate: -6deg; }
 .ct-big-burst--small .ct-big-burst__frames polygon { stroke-width: 1.8; }
+/* Большой бах keeps the black outline of the large ЧИТАТЬ бах-кнопка (≈6.5px) whatever size it is drawn at. */
+.ct-big-burst:not(.ct-big-burst--small) .ct-big-burst__frames polygon { stroke-width: 6.5px; vector-effect: non-scaling-stroke; }
 .ct-big-burst--small .ct-big-burst__text { padding: 0 8px 4px 0; }
-/* Collapsing the right rail frees the bottom-right corner: the burst grows and slides past the right and bottom
-   screen edges, so the article ends on a sticker torn off the page. */
+/* The article's end: the last paragraph and the big burst side by side (measured by mountBigBursts). */
 @media (min-width: 761px) {
-  .ct-big-burst:not(.ct-big-burst--small) { transform-origin: 100% 100%; transition: translate var(--scene-shell-motion, 280ms ease), scale var(--scene-shell-motion, 280ms ease), margin-top var(--scene-shell-motion, 280ms ease); }
-  /* Not on the cover: it is full-bleed and the clip would cut it at the collapsed rail's gap. The burst sits at the article's end, far from the cover. */
-  .is-scene-rail-collapsed:not(.is-story-cover-active) #media-content { overflow: clip; }
-  .is-scene-rail-collapsed .ct-big-burst:not(.ct-big-burst--small) { translate: calc(var(--big-burst-reach, 0px) + 80px) 160px; scale: 1.4; margin-top: 120px; }
+  .story-end { position: relative; }
+  .story-end[data-place="inline"] { display: grid; grid-template-columns: minmax(0, 1fr) minmax(240px, 44%); align-items: center; column-gap: 24px; }
+  .story-end[data-place="inline"] .ct-big-burst { width: 100%; margin: 0; }
+  .story-end[data-place="inline"] .ct-big-burst__text { max-width: 72%; gap: 8px; }
+  .story-end[data-place="inline"] .ct-big-burst__title { font-size: var(--font-size-card-title); line-height: var(--line-height-card-title); }
+  .story-end[data-place="beside"] .ct-big-burst { position: absolute; top: 50%; left: calc(100% + 32px); width: min(560px, var(--big-burst-room) - 64px); margin: 0; translate: 0 -50%; }
 }
 @media (max-width: 760px) {
   .ct-big-burst:not(.ct-big-burst--small) { width: 100%; aspect-ratio: 358 / 300; margin: 40px 0 0; rotate: none; }
@@ -73,6 +75,5 @@
   .ct-burst polygon { animation: none; }
   .ct-burst polygon:first-child { opacity: 1; }
   .ct-big-burst__shape, .ct-big-burst__frames polygon { animation: none; }
-  .ct-big-burst { transition: none; }
   .ct-big-burst__frames polygon:first-child { opacity: 1; }
 }

@@ -2,7 +2,8 @@ import { createContextPager } from './context-pager.js';
 import { initialMobileShellState, reduceMobileShell, mobileSnapHeights, mobileSnapAfterDrag } from './mobile-shell-state.js';
 import { mountMobileCityVideo } from './mobile-city-video.js';
 import { searchFeed } from './article-search-data.js';
-import { createBurst, createTagList } from './components/tag.js';
+import { burstLinkMarkup, createBurst, createTagList } from './components/tag.js';
+import { createFollowAction } from './components/subscribe-dialog.js';
 
 const asset = name => new URL(`../assets/figma/mobile-shell/${name}.svg`, import.meta.url).href;
 /** Durations live in design-tokens.css so CSS transitions and Web Animations share one scale. */
@@ -40,7 +41,7 @@ export function mountMobileShell(page, { onOverlayChange = () => {}, onVisibilit
     <div class="mobile-shell__fabs" role="group" aria-label="Управление сайтом" data-node-id="404:664">
       <button class="mobile-fab" type="button" data-mobile-mode="menu" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-site-menu" data-node-id="404:665"><span>${img('menu-24', 24)}</span></button>
       <button class="mobile-fab" type="button" data-mobile-mode="search" aria-label="Поиск статей" aria-expanded="false" aria-controls="mobile-site-search" data-node-id="404:667"><span>${img('search-24', 24)}</span></button>
-      <button class="mobile-fab mobile-fab--context" type="button" data-mobile-mode="context" aria-label="Открыть дополнительный материал" aria-expanded="false" aria-controls="mobile-context-sheet" data-node-id="404:671"><span>${img('arrow-up', 32)}<i class="mobile-fab__unread" hidden></i></span></button>
+      <button class="mobile-fab mobile-fab--context" type="button" data-mobile-mode="context" aria-label="Открыть дополнительный материал" aria-expanded="false" aria-controls="mobile-context-sheet" data-node-id="404:671"><span>${burstLinkMarkup({ label: 'Ещё' })}<i class="mobile-fab__unread" hidden></i></span></button>
     </div>
     <div class="mobile-shell__backdrop"></div>
     <section class="mobile-shell__sheet" id="mobile-context-sheet" aria-label="Рядом со статьёй" inert>
@@ -260,6 +261,12 @@ export function mountMobileShell(page, { onOverlayChange = () => {}, onVisibilit
       if (item.status === 'new') link.append(createBurst('Новое'));
       li.append(link);
       results.append(li);
+    }
+    if (matches.length) {
+      const follow = document.createElement('li');
+      follow.className = 'mobile-search-follow';
+      follow.append(createFollowAction());
+      results.append(follow);
     }
     searchStatus.textContent = matches.length ? `Материалов: ${matches.length}` : 'Ничего не найдено. Попробуй другое слово.';
     searchStatus.classList.toggle('story-visually-hidden', matches.length > 0);

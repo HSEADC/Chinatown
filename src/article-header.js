@@ -1,5 +1,6 @@
 import { searchFeed } from './article-search-data.js';
 import { burstLinkMarkup, createBurst, createTagList } from './components/tag.js';
+import { createFollowAction } from './components/subscribe-dialog.js';
 
 const motion = {
   searchDuration: 420,
@@ -142,6 +143,12 @@ export function mountArticleHeader(header, onChange, page = header.closest('.sto
       if (item.dataset.size === 'wide') link.insertAdjacentHTML('beforeend', burstLinkMarkup({ label: 'Читать' }));
       item.append(link);
       list.append(item);
+    }
+    if (matches.length) {
+      const follow = document.createElement('li');
+      follow.className = 'story-search__follow';
+      follow.append(createFollowAction());
+      list.append(follow);
     }
     results.hidden = false;
     results.inert = false;
