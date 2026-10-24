@@ -46,7 +46,8 @@
 .ct-big-burst__frames polygon:nth-child(3) { animation-delay: -.4s; }
 .ct-big-burst__text { display: flex; flex-direction: column; align-items: center; gap: var(--space-3); max-width: 340px; color: #000; }
 .ct-big-burst__label { font: 800 var(--font-size-caption)/var(--line-height-caption) var(--font-display); letter-spacing: .04em; text-transform: uppercase; }
-.ct-big-burst__title { font: 800 var(--font-size-card-artist)/var(--line-height-card-artist) var(--font-display); letter-spacing: .02em; text-transform: uppercase; }
+.ct-big-burst__title { font: 800 var(--font-size-heading)/1.1 var(--font-display); letter-spacing: .02em; text-transform: uppercase; }
+.ct-big-burst__word { display: block; }
 /* Small big burst: a button that peeks out of a card's cover from the bottom-right corner. The cover never clips it:
    the sticker sits on top of the layout, whole; a click on the cover itself still opens the image. */
 :is(.entity-card__cover, .story-artwork__cover) { position: relative; z-index: 1; }
@@ -61,7 +62,7 @@
   .story-end[data-place="inline"] { display: grid; grid-template-columns: minmax(0, 1fr) minmax(240px, 44%); align-items: center; column-gap: var(--space-6); }
   .story-end[data-place="inline"] .ct-big-burst { width: 100%; margin: 0; }
   .story-end[data-place="inline"] .ct-big-burst__text { max-width: 72%; gap: var(--space-2); }
-  .story-end[data-place="inline"] .ct-big-burst__title { font-size: var(--font-size-card-title); line-height: var(--line-height-card-title); }
+  .story-end[data-place="inline"] .ct-big-burst__title { font-size: var(--font-size-card-artist); }
   .story-end[data-place="beside"] .ct-big-burst { position: absolute; top: 50%; left: calc(100% + 32px); width: min(560px, var(--big-burst-room) - 64px); margin: 0; translate: 0 -50%; }
 }
 @media (max-width: 760px) {

@@ -115,8 +115,12 @@ function bigBurstShape(kind, width, height) {
   return `<svg class="ct-big-burst__shape ct-big-burst__shape--${kind}" viewBox="0 0 ${width} ${height}" aria-hidden="true"><polygon class="ct-big-burst__backing" points="${frames[1]}" transform="translate(12 12) rotate(3 ${width / 2} ${height / 2})"/><g class="ct-big-burst__frames">${frames.map(points => `<polygon points="${points}"/>`).join('')}</g></svg>`;
 }
 
-export function bigBurstMarkup({ href, label, title }) {
-  return `<a class="ct-big-burst" href="${escape(href)}">${bigBurstShape('wide', 560, 340)}${bigBurstShape('narrow', 358, 300)}<span class="ct-big-burst__text"><span class="ct-big-burst__label">${escape(label)}</span><span class="ct-big-burst__title">${escape(title)}</span></span></a>`;
+// Большой бах says two words at most, one per line («Открыть / статью», «Читать / дальше»), with no kicker above.
+// Anything longer, such as which story comes next, goes into the link's accessible name, not onto the burst.
+export function bigBurstMarkup({ href, words, label }) {
+  const lines = words.slice(0, 2).map(word => `<span class="ct-big-burst__word">${escape(word)}</span>`).join('');
+  const name = label ? ` aria-label="${escape(label)}"` : '';
+  return `<a class="ct-big-burst" href="${escape(href)}"${name}>${bigBurstShape('wide', 560, 340)}${bigBurstShape('narrow', 358, 300)}<span class="ct-big-burst__text"><span class="ct-big-burst__title">${lines}</span></span></a>`;
 }
 
 // The article ends with the last paragraph and the big burst side by side. When the free space right of the column
