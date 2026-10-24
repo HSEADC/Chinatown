@@ -49,7 +49,7 @@ export function createTag({ label, sticker = stickerFor(label) }) {
 function scatter(text) {
   let hash = 0;
   for (const char of text) hash = (hash * 31 + char.codePointAt(0)) >>> 0;
-  return { tilt: (hash % 11) - 5, nudge: (hash >>> 4) % 17 };
+  return { tilt: (hash % 11) - 5, nudge: ((hash >>> 4) % 17) & ~1 };
 }
 
 export function createTagList(tags, seed = '') {
