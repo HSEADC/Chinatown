@@ -2,7 +2,8 @@ import { mountEmailSubscribe } from '../email-subscribe.js';
 import { createActionButton } from './action-button.js';
 
 const PROMPT_SHOWN_KEY = 'chinatown:subscribe-prompt-shown';
-const asset = path => new URL(`../../assets/${path}`, import.meta.url).href;
+// Page-relative, like the article template: the markup is baked into article.html at build time, where import.meta.url is a file:// path.
+const asset = path => `./assets/${path}`;
 
 /** The intro's «держим связь» dialog as a string, for pages rendered from templates (the article). */
 export function subscribeDialogMarkup() {
@@ -11,6 +12,9 @@ export function subscribeDialogMarkup() {
       <section class="subscribe-modal__panel" role="dialog" aria-modal="true" aria-labelledby="subscribe-title" aria-describedby="subscribe-description" tabindex="-1">
         <div class="subscribe-modal__deco" aria-hidden="true">
           <img src="${asset('figma/subscribe-star.svg')}" alt="" width="673.132" height="676.456">
+        </div>
+        <div class="subscribe-modal__head" aria-hidden="true">
+          <img src="${asset('figma/subscribe-head.webp')}" alt="" width="640" height="653" decoding="async">
         </div>
         <div class="subscribe-modal__body">
           <div>
