@@ -412,20 +412,8 @@ html.has-site-cursor .article-image-viewer :is(button, a) { cursor: var(--cursor
   .story-page *, .story-page *::before, .story-page *::after { transition: none !important; }
 }
 
-/* Article end: last paragraph beside the big burst (tag.css), then the pink call to action and the footer. */
+/* Article end: last paragraph beside the big burst (tag.css); the site footer follows the article (site-footer.css). */
 .story-end { margin-top: 24px; }
-.story-follow { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; margin-top: 160px !important; }
-.story-follow__title { font: 800 var(--font-size-heading)/var(--line-height-heading) var(--font-body); }
-.story-follow__text { margin-bottom: 16px !important; color: var(--story-muted); font-size: var(--font-size-body); line-height: var(--line-height-body); }
-.story-footer { grid-column: 1 / -1; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px 32px; margin-top: 120px; padding: 32px 0 48px; border-top: 1px solid #ffffff26; color: var(--story-muted); font-size: var(--font-size-caption); line-height: var(--line-height-caption); }
-.story-footer__links { display: flex; gap: 24px; }
-.story-footer a { color: inherit; text-decoration: none; }
-.story-footer a:hover { color: var(--media-accent); }
-@media (max-width: 760px) {
-  .story-follow { margin-top: 96px !important; }
-  .story-follow__action { width: 100%; }
-  .story-footer { margin-top: 80px; }
-}
 
 /* The end of the search feed: the pink call to action (createFollowAction). */
 .follow-action { display: flex; flex-direction: column; align-items: flex-start; gap: 24px; }

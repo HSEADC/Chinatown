@@ -369,6 +369,8 @@ export function mountVideoSphere(intro) {
   }
 
   function wheel(event) {
+    // The stub scrolls on to its footer: a vertical wheel moves the page, while dragging and the arrows still look up and down.
+    if (Math.abs(event.deltaY) > Math.abs(event.deltaX) && intro.scrollHeight > intro.clientHeight) return;
     event.preventDefault();
     // Natural trackpad scrolling reports the opposite sign of the finger movement.
     yaw -= event.deltaX * 0.0015;
