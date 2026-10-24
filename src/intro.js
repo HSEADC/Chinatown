@@ -1,5 +1,6 @@
 import { mountVideoSphere } from './video-sphere.js';
 import { mountHeadlineGlitch } from './headline-glitch.js';
+import { burstLinkMarkup } from './components/tag.js';
 
 const intro = document.querySelector('#intro');
 const sphere = document.querySelector('#intro-sphere');
@@ -34,7 +35,9 @@ function showCopyFeedback(success, point) {
   intro.classList.remove('is-copied');
   copyStatus.classList.remove('is-visible');
   copyStatus.dataset.state = success ? 'success' : 'error';
-  copyStatus.textContent = success ? 'Ссылка скопирована' : 'Не удалось скопировать ссылку.';
+  // Success is a sticker answering the reader's click (a бах on the spot); an error stays a plain interface plate.
+  if (success) copyStatus.innerHTML = `<span class="visually-hidden">Ссылка скопирована</span>${burstLinkMarkup({ label: 'Скопировано' })}`;
+  else copyStatus.textContent = 'Не удалось скопировать ссылку.';
   const rect = headline.getBoundingClientRect();
   const x = point ? point.x + 24 : rect.left;
   const y = point ? point.y + 48 : rect.bottom + 16;

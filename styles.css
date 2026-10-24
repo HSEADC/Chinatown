@@ -3,6 +3,7 @@
 @import url('./src/components/editorial-data.css');
 @import url('./src/components/email-field.css');
 @import url('./src/components/typography.css');
+@import url('./src/components/tag.css');
 
 :root {
   font-family: var(--font-body);
@@ -379,6 +380,7 @@ p { line-height: var(--line-height-body); }
   pointer-events: none;
   column-gap: var(--landing-grid-gap);
   padding: var(--landing-gutter);
+  container-type: inline-size;
 }
 .intro__headline {
   grid-column: 1 / -1;
@@ -390,14 +392,16 @@ p { line-height: var(--line-height-body); }
   user-select: none;
   -webkit-user-select: none;
   margin: 20px 0 48px;
-  font-size: var(--font-size-display);
+  /* Fixed composition at every width: «Скоро на» / «chinatown.site –» / «медиа о нефорах», never rewrapped.
+     Only the size follows the width: the widest line, «медиа о нефорах», is 13.78em in Benzin 800,
+     so the heading's width divided by 13.9 keeps it on one line. The one exception to the no-fluid-type
+     rule (AGENTS.md). */
+  font-size: calc(100cqi / 13.9);
   font-weight: 800;
-  line-height: var(--line-height-display);
+  line-height: 1;
   letter-spacing: 0;
 }
-/* The domain breaks only at its <wbr> points (after the dot, then between syllables) and the dash is glued
-   with &nbsp;. Breaking anywhere stays only as a last resort for a word wider than the line. */
-.intro__line { display: block; white-space: normal; overflow-wrap: anywhere; }
+.intro__line { display: block; white-space: nowrap; }
 .intro__accent { color: var(--landing-accent); }
 .intro__site-link { display: inline; }
 .intro__about {
@@ -448,7 +452,10 @@ p { line-height: var(--line-height-body); }
 .intro__whitelist { grid-column: 2 / span 4; width: 100%; pointer-events: auto; }
 .intro__copy-status { position: fixed; z-index: 3; top: 0; right: auto; bottom: auto; left: 0; max-width: calc(100vw - 32px); padding: 10px 14px; border: 1px solid rgba(255, 255, 255, .3); background: #111; color: #fff; font: 600 var(--font-size-caption)/var(--line-height-caption) var(--font-body); opacity: 0; transform: translateY(6px); pointer-events: none; transition: opacity .16s ease, transform .16s ease; }
 .intro__copy-status.is-visible { opacity: 1; transform: translateY(0); }
-.intro__copy-status[data-state='success']::before { content: '✓'; margin-right: 8px; color: #fc5cff; }
+.intro__copy-status[data-state='success'] { width: 300px; max-width: none; padding: 0; border: 0; background: none; transform: scale(.6) rotate(-12deg); transition: opacity .12s ease, transform .22s cubic-bezier(.3, 1.6, .5, 1); }
+.intro__copy-status[data-state='success'].is-visible { transform: none; }
+.intro__copy-status .ct-big-burst.ct-big-burst--small { position: relative; right: auto; bottom: auto; width: 100%; }
+.intro__copy-status .ct-big-burst__label { font-size: 16px; line-height: 20px; }
 
 @media (prefers-reduced-motion: reduce) {
   .intro.is-copied .intro__site-link::after { animation: none; }
@@ -531,7 +538,6 @@ p { line-height: var(--line-height-body); }
   .intro__reference { inset: 0; width: 100%; height: 100%; object-fit: cover; }
   .intro__content { display: flex; flex-direction: column; align-items: flex-start; min-height: 100svh; padding: 12px 12px max(8px, env(safe-area-inset-bottom)); }
   .intro__headline { order: 0; flex: none; margin: 0 0 32px; }
-  .intro__line { white-space: normal; }
   .intro__about { order: 2; align-self: flex-start; margin: 24px 0 32px; text-decoration: none; }
 
 
