@@ -12,6 +12,9 @@ export function subscribeDialogMarkup() {
         <div class="subscribe-modal__deco" aria-hidden="true">
           <img src="${asset('figma/subscribe-star.svg')}" alt="" width="673.132" height="676.456">
         </div>
+        <div class="subscribe-modal__head" aria-hidden="true">
+          <img src="${asset('figma/subscribe-head.webp')}" alt="" width="640" height="653" decoding="async">
+        </div>
         <div class="subscribe-modal__body">
           <div>
             <h2 id="subscribe-title">держим связь</h2>
