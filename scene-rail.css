@@ -30,6 +30,12 @@
   transition: opacity 600ms ease-out, visibility 600ms, top 220ms cubic-bezier(.16, 1, .3, 1);
 }
 .has-scene-rail[data-media-page="article"] .story-cover { width: 100vw; }
+/* The page scrollbar would overlay the fixed right rail and its toggle, so the article hides it on desktop.
+   Wheel, trackpad and keyboard scrolling are unaffected. */
+@media (min-width: 761px) {
+  html:has(> body.has-scene-rail[data-media-page="article"]) { scrollbar-width: none; }
+  html:has(> body.has-scene-rail[data-media-page="article"])::-webkit-scrollbar { display: none; }
+}
 .is-story-cover-active .story-club { visibility: hidden; pointer-events: none; }
 @media (min-width: 761px) {
   .has-scene-rail[data-media-page="article"] { overflow-x: clip; }

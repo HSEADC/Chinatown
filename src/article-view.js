@@ -57,7 +57,7 @@ function sectionView(id, copyId, { analysis = false, afterParagraph = {}, after 
 // The end of the article hands the reader on: the next story from search, as the big burst.
 function nextStoryView() {
   const next = articleSearchItems.find(item => !context.articleId.startsWith(item.id));
-  return bigBurstMarkup({ href: './index.html', label: 'Читай дальше →', title: `${next.artist} — ${next.title}` });
+  return bigBurstMarkup({ href: './index.html', words: ['Читать', 'дальше'], label: `Читать дальше: ${next.artist} — ${next.title}` });
 }
 
 // After the story: the site's one pink call to action, then the footer.
