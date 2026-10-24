@@ -93,7 +93,7 @@ export function homeView() {
         </form>
         <div class="landing-socials">
           <a class="text-button" href="https://t.me/chinatownsite" target="_blank" rel="noopener noreferrer"><span>ТГ-канал</span><img src="${northEast}" alt="" aria-hidden="true"></a>
-          <span class="text-button" aria-disabled="true" title="Скоро"><span>TikTok</span><img src="${northEast}" alt="" aria-hidden="true"></span>
+          <a class="text-button" href="https://www.tiktok.com/@chinatownmedia" target="_blank" rel="noopener noreferrer"><span>TikTok</span><img src="${northEast}" alt="" aria-hidden="true"></a>
         </div>
       </div>
     </section>
