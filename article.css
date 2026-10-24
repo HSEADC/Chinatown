@@ -61,7 +61,7 @@
 .story-search__results ul:empty { display: none; }
 .story-search__results :is(a, button):not(.action-button) { display: flex; align-items: center; width: 100%; min-height: 64px; padding: 12px 0 12px 80px; border: 0; background: transparent; color: #fff; font: 800 var(--font-size-label)/var(--line-height-caption) var(--font-body); letter-spacing: .04em; text-transform: uppercase; text-align: left; text-decoration: none; overflow-wrap: anywhere; }
 .story-search__results :is(a, button):not(.action-button):hover { color: var(--media-accent); }
-.story-search__results a.story-search-result { position: relative; isolation: isolate; align-items: flex-start; min-height: 168px; padding: 32px 32px 40px; overflow: clip; background: #0005; }
+.story-search__results a.story-search-result { position: relative; isolation: isolate; align-items: flex-start; min-height: 168px; padding: 32px 32px 40px; background: #0005; }
 .story-search__results a.story-search-result:hover { color: #fff; }
 .story-search-result__accent { color: var(--media-accent); }
 .story-search-result__body > span:first-child { font: 800 var(--font-size-card-title)/var(--line-height-card-title) var(--font-display); letter-spacing: .02em; }
@@ -72,7 +72,9 @@
 .story-search__results li[data-size="wide"] .ct-tag { padding: 0 18px 0 calc(var(--tag-sticker) + 8px); font-size: var(--font-size-card-title); line-height: var(--line-height-card-title); }
 .story-search__results li[data-size="wide"] .story-search-result__body > span:first-child { font-size: var(--font-size-heading); line-height: var(--line-height-heading); }
 @media (min-width: 1700px) { .story-search__results li[data-size="wide"] .story-search-result__body > span:first-child { font-size: var(--font-size-title); line-height: var(--line-height-title); } }
-.story-search-result .ct-big-burst.ct-big-burst--small { right: -28px; bottom: -36px; width: 360px; }
+.story-search-result .ct-big-burst.ct-big-burst--small { right: 12px; bottom: -36px; width: 360px; }
+/* The card with a бах-кнопка rises above its neighbours so the sticker overlaps them instead of being cut. */
+.story-search__results li:has(.ct-big-burst) { position: relative; z-index: 1; }
 .story-search-result .ct-big-burst--small .ct-big-burst__label { font-size: var(--font-size-card-artist); line-height: var(--line-height-card-artist); }
 .story-search-result .ct-big-burst--small .ct-big-burst__text { padding: 6px 0 0 8px; }
 .story-search__results li[data-size="small"] a.story-search-result { min-height: 260px; padding: 24px 20px 32px; --tags-right: 16px; }
@@ -427,6 +429,10 @@ html.has-site-cursor .article-image-viewer :is(button, a) { cursor: var(--cursor
 /* The end of the search feed: the pink call to action (createFollowAction). */
 .follow-action { display: flex; flex-direction: column; align-items: flex-start; gap: 24px; }
 .follow-action__text { margin: 0; color: var(--story-muted); font-size: var(--font-size-body); line-height: var(--line-height-body); }
-.story-search__results li.story-search__follow { flex-basis: 100%; padding: 64px var(--story-gutter) 96px; }
+.story-search__results li.story-search__follow { flex-basis: 100%; padding: 64px 0 96px; }
+/* Like the feed above it, the button runs edge to edge; only the line of text keeps the gutter. */
+.story-search__follow .follow-action { flex: 1; align-items: stretch; }
+.story-search__follow .follow-action__text { padding-inline: var(--story-gutter); }
+.story-search__follow .action-button { width: 100%; }
 .mobile-search-follow { padding: 40px 16px 56px; }
 .mobile-search-follow .action-button { width: 100%; }

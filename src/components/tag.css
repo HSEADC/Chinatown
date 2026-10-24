@@ -47,10 +47,10 @@
 .ct-big-burst__text { display: flex; flex-direction: column; align-items: center; gap: 12px; max-width: 340px; color: #000; }
 .ct-big-burst__label { font: 800 var(--font-size-caption)/var(--line-height-caption) var(--font-display); letter-spacing: .04em; text-transform: uppercase; }
 .ct-big-burst__title { font: 800 var(--font-size-card-artist)/var(--line-height-card-artist) var(--font-display); letter-spacing: .02em; text-transform: uppercase; }
-/* Small big burst: a button that peeks out of a card's cover from the bottom-right corner. The cover clips it,
-   the way the big burst runs off the screen; a click on the cover itself still opens the image. */
-:is(.entity-card__cover, .story-artwork__cover) { position: relative; overflow: clip; }
-.ct-big-burst.ct-big-burst--small { position: absolute; z-index: 2; right: -28px; bottom: -24px; width: 168px; margin: 0; rotate: -6deg; }
+/* Small big burst: a button that peeks out of a card's cover from the bottom-right corner. The cover never clips it:
+   the sticker sits on top of the layout, whole; a click on the cover itself still opens the image. */
+:is(.entity-card__cover, .story-artwork__cover) { position: relative; z-index: 1; }
+.ct-big-burst.ct-big-burst--small { position: absolute; z-index: 2; right: -12px; bottom: -24px; width: 168px; margin: 0; rotate: -6deg; }
 .ct-big-burst--small .ct-big-burst__frames polygon { stroke-width: 1.8; }
 /* Большой бах keeps the black outline of the large ЧИТАТЬ бах-кнопка (≈6.5px) whatever size it is drawn at. */
 .ct-big-burst:not(.ct-big-burst--small) .ct-big-burst__frames polygon { stroke-width: 6.5px; vector-effect: non-scaling-stroke; }
