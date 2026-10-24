@@ -24,7 +24,7 @@
   --type-heading-tracking: 0;
   --type-label-tracking: .04em;
   --type-quote-tracking: .02em;
-  --type-lyric-gap: 92px;
+  --type-lyric-gap: 96px;
   --font-size-button: 24px;
   --line-height-button: 32px;
   --button-height: 64px;
@@ -38,8 +38,28 @@
   --input-line-height: 60px;
   --input-border: 2px;
   --font-input: 'Benzin Input', Benzin, sans-serif;
-  --page-gutter: 32px;
-  --grid-gap: 32px;
+  /* Spacing scale: --space-N is N × 4px. Margins, paddings and gaps take only these steps;
+     2px is reserved for hairlines and seams. Proximity levels, closest first:
+     inside one element 4–8 · parts of a group 8–12 · heading and its text, field and button 16 ·
+     paragraphs 24 (phone 16) · figures inside a section 48 (phone 32) · sections 64 (phone 48) · page zones 96–128. */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-32: 128px;
+  --space-40: 160px;
+  --story-paragraph-gap: var(--space-6);
+  --story-inset-gap: var(--space-12);
+  --page-gutter: var(--space-8);
+  --grid-gap: var(--space-8);
   --font-size-nav: 14px;
   --font-size-search: 24px;
   --line-height-search: 24px;
@@ -94,8 +114,10 @@
     --input-line-height: 28px;
     --input-border: 1px;
     --font-input: Benzin, sans-serif;
-    --page-gutter: 20px;
-    --grid-gap: 12px;
+    --story-paragraph-gap: var(--space-4);
+    --story-inset-gap: var(--space-8);
+    --page-gutter: var(--space-5);
+    --grid-gap: var(--space-3);
     --font-size-nav: 12px;
     --font-size-search: 12px;
     --line-height-search: 16px;

@@ -5,7 +5,7 @@
   /* The star reaches past the band, as in the mock-up: the page edge cuts its right ray, and the dark above and below
      keeps its other rays off the page content. */
   overflow-x: clip;
-  padding: 120px 0 80px;
+  padding: var(--space-32) 0 var(--space-20);
   background: #131313;
   color: #000;
 }
@@ -16,15 +16,15 @@
   grid-template-columns: repeat(5, minmax(0, 1fr));
   column-gap: var(--grid-gap);
   align-items: start;
-  padding: 72px var(--page-gutter);
+  padding: var(--space-16) var(--page-gutter);
   background: #fc5cff;
   container-type: inline-size;
 }
-.site-footer__copy { grid-column: 1 / span 2; display: flex; flex-direction: column; gap: 16px; max-width: 629px; }
+.site-footer__copy { grid-column: 1 / span 2; display: flex; flex-direction: column; gap: var(--space-4); max-width: 629px; }
 .site-footer__title { margin: 0; font: 700 var(--font-size-title)/var(--line-height-title) var(--font-body); letter-spacing: -.04em; text-transform: lowercase; }
 .site-footer__text { margin: 0; font: 400 var(--font-size-body)/var(--line-height-body) var(--font-body); }
 .site-footer__text strong { font-weight: 600; }
-.site-footer__form { position: relative; grid-column: 3 / span 2; display: flex; flex-direction: column; gap: 24px; max-width: 629px; }
+.site-footer__form { position: relative; grid-column: 3 / span 2; display: flex; flex-direction: column; gap: var(--space-6); max-width: 629px; }
 .site-footer__status { position: absolute; top: calc(100% + 8px); left: 0; right: 0; margin: 0; font: 600 var(--font-size-caption)/var(--line-height-caption) var(--font-body); }
 .site-footer__status:empty { display: none; }
 .site-footer__star {
@@ -43,10 +43,10 @@
 }
 
 @media (max-width: 760px) {
-  .site-footer { padding: 96px 0 48px; }
-  .site-footer__band { display: flex; flex-direction: column; gap: 32px; padding: 48px var(--page-gutter); }
+  .site-footer { padding: var(--space-24) 0 var(--space-12); }
+  .site-footer__band { display: flex; flex-direction: column; gap: var(--space-8); padding: var(--space-12) var(--page-gutter); }
   .site-footer__copy, .site-footer__form { max-width: none; width: 100%; }
-  .site-footer__form { gap: 16px; }
+  .site-footer__form { gap: var(--space-4); }
   .site-footer__status { position: static; }
   .site-footer__star { --star-size: 240px; }
 }
