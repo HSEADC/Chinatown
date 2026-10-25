@@ -59,7 +59,6 @@ export const articleCopy = {
     ]
   },
   "verseExcerpt": {
-    "caption": "madk1d — «Так похуй», фрагменты куплета",
     "stanzas": [
       [
         { "text": "Они ходили в 3XL, но Bunny Boots попиздаче", "href": "https://genius.com/34934501/Madk1d-dont-fing-care/3xl-bunny-boots" },

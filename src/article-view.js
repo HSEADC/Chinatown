@@ -91,9 +91,9 @@ function quoteSceneView({ id, text, caption, hasLyrics = true, figma = false }) 
 }
 
 function verseExcerptView() {
-  const { caption, stanzas } = articleCopy.verseExcerpt;
+  const { stanzas } = articleCopy.verseExcerpt;
   const text = `<blockquote class="story-quote-scene__lyrics" aria-label="Куплет «Так похуй»">${stanzas.map((lines, stanzaIndex) => lines.map((line, lineIndex) => `<p${stanzaIndex === 0 && lineIndex === 0 ? ' class="is-current"' : ''} data-quote-line data-lyric-line>${escape(line.text)}</p>`).join('')).join('<p class="story-quote-scene__break" role="separator" aria-label="Пропуск строк">***</p>')}</blockquote>`;
-  return quoteSceneView({ id: 'verse-excerpt', text, caption: `${escape(caption)}. На фоне — концертная запись.` });
+  return quoteSceneView({ id: 'verse-excerpt', text });
 }
 
 function referencesView() {
