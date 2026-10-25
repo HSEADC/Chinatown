@@ -92,7 +92,7 @@
 .story-cover__title { font: 800 var(--font-size-display)/var(--line-height-display) var(--font-display); letter-spacing: .04em; text-transform: uppercase; text-wrap: balance; overflow-wrap: anywhere; }
 .story-cover__artist { white-space: nowrap; }
 /* Rubric and lead read as one group; the title stands a step further away. */
-.story-cover__title { margin-top: var(--space-2); }
+.story-cover__title { margin-top: var(--space-2); margin-bottom: -.234em; /* spacing-exception: Benzin's line box ends .234em below the baseline; this pulls the last line's baseline onto the 32 px cover padding */ }
 .story-cover__intro-row { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); width: 100%; }
 .story-cover__intro { grid-column: 3 / -1; min-width: 0; font: 400 var(--font-size-body)/var(--line-height-body) var(--font-body); overflow-wrap: break-word; }
 .story-content { display: grid; grid-template-columns: repeat(var(--story-column-count, 5), minmax(0, 1fr)); column-gap: var(--story-grid-gap); row-gap: var(--space-16); width: 100%; padding: var(--space-16) var(--story-gutter); padding-right: var(--story-end-gutter, var(--story-gutter)); }
@@ -376,7 +376,7 @@ html.has-site-cursor .article-image-viewer :is(button, a) { cursor: var(--cursor
   .story-search__results :is(a, button):not(.action-button) { min-height: 48px; padding: var(--space-3) 0 var(--space-3) var(--space-2); font-size: 12px; }
   .story-search__results.has-query { min-height: 160px; }
   .story-cover { justify-content: flex-start; gap: var(--space-5); padding: var(--space-3); }
-  .story-cover__title { order: -1; margin-top: 0; }
+  .story-cover__title { order: -1; margin-block: 0; }
   .story-cover__meta { display: none; }
   .story-cover__meta > p { flex: initial; }
   .story-cover__meta .story-meta { margin-left: auto !important; flex-shrink: 0; }

@@ -76,6 +76,7 @@ JavaScript читает те же токены: `motionMs('--motion-enter', 260)
 | Правое окно статьи: песенная сцена и открытое меню/поиск (`.is-suspended`) | 480 / 360 ms | `--motion-exit` / `--motion-ease-exit`, уход вправо с затуханием | `scene-rail.css` |
 | Карточки контекста в правом окне и в листе | 360 ms `--motion-ease` | то же | `src/context-pager.js` |
 | Окно подписки: летающая голова | 900 ms, затем покачивание | `--motion-exit` / `--motion-ease-exit` | `styles.css` |
+| Мерцание букв H1 (сами по себе) | 220 ms `ease-in-out`, буква держится 450–950 ms, пауза 1,4–3,8 s | 220 ms `ease-in-out` | `src/headline-glitch.js`, `styles.css` |
 | CTA `action-button`: стрелка | 180 ms `cubic-bezier(.22, 1, .36, 1)` | то же | `src/components/action-button.css` (компонент зафиксирован, не менять) |
 
 ## Расхождения, которые стоит свести к токенам

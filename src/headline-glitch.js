@@ -3,15 +3,24 @@ const FAMILIES = ['Elion Italic', 'East Gates', 'Sigma Boy'];
 const IDLE_MS = 3000;
 const PULSE_MS = 200;
 const MAX_ACTIVE = 3;
+// Idle twinkle: with nobody touching the page, one letter (sometimes two)
+// flashes into another family and back, like a star.
+const TWINKLE_PAUSE_MS = [1400, 3800];
+const TWINKLE_HOLD_MS = [450, 950];
+
+function between([min, max]) {
+  return min + Math.random() * (max - min);
+}
 
 // The source stays in Benzin. Plain inline spans preserve the shaped text run;
 // only the paint changes, and SVG replacements never participate in layout.
-export function mountHeadlineGlitch(headline, { scroll = false, multiline = false } = {}) {
+export function mountHeadlineGlitch(headline, { scroll = false, multiline = false, twinkle = true } = {}) {
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   const mouseInput = matchMedia('(min-width: 1025px) and (hover: hover) and (pointer: fine)');
   const runs = [];
   const letters = [];
   const active = new Set();
+  const twinkling = new Map();
   const listeners = new AbortController();
   const context = document.createElement('canvas').getContext('2d');
   let families = [];
@@ -21,6 +30,7 @@ export function mountHeadlineGlitch(headline, { scroll = false, multiline = fals
   let suspended = false;
   let idleTimer = 0;
   let ambientTimer = 0;
+  let twinkleTimer = 0;
   let hoverTimer = 0;
   let hoveredLetter = null;
   let measureFrame = 0;
@@ -38,14 +48,41 @@ export function mountHeadlineGlitch(headline, { scroll = false, multiline = fals
     return ready && !destroyed && !suspended && !document.hidden && !reducedMotion.matches;
   }
 
+  function hide(letter) {
+    letter.source.classList.remove('is-glitched');
+    letter.glyph.classList.remove('is-active');
+  }
+
+  function show(letter, soft = false) {
+    const currentFamily = letter.glyph.getAttribute('font-family');
+    const alternatives = letter.variants.filter((variant) => variant.family !== currentFamily);
+    const variants = alternatives.length ? alternatives : letter.variants;
+    const variant = variants[Math.floor(Math.random() * variants.length)];
+    letter.glyph.setAttribute('font-family', variant.family);
+    letter.glyph.setAttribute('font-size', variant.size);
+    letter.glyph.setAttribute('x', variant.x);
+    letter.glyph.setAttribute('y', variant.y);
+    letter.glyph.dataset.glitchFont = variant.family;
+    letter.glyph.classList.toggle('is-twinkle', soft);
+    letter.source.classList.toggle('is-twinkle', soft);
+    letter.glyph.classList.add('is-active');
+    letter.source.classList.add('is-glitched');
+  }
+
+  function untwinkle(letter) {
+    clearTimeout(twinkling.get(letter));
+    twinkling.delete(letter);
+  }
+
   function restore() {
     clearTimeout(idleTimer);
     idleTimer = 0;
-    for (const letter of active) {
-      letter.source.classList.remove('is-glitched');
-      letter.glyph.classList.remove('is-active');
-    }
+    for (const letter of active) hide(letter);
     active.clear();
+    for (const letter of twinkling.keys()) {
+      untwinkle(letter);
+      hide(letter);
+    }
   }
 
   function stop() {
@@ -53,6 +90,8 @@ export function mountHeadlineGlitch(headline, { scroll = false, multiline = fals
     restore();
     clearTimeout(ambientTimer);
     ambientTimer = 0;
+    clearTimeout(twinkleTimer);
+    twinkleTimer = 0;
     cancelAnimationFrame(inputFrame);
     inputFrame = 0;
     pendingInput = null;
@@ -157,23 +196,14 @@ export function mountHeadlineGlitch(headline, { scroll = false, multiline = fals
     if (requiredLetter && !picked.includes(requiredLetter)) picked[0] = requiredLetter;
     for (const letter of active) {
       if (!picked.includes(letter)) {
-        letter.source.classList.remove('is-glitched');
-        letter.glyph.classList.remove('is-active');
+        hide(letter);
         active.delete(letter);
       }
     }
     for (const letter of picked) {
-      const currentFamily = letter.glyph.getAttribute('font-family');
-      const alternatives = letter.variants.filter((variant) => variant.family !== currentFamily);
-      const variants = alternatives.length ? alternatives : letter.variants;
-      const variant = variants[Math.floor(Math.random() * variants.length)];
-      letter.glyph.setAttribute('font-family', variant.family);
-      letter.glyph.setAttribute('font-size', variant.size);
-      letter.glyph.setAttribute('x', variant.x);
-      letter.glyph.setAttribute('y', variant.y);
-      letter.glyph.dataset.glitchFont = variant.family;
-      letter.glyph.classList.add('is-active');
-      letter.source.classList.add('is-glitched');
+      // A pointer or scroll takes over a twinkling letter and holds it.
+      untwinkle(letter);
+      show(letter);
       active.add(letter);
     }
     clearTimeout(idleTimer);
@@ -258,6 +288,36 @@ export function mountHeadlineGlitch(headline, { scroll = false, multiline = fals
     }, 9000 + Math.random() * 7000);
   }
 
+  function sparkle() {
+    // The pointer is already playing with the letters; stars wait for it to leave.
+    if (!canAnimate() || hoverTimer) return;
+    const pool = eligibleLetters(null).filter((letter) => !active.has(letter) && !twinkling.has(letter));
+    const count = Math.min(pool.length, Math.random() < .3 ? 2 : 1);
+    for (let i = 0; i < count; i++) {
+      const [letter] = pool.splice(Math.floor(Math.random() * pool.length), 1);
+      show(letter, true);
+      twinkling.set(letter, setTimeout(() => {
+        twinkling.delete(letter);
+        hide(letter);
+      }, between(TWINKLE_HOLD_MS)));
+    }
+  }
+
+  function scheduleTwinkle() {
+    clearTimeout(twinkleTimer);
+    twinkleTimer = 0;
+    if (!twinkle || compact || !canAnimate()) return;
+    twinkleTimer = setTimeout(() => {
+      sparkle();
+      scheduleTwinkle();
+    }, between(TWINKLE_PAUSE_MS));
+  }
+
+  function scheduleIdle() {
+    scheduleAmbient();
+    scheduleTwinkle();
+  }
+
   function createRuns() {
     const walker = document.createTreeWalker(headline, NodeFilter.SHOW_TEXT);
     const nodes = [];
@@ -321,7 +381,7 @@ export function mountHeadlineGlitch(headline, { scroll = false, multiline = fals
     if (multiline) headline.classList.add('headline-glitch--multiline');
     measure();
     resizeObserver.observe(headline);
-    scheduleAmbient();
+    scheduleIdle();
   }
 
   const resizeObserver = new ResizeObserver(queueMeasure);
@@ -334,18 +394,20 @@ export function mountHeadlineGlitch(headline, { scroll = false, multiline = fals
   }, { passive: true });
   if (scroll) listen(window, 'scroll', scrollMove, { passive: true });
   listen(window, 'resize', queueMeasure);
-  listen(window, 'blur', stop);
-  listen(window, 'focus', scheduleAmbient);
+  // A window without focus can still be on the jury's screen: the pointer
+  // effect stops, the stars keep going until the page is actually hidden.
+  listen(window, 'blur', () => { stop(); scheduleTwinkle(); });
+  listen(window, 'focus', scheduleIdle);
   listen(window, 'pagehide', stop);
-  listen(window, 'pageshow', scheduleAmbient);
+  listen(window, 'pageshow', scheduleIdle);
   listen(document, 'visibilitychange', () => {
     if (document.hidden) stop();
-    else scheduleAmbient();
+    else scheduleIdle();
   });
   listen(mouseInput, 'change', () => { previousPointer = null; stopHover(false); restore(); });
   listen(reducedMotion, 'change', () => {
     stop();
-    if (!reducedMotion.matches) { initialize(); scheduleAmbient(); }
+    if (!reducedMotion.matches) { initialize(); scheduleIdle(); }
   });
   initialize();
 
@@ -353,14 +415,14 @@ export function mountHeadlineGlitch(headline, { scroll = false, multiline = fals
     setSuspended(value) {
       suspended = value;
       if (value) stop();
-      else { queueMeasure(); scheduleAmbient(); }
+      else { queueMeasure(); scheduleIdle(); }
     },
     setCompact(value) {
       compact = value;
       headline.classList.toggle('headline-glitch--soft', value);
       stop();
       queueMeasure();
-      scheduleAmbient();
+      scheduleIdle();
     },
     destroy() {
       destroyed = true;
