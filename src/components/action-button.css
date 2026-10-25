@@ -45,6 +45,12 @@
   white-space: nowrap;
 }
 
+/* Benzin's vertical metrics differ by platform (hhea .77/.23 on macOS and Linux, win 1.105/.272 on Windows),
+   so padding alone puts the caps off centre. Trim the label to cap height and let the 64/32px row centre it. */
+@supports (text-box-trim: trim-both) {
+  .action-button__content > .action-button__label { padding-block: 0; text-box-trim: trim-both; text-box-edge: cap alphabetic; }
+}
+
 .action-button__content > .action-button__icon {
   display: block;
   flex: 0 0 auto;
