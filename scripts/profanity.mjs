@@ -1,7 +1,9 @@
 // Mat masking for everything the site serves. HSE portfolio rules: mat must be
-// masked with asterisks, otherwise the project needs an 18+ mark. Masking lives
-// in the source text itself, so no unmasked word ever reaches the page.
-// Rules: AGENTS.md, «Мат». Check: npm test. Fix: npm run mat:mask.
+// masked with asterisks, otherwise the project needs an 18+ mark. Source text is
+// masked, so the masked version is what loads first; the full words come back
+// only after «Я ВЗРОСЛЫЙ» in the entry popup (src/mat-gate.js), from the encoded
+// dictionary src/mat-dictionary.js that npm run mat:mask keeps up to date.
+// Rules: AGENTS.md, «Мат». Check: npm test.
 
 // Each rule matches the start of a lower-case word and names which letters of
 // the root turn into asterisks (offsets inside the match). Prefixes are listed
@@ -60,6 +62,32 @@ export function maskProfanity(text) {
     last = link.index + link[0].length;
   }
   return result + String(text).slice(last).replace(word, maskWord);
+}
+
+// Pairs { masked: original } (lower case) for every word maskProfanity would change.
+export function collectProfanity(text) {
+  const pairs = {};
+  for (const [found] of String(text).replace(url, ' ').matchAll(word)) {
+    const masked = maskWord(found);
+    if (masked !== found) pairs[masked.toLocaleLowerCase('ru')] = found.toLocaleLowerCase('ru');
+  }
+  return pairs;
+}
+
+// Masked words as they appear on the page («пох*й», «ПОХ*Й»), in lower case.
+export function maskedWords(text) {
+  // Letters, one asterisk, optional letters; not markdown bold or a regex range.
+  return (String(text).match(/(?<![\[\p{L}*-])\p{L}+\*\p{L}*(?![\]*])/gu) || [])
+    .filter(token => /[а-яё]/iu.test(token))
+    .map(token => token.toLocaleLowerCase('ru'));
+}
+
+export function encodeDictionary(pairs) {
+  return Buffer.from(JSON.stringify(pairs), 'utf8').toString('base64');
+}
+
+export function decodeDictionary(encoded) {
+  return JSON.parse(Buffer.from(encoded, 'base64').toString('utf8'));
 }
 
 // Lists unmasked words (and Latin transliterations) found in the text, with line numbers.

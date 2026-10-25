@@ -624,3 +624,35 @@ p { line-height: var(--line-height-body); }
 /* Focus rings only after keyboard navigation (Tab / Shift+Tab). After a click — or a scripted .focus()
    that follows one — no outline is drawn; src/focus-modality.js sets data-input on <html>. */
 html[data-input="pointer"] :focus { outline: none !important; }
+
+/* Entry popup «ТУТ ЕСТЬ МАТ» (src/mat-gate.js): the same bottom surface as the subscribe dialog, above everything. */
+.mat-gate { position: fixed; z-index: 300; inset: 0; color: #fff; }
+.mat-gate__backdrop { position: absolute; inset: 0; background: rgba(0, 0, 0, .6); backdrop-filter: blur(8px); opacity: 0; transition: opacity var(--motion-enter) var(--motion-ease); }
+.mat-gate__panel {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 480px);
+  align-items: end;
+  gap: var(--space-6) var(--landing-grid-gap);
+  max-height: calc(100dvh - 24px);
+  overflow: auto;
+  padding: var(--space-8) var(--landing-gutter) calc(var(--space-8) + env(safe-area-inset-bottom));
+  background: #131313;
+  transform: translateY(100%);
+  transition: transform var(--motion-enter) var(--motion-ease);
+}
+.mat-gate[data-state="open"] .mat-gate__backdrop { opacity: 1; }
+.mat-gate[data-state="open"] .mat-gate__panel { transform: translateY(0); }
+.mat-gate__panel:focus { outline: none; }
+.mat-gate__body h2 { margin: 0 0 var(--space-4); font: 800 var(--font-size-title)/var(--line-height-title) var(--font-display); letter-spacing: 0; overflow-wrap: anywhere; }
+.mat-gate__body p { max-width: 36em; margin: 0; font: 400 var(--font-size-body)/var(--line-height-body) var(--font-body); }
+.mat-gate__actions { display: flex; flex-direction: column; gap: var(--space-4); min-width: 0; }
+@media (max-width: 760px) {
+  .mat-gate__panel { grid-template-columns: minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mat-gate__backdrop, .mat-gate__panel { transition: none; }
+}
