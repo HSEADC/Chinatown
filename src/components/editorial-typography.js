@@ -5,7 +5,7 @@ const types = { artist: 'артист', album: 'альбом', track: 'трек'
 export function entityReferenceView(material, label = material.title) {
   const type = types[material.entity?.type];
   if (!type) throw new TypeError('An entity reference needs an artist, album or track material');
-  return `<a class="story-entity" href="#${escape(material.id)}" data-context-ref="${escape(material.id)}" data-entity-type="${material.entity.type}" aria-label="${escape(label)} — ${type.toLowerCase()}, открыть карточку">${escape(label)}<span class="story-entity__arrow" aria-hidden="true">↗</span></a>`;
+  return `<a class="story-entity" href="#${escape(material.id)}" data-context-ref="${escape(material.id)}" data-entity-type="${material.entity.type}" aria-label="${escape(label)} — ${type.toLowerCase()}, открыть карточку">${escape(label)}</a>`;
 }
 
 /** External quotations need attribution; pullquotes reuse the article's own text. */

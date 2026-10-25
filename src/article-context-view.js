@@ -20,5 +20,5 @@ export function contextMaterialView(material) {
 }
 
 export function contextEntryView(material) {
-  return `<p class="article-context-entry"><span data-context-text><a href="#${escape(material.id)}" data-context-ref="${escape(material.id)}">${escape(material.title)} <span aria-hidden="true">↗</span></a></span></p>`;
+  return `<p class="article-context-entry"><span data-context-text><a href="#${escape(material.id)}" data-context-ref="${escape(material.id)}">${escape(material.title)}</a></span></p>`;
 }
