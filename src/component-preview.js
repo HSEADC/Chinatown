@@ -99,7 +99,7 @@ async function render(){
     }
     case 'links':{
       if(variant==='text')stage(`<p class="specimen-stage__label">Текстовые действия · текущие варианты</p><div class="specimen-links"><a class="text-button" href="./about.html"><span>О НАС</span><img src="./assets/figma/intro-north-east.svg" alt="" aria-hidden="true"></a></div><div class="editorial-prose specimen-prose"><p>Ссылка на <a href="./article.html">источник материала</a> внутри обычного текста.</p></div>`);
-      else if(variant==='entity')stage(`<p class="specimen-stage__label">Упоминания → карточки сущностей</p><div class="specimen-links"><div class="editorial-prose">${entityReferenceView(material('artist-madk1d'))}</div><div class="editorial-prose">${entityReferenceView(material('track-tak-pohuy'))}</div><div class="editorial-prose">${entityReferenceView(material('sexyswag-artwork'),'sexyswag')}</div></div><p class="specimen-stage__label">Поведение карточек — в семействе «Карточки сущностей»</p>`);
+      else if(variant==='entity')stage(`<p class="specimen-stage__label">Упоминания → карточки сущностей</p><div class="specimen-links"><div class="editorial-prose">${entityReferenceView(material('artist-madk1d'))}</div><div class="editorial-prose">${entityReferenceView(material('track-tak'))}</div><div class="editorial-prose">${entityReferenceView(material('sexyswag-artwork'),'sexyswag')}</div></div><p class="specimen-stage__label">Поведение карточек — в семействе «Карточки сущностей»</p>`);
       else stage(`<p class="specimen-stage__label">Иконки из шапки · текущий размер 32 px</p><div class="specimen-links">${[['star','Навигация'],['search','Поиск'],['close','Закрыть'],['menu','Меню']].map(([icon,label])=>`<button class="story-icon" type="button" aria-label="${label}" title="Образец иконки: ${label}"><img src="./assets/figma/article/header/${icon}.svg" alt="" width="32" height="32"></button>`).join('')}</div>`);
       if(variant==='entity')root.querySelectorAll('[data-context-ref]').forEach(link=>link.addEventListener('click',event=>{event.preventDefault();location.href=`./component-preview.html?family=entities&variant=${link.dataset.entityType}&dev=0`;}));
       break;
@@ -132,7 +132,7 @@ async function render(){
     case 'lyrics':{
       await lyricSpecimen(variant==='verse');break;
     }
-    case 'entities':await fullContext({artist:'artist-madk1d',track:'track-tak-pohuy',album:'sexyswag-artwork'}[variant]);break;
+    case 'entities':await fullContext({artist:'artist-madk1d',track:'track-tak',album:'sexyswag-artwork'}[variant]);break;
     case 'context':await fullContext({footnote:'footnote-1',note:'address-note',card:'references'}[variant]);break;
     case 'image':{
       const {page}=await fullArticle({rail:false});
@@ -143,7 +143,7 @@ async function render(){
       if(variant==='scenarios'){
         stage(`<p class="specimen-stage__label">Редакционный сценарий · структура для дизайна</p><div class="editorial-prose specimen-prose"><h2 class="type-h2">Как выбрать подачу</h2><p><strong>Что и в каком порядке произошло?</strong><br>Хронология: 2–6 датированных событий с коротким объяснением.</p><p><strong>Как изменился масштаб?</strong><br>Ряд значений: один показатель, одинаковые единицы, территория и источник. Пропуски сохраняем.</p><p><strong>Что нужно запомнить?</strong><br>Один ключевой факт: значение, его смысл, дата и источник. Сразу после — редакционный вывод.</p><p>Применение к артисту, месту, сообществу, событию и вещи описано рядом с превью в каталоге.</p></div>`);
       }else{
-        const data=variant==='fact'?editorialDataView({id:'spread-fact',type:'fact',title:'Где трек оказался первым',scope:'«Так похуй» · Spotify · Украина · недельный чарт',value:articleCopy.timeline.points[2].position,label:articleCopy.timeline.points[2].date,caption:'Позиция в одном недельном чарте. Она не описывает популярность во всех странах или сервисах.',sources:[{label:articleSources.kworb.label,href:articleSources.kworb.url}]}):articleNode('.editorial-data');
+        const data=variant==='fact'?editorialDataView({id:'spread-fact',type:'fact',title:'Где трек оказался первым',scope:'«Так пох*й» · Spotify · Украина · недельный чарт',value:articleCopy.timeline.points[2].position,label:articleCopy.timeline.points[2].date,caption:'Позиция в одном недельном чарте. Она не описывает популярность во всех странах или сервисах.',sources:[{label:articleSources.kworb.label,href:articleSources.kworb.url}]}):articleNode('.editorial-data');
         stage(`<div class="editorial-prose specimen-prose">${data}</div>`);
       }
       break;

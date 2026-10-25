@@ -65,7 +65,7 @@ test('interaction holds automatic material until blur or selection ends, then ca
 test('entity previews are temporary and cannot replace a manually pinned card', () => {
   const state = { previewId: 'artist-madk1d', automaticId: 'madk1d-live', interactionId: 'sexyswag-artwork' };
   assert.deepEqual(selectContextState(state), { type: 'material', id: 'artist-madk1d', manual: false });
-  assert.deepEqual(selectContextState({ ...state, manualId: 'track-tak-pohuy' }), { type: 'material', id: 'track-tak-pohuy', manual: true });
+  assert.deepEqual(selectContextState({ ...state, manualId: 'track-tak' }), { type: 'material', id: 'track-tak', manual: true });
   assert.deepEqual(selectContextState({ ...state, previewId: null }), { type: 'material', id: 'sexyswag-artwork', manual: false });
 });
 

@@ -34,7 +34,7 @@ function renderPage({ focus = false } = {}) {
   syncHeaderHeight();
   document.body.dataset.mediaPage = isArticle ? 'article' : 'home';
   renderedRoute = location.pathname + location.search;
-  document.title = isArticle ? `${articleTitle} — CHINATOWN.RU` : landingTitle;
+  document.title = isArticle ? `${articleTitle} — chinatown.site` : landingTitle;
   sceneRail.refresh();
   disposeArticle = mountArticle(content.querySelector('.story-page'), header, sceneRail);
   disposeVideos = mountEditorialVideos(content);

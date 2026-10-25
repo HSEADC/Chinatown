@@ -7,6 +7,8 @@
     "build": "node scripts/build.mjs",
     "test": "node --test",
     "article:generate": "node scripts/generate-article.mjs",
-    "video:prepare": "node scripts/prepare-videos.mjs"
+    "video:prepare": "node scripts/prepare-videos.mjs",
+    "mat:mask": "node scripts/mask-profanity.mjs",
+    "mat:check": "node scripts/mask-profanity.mjs --check"
   }
 }

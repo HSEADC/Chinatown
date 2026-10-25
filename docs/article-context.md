@@ -4,7 +4,7 @@
 
 Правила оформления ссылок, упоминаний артистов / альбомов / треков, акцентов и цитат: [editorial-typography.md](editorial-typography.md).
 
-Тексты редактируются в `src/article-context-data.js`. Набор `madk1dContext` относится к статье `madk1d-tak-pohuy`; для следующей статьи добавьте свой набор в `articleContexts` и укажите его ID в `data-article-id` корневого элемента статьи.
+Тексты редактируются в `src/article-context-data.js`. Набор `madk1dContext` относится к статье `madk1d-tak`; для следующей статьи добавьте свой набор в `articleContexts` и укажите его ID в `data-article-id` корневого элемента статьи.
 
 - `materials`: стабильный `id`, `kind: 'footnote'` или `'card'`, абзацы `paragraphs`. Необязательны `title`, `image` (путь, alt, размеры, кредит) и `sources` (обычные ссылки с подписью). Текст хранится здесь один раз. Для сноски `backTo` задаёт ID обратной ссылки.
 - Существующую фотографию с подписью можно подключить без новой копии: у её `figure` задайте `id` и `data-context-material`, добавьте этот ID в `materials` и свяжите с главой. Так подключена обложка `sexyswag-artwork`: на широком экране она находится в плашке всю главу «Альбом после припева», на узком и без JavaScript — в основном тексте.
@@ -46,7 +46,7 @@
 
 Браузерная проверка механики: `deliverables/right-curtain/validation.json`; проверка четырёх состояний Figma: `figma-validation.json`. Скриншоты реализации: `implemented-expanded.png`, `implemented-expanded-hover.png`, `implemented-collapsed.png`, `implemented-collapsed-hover.png`; эталоны находятся в подпапке `figma/`. Исходный анализ и требования сохранены в `deliverables/right-curtain-spotify-review.md` и `deliverables/right-curtain-spotify-prompt.md`.
 
-## Редакционная версия «Так похуй»
+## Редакционная версия «Так пох*й»
 
 Согласованный текст статьи хранится в `src/article-copy.js`, справки — в `src/article-context-data.js`. Хронология и её вводный текст входят в одну главу `spread`; у финальной главы `return` нет автоматической карточки, поэтому до конца статьи показывается фоновое видео. Старые якоря статьи сохранены.
 

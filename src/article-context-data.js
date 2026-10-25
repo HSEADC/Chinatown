@@ -1,6 +1,6 @@
 // One automatic context per chapter. IDs are section anchors in article-view.js.
 export const madk1dContext = {
-  "articleId": "madk1d-tak-pohuy",
+  "articleId": "madk1d-tak",
   "materials": [
     {
       "id": "artist-madk1d",
@@ -27,7 +27,7 @@ export const madk1dContext = {
         "height": 1984
       },
       "paragraphs": [
-        "Музыкант, выпустивший альбом sexyswag весной 2025 года. В этой статье разбираем одну песню с него — «Так похуй».",
+        "Музыкант, выпустивший альбом sexyswag весной 2025 года. В этой статье разбираем одну песню с него — «Так пох*й».",
         "Рассказчик трека — персонаж. Его реплики не дают оснований восстанавливать личную жизнь музыканта."
       ],
       "sources": [
@@ -38,10 +38,10 @@ export const madk1dContext = {
       ]
     },
     {
-      "id": "track-tak-pohuy",
+      "id": "track-tak",
       "kind": "card",
       "mobile": "screen",
-      "title": "Так похуй",
+      "title": "Так пох*й",
       "entity": {
         "type": "track",
         "details": [
@@ -65,7 +65,7 @@ export const madk1dContext = {
       },
       "image": {
         "src": "./assets/figma/article/rail/sexyswag.png",
-        "alt": "Обложка альбома sexyswag, в который вошёл «так похуй»",
+        "alt": "Обложка альбома sexyswag, в который вошёл «так пох*й»",
         "width": 642,
         "height": 634
       },
@@ -78,7 +78,7 @@ export const madk1dContext = {
       },
       "sources": [
         {
-          "label": "Shazam: сведения о треке «Так похуй»",
+          "label": "Shazam: сведения о треке «Так пох*й»",
           "href": "https://www.shazam.com/ru-ru/song/1802942825/так-похуй"
         }
       ]
@@ -167,7 +167,7 @@ export const madk1dContext = {
       ],
       "sources": [
         {
-          "label": "Kworb: недельная история «Так похуй» в Spotify",
+          "label": "Kworb: недельная история «Так пох*й» в Spotify",
           "href": "https://kworb.net/spotify/track/1dpHnn6eh4Pz55UproSdJv.html"
         }
       ]
@@ -184,7 +184,7 @@ export const madk1dContext = {
       ],
       "sources": [
         {
-          "label": "Kworb: недельная история «Так похуй» в Spotify",
+          "label": "Kworb: недельная история «Так пох*й» в Spotify",
           "href": "https://kworb.net/spotify/track/1dpHnn6eh4Pz55UproSdJv.html"
         },
         {
@@ -216,7 +216,7 @@ export const madk1dContext = {
         ]
       },
       "paragraphs": [
-        "На этом альбоме вышел «Так похуй». В оформлении обложки использована стилизация под страницу поиска.",
+        "На этом альбоме вышел «Так пох*й». В оформлении обложки использована стилизация под страницу поиска.",
         "Увеличить обложку — нажать на изображение. Открыть релиз — по кнопке «Слушать»."
       ],
       "listen": {
@@ -225,7 +225,7 @@ export const madk1dContext = {
       },
       "sources": [
         {
-          "label": "Shazam: сведения о треке «Так похуй»",
+          "label": "Shazam: сведения о треке «Так пох*й»",
           "href": "https://www.shazam.com/ru-ru/song/1802942825/так-похуй"
         },
         {
@@ -239,7 +239,7 @@ export const madk1dContext = {
     {
       "id": "artist",
       "anchorId": "artist-intro",
-      "materialId": "track-tak-pohuy"
+      "materialId": "track-tak"
     },
     {
       "id": "quote"

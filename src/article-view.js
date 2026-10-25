@@ -27,7 +27,7 @@ function paragraphView(copyId, index) {
   if (copyId === 'start' && index === 0) {
     id = 'artist-intro';
     text = text.replace('madk1d', entity('artist-madk1d', 'madk1d'))
-      .replace('«Так похуй»', entity('track-tak-pohuy', '«Так похуй»'))
+      .replace('«Так пох*й»', entity('track-tak', '«Так пох*й»'))
       .replace('sexyswag', entity('sexyswag-artwork', 'sexyswag'));
   }
   if (copyId === 'analysis') id = ['chorus-doubt', 'chorus-conflict'][index] || '';
@@ -40,7 +40,7 @@ function paragraphView(copyId, index) {
   if (copyId === 'spread' && index === 1) text = text.replace('недельные позиции', contextLink('spread-method', 'недельные позиции'));
   if (copyId === 'reach' && index === 0) text = text.replace('300%', contextLink('reach-note', '300%'));
   if (copyId === 'album' && index === 0) text = text.replace('sexyswag', entity('sexyswag-artwork', 'sexyswag'));
-  if (copyId === 'return' && index === 0) text = text.replace('«Так похуй»', entity('track-tak-pohuy', '«Так похуй»'));
+  if (copyId === 'return' && index === 0) text = text.replace('«Так пох*й»', entity('track-tak', '«Так пох*й»'));
   return `<p id="${id || `${copyId}-paragraph-${index + 1}`}"><span data-context-text>${text}</span></p>`;
 }
 
@@ -64,7 +64,7 @@ function nextStoryView() {
 function timelineView() {
   const timeline = articleCopy.timeline;
   return `${editorialDataView({
-    id: 'spread-timeline', title: timeline.title, scope: '«Так похуй» · Spotify · украина · недельный чарт',
+    id: 'spread-timeline', title: timeline.title, scope: '«Так пох*й» · Spotify · украина · недельный чарт',
     points: timeline.points.map(point => ({ ...point, label: point.position })),
     caption: timeline.caption, sources: [{ label: 'Kworb', href: articleSources.kworb.url }],
   })}
@@ -75,7 +75,7 @@ function timelineView() {
 function concertTextView() {
   const { title, lyrics } = articleCopy.concert;
   if (!lyrics.length) return `<div class="story-quote-scene__lyrics"><p>${escape(title)}</p></div>`;
-  return `<blockquote class="story-quote-scene__lyrics" aria-label="Припев «Так похуй»" data-node-id="125:6">${lyrics.map((line, index) => `<p${index ? '' : ' class="is-current"'} data-quote-line>${escape(line)}</p>`).join('')}</blockquote>`;
+  return `<blockquote class="story-quote-scene__lyrics" aria-label="Припев «Так пох*й»" data-node-id="125:6">${lyrics.map((line, index) => `<p${index ? '' : ' class="is-current"'} data-quote-line>${escape(line)}</p>`).join('')}</blockquote>`;
 }
 
 function quoteSceneView({ id, text, caption, hasLyrics = true, figma = false }) {
@@ -92,7 +92,7 @@ function quoteSceneView({ id, text, caption, hasLyrics = true, figma = false }) 
 
 function verseExcerptView() {
   const { stanzas } = articleCopy.verseExcerpt;
-  const text = `<blockquote class="story-quote-scene__lyrics" aria-label="Куплет «Так похуй»">${stanzas.map((lines, stanzaIndex) => lines.map((line, lineIndex) => `<p${stanzaIndex === 0 && lineIndex === 0 ? ' class="is-current"' : ''} data-quote-line data-lyric-line>${escape(line.text)}</p>`).join('')).join('<p class="story-quote-scene__break" role="separator" aria-label="Пропуск строк">***</p>')}</blockquote>`;
+  const text = `<blockquote class="story-quote-scene__lyrics" aria-label="Куплет «Так пох*й»">${stanzas.map((lines, stanzaIndex) => lines.map((line, lineIndex) => `<p${stanzaIndex === 0 && lineIndex === 0 ? ' class="is-current"' : ''} data-quote-line data-lyric-line>${escape(line.text)}</p>`).join('')).join('<p class="story-quote-scene__break" role="separator" aria-label="Пропуск строк">***</p>')}</blockquote>`;
   return quoteSceneView({ id: 'verse-excerpt', text });
 }
 
@@ -179,11 +179,11 @@ export function articleView() {
         <div class="story-cover__intro-row" data-node-id="293:210">
           <p class="story-cover__intro" data-node-id="293:209">${escape(articleDescription)}</p>
         </div>
-        <h1 class="story-cover__title" id="article-title" data-node-id="290:74"><span class="story-cover__artist"><span class="media-accent">madk1d</span></span> — «Так похуй»: почему этот припев прилип</h1>
+        <h1 class="story-cover__title" id="article-title" data-node-id="290:74"><span class="story-cover__artist"><span class="media-accent">madk1d</span></span> — «Так пох*й»: почему этот припев прилип</h1>
       </header>
       <div class="story-content" id="article-content" tabindex="-1">
         ${sectionView('artist', 'start', {
-          afterParagraph: { 0: contextMaterialView(material('artist-madk1d')) + contextMaterialView(material('track-tak-pohuy')) },
+          afterParagraph: { 0: contextMaterialView(material('artist-madk1d')) + contextMaterialView(material('track-tak')) },
           after: `<div id="chorus">${contextEntryView(material('madk1d-live'))}</div>${contextMaterialView(material('madk1d-live'))}`,
         })}
         ${quoteSceneView({ id: 'quote', text: concertTextView(), hasLyrics: !!articleCopy.concert.lyrics.length, figma: true })}

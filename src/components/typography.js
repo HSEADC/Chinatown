@@ -8,7 +8,7 @@ export const typographySpecimens = [
   { id:'h2', label:'H2', node:'388:786', textNode:'388:771', className:'type-h2', size:'36 / 48', font:'Giga Sans ExtraBold', text:'Тут все началось' },
   { id:'h3', label:'H3', node:'388:787', textNode:'388:773', className:'type-h3', size:'14 / 16', font:'Giga Sans ExtraBold', text:'Тут все закончилось' },
   { id:'body', label:'Body', node:'388:788', textNode:'388:775', className:'type-body', size:'16 / 26', font:'Giga Sans Regular', text:body + body },
-  { id:'caption', label:'Caption', node:'388:789', textNode:'388:777', className:'type-caption', size:'12 / 16', font:'Giga Sans Regular', text:'Какая-то подпись милипиздрючка' },
+  { id:'caption', label:'Caption', node:'388:789', textNode:'388:777', className:'type-caption', size:'12 / 16', font:'Giga Sans Regular', text:'Какая-то подпись милип*здрючка' },
   { id:'quote', label:'Цитата / строка', node:'388:793', textNode:'388:778', className:'type-quote', size:'32 / 38,4', font:'Benzin Bold', text:'Цитата/строчка песни' },
 ];
 
