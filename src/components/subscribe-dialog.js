@@ -33,19 +33,14 @@ export function subscribeDialogMarkup() {
     </div>`;
 }
 
-/** The pink «Следить за обновлениями» at the end of a feed; it opens the subscribe dialog. */
-export function createFollowAction(text = 'это всё, что есть сейчас. новые материалы пришлём первыми') {
-  const block = document.createElement('div');
-  block.className = 'follow-action';
-  const note = document.createElement('p');
-  note.className = 'follow-action__text';
-  note.textContent = text;
+/** The pink «Следить за обновлениями» at the end of a feed, edge to edge; it opens the subscribe dialog. */
+export function createFollowAction() {
   const button = createActionButton({ label: 'Следить за обновлениями' });
+  button.classList.add('follow-action');
   button.dataset.subscribeOpen = '';
   button.setAttribute('aria-haspopup', 'dialog');
   button.setAttribute('aria-controls', 'subscribe-modal');
-  block.append(note, button);
-  return block;
+  return button;
 }
 
 /**
