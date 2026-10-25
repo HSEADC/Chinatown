@@ -15,7 +15,7 @@ export function siteFooterMarkup() {
         <form class="site-footer__form" action="https://formspree.io/f/xkjjgwgy" method="POST" novalidate>
           <label class="visually-hidden" for="site-footer-email">электропочта</label>
           <input class="email-field email-field--ink" id="site-footer-email" name="email" type="email" placeholder="электропочта" autocomplete="email" inputmode="email" aria-describedby="site-footer-status" required>
-          <button class="action-button--ink" type="submit" data-action-button>подписаться</button>
+          <button class="action-button--ink" type="submit" data-action-button>ПОДПИСАТЬСЯ</button>
           <p class="site-footer__status" id="site-footer-status" role="status" aria-live="polite"></p>
         </form>
         <img class="site-footer__star" src="${asset('figma/footer-star.svg')}" alt="" aria-hidden="true" width="515" height="515" loading="lazy" decoding="async">

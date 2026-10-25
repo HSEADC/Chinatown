@@ -39,7 +39,7 @@ export function homeView() {
         <h1 class="landing-hero__title type-display" id="landing-title"><span class="media-accent">CHINATOWN<wbr>.site</span> — гид и архив центра Москвы</h1>
         <div class="landing-hero__row">
           <p class="landing-hero__lead type-body">куда пойти в центре москвы, кроме бара, и что здесь происходило, пока сцена ещё жива.</p>
-          <a class="landing-hero__action" href="./article.html" data-media-route data-action-button>читать первый материал</a>
+          <a class="landing-hero__action" href="./article.html" data-media-route data-action-button>Читать первый материал</a>
         </div>
       </div>
     </section>
