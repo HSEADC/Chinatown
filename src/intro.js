@@ -37,7 +37,7 @@ function showCopyFeedback(success, point) {
   copyStatus.dataset.state = success ? 'success' : 'error';
   // Success is a sticker answering the reader's click (a бах on the spot); an error stays a plain interface plate.
   if (success) copyStatus.innerHTML = `<span class="visually-hidden">Ссылка скопирована</span>${burstLinkMarkup({ label: 'Скопировано' })}`;
-  else copyStatus.textContent = 'Не удалось скопировать ссылку.';
+  else copyStatus.textContent = 'не получилось скопировать ссылку';
   const rect = headline.getBoundingClientRect();
   const x = point ? point.x + 24 : rect.left;
   const y = point ? point.y + 48 : rect.bottom + 16;

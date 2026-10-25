@@ -17,19 +17,19 @@ export function mountEmailSubscribe(form, { signal } = {}) {
     emailInput.value = email;
     if (!emailInput.checkValidity()) {
       emailInput.setAttribute('aria-invalid', 'true');
-      status.textContent = 'Введите корректный адрес электропочты.';
+      status.textContent = 'проверь адрес электропочты';
       emailInput.focus();
       return;
     }
 
     const endpoint = form.action;
     if (!/^https:\/\/formspree\.io\/f\/[a-z0-9]+\/?$/i.test(endpoint)) {
-      status.textContent = 'Форма пока не настроена. Попробуйте позже.';
+      status.textContent = 'форма пока не настроена, попробуй позже';
       return;
     }
 
     submitButton.disabled = true;
-    status.textContent = 'Отправляем…';
+    status.textContent = 'отправляем…';
     try {
       const response = await fetch(endpoint, {
         method: 'POST',
@@ -37,7 +37,7 @@ export function mountEmailSubscribe(form, { signal } = {}) {
         body: new FormData(form),
       });
       if (response.status === 429) {
-        status.textContent = 'Слишком много попыток. Попробуйте позже.';
+        status.textContent = 'слишком много попыток, попробуй позже';
         return;
       }
       if (!response.ok) {
@@ -46,13 +46,13 @@ export function mountEmailSubscribe(form, { signal } = {}) {
         if (errors.some((error) => error?.field === 'email')) {
           emailInput.setAttribute('aria-invalid', 'true');
         }
-        status.textContent = errors.map((error) => error?.message).filter((message) => typeof message === 'string').join(' ') || 'Не удалось отправить адрес. Попробуйте ещё раз.';
+        status.textContent = errors.map((error) => error?.message).filter((message) => typeof message === 'string').join(' ') || 'не получилось отправить адрес, попробуй ещё раз';
         return;
       }
       form.reset();
-      status.textContent = 'Готово! Заявка отправлена.';
+      status.textContent = 'готово, ты в списке';
     } catch {
-      status.textContent = 'Не удалось отправить адрес. Попробуйте ещё раз.';
+      status.textContent = 'не получилось отправить адрес, попробуй ещё раз';
     } finally {
       submitButton.disabled = false;
     }

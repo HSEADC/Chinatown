@@ -112,7 +112,7 @@ export function mountArticleHeader(header, onChange, page = header.closest('.sto
     const query = input.value.trim().toLocaleLowerCase('ru');
     if (!searchOpen) return;
     const matches = searchFeed(query);
-    status.textContent = matches.length ? '' : 'Ничего не найдено. Попробуй другое слово.';
+    status.textContent = matches.length ? '' : 'ничего не найдено. попробуй другое слово';
     const rows = searchRows(matches.length);
     for (const [index, article] of matches.entries()) {
       const item = document.createElement('li');

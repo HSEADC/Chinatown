@@ -38,7 +38,7 @@ button { font: inherit; cursor: pointer; }
 .headline-glitch__glyph.is-active { opacity: 1; }
 .headline-glitch--soft .headline-glitch__source { transition-duration: 220ms; }
 .headline-glitch--soft .headline-glitch__glyph { transition-duration: 220ms; }
-.text-button { display: inline-flex; align-items: center; justify-content: center; gap: 0; padding: 0; border: 0; border-radius: 0; background: transparent; color: inherit; font-family: var(--font-display); font-size: var(--font-size-button); font-weight: 700; line-height: var(--line-height-button); letter-spacing: var(--letter-spacing-display); text-transform: uppercase; white-space: nowrap; cursor: pointer; }
+.text-button { display: inline-flex; align-items: center; justify-content: center; gap: 0; padding: 0; border: 0; border-radius: 0; background: transparent; color: inherit; font-family: var(--font-display); font-size: var(--font-size-button); font-weight: 700; line-height: var(--line-height-button); letter-spacing: var(--letter-spacing-display); text-transform: lowercase; white-space: nowrap; cursor: pointer; }
 .text-button > span { text-box-trim: trim-both; text-box-edge: cap alphabetic; }
 .text-button > img { display: block; width: 1.5em; height: 1.5em; flex: none; transition: transform .2s ease; }
 .text-button:hover > img { transform: translateX(.13em); }
@@ -265,7 +265,7 @@ body.intro-active { overflow: hidden; }
     font-weight: 700;
     line-height: var(--line-height-caption);
     letter-spacing: .02em;
-    text-transform: uppercase;
+    text-transform: lowercase;
     white-space: nowrap;
   }
 }

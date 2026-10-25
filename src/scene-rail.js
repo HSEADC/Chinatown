@@ -175,7 +175,7 @@ export function mountSceneRail(content) {
       else status.textContent = '';
     } catch {
       if (!controller.signal.aborted && playbackAllowed()) {
-        status.textContent = 'Нажмите ▶';
+        status.textContent = 'нажми ▶';
         updateControls();
       }
     }
@@ -304,7 +304,7 @@ export function mountSceneRail(content) {
   video.addEventListener('ended', () => { if (!article) nextClip(); }, options);
   video.addEventListener('error', () => {
     failed = true;
-    status.textContent = 'Видео недоступно';
+    status.textContent = 'видео недоступно';
     updateControls();
   }, options);
   document.addEventListener('visibilitychange', () => { syncAvailability(); syncPlayback(); }, options);
@@ -335,7 +335,7 @@ export function mountSceneRail(content) {
       manifestFailed = true;
       failed = true;
       play.hidden = true;
-      status.textContent = 'Видео недоступно';
+      status.textContent = 'видео недоступно';
       updateControls();
       refresh();
     }

@@ -12,8 +12,8 @@ export const madk1dContext = {
         "subtitle": "Марк Робертович Серков",
         "details": [
           {
-            "label": "Город",
-            "value": "Томск"
+            "label": "город",
+            "value": "томск"
           }
         ]
       },
@@ -44,7 +44,7 @@ export const madk1dContext = {
         "subtitle": "madk1d",
         "details": [
           {
-            "label": "Альбом",
+            "label": "альбом",
             "value": "sexyswag"
           }
         ]
@@ -91,7 +91,7 @@ export const madk1dContext = {
       },
       "sources": [
         {
-          "label": "Запись выступления · с 6:57",
+          "label": "запись выступления · с 6:57",
           "href": "https://www.youtube.com/watch?v=7r8eppkaOZM&t=417s"
         }
       ]

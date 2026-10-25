@@ -1,6 +1,6 @@
 // The same markup is used by static articles and client-side navigation.
 const escape = value => String(value).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
-const types = { artist: 'Артист', album: 'Альбом', track: 'Трек' };
+const types = { artist: 'артист', album: 'альбом', track: 'трек' };
 
 export function entityReferenceView(material, label = material.title) {
   const type = types[material.entity?.type];

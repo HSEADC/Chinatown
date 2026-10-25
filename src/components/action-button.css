@@ -16,7 +16,7 @@
   color: #fff;
   font: 700 var(--font-size-button)/var(--line-height-button) var(--font-display);
   letter-spacing: var(--button-tracking);
-  text-transform: uppercase;
+  text-transform: lowercase;
   text-decoration: none;
   cursor: pointer;
   transition: background-color 120ms ease;
@@ -40,7 +40,7 @@
   padding: var(--button-label-padding);
   font: 700 var(--font-size-button)/var(--line-height-button) var(--font-display);
   letter-spacing: var(--button-tracking);
-  text-transform: uppercase;
+  text-transform: lowercase;
   text-box-trim: none;
   white-space: nowrap;
 }
