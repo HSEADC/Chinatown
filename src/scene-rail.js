@@ -195,6 +195,10 @@ export function mountSceneRail(content) {
 
   function render() {
     frame = 0;
+    // The site footer runs under the rail to the window edge; once it scrolls into view the rail rides up with the page.
+    const footer = content.querySelector('.site-footer');
+    const lift = footer ? Math.max(0, innerHeight - footer.getBoundingClientRect().top) : 0;
+    rail.style.setProperty('--scene-rail-lift', `${lift}px`);
     const nextCoverVisible = !!cover && cover.getBoundingClientRect().bottom > 0;
     // Keep the article rail rendered so CSS can animate both entry and exit.
     rail.hidden = (manifestFailed || railOff) && !article;
