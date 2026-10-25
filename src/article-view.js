@@ -31,7 +31,7 @@ function paragraphView(copyId, index) {
       .replace('sexyswag', entity('sexyswag-artwork', 'sexyswag'));
   }
   if (copyId === 'analysis') id = ['chorus-doubt', 'chorus-conflict'][index] || '';
-  if (copyId === 'delivery' && index === 1) {
+  if (copyId === 'delivery' && index === 2) {
     text = text.replace('подача¹', 'подача<sup><a class="story-footnote-ref" id="footnote-ref-1" href="#footnote-1" data-context-ref="footnote-1" aria-label="Сноска 1: что такое подача" role="doc-noteref">1</a></sup>');
   }
   if (copyId === 'verse' && index === 1) {
@@ -188,7 +188,7 @@ export function articleView() {
         })}
         ${quoteSceneView({ id: 'quote', text: concertTextView(), hasLyrics: !!articleCopy.concert.lyrics.length, figma: true })}
         ${sectionView('chorus-freedom', 'analysis', { analysis: true, afterParagraph: { 0: contextMaterialView(material('address-note')) } })}
-        ${sectionView('delivery', 'delivery', { afterParagraph: { 1: contextMaterialView(material('footnote-1')) } })}
+        ${sectionView('delivery', 'delivery', { afterParagraph: { 2: contextMaterialView(material('footnote-1')) } })}
         ${sectionView('verse', 'verse', { to: 1 })}
         ${verseExcerptView()}
         ${sectionView('verse-analysis', 'verse', { from: 1, heading: false, labelledBy: 'verse-title', afterParagraph: { 1: referencesView() } })}
