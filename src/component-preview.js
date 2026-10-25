@@ -29,7 +29,7 @@ async function lyricSpecimen(isVerse=false){
 }
 async function sourceDocument(path){const response=await fetch(path);if(!response.ok)throw new Error(`Не удалось загрузить ${path}`);return parse(await response.text());}
 
-async function subscription({buttonLabel='попасть в вайт-лист',open=false,disabled=false,secondary=false}={}){
+async function subscription({buttonLabel='ПОПАСТЬ В ВАЙТ-ЛИСТ',open=false,disabled=false,secondary=false}={}){
   const source=await sourceDocument('./index.html');
   stage(`<p class="specimen-stage__label">ActionButton · ${secondary?'Figma 388:752':'Figma 276:101 / 388:748'}</p><div class="specimen-button-place" id="intro"></div>`);
   const button=createActionButton({label:buttonLabel,variant:secondary?'secondary':'primary'});button.id='intro-whitelist';button.disabled=disabled;
@@ -85,7 +85,7 @@ async function render(){
   document.body.dataset.specimen=family.id;
   switch(family.id){
     case 'action':
-      await subscription({buttonLabel:variant==='subscribe'?'подписаться':'попасть в вайт-лист',disabled:variant==='disabled',secondary:variant==='secondary'});break;
+      await subscription({buttonLabel:variant==='subscribe'?'ПОДПИСАТЬСЯ':'ПОПАСТЬ В ВАЙТ-ЛИСТ',disabled:variant==='disabled',secondary:variant==='secondary'});break;
     case 'email':{
       const source=await sourceDocument('./index.html');
       stage('<label class="specimen-stage__label" for="subscribe-email">EmailField · Figma 388:756</label><div class="specimen-email-place"></div><p class="specimen-type-caption" id="email-specimen-status" role="status" aria-live="polite"></p>');
@@ -98,7 +98,7 @@ async function render(){
       break;
     }
     case 'links':{
-      if(variant==='text')stage(`<p class="specimen-stage__label">Текстовые действия · текущие варианты</p><div class="specimen-links"><a class="text-button" href="./about.html"><span>о нас</span><img src="./assets/figma/intro-north-east.svg" alt="" aria-hidden="true"></a></div><div class="editorial-prose specimen-prose"><p>Ссылка на <a href="./article.html">источник материала</a> внутри обычного текста.</p></div>`);
+      if(variant==='text')stage(`<p class="specimen-stage__label">Текстовые действия · текущие варианты</p><div class="specimen-links"><a class="text-button" href="./about.html"><span>О НАС</span><img src="./assets/figma/intro-north-east.svg" alt="" aria-hidden="true"></a></div><div class="editorial-prose specimen-prose"><p>Ссылка на <a href="./article.html">источник материала</a> внутри обычного текста.</p></div>`);
       else if(variant==='entity')stage(`<p class="specimen-stage__label">Упоминания → карточки сущностей</p><div class="specimen-links"><div class="editorial-prose">${entityReferenceView(material('artist-madk1d'))}</div><div class="editorial-prose">${entityReferenceView(material('track-tak-pohuy'))}</div><div class="editorial-prose">${entityReferenceView(material('sexyswag-artwork'),'sexyswag')}</div></div><p class="specimen-stage__label">Поведение карточек — в семействе «Карточки сущностей»</p>`);
       else stage(`<p class="specimen-stage__label">Иконки из шапки · текущий размер 32 px</p><div class="specimen-links">${[['star','Навигация'],['search','Поиск'],['close','Закрыть'],['menu','Меню']].map(([icon,label])=>`<button class="story-icon" type="button" aria-label="${label}" title="Образец иконки: ${label}"><img src="./assets/figma/article/header/${icon}.svg" alt="" width="32" height="32"></button>`).join('')}</div>`);
       if(variant==='entity')root.querySelectorAll('[data-context-ref]').forEach(link=>link.addEventListener('click',event=>{event.preventDefault();location.href=`./component-preview.html?family=entities&variant=${link.dataset.entityType}&dev=0`;}));

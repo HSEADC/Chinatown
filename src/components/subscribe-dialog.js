@@ -24,7 +24,7 @@ export function subscribeDialogMarkup() {
           <form class="subscribe-modal__form" id="subscribe-form" action="https://formspree.io/f/xkjjgwgy" method="POST" novalidate>
             <label class="visually-hidden" for="subscribe-email">электропочта</label>
             <input class="email-field" id="subscribe-email" name="email" type="email" placeholder="электропочта" autocomplete="email" inputmode="email" aria-describedby="subscribe-status" required>
-            <button class="action-button" data-action-button type="submit">подписаться</button>
+            <button class="action-button" data-action-button type="submit">ПОДПИСАТЬСЯ</button>
             <p class="subscribe-modal__status" id="subscribe-status" role="status" aria-live="polite"></p>
           </form>
         </div>
@@ -40,7 +40,7 @@ export function createFollowAction(text = 'это всё, что есть сей
   const note = document.createElement('p');
   note.className = 'follow-action__text';
   note.textContent = text;
-  const button = createActionButton({ label: 'следить за обновлениями' });
+  const button = createActionButton({ label: 'Следить за обновлениями' });
   button.dataset.subscribeOpen = '';
   button.setAttribute('aria-haspopup', 'dialog');
   button.setAttribute('aria-controls', 'subscribe-modal');
