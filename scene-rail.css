@@ -12,8 +12,11 @@
 .media-site-header > .story-header { position: relative; }
 .has-scene-rail #media-content { margin-right: var(--scene-rail-width); transition: margin-right var(--scene-motion); }
 .scene-rail { position: fixed; z-index: 45; inset: var(--scene-rail-top, 0px) 0 0 auto; width: var(--scene-rail-width, 0px); overflow: visible; background: var(--scene-rail-bg); color: #fff; transition: width var(--scene-motion), top 220ms cubic-bezier(.16, 1, .3, 1); }
-/* The rail rides up off the site footer as it scrolls into view (scene-rail.js). */
+/* The rail rides up off the footer's pink band as it scrolls into view (scene-rail.js); the band's star, a sticker,
+   stays on top of the rail, while the footer's empty top space lets clicks through to the rail's controls. */
 .scene-rail { translate: 0 calc(-1 * var(--scene-rail-lift, 0px)); }
+.has-scene-rail .site-footer { z-index: 46; pointer-events: none; }
+.has-scene-rail .site-footer__band { pointer-events: auto; }
 .scene-rail__video, .scene-rail__shade { position: absolute; inset: 0; width: 100%; height: 100%; }
 .scene-rail__video { display: block; object-fit: cover; }
 .scene-rail__shade { pointer-events: none; background: linear-gradient(180deg, #0009, transparent 30%, transparent 60%, #000b); }
