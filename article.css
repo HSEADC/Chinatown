@@ -77,7 +77,6 @@
 /* The card with a бах-кнопка rises above its neighbours so the sticker overlaps them instead of being cut. */
 .story-search__results li:has(.ct-big-burst) { position: relative; z-index: 1; }
 .story-search-result .ct-big-burst--small .ct-big-burst__label { font-size: var(--font-size-card-artist); line-height: var(--line-height-card-artist); }
-.story-search-result .ct-big-burst--small .ct-big-burst__text { padding: var(--space-2) 0 0 var(--space-2); }
 .story-search__results li[data-size="small"] a.story-search-result { min-height: 260px; padding: var(--space-6) var(--space-5) var(--space-8); --tags-right: 16px; }
 .story-search__results li[data-size="small"] .story-search-result__body > span:first-child { font-size: var(--font-size-label); line-height: var(--line-height-label); }
 .story-search__results li .story-search-result:has(.ct-burst) .story-search-result__body { padding-right: var(--space-24); }

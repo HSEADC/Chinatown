@@ -158,3 +158,102 @@ export function mountBigBursts(root) {
     shell.disconnect();
   };
 }
+
+// Every бах keeps its words inside its own outline: --burst-text-inset (16px desktop, 8px phone) clear of the black
+// contour, on all three boiling frames. The type size from CSS is the most it may be; when the words do not fit the
+// burst at that size they shrink, and the block shifts to the roomiest spot between the spikes.
+const fitted = new WeakSet();
+let burstSize;
+
+function framePolygons(burst) {
+  const shape = [...burst.querySelectorAll('.ct-big-burst__shape')].find(svg => getComputedStyle(svg).display !== 'none');
+  if (!shape) return null;
+  const [, , viewWidth, viewHeight] = shape.getAttribute('viewBox').split(/[\s,]+/).map(Number);
+  const width = burst.offsetWidth;
+  const height = burst.offsetHeight;
+  const scale = Math.min(width / viewWidth, height / viewHeight);
+  const left = (width - viewWidth * scale) / 2;
+  const top = (height - viewHeight * scale) / 2;
+  const frames = [...shape.querySelectorAll('.ct-big-burst__frames polygon')];
+  const style = getComputedStyle(frames[0]);
+  const stroke = parseFloat(style.strokeWidth) * (style.vectorEffect === 'non-scaling-stroke' ? 1 : scale);
+  const polygons = frames.map(frame => frame.getAttribute('points').trim().split(/\s+/).map(pair => {
+    const [x, y] = pair.split(',').map(Number);
+    return [left + x * scale, top + y * scale];
+  }));
+  return { polygons, stroke, width, height };
+}
+
+function pointInside(polygon, x, y) {
+  let inside = false;
+  for (let i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
+    const [xi, yi] = polygon[i];
+    const [xj, yj] = polygon[j];
+    if ((yi > y) !== (yj > y) && x < (xj - xi) * (y - yi) / (yj - yi) + xi) inside = !inside;
+  }
+  return inside;
+}
+
+// A box lies inside a polygon when its corners do and no vertex of the outline pokes into it.
+function boxInside(polygons, left, top, right, bottom) {
+  return polygons.every(polygon => [[left, top], [right, top], [right, bottom], [left, bottom]].every(([x, y]) => pointInside(polygon, x, y))
+    && !polygon.some(([x, y]) => x > left && x < right && y > top && y < bottom));
+}
+
+export function fitBurstText(burst) {
+  const text = burst.querySelector('.ct-big-burst__text');
+  const outline = text && burst.offsetWidth ? framePolygons(burst) : null;
+  if (!outline) return;
+  const words = text.firstElementChild || text;
+  words.style.removeProperty('font-size');
+  text.style.removeProperty('translate');
+  // Layout sizes ignore the burst's tilt; the text box is max-content wide, so it is exactly the widest word.
+  const wordsWidth = text.offsetWidth;
+  const wordsHeight = text.offsetHeight;
+  if (!wordsWidth) return;
+  const inset = (parseFloat(getComputedStyle(burst).getPropertyValue('--burst-text-inset')) || 0) + outline.stroke / 2;
+  const { polygons, width, height } = outline;
+  let best = { scale: 0, x: 0, y: 0 };
+  // Try the centre first, then nearby spots; keep the one that lets the words stay biggest.
+  for (let step = 0; step <= 6; step++) {
+    for (const [dx, dy] of step ? [[step, 0], [-step, 0], [0, step], [0, -step], [step, step], [-step, step], [step, -step], [-step, -step]] : [[0, 0]]) {
+      const x = dx * width * .025;
+      const y = dy * height * .025;
+      let low = 0;
+      let high = 1;
+      const fits = scale => {
+        const halfWidth = wordsWidth * scale / 2 + inset;
+        const halfHeight = wordsHeight * scale / 2 + inset;
+        return boxInside(polygons, width / 2 + x - halfWidth, height / 2 + y - halfHeight, width / 2 + x + halfWidth, height / 2 + y + halfHeight);
+      };
+      if (fits(1)) low = 1;
+      else for (let i = 0; i < 12; i++) { const mid = (low + high) / 2; if (fits(mid)) low = mid; else high = mid; }
+      if (low > best.scale + .01) best = { scale: low, x, y };
+    }
+    if (best.scale >= 1) break;
+  }
+  if (best.scale < 1) {
+    const size = parseFloat(getComputedStyle(words).fontSize);
+    words.style.fontSize = `${Math.floor(size * best.scale * 2) / 2}px`;
+  }
+  if (best.x || best.y) text.style.translate = `${best.x.toFixed(1)}px ${best.y.toFixed(1)}px`;
+}
+
+// Bursts appear late (search results, sheets, the copied-link toast), so any burst added to the page is watched.
+function watchBursts(root) {
+  for (const burst of root.matches?.('.ct-big-burst') ? [root] : root.querySelectorAll?.('.ct-big-burst') || []) {
+    if (fitted.has(burst)) continue;
+    fitted.add(burst);
+    burstSize.observe(burst);
+  }
+}
+
+if (typeof document !== 'undefined' && typeof ResizeObserver !== 'undefined') {
+  burstSize = new ResizeObserver(entries => entries.forEach(entry => fitBurstText(entry.target)));
+  const refitAll = () => document.querySelectorAll('.ct-big-burst').forEach(fitBurstText);
+  new MutationObserver(records => records.forEach(record => record.addedNodes.forEach(node => node.nodeType === 1 && watchBursts(node))))
+    .observe(document.documentElement, { childList: true, subtree: true });
+  watchBursts(document.documentElement);
+  document.fonts?.ready.then(refitAll);
+  matchMedia('(max-width: 760px)').addEventListener('change', refitAll);
+}
