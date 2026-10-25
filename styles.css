@@ -455,7 +455,7 @@ p { line-height: var(--line-height-body); }
 .intro__socials > a:hover { text-decoration: underline; text-underline-offset: .2em; }
 .intro__socials > a:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
 .intro__whitelist { grid-column: 2 / span 4; width: 100%; pointer-events: auto; }
-.intro__copy-status { position: fixed; z-index: 3; top: 0; right: auto; bottom: auto; left: 0; max-width: calc(100vw - 32px); padding: var(--space-2) var(--space-3); border: 1px solid rgba(255, 255, 255, .3); background: #111; color: #fff; font: 600 var(--font-size-caption)/var(--line-height-caption) var(--font-body); opacity: 0; transform: translateY(6px); pointer-events: none; transition: opacity .16s ease, transform .16s ease; }
+.intro__copy-status { position: fixed; z-index: 3; top: 0; right: auto; bottom: auto; left: 0; max-width: calc(100vw - 32px); padding: var(--space-2) var(--space-3); border: 1px solid rgba(255, 255, 255, .3); background: #111; color: #fff; font: 700 var(--font-size-caption)/var(--line-height-caption) var(--font-body); opacity: 0; transform: translateY(6px); pointer-events: none; transition: opacity .16s ease, transform .16s ease; }
 .intro__copy-status.is-visible { opacity: 1; transform: translateY(0); }
 .intro__copy-status[data-state='success'] { width: 300px; max-width: none; padding: 0; border: 0; background: none; transform: scale(.6) rotate(-12deg); transition: opacity .12s ease, transform .22s cubic-bezier(.3, 1.6, .5, 1); }
 .intro__copy-status[data-state='success'].is-visible { transform: none; }
@@ -509,7 +509,7 @@ p { line-height: var(--line-height-body); }
 }
 .subscribe-modal__body h2 { margin: 0 0 var(--space-4); font: 700 var(--font-size-title)/var(--line-height-title) var(--font-display); letter-spacing: 0; overflow-wrap: anywhere; }
 .subscribe-modal__body p { margin: 0; font: 400 var(--font-size-body)/var(--line-height-body) var(--font-body); }
-.subscribe-modal__body p strong { color: var(--landing-accent); font-weight: 600; }
+.subscribe-modal__body p strong { color: var(--landing-accent); font-weight: 700; }
 .subscribe-modal__form { display: flex; flex-direction: column; gap: var(--space-6); }
 @media (max-width: 760px) { .subscribe-modal__form { gap: var(--space-4); } }
 .subscribe-modal__status { position: absolute; top: calc(100% + 8px); left: 0; right: 0; color: #fff; font: 400 var(--font-size-caption)/var(--line-height-caption) var(--font-body) !important; }

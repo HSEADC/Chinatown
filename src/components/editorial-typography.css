@@ -75,7 +75,7 @@
   color: var(--story-muted, #b7b7b7);
   font: 400 var(--font-size-caption)/var(--line-height-caption) var(--font-body);
 }
-.editorial-quote__author { color: #fff; font-weight: 600; }
+.editorial-quote__author { color: #fff; font-weight: 700; }
 .editorial-quote cite { font-style: normal; }
 /* All entity cards share an anatomy, while the existing album artwork stays canonical. */
 .entity-card.article-context-material {
@@ -89,10 +89,11 @@
 /* The material type is a tag with a sticker (src/components/tag.css), not a text label. */
 .entity-card .entity-card__type { display: flex; padding-top: var(--space-2); }
 .entity-card .entity-card__subtitle { color: var(--story-muted, #b7b7b7); font: 400 var(--font-size-caption)/var(--line-height-caption) var(--font-body); }
-.entity-card .entity-card__details { display: grid; gap: var(--space-2); font: 400 var(--font-size-caption)/var(--line-height-caption) var(--font-body); }
-.entity-card__details > div { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: var(--space-4); }
-.entity-card__details dt { color: var(--story-muted, #b7b7b7); }
-.entity-card__details dd { margin: 0; }
+/* Facts: a small grey label over a bold value, two per row. */
+.entity-card .entity-card__details { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-4) var(--space-6); }
+.entity-card__details > div { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.entity-card__details dt { color: var(--story-muted, #b7b7b7); font: 400 var(--font-size-caption)/var(--line-height-caption) var(--font-body); }
+.entity-card__details dd { margin: 0; color: #fff; font: 700 var(--font-size-body)/var(--line-height-body) var(--font-body); overflow-wrap: anywhere; }
 .entity-card--artist img { aspect-ratio: 4 / 3; object-fit: cover; object-position: 40% center; }
 .entity-card--track img { aspect-ratio: 1; object-fit: cover; }
 .entity-card .article-context-sources { display: flex; flex-direction: column; gap: var(--space-2); font: 400 var(--font-size-caption)/var(--line-height-caption) var(--font-body); }
@@ -132,4 +133,6 @@
 .entity-card.article-context-material.article-context-material > :is(h2, .entity-card__type) + * { margin-top: var(--space-3); }
 .entity-card.article-context-material.article-context-material > figure + .entity-card__subtitle { margin-top: var(--space-2); }
 .entity-card.article-context-material.article-context-material > .entity-card__subtitle + .entity-card__details { margin-top: var(--space-4); }
+/* The «СЛУШАТЬ» burst hangs 24px below the cover; the facts start clear of it. */
+.entity-card.article-context-material.article-context-material > figure + .entity-card__details { margin-top: var(--space-8); }
 .entity-card.article-context-material.article-context-material > .article-context-sources { margin-top: var(--space-8); }

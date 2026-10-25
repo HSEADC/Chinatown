@@ -14,10 +14,8 @@ SOURCE = FONT_DIR / "Benzin-Bold.woff2"
 
 # Original ascent/descent: 770/-230, unitsPerEm: 1000.
 # Desktop: move the baseline down by 4px at 24px with a centered caret.
-# Mobile: preserve the 4px optical shift at 16px without negative descent.
 FACES = [
     ("Benzin Input", "Benzin-Input-Bold.woff2", 937, 63),
-    ("Benzin Input Mobile", "Benzin-Input-Mobile-Bold.woff2", 1040, 0),
 ]
 
 

@@ -20,7 +20,7 @@
 .scene-rail__status:empty { display: none; }
 .scene-rail__controls { display: flex; flex-wrap: wrap; gap: var(--space-1); }
 /* Icon buttons as in the header kit: icon only, no frame or fill; 44px hit area. */
-.scene-rail__controls button { display: grid; place-items: center; min-width: 44px; height: 44px; padding: 0 var(--space-3); border: 0; border-radius: 0; background: transparent; color: #fff; font: 500 11px/16px var(--font-body); cursor: pointer; }
+.scene-rail__controls button { display: grid; place-items: center; min-width: 44px; height: 44px; padding: 0 var(--space-3); border: 0; border-radius: 0; background: transparent; color: #fff; font: 400 11px/16px var(--font-body); cursor: pointer; }
 .scene-rail__credit { display: inline-block; margin-top: var(--space-4); font: 400 11px/16px var(--font-body); text-underline-offset: 3px; }
 /* The concert fills the viewport behind the departing rail; copy keeps its grid. */
 .has-scene-rail .story-club {
