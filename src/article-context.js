@@ -1,4 +1,5 @@
 import { articleContexts } from './article-context-data.js';
+import { mountActionButton } from './components/action-button.js';
 import { contextAtPosition, selectContextState, contextTransitionDirection } from './article-context-state.js';
 
 /** Enhance the existing static nodes: each material has one DOM copy in every layout. */
@@ -24,7 +25,8 @@ export function mountArticleContext(page, sceneRail, { suspended: initiallySuspe
   const sourceOrder = new Map([...page.querySelectorAll('*')].map((node, index) => [node, index]));
   const dialog = document.createElement('dialog');
   dialog.className = 'article-context-screen';
-  dialog.innerHTML = '<button class="article-context-screen__back" type="button">← к статье</button><div class="article-context-screen__content"></div>';
+  dialog.innerHTML = '<div class="article-context-screen__bar"><button class="article-context-screen__back action-button--secondary" type="button">к статье</button></div><div class="article-context-screen__content"></div>';
+  mountActionButton(dialog.querySelector('.article-context-screen__back'));
   document.body.append(dialog);
   const screenHost = dialog.querySelector('.article-context-screen__content');
   const token = crypto.randomUUID();

@@ -1,3 +1,5 @@
+import { mountActionButton } from './components/action-button.js';
+
 /** One viewer for context images, even when their cards move into the rail. */
 export function mountArticleImages(page, { onOpenChange = () => {} } = {}) {
   const controller = new AbortController();
@@ -12,7 +14,7 @@ export function mountArticleImages(page, { onOpenChange = () => {} } = {}) {
   dialog.innerHTML = `<div class="article-image-viewer__stage">
     <div class="article-image-viewer__surface"><img alt="" draggable="false"></div>
     <div class="article-image-viewer__controls">
-      <button class="article-image-viewer__close" type="button">Закрыть</button>
+      <button class="article-image-viewer__close action-button--secondary" type="button">закрыть</button>
       <a class="article-image-viewer__source" target="_blank" rel="noopener noreferrer" hidden></a>
     </div>
   </div>`;
@@ -20,7 +22,7 @@ export function mountArticleImages(page, { onOpenChange = () => {} } = {}) {
   const stage = dialog.querySelector('.article-image-viewer__stage');
   const surface = dialog.querySelector('.article-image-viewer__surface');
   const enlarged = surface.querySelector('img');
-  const closeButton = dialog.querySelector('button');
+  const closeButton = mountActionButton(dialog.querySelector('button'));
   const source = dialog.querySelector('a');
   let entry = null;
   let animation = null;
@@ -98,7 +100,7 @@ export function mountArticleImages(page, { onOpenChange = () => {} } = {}) {
     const width = item.image.naturalWidth || Number(item.image.getAttribute('width')) || 1;
     const height = item.image.naturalHeight || Number(item.image.getAttribute('height')) || 1;
     stage.style.setProperty('--image-ratio', width / height);
-    stage.style.setProperty('--image-viewer-space', item.link ? '216px' : '184px');
+    stage.classList.toggle('has-source', !!item.link);
     enlarged.src = item.image.currentSrc || item.image.src;
     enlarged.alt = item.image.alt;
     source.hidden = !item.link;
