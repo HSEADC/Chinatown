@@ -12,7 +12,7 @@
 /* Inside a card the tags leave the text flow and sit on the right like stickers. */
 .ct-tags--stuck { position: absolute; z-index: 1; right: var(--tags-right, 24px); bottom: var(--tags-bottom, 20px); flex-direction: column; flex-wrap: nowrap; align-items: flex-end; gap: var(--space-2); padding: 0; pointer-events: none; }
 .ct-tags--stuck .ct-tag { rotate: var(--tag-tilt, 0deg); translate: calc(var(--tag-nudge, 0px) * -1) 0; }
-.ct-tag { position: relative; isolation: isolate; display: inline-flex; align-items: center; height: var(--tag-height); padding: 0 var(--space-3) 0 calc(var(--tag-sticker) + var(--space-1)); color: #fff; font: 700 var(--font-size-caption)/var(--line-height-caption) var(--font-display); letter-spacing: .04em; text-transform: lowercase; white-space: nowrap; }
+.ct-tag { position: relative; isolation: isolate; display: inline-flex; align-items: center; height: var(--tag-height); padding: 0 var(--space-3) 0 calc(var(--tag-sticker) + var(--space-1)); color: #fff; font: 700 var(--font-size-caption)/var(--line-height-caption) var(--font-display); letter-spacing: .04em; text-transform: uppercase; white-space: nowrap; }
 .ct-tag::before { position: absolute; z-index: -1; inset: 0; background: #000 url('../../assets/textures/tag-outline.svg') center / 100% 100% no-repeat; content: ""; }
 .ct-tag__label { padding-top: var(--space-1); }
 /* Doubled class: card content styles every img (full width, 4:3); the sticker must not inherit that. */
@@ -59,14 +59,15 @@
 /* The article's end: the last paragraph and the big burst side by side (measured by mountBigBursts). */
 @media (min-width: 761px) {
   .story-end { position: relative; }
-  .story-end[data-place="inline"] { display: grid; grid-template-columns: minmax(0, 1fr) minmax(240px, 44%); align-items: center; column-gap: var(--space-6); }
+  .story-end[data-place="inline"] { display: grid; grid-template-columns: minmax(0, 1fr) minmax(300px, 54%); align-items: center; column-gap: var(--space-6); }
   .story-end[data-place="inline"] .ct-big-burst { width: 100%; margin: 0; }
   .story-end[data-place="inline"] .ct-big-burst__text { max-width: 72%; gap: var(--space-2); }
   .story-end[data-place="inline"] .ct-big-burst__title { font-size: var(--font-size-card-artist); }
   .story-end[data-place="beside"] .ct-big-burst { position: absolute; top: 50%; left: calc(100% + 32px); width: min(560px, var(--big-burst-room) - 64px); margin: 0; translate: 0 -50%; }
 }
 @media (max-width: 760px) {
-  .ct-big-burst:not(.ct-big-burst--small) { width: 100%; aspect-ratio: 358 / 300; margin: var(--space-10) 0 0; rotate: none; }
+  /* Nearly edge to edge on a phone: the burst grows, the words keep their size; 8px stay for the spikes. */
+  .ct-big-burst:not(.ct-big-burst--small) { width: calc(100% + 2 * var(--page-gutter) - 2 * var(--space-2)); max-width: none; aspect-ratio: 358 / 300; margin: var(--space-10) calc(var(--space-2) - var(--page-gutter)) 0; rotate: none; }
   .ct-big-burst__shape--wide { display: none; }
   .ct-big-burst__shape--narrow { display: block; }
   .ct-big-burst__text { max-width: 264px; }

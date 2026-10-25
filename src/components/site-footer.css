@@ -21,11 +21,11 @@
   container-type: inline-size;
 }
 .site-footer__copy { grid-column: 1 / span 2; display: flex; flex-direction: column; gap: var(--space-4); max-width: 629px; }
-.site-footer__title { margin: 0; font: 700 var(--font-size-title)/var(--line-height-title) var(--font-display); letter-spacing: 0; text-transform: lowercase; }
+.site-footer__title { margin: 0; font: 700 var(--font-size-title)/var(--line-height-title) var(--font-display); letter-spacing: 0; text-transform: uppercase; }
 .site-footer__text { margin: 0; font: 400 var(--font-size-body)/var(--line-height-body) var(--font-body); }
-.site-footer__text strong { font-weight: 600; }
+.site-footer__text strong { font-weight: 700; }
 .site-footer__form { position: relative; grid-column: 3 / span 2; display: flex; flex-direction: column; gap: var(--space-6); max-width: 629px; }
-.site-footer__status { position: absolute; top: calc(100% + 8px); left: 0; right: 0; margin: 0; font: 600 var(--font-size-caption)/var(--line-height-caption) var(--font-body); }
+.site-footer__status { position: absolute; top: calc(100% + 8px); left: 0; right: 0; margin: 0; font: 700 var(--font-size-caption)/var(--line-height-caption) var(--font-body); }
 .site-footer__status:empty { display: none; }
 .site-footer__star {
   position: absolute;
@@ -43,6 +43,8 @@
 }
 
 @media (max-width: 760px) {
+  /* Benzin caps are wider: «ДЕРЖИМ» fits a phone at 48px. */
+  .site-footer__title { font-size: 48px; line-height: 48px; }
   .site-footer { padding: var(--space-24) 0 0; }
   .site-footer__band { display: flex; flex-direction: column; gap: var(--space-8); padding: var(--space-12) var(--page-gutter); }
   .site-footer__copy, .site-footer__form { max-width: none; width: 100%; }

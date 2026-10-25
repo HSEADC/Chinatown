@@ -125,7 +125,7 @@
   .mobile-shell__menu-close { position: absolute; top: 0; right: 6px; }
   .mobile-shell__menu-close > span { width: 32px; height: 32px; }
   .mobile-shell__menu-surface nav { display: flex; flex-direction: column; align-items: stretch; gap: var(--space-2); padding: var(--space-2) var(--space-3) calc(var(--space-2) + env(safe-area-inset-bottom)); background: #000; }
-  .mobile-shell__menu-surface nav a { display: flex; align-items: center; justify-content: center; min-height: 32px; padding: 10px var(--space-3) 6px /* spacing-exception: optical centring of Benzin caps, same as --button-label-padding */; color: #fff; font: 700 var(--font-size-button)/var(--line-height-button) var(--font-display); text-transform: lowercase; text-decoration: none; }
+  .mobile-shell__menu-surface nav a { display: flex; align-items: center; justify-content: center; min-height: 32px; padding: 10px var(--space-3) 6px /* spacing-exception: optical centring of Benzin caps, same as --button-label-padding */; color: #fff; font: 700 var(--font-size-button)/var(--line-height-button) var(--font-display); letter-spacing: .04em; text-transform: lowercase; text-decoration: none; }
   .mobile-shell__search { position: fixed; right: 0; bottom: var(--mobile-search-inset); left: 0; display: flex; flex-direction: column; height: var(--mobile-viewport-height); padding-top: env(safe-area-inset-top); padding-bottom: env(safe-area-inset-bottom); background: #212121; }
   .mobile-search-field { display: flex; flex: none; align-items: center; gap: var(--space-2); min-height: 48px; margin: 0; padding: 0 var(--space-2); }
   .mobile-search-field > button { position: relative; display: grid; place-items: center; flex: none; width: 32px; height: 44px; padding: 0; background: transparent; }

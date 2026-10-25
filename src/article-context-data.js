@@ -9,8 +9,11 @@ export const madk1dContext = {
       "title": "madk1d",
       "entity": {
         "type": "artist",
-        "subtitle": "Марк Робертович Серков",
         "details": [
+          {
+            "label": "имя",
+            "value": "Марк Робертович Серков"
+          },
           {
             "label": "город",
             "value": "томск"
@@ -41,11 +44,22 @@ export const madk1dContext = {
       "title": "Так похуй",
       "entity": {
         "type": "track",
-        "subtitle": "madk1d",
         "details": [
+          {
+            "label": "артист",
+            "value": "madk1d"
+          },
           {
             "label": "альбом",
             "value": "sexyswag"
+          },
+          {
+            "label": "релиз",
+            "value": "21.03.2025"
+          },
+          {
+            "label": "длина",
+            "value": "1:48"
           }
         ]
       },
@@ -56,7 +70,6 @@ export const madk1dContext = {
         "height": 634
       },
       "paragraphs": [
-        "Релиз — 21 марта 2025 года. Длительность — 1:48.",
         "В припеве герой ссорится и хвастается независимостью; куплет добавляет одежду, интернет и игры к его самопрезентации."
       ],
       "listen": {
@@ -190,10 +203,19 @@ export const madk1dContext = {
       "mobile": "inline",
       "title": "SEXY SWAG",
       "entity": {
-        "type": "album"
+        "type": "album",
+        "details": [
+          {
+            "label": "артист",
+            "value": "madk1d"
+          },
+          {
+            "label": "релиз",
+            "value": "21.03.2025"
+          }
+        ]
       },
       "paragraphs": [
-        "sexyswag · 21 марта 2025 года.",
         "На этом альбоме вышел «Так похуй». В оформлении обложки использована стилизация под страницу поиска.",
         "Увеличить обложку — нажать на изображение. Открыть релиз — по кнопке «Слушать»."
       ],
