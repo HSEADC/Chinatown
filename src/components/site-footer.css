@@ -33,8 +33,8 @@
 .site-footer__star {
   position: absolute;
   z-index: -1;
-  /* Figma at 1920: a 474 px star centred 175 px from the band's right edge and 139 px below its top; the file adds its glow
-     around it (515 px). A narrower band (the article beside its rail) shrinks it so it stays in the last column, clear of the form. */
+  /* Figma at 1920: a 474 px star centred 175 px from the band's right edge and 139 px below its top; the file keeps the
+     mock-up's 515 px frame but drops its pink glow, so the star's edge takes the colour of whatever it sits on. A narrower band (the article beside its rail) shrinks it so it stays in the last column, clear of the form. */
   --star-size: clamp(300px, 26.8cqi, 515px);
   top: calc(var(--star-size) * -.23);
   right: calc(var(--star-size) * -.16);
