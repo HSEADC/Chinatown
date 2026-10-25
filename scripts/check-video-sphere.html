@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ru">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Проверка жестов видеосферы</title>
+<style>
+  body { margin: 24px; font: 16px/1.5 system-ui; }
+  #intro { position: relative; height: 300px; background: #111; }
+  #intro-sphere, canvas { width: 100%; height: 100%; }
+  #intro-sphere { touch-action: pan-y; }
+  video, .intro__drag-hint { display: none; }
+  button { margin: 16px 0; padding: 12px; }
+  pre { white-space: pre-wrap; }
+</style>
+<div id="intro"><div id="intro-sphere"></div></div>
+<button id="run">проверить свайп и загрузку без видео</button>
+<pre id="result">ожидание проверки</pre>
+<script type="module">
+  import { mountVideoSphere } from '../src/video-sphere.js';
+  const reduced = new URLSearchParams(location.search).has('reduced');
+  const realMatchMedia = window.matchMedia.bind(window);
+  // This page is a browser fixture, excluded from the static build. Exercise
+  // unavailable video and reduced motion without changing browser preferences.
+  window.matchMedia = query => {
+    if (!reduced || query !== '(prefers-reduced-motion: reduce)') return realMatchMedia(query);
+    return Object.assign(new EventTarget(), { matches: true });
+  };
+  const intro = document.querySelector('#intro');
+  const host = document.querySelector('#intro-sphere');
+  // Synthetic touch sequences have no native capture; production uses the
+  // browser's real pointer capture. All other controller/render code is real.
+  host.setPointerCapture = () => {};
+  host.hasPointerCapture = () => false;
+  mountVideoSphere(intro);
+  for (const video of host.querySelectorAll('video')) {
+    video.pause();
+    video.removeAttribute('src');
+    video.load();
+  }
+  const nextFrame = () => new Promise(resolve => requestAnimationFrame(resolve));
+  const result = document.querySelector('#result');
+  const gl = host.querySelector('canvas')?.getContext('webgl');
+  const program = gl?.getParameter(gl.CURRENT_PROGRAM);
+  const yawLocation = program && gl.getUniformLocation(program, 'uYaw');
+  const readYaw = () => gl.getUniform(program, yawLocation);
+  const pointer = (type, x) => host.dispatchEvent(new PointerEvent(type, {
+    pointerId: 1, pointerType: 'touch', clientX: x, clientY: 150, bubbles: true,
+  }));
+  document.querySelector('#run').addEventListener('click', async event => {
+    event.target.disabled = true;
+    const checks = [];
+    const check = (name, pass, detail) => {
+      checks.push({ name, pass, detail });
+      if (!pass) throw new Error(name);
+    };
+    try {
+      const deadline = performance.now() + 5000;
+      while (!intro.classList.contains('intro--sphere-ready') && performance.now() < deadline) await nextFrame();
+      check('sphere appears from posters while all videos are unavailable',
+        intro.classList.contains('intro--sphere-ready') && [...host.querySelectorAll('video')].every(video => !video.currentSrc));
+      pointer('pointerdown', 40);
+      for (let step = 1; step <= 12; step++) {
+        await nextFrame();
+        pointer('pointermove', 40 + step * 8);
+      }
+      pointer('pointerup', 136);
+      const samples = [];
+      const start = performance.now();
+      do {
+        await nextFrame();
+        samples.push({ time: performance.now() - start, yaw: readYaw() });
+      } while (performance.now() - start < 1400);
+      const travel = samples.at(-1).yaw - samples[0].yaw;
+      check('release respects the motion preference', reduced ? Math.abs(travel) < 0.00001 : travel > 0.15, { reduced, travel });
+      const tail = samples.filter(sample => sample.time > 850 && sample.time < 1300);
+      const updates = tail.slice(1).filter((sample, index) => sample.yaw !== tail[index].yaw).length;
+      check('inertia continues updating after 800 ms', reduced || updates / (tail.length - 1) > 0.85, { frames: tail.length, updates });
+      pointer('pointerdown', 100);
+      const caught = readYaw();
+      for (let frame = 0; frame < 8; frame++) await nextFrame();
+      check('new touch catches the sphere', Math.abs(readYaw() - caught) < 0.00001);
+      pointer('pointermove', 130);
+      await nextFrame();
+      pointer('pointercancel', 130);
+      await nextFrame();
+      const cancelled = readYaw();
+      for (let frame = 0; frame < 8; frame++) await nextFrame();
+      check('cancelled gesture does not launch inertia', Math.abs(readYaw() - cancelled) < 0.00001);
+      result.textContent = JSON.stringify({ passed: true, checks }, null, 2);
+    } catch (error) {
+      result.textContent = JSON.stringify({ passed: false, error: error.message, checks }, null, 2);
+    } finally {
+      event.target.disabled = false;
+    }
+  });
+</script>
+</html>

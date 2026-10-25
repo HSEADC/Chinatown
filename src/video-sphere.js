@@ -1,4 +1,5 @@
 import { mountDragHint } from './drag-hint.js';
+import { createSphereMotion } from './sphere-motion.js';
 
 const VIDEO_SOURCES = [
   { video: new URL('../assets/video/concert.mp4', import.meta.url).href, poster: new URL('../assets/video/concert.jpg', import.meta.url).href },
@@ -79,10 +80,6 @@ const FRAGMENT_SHADER = [
   '}',
 ].join('\n');
 
-const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
-const MAX_PITCH = Math.PI / 3;
-const DRAG_RADIANS_PER_PIXEL = 0.0042;
-const AUTO_ROTATION_RADIANS_PER_SECOND = 0.06;
 const BASE_FOV = 0.92;
 
 function compile(gl, type, source) {
@@ -187,16 +184,12 @@ export function mountVideoSphere(intro) {
   let activePointer = null;
   let previousX = 0;
   let previousY = 0;
-  let previousPointerTime = 0;
-  let yaw = 0;
-  let pitch = 0;
-  let velocityYaw = 0;
-  let velocityPitch = 0;
+  const motion = createSphereMotion();
   let fov = BASE_FOV;
   let lastFrameTime = 0;
   let lastInteractionTime = performance.now();
   let frame = 0;
-  let posterCount = 0;
+  const sourceReady = [false, false, false];
 
   function listen(target, type, handler, options) {
     target.addEventListener(type, handler, options);
@@ -207,6 +200,7 @@ export function mountVideoSphere(intro) {
     gl.activeTexture(gl.TEXTURE0 + index);
     gl.bindTexture(gl.TEXTURE_2D, textures[index]);
     gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, source);
+    sourceReady[index] = true;
   }
 
   function showScene() {
@@ -224,7 +218,6 @@ export function mountVideoSphere(intro) {
         ratios[index] = poster.naturalWidth / poster.naturalHeight;
         upload(index, poster);
       }
-      posterCount += 1;
       requestFrame();
     };
     poster.src = source.poster;
@@ -273,7 +266,7 @@ export function mountVideoSphere(intro) {
   function render(time) {
     frame = 0;
     if (destroyed || document.hidden) return;
-    const movingFast = dragging || time - lastInteractionTime < 800;
+    const movingFast = dragging || motion.moving || time - lastInteractionTime < 800;
     if (!reducedMotion.matches && !movingFast && lastFrameTime && time - lastFrameTime < 32) {
       requestFrame();
       return;
@@ -281,16 +274,10 @@ export function mountVideoSphere(intro) {
     const dt = lastFrameTime ? Math.min((time - lastFrameTime) / 1000, 0.05) : 0;
     lastFrameTime = time;
 
-    if (!dragging && !reducedMotion.matches) {
-      yaw += velocityYaw * dt;
-      pitch = clamp(pitch + velocityPitch * dt, -MAX_PITCH, MAX_PITCH);
-      const decay = Math.exp(-4.5 * dt);
-      velocityYaw *= decay;
-      velocityPitch *= decay;
-      if (time - lastInteractionTime > 1800) yaw += AUTO_ROTATION_RADIANS_PER_SECOND * dt;
-    }
-    if (Math.abs(yaw) > Math.PI * 2) yaw %= Math.PI * 2;
-    const speed = dragging ? Math.hypot(velocityYaw, velocityPitch) : 0;
+    motion.step(dt, { reducedMotion: reducedMotion.matches, autoRotate: time - lastInteractionTime > 1800 });
+    // Touch already has a short follow-through; changing the lens with every
+    // finger sample adds a distracting zoom pulse to the same gesture.
+    const speed = dragging && !motion.touch ? motion.speed : 0;
     const targetFov = reducedMotion.matches ? BASE_FOV : BASE_FOV + Math.min(0.11, speed * 0.025);
     fov += (targetFov - fov) * Math.min(1, dt * 5);
 
@@ -311,17 +298,14 @@ export function mountVideoSphere(intro) {
     }
 
     gl.uniform1f(uniforms.aspect, canvas.width / canvas.height);
-    gl.uniform1f(uniforms.yaw, yaw);
-    gl.uniform1f(uniforms.pitch, pitch);
+    gl.uniform1f(uniforms.yaw, motion.yaw);
+    gl.uniform1f(uniforms.pitch, motion.pitch);
     gl.uniform1f(uniforms.fov, fov);
     gl.uniform3fv(uniforms.ratios, ratios);
     gl.drawArrays(gl.TRIANGLES, 0, 6);
-    // Reveal only after every source has been uploaded and drawn. Reduced
-    // motion uses the posters so the static sphere can still be rotated.
-    const sceneReady = reducedMotion.matches
-      ? posterCount === VIDEO_SOURCES.length
-      : lastVideoTimes.every((videoTime) => videoTime >= 0);
-    if (sceneReady) showScene();
+    // Posters make the sphere usable while videos buffer or cannot autoplay.
+    // Reveal only after every tile has an uploaded source and has been drawn.
+    if (sourceReady.every(Boolean)) showScene();
     if (!reducedMotion.matches || dragging) requestFrame();
   }
 
@@ -331,9 +315,8 @@ export function mountVideoSphere(intro) {
     activePointer = event.pointerId;
     previousX = event.clientX;
     previousY = event.clientY;
-    previousPointerTime = event.timeStamp;
-    velocityYaw = 0;
-    velocityPitch = 0;
+    motion.start(event.pointerType, event.timeStamp);
+    lastInteractionTime = performance.now();
     host.classList.add('is-dragging');
     host.setPointerCapture(event.pointerId);
     requestFrame();
@@ -341,16 +324,9 @@ export function mountVideoSphere(intro) {
 
   function pointerMove(event) {
     if (!dragging || event.pointerId !== activePointer) return;
-    const elapsed = Math.max(0.016, (event.timeStamp - previousPointerTime) / 1000);
-    const deltaYaw = (event.clientX - previousX) * DRAG_RADIANS_PER_PIXEL;
-    const deltaPitch = (event.clientY - previousY) * DRAG_RADIANS_PER_PIXEL;
-    yaw += deltaYaw;
-    pitch = clamp(pitch + deltaPitch, -MAX_PITCH, MAX_PITCH);
-    velocityYaw = clamp(deltaYaw / elapsed, -2.2, 2.2);
-    velocityPitch = clamp(deltaPitch / elapsed, -2.2, 2.2);
+    motion.move(event.clientX - previousX, event.clientY - previousY, event.timeStamp, reducedMotion.matches);
     previousX = event.clientX;
     previousY = event.clientY;
-    previousPointerTime = event.timeStamp;
     lastInteractionTime = performance.now();
     requestFrame();
   }
@@ -361,10 +337,8 @@ export function mountVideoSphere(intro) {
     activePointer = null;
     host.classList.remove('is-dragging');
     if (host.hasPointerCapture(event.pointerId)) host.releasePointerCapture(event.pointerId);
-    if (reducedMotion.matches) {
-      velocityYaw = 0;
-      velocityPitch = 0;
-    }
+    motion.release(event.timeStamp, { cancelled: event.type !== 'pointerup', reducedMotion: reducedMotion.matches });
+    lastInteractionTime = performance.now();
     requestFrame();
   }
 
@@ -373,10 +347,7 @@ export function mountVideoSphere(intro) {
     if (Math.abs(event.deltaY) > Math.abs(event.deltaX) && intro.scrollHeight > intro.clientHeight) return;
     event.preventDefault();
     // Natural trackpad scrolling reports the opposite sign of the finger movement.
-    yaw -= event.deltaX * 0.0015;
-    pitch = clamp(pitch - event.deltaY * 0.0015, -MAX_PITCH, MAX_PITCH);
-    velocityYaw = 0;
-    velocityPitch = 0;
+    motion.turn(-event.deltaX * 0.0015, -event.deltaY * 0.0015);
     lastInteractionTime = performance.now();
     requestFrame();
   }
@@ -386,8 +357,7 @@ export function mountVideoSphere(intro) {
     const turn = turns[event.key];
     if (!turn) return;
     event.preventDefault();
-    yaw += turn[0];
-    pitch = clamp(pitch + turn[1], -MAX_PITCH, MAX_PITCH);
+    motion.turn(...turn);
     lastInteractionTime = performance.now();
     requestFrame();
   }
@@ -407,8 +377,7 @@ export function mountVideoSphere(intro) {
   function motionChange() {
     if (reducedMotion.matches) {
       videos.forEach((video) => video.pause());
-      velocityYaw = 0;
-      velocityPitch = 0;
+      motion.stop();
     } else if (!document.hidden) {
       videos.forEach((video) => video.play().catch(() => {}));
     }
@@ -419,6 +388,7 @@ export function mountVideoSphere(intro) {
   listen(host, 'pointermove', pointerMove);
   listen(host, 'pointerup', pointerUp);
   listen(host, 'pointercancel', pointerUp);
+  listen(host, 'lostpointercapture', pointerUp);
   listen(host, 'wheel', wheel, { passive: false });
   listen(host, 'keydown', keyDown);
   listen(document, 'visibilitychange', visibilityChange);

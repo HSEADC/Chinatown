@@ -1,0 +1,173 @@
+{
+  "date": "2026-10-25",
+  "reportedSymptom": {
+    "vpnRegion": "Poland",
+    "blankPage": true,
+    "headlineVisible": false,
+    "vpnName": null
+  },
+  "probes": {
+    "https": {
+      "nodes": {
+        "de2.node.check-host.net": [
+          "de",
+          "Germany",
+          "Langen",
+          "185.244.28.180",
+          "AS212000"
+        ],
+        "pl2.node.check-host.net": [
+          "pl",
+          "Poland",
+          "Warsaw",
+          "195.137.244.1",
+          "AS214379"
+        ]
+      },
+      "ok": 1,
+      "permanent_link": "https://check-host.net/check-report/5361935fk7bf",
+      "request_id": "5361935fk7bf",
+      "results": {
+        "de2.node.check-host.net": [
+          [
+            1,
+            0.131947994232178,
+            "OK",
+            "200",
+            "37.140.192.146"
+          ]
+        ],
+        "pl2.node.check-host.net": [
+          [
+            1,
+            0.201007127761841,
+            "OK",
+            "200",
+            "37.140.192.146"
+          ]
+        ]
+      }
+    },
+    "http": {
+      "nodes": {
+        "de2.node.check-host.net": [
+          "de",
+          "Germany",
+          "Langen",
+          "185.244.28.180",
+          "AS212000"
+        ],
+        "pl2.node.check-host.net": [
+          "pl",
+          "Poland",
+          "Warsaw",
+          "195.137.244.1",
+          "AS214379"
+        ]
+      },
+      "ok": 1,
+      "permanent_link": "https://check-host.net/check-report/536193bdk960",
+      "request_id": "536193bdk960",
+      "results": {
+        "de2.node.check-host.net": [
+          [
+            1,
+            0.0789880752563477,
+            "Moved Permanently",
+            "301",
+            "37.140.192.146"
+          ]
+        ],
+        "pl2.node.check-host.net": [
+          [
+            1,
+            0.116055011749268,
+            "Moved Permanently",
+            "301",
+            "37.140.192.146"
+          ]
+        ]
+      }
+    },
+    "tcp": {
+      "nodes": {
+        "de2.node.check-host.net": [
+          "de",
+          "Germany",
+          "Langen",
+          "185.244.28.180",
+          "AS212000"
+        ],
+        "pl2.node.check-host.net": [
+          "pl",
+          "Poland",
+          "Warsaw",
+          "195.137.244.1",
+          "AS214379"
+        ]
+      },
+      "ok": 1,
+      "permanent_link": "https://check-host.net/check-report/53619414kb12",
+      "request_id": "53619414kb12",
+      "results": {
+        "de2.node.check-host.net": [
+          {
+            "address": "37.140.192.146",
+            "time": 0.039432
+          }
+        ],
+        "pl2.node.check-host.net": [
+          {
+            "address": "37.140.192.146",
+            "time": 0.060719
+          }
+        ]
+      }
+    },
+    "dns": {
+      "nodes": {
+        "de2.node.check-host.net": [
+          "de",
+          "Germany",
+          "Langen",
+          "185.244.28.180",
+          "AS212000"
+        ],
+        "pl2.node.check-host.net": [
+          "pl",
+          "Poland",
+          "Warsaw",
+          "195.137.244.1",
+          "AS214379"
+        ]
+      },
+      "ok": 1,
+      "permanent_link": "https://check-host.net/check-report/5361945fk496",
+      "request_id": "5361945fk496",
+      "results": {
+        "de2.node.check-host.net": [
+          {
+            "A": [
+              "37.140.192.146"
+            ],
+            "AAAA": [
+              "2a00:f940:2:2:1:1:0:131"
+            ],
+            "TTL": 2824
+          }
+        ],
+        "pl2.node.check-host.net": [
+          {
+            "A": [
+              "37.140.192.146"
+            ],
+            "AAAA": [
+              "2a00:f940:2:2:1:1:0:131"
+            ],
+            "TTL": 2824
+          }
+        ]
+      }
+    }
+  }
+}
