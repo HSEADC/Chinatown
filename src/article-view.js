@@ -120,9 +120,9 @@ export function siteHeaderView(items = articleMenu) {
   return `<header class="story-header" data-node-id="272:111">
       <div class="story-header__bar">
         <div class="story-header__identity" data-node-id="272:112">
-          <button class="story-icon story-brand" type="button" aria-label="Навигация Чайнатаун" aria-controls="article-menu" aria-expanded="true" data-node-id="272:113">
+          <a class="story-icon story-brand" href="./index.html" aria-label="chinatown.site — на главную" data-node-id="272:113">
             <img src="${icons}star.svg" alt="" width="35.4091" height="35.584">
-          </button>
+          </a>
         </div>
         <nav class="story-menu" id="article-menu" aria-label="Навигация Чайнатаун" data-node-id="272:116">
 ${items.map(menuItemView).join('\n')}
