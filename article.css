@@ -416,13 +416,7 @@ html.has-site-cursor .article-image-viewer :is(button, a) { cursor: var(--cursor
 /* Article end: last paragraph beside the big burst (tag.css); the site footer follows the article (site-footer.css). */
 .story-end { margin-top: var(--space-6); }
 
-/* The end of the search feed: the pink call to action (createFollowAction). */
-.follow-action { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-6); }
-.follow-action__text { margin: 0; color: var(--story-muted); font-size: var(--font-size-body); line-height: var(--line-height-body); }
-.story-search__results li.story-search__follow { flex-basis: 100%; padding: var(--space-16) 0 var(--space-24); }
-/* Like the feed above it, the button runs edge to edge; only the line of text keeps the gutter. */
-.story-search__follow .follow-action { flex: 1; align-items: stretch; }
-.story-search__follow .follow-action__text { padding-inline: var(--story-gutter); }
-.story-search__follow .action-button { width: 100%; }
-.mobile-search-follow { padding: var(--space-10) var(--space-4) var(--space-16); }
-.mobile-search-follow .action-button { width: 100%; }
+/* The end of the search feed: the pink call to action (createFollowAction), a full-width bar with no band around it. */
+.story-search__results li.story-search__follow { flex-basis: 100%; display: flex; padding: 0; }
+.mobile-search-follow { display: flex; padding: 0; }
+.follow-action { flex: 1; width: 100%; }
