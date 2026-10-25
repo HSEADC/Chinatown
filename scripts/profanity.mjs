@@ -22,6 +22,8 @@ const rules = [
   { pattern: /^г[ао]нд[оа]н/u, mask: [1] },
   { pattern: /^залуп/u, mask: ['у'] },
   { pattern: /^манд(?:авош|[аеуы]$|ой$)/u, mask: [1] },
+  // Not mat, but masked on the user's request (25.10.2026): «шалава», «шалаве».
+  { pattern: /^шалав/u, mask: [1] },
 ];
 
 // Latin transliterations in ids, anchors and file names are visible in the
