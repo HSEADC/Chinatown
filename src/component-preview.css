@@ -10,7 +10,7 @@ body{margin:0;min-height:100svh}
 .specimen-prose{max-width:900px;font-size:var(--font-size-body);line-height:var(--line-height-body)}
 .specimen-prose>p+p{margin-top:24px}
 .specimen-type-display{font:800 var(--font-size-title)/var(--line-height-title) var(--font-display);margin:0}
-.specimen-type-heading{font:800 var(--font-size-heading)/var(--line-height-heading) var(--font-body);margin:0}
+.specimen-type-heading{font:700 var(--font-size-heading)/var(--line-height-heading) var(--font-body);margin:0}
 .specimen-type-caption{font:400 var(--font-size-caption)/var(--line-height-caption) var(--font-body);color:#b7b7b7}
 .type-specimen{display:grid;gap:20px;min-width:0;width:100%}
 .specimen-error{padding:40px;font:400 18px/1.5 var(--font-body);color:#fff}

@@ -4,14 +4,14 @@
 
 ## Мобильная шкала из Figma
 
-Общий источник значений — `src/design-tokens.css`; классы ролей — `src/components/typography.css`, подключённый через `styles.css`. Граница мобильного варианта — 760 px. Шрифты используются из существующих локальных файлов: Benzin ExtraBold / Bold и Giga Sans ExtraBold / Regular.
+Общий источник значений — `src/design-tokens.css`; классы ролей — `src/components/typography.css`, подключённый через `styles.css`. Граница мобильного варианта — 760 px. Шрифты используются из существующих локальных файлов: Benzin ExtraBold 800 (дисплей, обложки, бахи) / Bold 700 (кнопки, теги, карточки, цитаты, меню, «держим связь») и Giga Sans Bold 700 (H2, лейблы) / Regular 400 (текст).
 
 | Стиль | Класс | Шрифт | Размер / интерлиньяж | Трекинг | Figma |
 | --- | --- | --- | --- | --- | --- |
 | Display | type-display | Benzin ExtraBold 800 | 40 / 40 px | 1,6 px | 388:784, пример 388:767 |
 | H1 | type-h1 | Benzin ExtraBold 800 | 64 / 64 px | 0 | 388:785 |
-| H2 | type-h2 | Giga Sans ExtraBold 800 | 36 / 48 px | 0 | 388:786 |
-| H3 | type-h3 | Giga Sans ExtraBold 800 | 14 / 16 px | 0,56 px, lowercase | 388:787 |
+| H2 | type-h2 | Giga Sans Bold 700 | 36 / 48 px | 0 | 388:786 |
+| H3 | type-h3 | Giga Sans Bold 700 | 14 / 16 px | 0,56 px, lowercase | 388:787 |
 | Body | type-body | Giga Sans Regular 400 | 16 / 26 px | 0 | 388:788 |
 | Caption | type-caption | Giga Sans Regular 400 | 12 / 16 px | 0 | 388:789 |
 | Цитата / строка | type-quote | Benzin Bold 700 | 32 / 38,4 px | 0,64 px | 388:793, строки 388:779 |
