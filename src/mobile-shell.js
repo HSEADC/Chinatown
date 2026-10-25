@@ -2,9 +2,10 @@ import { createContextPager } from './context-pager.js';
 import { initialMobileShellState, reduceMobileShell, mobileSnapHeights, mobileSnapAfterDrag } from './mobile-shell-state.js';
 import { mountMobileCityVideo } from './mobile-city-video.js';
 import { searchFeed } from './article-search-data.js';
-import { burstLinkMarkup, createBurst, createTagList } from './components/tag.js';
+import { burstLinkMarkup, createBurst, createTag, createTagList } from './components/tag.js';
 import { createFollowAction } from './components/subscribe-dialog.js';
 
+const timeSticker = new URL('../assets/stickers/time.svg', import.meta.url).href;
 const asset = name => new URL(`../assets/figma/mobile-shell/${name}.svg`, import.meta.url).href;
 /** Durations live in design-tokens.css so CSS transitions and Web Animations share one scale. */
 const motionMs = (name, fallback) => parseFloat(getComputedStyle(document.documentElement).getPropertyValue(name)) || fallback;
@@ -234,6 +235,43 @@ export function mountMobileShell(page, { onOverlayChange = () => {}, onVisibilit
     if (dragMoved) return;
     setSnap(state.snap === 'expanded' ? 'preview' : 'expanded');
   }
+  // The card the reader is looking at opens up. The focus line sits at 40% of the list height; near the top and the
+  // bottom of the feed it slides toward the edge so the first and the last cards can open too. The line is matched
+  // against the folded layout, so opening a card never moves the line onto another one and the choice cannot flicker.
+  let focusIndex = -1;
+  let focusFrame = 0;
+  let folded = { bottoms: [], scrollHeight: 0 };
+  function measureFolded() {
+    // Fold every card for one synchronous read; the transition is off so nothing animates back and forth.
+    results.classList.add('is-measuring');
+    folded = {
+      bottoms: [...results.querySelectorAll('.mobile-search-result')].map(card => card.parentElement.offsetTop + card.offsetHeight),
+      scrollHeight: results.scrollHeight,
+    };
+    results.classList.remove('is-measuring');
+  }
+  function updateSearchFocus() {
+    focusFrame = 0;
+    const cards = [...results.querySelectorAll('.mobile-search-result')];
+    if (!cards.length) return;
+    const top = results.scrollTop;
+    const height = results.clientHeight;
+    const rest = folded.scrollHeight - height - top;
+    const line = top + Math.max(Math.min(height * .4, top + 64), height - rest - 64);
+    let index = folded.bottoms.findIndex(bottom => bottom > line);
+    if (index < 0) index = cards.length - 1;
+    if (index === focusIndex) return;
+    focusIndex = index;
+    cards.forEach((card, i) => card.parentElement.classList.toggle('is-focus', i === index));
+  }
+  const resultsSize = new ResizeObserver(() => {
+    if (!results.children.length) return;
+    measureFolded();
+    updateSearchFocus();
+  });
+  resultsSize.observe(results);
+  results.addEventListener('scroll', () => { if (!focusFrame) focusFrame = requestAnimationFrame(updateSearchFocus); }, { ...options, passive: true });
+
   function renderSearch() {
     const matches = searchFeed(input.value);
     results.replaceChildren();
@@ -256,8 +294,16 @@ export function mountMobileShell(page, { onOverlayChange = () => {}, onVisibilit
       const tags = createTagList(item.tags.map(tag => ({ label: tag })), item.id);
       tags.classList.add('ct-tags--stuck');
       body.append(label);
+      // Prologue for the card in focus: reading time and a short lead, folded away on the other cards.
+      const more = document.createElement('div');
+      more.className = 'mobile-search-result__more';
+      const moreInner = document.createElement('div');
+      const lead = document.createElement('p');
+      lead.textContent = item.lead;
+      moreInner.append(createTag({ label: `${item.minutes} минут`, sticker: timeSticker }), lead);
+      more.append(moreInner);
       link.classList.add('film');
-      link.append(cover, body, tags);
+      link.append(cover, body, more, tags);
       if (item.status === 'new') link.append(createBurst('Новое'));
       li.append(link);
       results.append(li);
@@ -268,6 +314,14 @@ export function mountMobileShell(page, { onOverlayChange = () => {}, onVisibilit
       follow.append(createFollowAction());
       results.append(follow);
     }
+    // A fresh list opens its first card at once: results do not animate while typing.
+    focusIndex = -1;
+    results.scrollTop = 0;
+    results.classList.add('is-instant');
+    measureFolded();
+    updateSearchFocus();
+    results.offsetHeight;
+    results.classList.remove('is-instant');
     searchStatus.textContent = matches.length ? `Материалов: ${matches.length}` : 'ничего не найдено. попробуй другое слово';
     searchStatus.classList.toggle('story-visually-hidden', matches.length > 0);
   }
@@ -462,6 +516,8 @@ export function mountMobileShell(page, { onOverlayChange = () => {}, onVisibilit
     setFrozen(value) { frozen = value; pager.setPaused(value); render(); },
     dispose() {
       controller.abort();
+      cancelAnimationFrame(focusFrame);
+      resultsSize.disconnect();
       pager.dispose();
       shake?.cancel();
       city.dispose();
