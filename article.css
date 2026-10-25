@@ -211,21 +211,23 @@
 .article-image-viewer { position: fixed; inset: 0; display: none; place-items: center; width: 100%; max-width: none; height: 100%; max-height: none; margin: 0; padding: var(--space-6); overflow: hidden; border: 0; background: rgb(0 0 0 / .8); -webkit-backdrop-filter: grayscale(1); backdrop-filter: grayscale(1); color: #fff; }
 .article-image-viewer[open] { display: grid; }
 .article-image-viewer::backdrop { background: transparent; }
-.article-image-viewer__stage { position: relative; width: min(82vw, calc((100svh - var(--image-viewer-space, 184px)) * var(--image-ratio, 1)), 1100px); aspect-ratio: var(--image-ratio, 1); }
+.article-image-viewer__stage { --image-viewer-space: calc(2 * (var(--space-6) + var(--space-4) + var(--button-height))); position: relative; width: min(82vw, calc((100svh - var(--image-viewer-space)) * var(--image-ratio, 1)), 1100px); aspect-ratio: var(--image-ratio, 1); }
+.article-image-viewer__stage.has-source { --image-viewer-space: calc(2 * (var(--space-6) + var(--space-4) + var(--button-height) + var(--space-1) + var(--space-6))); }
 .article-image-viewer__surface { width: 100%; height: 100%; transform: perspective(1400px) rotateX(var(--image-tilt-x, 0deg)) rotateY(var(--image-tilt-y, 0deg)); transition: transform 220ms ease-out; filter: drop-shadow(0 24px 48px #0005); }
 .article-image-viewer__surface img { display: block; width: 100%; height: 100%; object-fit: contain; }
-.article-image-viewer__controls { position: absolute; top: calc(100% + 16px); left: 50%; display: flex; flex-direction: column; align-items: center; gap: var(--space-1); width: max-content; max-width: 90vw; transform: translateX(-50%); }
-.article-image-viewer__close { min-height: 44px; padding: var(--space-2) var(--space-5); border: 0; background: transparent; color: #fff; font: 700 16px/24px var(--font-body); }
+.article-image-viewer__controls { position: absolute; top: calc(100% + var(--space-4)); left: 50%; display: flex; flex-direction: column; align-items: center; gap: var(--space-1); width: max-content; max-width: 90vw; transform: translateX(-50%); }
+/* Shared ActionButton, transparent variant (Figma 388:752); the viewer sets placement only. */
+.article-image-viewer__close { width: auto; }
 .article-image-viewer__source { display: block; min-height: 24px; color: #b7b7b7; font: 400 12px/24px var(--font-body); text-align: center; text-decoration: none; }
 .article-image-viewer__source[hidden] { display: none; }
 .article-image-viewer__source:hover { color: #fff; text-decoration: underline; text-underline-offset: 4px; }
-.article-image-viewer :focus-visible { outline: 2px solid var(--media-accent); outline-offset: 4px; }
+.article-image-viewer :focus-visible:not(.action-button) { outline: 2px solid var(--media-accent); outline-offset: 4px; }
 .has-article-image-viewer .site-cursor { visibility: hidden; }
 html.has-site-cursor .article-image-viewer, html.has-site-cursor .article-image-viewer * { cursor: var(--cursor-default, default) !important; }
 html.has-site-cursor .article-image-viewer :is(button, a) { cursor: var(--cursor-pointer, pointer) !important; }
 @media (max-width: 760px) {
   .article-image-viewer { padding: var(--space-5); }
-  .article-image-viewer__stage { width: min(calc(100vw - 40px), calc((100svh - var(--image-viewer-space, 184px)) * var(--image-ratio, 1))); }
+  .article-image-viewer__stage { width: min(calc(100vw - 40px), calc((100svh - var(--image-viewer-space)) * var(--image-ratio, 1))); }
 }
 @media (prefers-reduced-motion: reduce) {
   .context-image-trigger, .article-image-viewer__surface { transition: none; }
