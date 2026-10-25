@@ -15,7 +15,7 @@
   color: #fff;
   font: 700 var(--font-size-button)/var(--input-line-height) var(--font-input);
   letter-spacing: var(--button-tracking);
-  text-transform: lowercase;
+  text-transform: uppercase;
 }
 .email-field::placeholder { color: rgb(255 255 255 / .3); opacity: 1; }
 @media (min-width: 761px) {
