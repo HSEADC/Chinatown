@@ -4,6 +4,7 @@ import { articleTitle } from './article-view.js';
 import { mountSceneRail } from './scene-rail.js';
 import { mountEditorialVideos } from './editorial-video.js';
 import { mountLanding } from './landing.js';
+import { MAT_CHANGE_EVENT, withMat } from './mat-gate.js';
 
 const content = document.querySelector('#media-content');
 const headerRoot = document.createElement('div');
@@ -28,13 +29,14 @@ function renderPage({ focus = false } = {}) {
   disposeVideos();
   disposeLanding();
   const isArticle = window.location.pathname === new URL('article.html', root).pathname;
-  content.innerHTML = isArticle ? articleView() : homeView();
+  // Words come back before the headline glitch splits the H1 into letters.
+  content.innerHTML = withMat(isArticle ? articleView() : homeView());
   const header = content.querySelector('.story-header');
   headerRoot.replaceChildren(header);
   syncHeaderHeight();
   document.body.dataset.mediaPage = isArticle ? 'article' : 'home';
   renderedRoute = location.pathname + location.search;
-  document.title = isArticle ? `${articleTitle} — chinatown.site` : landingTitle;
+  document.title = isArticle ? withMat(`${articleTitle} — chinatown.site`) : landingTitle;
   sceneRail.refresh();
   disposeArticle = mountArticle(content.querySelector('.story-page'), header, sceneRail);
   disposeVideos = mountEditorialVideos(content);
@@ -59,4 +61,6 @@ window.addEventListener('popstate', () => {
   // Local context and anchor entries belong to the article, not to the router.
   if (renderedRoute !== location.pathname + location.search) renderPage({ focus: true });
 });
+// «Я ВЗРОСЛЫЙ» in the entry popup: render again, so the glitch headline gets the full words too.
+window.addEventListener(MAT_CHANGE_EVENT, (event) => { if (event.detail.explicit) renderPage(); });
 renderPage();

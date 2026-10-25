@@ -1,7 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { maskProfanity } from '../scripts/profanity.mjs';
-import { scanServedFiles } from '../scripts/mask-profanity.mjs';
+import { readFile } from 'node:fs/promises';
+import { maskProfanity, maskedWords } from '../scripts/profanity.mjs';
+import { dictionaryFile, readDictionary, scanServedFiles, servedFiles } from '../scripts/mask-profanity.mjs';
 
 test('mat is masked with asterisks, the rest of the word stays readable', () => {
   assert.equal(maskProfanity('Так похуй'), 'Так пох*й');
@@ -21,4 +22,17 @@ test('ordinary words and links are left alone', () => {
 test('served pages, scripts and docs contain no unmasked mat', async () => {
   const hits = await scanServedFiles();
   assert.deepEqual(hits.map(hit => `${hit.file}:${hit.line} ${hit.word}`), [], 'run npm run mat:mask; Latin ids have to be renamed by hand');
+});
+
+test('every masked word on the site can be restored after «Я ВЗРОСЛЫЙ»', async () => {
+  const dictionary = await readDictionary();
+  const missing = [];
+  for (const file of await servedFiles()) {
+    if (file === dictionaryFile) continue;
+    for (const masked of maskedWords(await readFile(new URL(`../${file}`, import.meta.url), 'utf8'))) {
+      const original = dictionary[masked];
+      if (!original || maskProfanity(original) !== masked) missing.push(`${file}: ${masked}`);
+    }
+  }
+  assert.deepEqual([...new Set(missing)], [], 'run npm run mat:mask on the unmasked text so the dictionary records the original');
 });
