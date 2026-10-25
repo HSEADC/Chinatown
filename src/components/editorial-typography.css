@@ -34,14 +34,6 @@
   text-decoration-style: dashed;
   text-decoration-color: var(--media-accent, #fc5cff);
 }
-.story-entity__arrow {
-  display: inline;
-  margin-left: 2px;
-  color: var(--media-accent, #fc5cff);
-  font: 500 .65em/0 var(--font-body);
-  vertical-align: .28em;
-  white-space: nowrap;
-}
 .editorial-prose .story-entity[data-context-active] {
   color: var(--media-accent, #fc5cff);
   background: var(--editorial-highlight);
