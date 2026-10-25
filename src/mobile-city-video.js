@@ -7,9 +7,9 @@ export function mountMobileCityVideo(host) {
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   host.innerHTML = `<video muted playsinline loop preload="none" aria-label="Китай-город. Видео без звука"></video>
     <div class="mobile-city-video__controls">
-      <button type="button" data-video-play>Пауза</button>
-      <button type="button" data-video-sound aria-pressed="false">Включить звук</button>
-      <button type="button" data-video-next>Следующее →</button>
+      <button type="button" data-video-play>пауза</button>
+      <button type="button" data-video-sound aria-pressed="false">включить звук</button>
+      <button type="button" data-video-next>следующее →</button>
     </div><p class="mobile-city-video__status" role="status"></p>`;
   const video = host.querySelector('video');
   const play = host.querySelector('[data-video-play]');
@@ -23,8 +23,8 @@ export function mountMobileCityVideo(host) {
   let failed = false;
 
   function updateControls() {
-    play.textContent = video.paused ? 'Смотреть' : 'Пауза';
-    sound.textContent = video.muted ? 'Включить звук' : 'Выключить звук';
+    play.textContent = video.paused ? 'смотреть' : 'пауза';
+    sound.textContent = video.muted ? 'включить звук' : 'выключить звук';
     sound.setAttribute('aria-pressed', String(!video.muted));
   }
   async function sync() {

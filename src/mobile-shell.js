@@ -51,20 +51,20 @@ export function mountMobileShell(page, { onOverlayChange = () => {}, onVisibilit
       </div>
       <div class="mobile-shell__pages"><div class="mobile-shell__content"></div></div>
       <div class="mobile-city-video" hidden></div>
-      <div class="mobile-shell__format"><button type="button" data-city-toggle>Смотреть Китай-город ↗</button></div>
+      <div class="mobile-shell__format"><button type="button" data-city-toggle>смотреть китай-город ↗</button></div>
       <button class="mobile-shell__preview-toggle" type="button" aria-label="Развернуть дополнительный материал" hidden></button>
     </section>
     <section class="mobile-shell__menu-surface" role="dialog" aria-modal="true" aria-label="Меню сайта" inert>
       <button class="mobile-fab mobile-shell__menu-close" type="button" aria-label="Закрыть меню"><span>${img('arrow-down', 32)}</span></button>
       <nav id="mobile-site-menu" aria-label="Навигация Чайнатаун">
-        <a href="./index.html">Статьи</a><a href="./index.html">Мерч</a><a href="./index.html">Тесты</a><a href="./index.html">Карта артистов</a>
+        <a href="./index.html">статьи</a><a href="./index.html">мерч</a><a href="./index.html">тесты</a><a href="./index.html">карта артистов</a>
       </nav>
     </section>
     <section class="mobile-shell__search" id="mobile-site-search" role="dialog" aria-modal="true" aria-label="Поиск статей" inert>
       <form class="mobile-search-field" role="search" aria-label="Поиск статей">
         <button type="submit" aria-label="Найти статьи">${img('search-field', 24)}</button>
-        <label class="story-visually-hidden" for="mobile-article-query">О чем скучаешь? Поиск статей</label>
-        <input id="mobile-article-query" type="search" name="q" placeholder="О чем скучаешь?" autocomplete="off" aria-controls="mobile-search-results">
+        <label class="story-visually-hidden" for="mobile-article-query">о чём скучаешь? поиск статей</label>
+        <input id="mobile-article-query" type="search" name="q" placeholder="о чём скучаешь?" autocomplete="off" aria-controls="mobile-search-results">
         <button type="button" data-search-close aria-label="Закрыть поиск">${img('close', 24)}</button>
       </form>
       <p class="mobile-shell__search-status story-visually-hidden" role="status" aria-live="polite"></p>
@@ -188,7 +188,7 @@ export function mountMobileShell(page, { onOverlayChange = () => {}, onVisibilit
       cityHost.hidden = !videoVisible;
       pages.hidden = videoVisible || !context.id;
       format.hidden = !context.id;
-      cityToggle.textContent = showVideo ? '← К материалу' : 'Смотреть Китай-город ↗';
+      cityToggle.textContent = showVideo ? '← К материалу' : 'смотреть китай-город ↗';
     }
     grab.setAttribute('aria-label', state.snap === 'expanded' ? 'Уменьшить плашку' : 'Развернуть плашку');
     city.setActive(videoVisible && !frozen && phone.matches);
@@ -268,7 +268,7 @@ export function mountMobileShell(page, { onOverlayChange = () => {}, onVisibilit
       follow.append(createFollowAction());
       results.append(follow);
     }
-    searchStatus.textContent = matches.length ? `Материалов: ${matches.length}` : 'Ничего не найдено. Попробуй другое слово.';
+    searchStatus.textContent = matches.length ? `Материалов: ${matches.length}` : 'ничего не найдено. попробуй другое слово';
     searchStatus.classList.toggle('story-visually-hidden', matches.length > 0);
   }
   function openMode(mode) {

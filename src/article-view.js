@@ -64,7 +64,7 @@ function nextStoryView() {
 function timelineView() {
   const timeline = articleCopy.timeline;
   return `${editorialDataView({
-    id: 'spread-timeline', title: timeline.title, scope: '«Так похуй» · Spotify · Украина · недельный чарт',
+    id: 'spread-timeline', title: timeline.title, scope: '«Так похуй» · Spotify · украина · недельный чарт',
     points: timeline.points.map(point => ({ ...point, label: point.position })),
     caption: timeline.caption, sources: [{ label: 'Kworb', href: articleSources.kworb.url }],
   })}
@@ -103,10 +103,10 @@ function referencesView() {
 }
 
 const articleMenu = [
-  { label: 'Карта артистов', node: '272:118' },
-  { label: 'Статьи', href: '#article-content', node: '272:120' },
-  { label: 'Тесты', node: '272:121' },
-  { label: 'Мерч', node: '272:122' },
+  { label: 'карта артистов', node: '272:118' },
+  { label: 'статьи', href: '#article-content', node: '272:120' },
+  { label: 'тесты', node: '272:121' },
+  { label: 'мерч', node: '272:122' },
 ];
 
 function menuItemView({ label, href, route, node }) {
@@ -131,8 +131,8 @@ ${items.map(menuItemView).join('\n')}
           <button class="story-icon story-search__submit" type="submit" aria-label="Найти статьи" data-node-id="376:713">
             <img src="${icons}search.svg" alt="" width="32" height="32">
           </button>
-          <label class="story-visually-hidden" for="article-search">О чем скучаешь? Найти статьи</label>
-          <input id="article-search" name="q" type="search" placeholder="О чем скучаешь?" autocomplete="off" aria-controls="article-search-results" data-node-id="376:717">
+          <label class="story-visually-hidden" for="article-search">о чём скучаешь? найти статьи</label>
+          <input id="article-search" name="q" type="search" placeholder="о чём скучаешь?" autocomplete="off" aria-controls="article-search-results" data-node-id="376:717">
           <button class="story-icon story-search__close" type="button" aria-label="Закрыть поиск" aria-controls="article-search-form article-search-results" data-node-id="376:723">
             <img src="${icons}close.svg" alt="" width="32" height="32">
           </button>
@@ -166,14 +166,14 @@ export function articleView() {
       <div class="story-club__beam story-club__beam--green"></div>
       <div class="story-club__seam"></div>
     </div>
-    <a class="story-skip" href="#article-content">Перейти к статье</a>
+    <a class="story-skip" href="#article-content">перейти к статье</a>
     ${siteHeaderView()}
     <article class="story" aria-labelledby="article-title">
       <header class="story-cover film" data-node-id="290:69">
         <img class="story-cover__photo" src="${artwork}madk1d-concert.png" alt="madk1d выступает перед зрителями на освещённой сцене" width="3516" height="1984" fetchpriority="high">
         <div class="story-cover__shade" aria-hidden="true"></div>
         <div class="story-cover__meta" data-node-id="290:70">
-          <p class="media-eyebrow story-category" data-node-id="290:71">Новая сцена <span aria-hidden="true">/</span> Разбор</p>
+          <p class="media-eyebrow story-category" data-node-id="290:71">новая сцена <span aria-hidden="true">/</span> разбор</p>
           <p class="story-meta" data-node-id="290:72">${tagMarkup(`${articleCopy.readingMinutes} минут`, 'time')}</p>
         </div>
         <div class="story-cover__intro-row" data-node-id="293:210">
@@ -197,7 +197,7 @@ export function articleView() {
         ${sectionView('album', 'album')}
         <figure class="story-artwork story-column entity-card entity-card--album" id="sexyswag-artwork" data-context-material="sexyswag-artwork" tabindex="-1" aria-labelledby="sexyswag-artwork-title">
           <h2 class="story-artwork__title" id="sexyswag-artwork-title">${escape(material('sexyswag-artwork').title)}</h2>
-          <p class="entity-card__type">${tagMarkup('Альбом')}</p>
+          <p class="entity-card__type">${tagMarkup('альбом')}</p>
           <div class="story-artwork__cover"><a href="${escape(articleSources.album.url)}" aria-label="Альбом sexyswag на Shazam"><img src="${artwork}rail/sexyswag.png" alt="Обложка альбома sexyswag, стилизованная под страницу поиска" width="642" height="634" loading="lazy"></a>${burstLinkMarkup(material('sexyswag-artwork').listen)}</div>
           <figcaption id="sexyswag-artwork-caption"><span class="story-artwork__artist">madk1d</span><span class="story-artwork__name">Марк Робертович Серков</span><span class="story-artwork__description">Обложка альбома sexyswag — madk1d.</span></figcaption>
           ${material('sexyswag-artwork').paragraphs.map(text => `<p class="story-artwork__summary">${escape(text)}</p>`).join('')}

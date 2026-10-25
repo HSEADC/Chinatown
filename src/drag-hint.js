@@ -69,7 +69,7 @@ export function mountDragHint(host, overlay = host) {
 
   const reducedMotionLabel = document.createElement('span');
   reducedMotionLabel.className = 'intro__drag-hint-label';
-  reducedMotionLabel.textContent = 'Зажмите и перетащите';
+  reducedMotionLabel.textContent = 'зажми и перетащи';
 
   glyph.append(openHand, closedHand);
   motion.append(glyph, reducedMotionLabel);

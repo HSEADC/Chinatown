@@ -19,12 +19,12 @@ export function subscribeDialogMarkup() {
         <div class="subscribe-modal__body">
           <div>
             <h2 id="subscribe-title">держим связь</h2>
-            <p id="subscribe-description"><strong>подпишись на нас, чтобы учавствовать в розыгрыше мерча,</strong> а&nbsp;также&nbsp;быть в курсе новостей медиа и тусовок на&nbsp;китай-городе.</p>
+            <p id="subscribe-description"><strong>подпишись на нас, чтобы участвовать в розыгрыше мерча,</strong> а&nbsp;также&nbsp;быть в курсе новостей медиа и тусовок на&nbsp;китай-городе.</p>
           </div>
           <form class="subscribe-modal__form" id="subscribe-form" action="https://formspree.io/f/xkjjgwgy" method="POST" novalidate>
-            <label class="visually-hidden" for="subscribe-email">Электропочта</label>
-            <input class="email-field" id="subscribe-email" name="email" type="email" placeholder="ЭЛЕКТРОПОЧТА" autocomplete="email" inputmode="email" aria-describedby="subscribe-status" required>
-            <button class="action-button" data-action-button type="submit">ПОДПИСАТЬСЯ</button>
+            <label class="visually-hidden" for="subscribe-email">электропочта</label>
+            <input class="email-field" id="subscribe-email" name="email" type="email" placeholder="электропочта" autocomplete="email" inputmode="email" aria-describedby="subscribe-status" required>
+            <button class="action-button" data-action-button type="submit">подписаться</button>
             <p class="subscribe-modal__status" id="subscribe-status" role="status" aria-live="polite"></p>
           </form>
         </div>
@@ -34,13 +34,13 @@ export function subscribeDialogMarkup() {
 }
 
 /** The pink «Следить за обновлениями» at the end of a feed; it opens the subscribe dialog. */
-export function createFollowAction(text = 'Это всё, что есть сейчас. Новые материалы пришлём первыми.') {
+export function createFollowAction(text = 'это всё, что есть сейчас. новые материалы пришлём первыми') {
   const block = document.createElement('div');
   block.className = 'follow-action';
   const note = document.createElement('p');
   note.className = 'follow-action__text';
   note.textContent = text;
-  const button = createActionButton({ label: 'Следить за обновлениями' });
+  const button = createActionButton({ label: 'следить за обновлениями' });
   button.dataset.subscribeOpen = '';
   button.setAttribute('aria-haspopup', 'dialog');
   button.setAttribute('aria-controls', 'subscribe-modal');

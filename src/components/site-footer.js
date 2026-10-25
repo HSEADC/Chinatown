@@ -10,12 +10,12 @@ export function siteFooterMarkup() {
       <div class="site-footer__band">
         <div class="site-footer__copy">
           <h2 class="site-footer__title" id="site-footer-title">держим связь</h2>
-          <p class="site-footer__text"><strong>подпишись на нас, чтобы учавствовать в розыгрыше мерча,</strong> а&nbsp;также быть в&nbsp;курсе новостей медиа и&nbsp;тусовок на&nbsp;китай-городе</p>
+          <p class="site-footer__text"><strong>подпишись на нас, чтобы участвовать в розыгрыше мерча,</strong> а&nbsp;также быть в&nbsp;курсе новостей медиа и&nbsp;тусовок на&nbsp;китай-городе</p>
         </div>
         <form class="site-footer__form" action="https://formspree.io/f/xkjjgwgy" method="POST" novalidate>
-          <label class="visually-hidden" for="site-footer-email">Электропочта</label>
-          <input class="email-field email-field--ink" id="site-footer-email" name="email" type="email" placeholder="Электропочта" autocomplete="email" inputmode="email" aria-describedby="site-footer-status" required>
-          <button class="action-button--ink" type="submit" data-action-button>Подписаться</button>
+          <label class="visually-hidden" for="site-footer-email">электропочта</label>
+          <input class="email-field email-field--ink" id="site-footer-email" name="email" type="email" placeholder="электропочта" autocomplete="email" inputmode="email" aria-describedby="site-footer-status" required>
+          <button class="action-button--ink" type="submit" data-action-button>подписаться</button>
           <p class="site-footer__status" id="site-footer-status" role="status" aria-live="polite"></p>
         </form>
         <img class="site-footer__star" src="${asset('figma/footer-star.svg')}" alt="" aria-hidden="true" width="515" height="515" loading="lazy" decoding="async">

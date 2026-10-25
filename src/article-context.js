@@ -24,7 +24,7 @@ export function mountArticleContext(page, sceneRail, { suspended: initiallySuspe
   const sourceOrder = new Map([...page.querySelectorAll('*')].map((node, index) => [node, index]));
   const dialog = document.createElement('dialog');
   dialog.className = 'article-context-screen';
-  dialog.innerHTML = '<button class="article-context-screen__back" type="button">← К статье</button><div class="article-context-screen__content"></div>';
+  dialog.innerHTML = '<button class="article-context-screen__back" type="button">← к статье</button><div class="article-context-screen__content"></div>';
   document.body.append(dialog);
   const screenHost = dialog.querySelector('.article-context-screen__content');
   const token = crypto.randomUUID();
