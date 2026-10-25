@@ -10,10 +10,11 @@ test('mat is masked with asterisks, the rest of the word stays readable', () => 
   assert.equal(maskProfanity('Разбить бы ебасос твоему новому уёбку'), 'Разбить бы е*асос твоему новому уё*ку');
   assert.equal(maskProfanity('посылал нахуй работу'), 'посылал нах*й работу');
   assert.equal(maskProfanity('попиздаче, блядь'), 'поп*здаче, бл*дь');
+  assert.equal(maskProfanity('давать шалаве в глотку'), 'давать ш*лаве в глотку');
 });
 
 test('ordinary words and links are left alone', () => {
-  const clean = 'небо хлеб себе тебя требование употребляя бляха мандат мудрый хулиган страхуй хуже побег вебинар отъезд съёмка шалава сотку';
+  const clean = 'небо хлеб себе тебя требование употребляя бляха мандат мудрый хулиган страхуй хуже побег вебинар отъезд съёмка сотку шалаш';
   assert.equal(maskProfanity(clean), clean);
   const link = 'https://www.shazam.com/ru-ru/song/1802942825/так-похуй';
   assert.equal(maskProfanity(link), link);
