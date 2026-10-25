@@ -2,11 +2,13 @@
    Type and controls come from shared tokens; this file places them on the pink band. */
 .site-footer {
   position: relative;
-  /* The star reaches past the band, as in the mock-up: the dark above keeps its rays off the page content, and the
-     page edges cut the rest, so the band is the last thing on the page. */
+  /* The band sits flush under the page's last block. The footer box starts higher, over that block, so the star can
+     reach up onto it as in the mock-up; the page's side and bottom edges cut its other rays, so the band is the last
+     thing on the page. The empty top lets clicks through to the block underneath. */
   overflow: clip;
-  padding: var(--space-32) 0 0;
-  /* No fill of its own: a big burst at the article's end may hang into this top space. */
+  margin-top: calc(-1 * var(--space-32));
+  padding-top: var(--space-32);
+  pointer-events: none;
   color: #000;
 }
 .site-footer__band {
@@ -18,6 +20,7 @@
   align-items: start;
   padding: var(--space-16) var(--page-gutter);
   background: #fc5cff;
+  pointer-events: auto;
   container-type: inline-size;
 }
 .site-footer__copy { grid-column: 1 / span 2; display: flex; flex-direction: column; gap: var(--space-4); max-width: 629px; }
@@ -45,7 +48,6 @@
 @media (max-width: 760px) {
   /* Benzin caps are wider: «ДЕРЖИМ» fits a phone at 48px. */
   .site-footer__title { font-size: 48px; line-height: 48px; }
-  .site-footer { padding: var(--space-24) 0 0; }
   .site-footer__band { display: flex; flex-direction: column; gap: var(--space-8); padding: var(--space-12) var(--page-gutter); }
   .site-footer__copy, .site-footer__form { max-width: none; width: 100%; }
   .site-footer__form { gap: var(--space-4); }
