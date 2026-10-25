@@ -14,7 +14,7 @@ export function mountArticleImages(page, { onOpenChange = () => {} } = {}) {
   dialog.innerHTML = `<div class="article-image-viewer__stage">
     <div class="article-image-viewer__surface"><img alt="" draggable="false"></div>
     <div class="article-image-viewer__controls">
-      <button class="article-image-viewer__close action-button--secondary" type="button">закрыть</button>
+      <button class="article-image-viewer__close action-button--secondary" type="button">Закрыть</button>
       <a class="article-image-viewer__source" target="_blank" rel="noopener noreferrer" hidden></a>
     </div>
   </div>`;
