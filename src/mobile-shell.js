@@ -11,13 +11,13 @@ const asset = name => new URL(`../assets/figma/mobile-shell/${name}.svg`, import
 const motionMs = (name, fallback) => parseFloat(getComputedStyle(document.documentElement).getPropertyValue(name)) || fallback;
 const img = (name, size) => `<img src="${asset(name)}" alt="" width="${size}" height="${size}" aria-hidden="true">`;
 
-/** Phone-only shell: one content sheet, site search, navigation and three Figma FABs. */
-export function mountMobileShell(page, { onOverlayChange = () => {}, onVisibilityChange = () => {}, onDismissContext = () => {}, onRestoreContext = () => {} } = {}) {
+/** Phone-only shell: one content sheet, site search, navigation and three Figma FABs. Without `context` only menu and search remain. */
+export function mountMobileShell(page, { context: withContext = true, onOverlayChange = () => {}, onVisibilityChange = () => {}, onDismissContext = () => {}, onRestoreContext = () => {} } = {}) {
   const controller = new AbortController();
   const options = { signal: controller.signal };
   const phone = matchMedia('(max-width: 760px)');
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
-  const storageKey = `chinatown:mobile-shell:${page.dataset.articleId}`;
+  const storageKey = `chinatown:mobile-shell:${page.dataset.articleId || 'site'}`;
   let saved;
   try { saved = JSON.parse(sessionStorage.getItem(storageKey) || '{}'); } catch { /* Private mode or an older draft. */ }
   let state = initialMobileShellState(saved);
@@ -75,7 +75,9 @@ export function mountMobileShell(page, { onOverlayChange = () => {}, onVisibilit
   const fabs = root.querySelector('.mobile-shell__fabs');
   const liveStatus = root.querySelector('[data-mobile-status]');
   const contextButton = root.querySelector('[data-mobile-mode="context"]');
-  const badge = root.querySelector('.mobile-fab__unread');
+  // Pages without material beside the text (the landing) keep only the square FABs.
+  if (!withContext) contextButton.remove();
+  const badge = contextButton.querySelector('.mobile-fab__unread');
   const sheet = root.querySelector('.mobile-shell__sheet');
   const handle = root.querySelector('[data-sheet-handle]');
   const title = root.querySelector('.mobile-shell__title');

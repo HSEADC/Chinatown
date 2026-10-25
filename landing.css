@@ -83,7 +83,8 @@
 
 @media (max-width: 760px) {
   .landing { --landing-section-space: 96px; }
-  .landing-hero { min-height: max(560px, calc(100svh - var(--media-header-height, var(--header-height)))); padding-top: var(--space-24); }
+  /* The bottom clears the menu and search FABs (12 + 32 + 24 + 32 px), so they never sit on the pink button. */
+  .landing-hero { min-height: max(560px, calc(100svh - var(--media-header-height, var(--header-height)))); padding-top: var(--space-24); padding-bottom: var(--space-32); }
   .landing-hero__content { gap: var(--space-6); }
   /* At 40px the wordmark only fits the 350px column without the display tracking. */
   .landing-hero__title { letter-spacing: 0; }
