@@ -3,7 +3,7 @@
 // masked, so the masked version is what loads first; the full words come back
 // only after «Я ВЗРОСЛЫЙ» in the entry popup (src/mat-gate.js), from the encoded
 // dictionary src/mat-dictionary.js that npm run mat:mask keeps up to date.
-// Rules: AGENTS.md, «Мат». Check: npm test.
+// Check: npm test.
 
 // Each rule matches the start of a lower-case word and names which letters of
 // the root turn into asterisks (offsets inside the match). Prefixes are listed

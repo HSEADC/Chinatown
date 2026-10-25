@@ -7,3 +7,17 @@ dist/
 *.log
 video-originals/
 config/video-cuts.local.json
+
+# Local assistant instructions and generated handoff material
+/AGENTS.md
+/CLAUDE.md
+/GEMINI.md
+/.agents/
+/.claude/
+/.codex/
+/.cursor/
+/.cursorrules
+/.github/copilot-instructions.md
+/audits/
+/deliverables/ai-handoff*
+/deliverables/*prompt.md

@@ -1,5 +1,5 @@
 // Approved editorial copy: deliverables/madk1d-editorial-layout.md.
-// Add song fragments only after editorial approval; follow AGENTS.md.
+// Add song fragments only after editorial approval; follow docs/editorial-typography.md.
 export const articleSources = {
   "interview": {
     "label": "The Flow: интервью madk1d, 6 мая 2025",

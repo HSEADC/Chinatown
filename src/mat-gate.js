@@ -1,7 +1,7 @@
 import { encodedMat } from './mat-dictionary.js';
 import { createActionButton } from './components/action-button.js';
 
-// Entry popup «тут есть мат». Every served text is masked with asterisks (AGENTS.md, «Мат»), so the masked
+// Entry popup «тут есть мат». Every served text is masked with asterisks, so the masked
 // version is the default until the visitor picks «Я ВЗРОСЛЫЙ»; only then do the words come back from the
 // encoded dictionary. The choice is remembered in this browser; ?mat=ask shows the popup again.
 const CHOICE_KEY = 'chinatown:mat';
