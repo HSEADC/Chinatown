@@ -137,9 +137,10 @@
 .story-quote-scene__break { opacity: .4; }
 .story-quote-scene.is-enhanced .story-quote-scene__scroll { height: var(--quote-scroll-height, 100svh); }
 .story-quote-scene.is-enhanced { margin-bottom: calc(-1 * var(--quote-overlap, 0px)); }
-.story-quote-scene.is-enhanced .story-quote-scene__media { position: fixed; z-index: 10; inset: 0; opacity: var(--quote-media-opacity, 0); visibility: hidden; }
+/* Large viewport: the photo must reach the screen bottom when the browser bar hides (Android, in-app browsers). */
+.story-quote-scene.is-enhanced .story-quote-scene__media { position: fixed; z-index: 10; inset: 0 0 auto; height: 100vh; height: 100lvh; opacity: var(--quote-media-opacity, 0); visibility: hidden; }
 .story-quote-scene.is-enhanced .story-quote-scene__media.is-visible { visibility: visible; }
-.story-quote-scene.is-enhanced .story-quote-scene__stage { position: sticky; z-index: 11; top: 0; height: 100svh; overflow: clip; pointer-events: none; }
+.story-quote-scene.is-enhanced .story-quote-scene__stage { position: sticky; z-index: 11; top: 0; height: 100vh; height: 100lvh; overflow: clip; pointer-events: none; }
 .story-quote-scene.is-enhanced .story-quote-scene__lyrics { will-change: transform; }
 .story-quote-scene.is-enhanced .story-quote-scene__lyrics { opacity: var(--quote-lyrics-opacity, 1); }
 .story-quote-scene.is-enhanced [data-quote-line] { opacity: .4; transition: opacity 140ms ease-out; }
