@@ -133,14 +133,29 @@
   .mobile-search-field > input { flex: 1; width: 100%; min-width: 0; height: auto; padding: var(--space-1) 0 0; border: 0; border-radius: 0; background: transparent; color: #fff; font: 700 var(--font-size-search)/30px var(--font-input); letter-spacing: .02em; text-transform: lowercase; }
   .mobile-search-field > input::placeholder { color: #777; opacity: 1; }
   .mobile-search-field > input::-webkit-search-cancel-button { -webkit-appearance: none; }
-  .mobile-search-results { flex: 1; min-height: 0; margin: 0; padding: 0; overflow-y: auto; overscroll-behavior: contain; list-style: none; }
+  .mobile-search-results { position: relative; flex: 1; min-height: 0; margin: 0; padding: 0; overflow-y: auto; overscroll-behavior: contain; list-style: none; }
   .mobile-search-results > li + li { margin-top: 2px; }
-  .mobile-search-result { --tags-right: 14px; --tags-bottom: 18px; position: relative; isolation: isolate; display: flex; align-items: flex-start; gap: var(--space-2); min-height: 132px; padding: var(--space-4) var(--space-4) var(--space-6); overflow: clip; text-decoration: none; }
+  .mobile-search-result { --tags-right: 14px; --tags-bottom: 18px; position: relative; isolation: isolate; display: flex; flex-direction: column; min-height: 132px; padding: var(--space-4) var(--space-4) var(--space-6); overflow: clip; text-decoration: none; }
   .mobile-search-result::after { position: absolute; z-index: -1; inset: 0; background: rgb(0 0 0 / .4); content: ""; }
   .mobile-search-result > img { position: absolute; z-index: -2; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; }
   .mobile-search-result__body { flex: 1; min-width: 0; padding-right: var(--space-32); }
   .mobile-search-result__body > p { margin: 0; min-width: 0; padding-top: 2px; font: 800 var(--font-size-label)/var(--line-height-label) var(--font-display); letter-spacing: .02em; text-transform: uppercase; overflow-wrap: anywhere; }
   .mobile-search-result__body > p > span { color: var(--mobile-accent); }
+  /* The card in focus (.is-focus on its li, set by the scroll position) grows by its prologue: reading time and a
+     short lead; the tags step up over the prologue. Scroll anchoring is off so the list never jumps on its own. */
+  .mobile-search-results { overflow-anchor: none; }
+  .mobile-search-result::before { position: absolute; z-index: -1; inset: 0; background: linear-gradient(to top, rgb(0 0 0 / .72), transparent 64%); opacity: 0; content: ""; transition: opacity var(--motion-exit) var(--motion-ease-exit); }
+  .mobile-search-result__more { display: grid; grid-template-rows: 0fr; opacity: 0; transition: grid-template-rows var(--motion-exit) var(--motion-ease-exit), opacity var(--motion-exit) var(--motion-ease-exit); }
+  .mobile-search-result__more > div { display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-end; gap: var(--space-2); min-height: 0; overflow: hidden; }
+  /* Room for the tags above the prologue; a margin, not a padding, so the folded row really closes to zero. */
+  .mobile-search-result__more .ct-tag { margin-top: var(--space-32); }
+  .mobile-search-result__more p { display: -webkit-box; margin: 0; overflow: hidden; color: rgb(255 255 255 / .86); font: 400 var(--font-size-caption)/var(--line-height-caption) var(--font-body); -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+  .mobile-search-results.is-measuring > li .mobile-search-result__more { grid-template-rows: 0fr; transition: none; }
+  .mobile-search-results.is-instant *, .mobile-search-results.is-instant *::before { transition: none !important; }
+  .mobile-search-result .ct-tags--stuck { transition: translate var(--motion-exit) var(--motion-ease-exit); }
+  .is-focus > .mobile-search-result::before { opacity: 1; transition: opacity var(--motion-enter) var(--motion-ease); }
+  .is-focus > .mobile-search-result .mobile-search-result__more { grid-template-rows: 1fr; opacity: 1; transition: grid-template-rows var(--motion-enter) var(--motion-ease), opacity var(--motion-enter) var(--motion-ease); }
+  .is-focus > .mobile-search-result .ct-tags--stuck { translate: 0 calc(var(--tags-bottom) - var(--space-6) - var(--tag-height) - 2 * var(--line-height-caption) - 2 * var(--space-2)); transition: translate var(--motion-enter) var(--motion-ease); }
   .mobile-shell__search-status:not(.story-visually-hidden) { padding: var(--space-5) var(--space-3); color: #b7b7b7; font: 400 var(--font-size-body)/var(--line-height-body) var(--font-body); }
   .mobile-city-video { position: relative; flex: 1; min-height: 0; overflow: clip; background: #171717; }
   .mobile-city-video > video { display: block; width: 100%; height: 100%; object-fit: cover; }
