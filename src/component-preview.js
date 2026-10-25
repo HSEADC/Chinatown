@@ -111,7 +111,7 @@ async function render(){
       break;
     case 'header':{
       const {header}=await fullArticle({rail:false});
-      if(variant==='menu'&&window.innerWidth<=760)header.querySelector('.story-brand').click();
+      if(variant==='menu'&&window.innerWidth<=760)header.querySelector('.story-menu-toggle').click();
       if(['search','results','empty'].includes(variant)){
         header.querySelector('.story-search-toggle').click();
         if(variant!=='search'){

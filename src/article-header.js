@@ -81,7 +81,6 @@ export function mountArticleHeader(header, onChange, page = header.closest('.sto
     header.classList.toggle('is-nav-open', mobile.matches && navOpen && !searchOpen);
     header.dataset.nodeId = searchOpen ? '376:696' : '272:111';
     menu.inert = !expanded;
-    brand.setAttribute('aria-expanded', String(expanded));
     menuToggle.setAttribute('aria-expanded', String(expanded));
     searchToggle.hidden = searchOpen;
     menuToggle.hidden = !searchOpen;
@@ -222,13 +221,6 @@ export function mountArticleHeader(header, onChange, page = header.closest('.sto
     }
   }
 
-  brand.addEventListener('click', () => {
-    if (mobile.matches && navOpen && !searchOpen) {
-      cancelAnimations(menuAnimations);
-      navOpen = false;
-      syncNavigation();
-    } else showNavigation();
-  }, options);
   menuToggle.addEventListener('click', () => showNavigation({ animated: true }), options);
   searchToggle.addEventListener('click', () => setSearch(!searchOpen, { focus: true }), options);
   searchClose.addEventListener('click', () => setSearch(false, { focus: true }), options);
