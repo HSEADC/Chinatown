@@ -12,6 +12,8 @@
 .media-site-header > .story-header { position: relative; }
 .has-scene-rail #media-content { margin-right: var(--scene-rail-width); transition: margin-right var(--scene-motion); }
 .scene-rail { position: fixed; z-index: 45; inset: var(--scene-rail-top, 0px) 0 0 auto; width: var(--scene-rail-width, 0px); overflow: visible; background: var(--scene-rail-bg); color: #fff; transition: width var(--scene-motion), top 220ms cubic-bezier(.16, 1, .3, 1); }
+/* The rail rides up off the site footer as it scrolls into view (scene-rail.js). */
+.scene-rail { translate: 0 calc(-1 * var(--scene-rail-lift, 0px)); }
 .scene-rail__video, .scene-rail__shade { position: absolute; inset: 0; width: 100%; height: 100%; }
 .scene-rail__video { display: block; object-fit: cover; }
 .scene-rail__shade { pointer-events: none; background: linear-gradient(180deg, #0009, transparent 30%, transparent 60%, #000b); }
@@ -185,6 +187,8 @@
 .scene-reading-layout { container: editorial / inline-size; }
 @media (min-width: 1200px) {
   .scene-reading-layout { width: calc(100vw - var(--scene-rail-full-width)); }
+  /* The footer is the page's full-width floor: it runs under the rail's column to the window edge, open or collapsed. */
+  .scene-reading-layout .site-footer { margin-right: calc(-1 * var(--scene-rail-full-width)); }
 }
 @media (max-width: 1199px) {
   .has-scene-rail, .has-scene-rail.is-scene-rail-collapsed { --scene-rail-width: 0px; }

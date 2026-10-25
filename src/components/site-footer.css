@@ -6,7 +6,7 @@
      page edges cut the rest, so the band is the last thing on the page. */
   overflow: clip;
   padding: var(--space-32) 0 0;
-  background: #131313;
+  /* No fill of its own: a big burst at the article's end may hang into this top space. */
   color: #000;
 }
 .site-footer__band {
