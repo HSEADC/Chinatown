@@ -28,8 +28,15 @@
 .landing-hero__content { display: flex; flex-direction: column; gap: var(--space-12); }
 .landing-hero__title { text-transform: uppercase; }
 .landing-hero__row { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); column-gap: var(--landing-gap); align-items: end; }
-.landing-hero__lead { grid-column: 1 / span 2; }
-.landing-hero__action { grid-column: 4 / span 2; justify-self: end; width: auto; }
+/* Same split as the stub: text in the first column, the button across the other four. */
+.landing-hero__lead { grid-column: 1; }
+.landing-hero__action { grid-column: 2 / span 4; width: 100%; }
+/* Below 1200 one column is too narrow for the lead: it goes above the button. */
+@media (min-width: 761px) and (max-width: 1199px) {
+  .landing-hero__row { row-gap: var(--space-6); }
+  .landing-hero__lead { grid-column: 1 / span 3; }
+  .landing-hero__action { grid-row: 2; }
+}
 
 .landing-section {
   display: grid;
