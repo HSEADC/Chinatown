@@ -5,5 +5,5 @@
 .media-page h1:focus { outline: none; }
 .media-page [hidden] { display: none !important; }
 .media-accent { color: var(--media-accent); }
-.media-eyebrow { display: block; font-size: var(--font-size-label); font-weight: 800; line-height: var(--line-height-caption); letter-spacing: .04em; text-transform: lowercase; }
+.media-eyebrow { display: block; font-size: var(--font-size-label); font-weight: 700; line-height: var(--line-height-caption); letter-spacing: .04em; text-transform: lowercase; }
 @media (prefers-reduced-motion: reduce) { .media-page *, .media-page *::before, .media-page *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
