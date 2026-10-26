@@ -1,0 +1,41 @@
+{
+  "desktop": {
+    "background": "rgb(252, 92, 255)",
+    "color": "rgb(255, 255, 255)",
+    "decoration": "none",
+    "groupOffset": -0.00390625,
+    "height": 64,
+    "href": "https://soundcloud.com/madk1d-sc/tak-poxuj",
+    "pageWidth": 1158.3984375,
+    "width": 1158.3984375,
+    "x": 0
+  },
+  "mobile": {
+    "contentWidth": 354.5,
+    "groupOffset": 0,
+    "height": 64,
+    "scrollWidth": 390,
+    "viewport": 390,
+    "width": 390,
+    "x": 0
+  },
+  "narrow": {
+    "content": 263.875,
+    "scrollWidth": 320,
+    "width": 320
+  },
+  "whitelist": {
+    "content": 492.7421875,
+    "groupOffset": -0.00390625,
+    "height": 64,
+    "width": 985.609375
+  },
+  "subscribe": {
+    "content": 344.203125,
+    "endpoint": "https://formspree.io/f/YOUR_FORM_ID",
+    "groupOffset": 0,
+    "height": 64,
+    "width": 482.140625
+  },
+  "formValidation": "pass"
+}

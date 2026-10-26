@@ -1,0 +1,442 @@
+{
+  "figmaNodes": [
+    "388:748",
+    "388:752",
+    "388:756"
+  ],
+  "viewport320": [
+    {
+      "controls": [
+        {
+          "borderWidth": "0px",
+          "fontSize": "12px",
+          "group": {
+            "centerDelta": 0,
+            "height": 32,
+            "width": 241.8125
+          },
+          "height": 32,
+          "icon": {
+            "height": 32,
+            "loaded": true,
+            "src": "http://localhost:4173/assets/figma/components/action-next-mobile.svg",
+            "width": 32
+          },
+          "kind": "button",
+          "label": {
+            "fontSize": "12px",
+            "lineHeight": "16px",
+            "padding": "10px 0px 6px 12px",
+            "width": 209.8125
+          },
+          "lineHeight": "16px",
+          "padding": "0px",
+          "secondary": false,
+          "width": 280
+        },
+        {
+          "borderWidth": "1px",
+          "fontSize": "12px",
+          "height": 0,
+          "kind": "email",
+          "lineHeight": "16px",
+          "padding": "10px 12px 6px",
+          "placeholder": "rgba(255, 255, 255, 0.3)",
+          "secondary": false,
+          "width": 0
+        },
+        {
+          "borderWidth": "0px",
+          "fontSize": "12px",
+          "group": {
+            "centerDelta": 0,
+            "height": 0,
+            "width": 0
+          },
+          "height": 0,
+          "icon": {
+            "height": 0,
+            "loaded": true,
+            "src": "http://localhost:4173/assets/figma/components/action-next-mobile.svg",
+            "width": 0
+          },
+          "kind": "button",
+          "label": {
+            "fontSize": "12px",
+            "lineHeight": "16px",
+            "padding": "10px 0px 6px 12px",
+            "width": 0
+          },
+          "lineHeight": "16px",
+          "padding": "0px",
+          "secondary": false,
+          "width": 0
+        }
+      ],
+      "overflow": false,
+      "state": "ready",
+      "type": "chinatown:component-preview",
+      "viewport": 320
+    },
+    {
+      "controls": [
+        {
+          "borderWidth": "0px",
+          "fontSize": "12px",
+          "group": {
+            "centerDelta": 0,
+            "height": 32,
+            "width": 241.8125
+          },
+          "height": 32,
+          "icon": {
+            "height": 32,
+            "loaded": true,
+            "src": "http://localhost:4173/assets/figma/components/action-next-mobile.svg",
+            "width": 32
+          },
+          "kind": "button",
+          "label": {
+            "fontSize": "12px",
+            "lineHeight": "16px",
+            "padding": "10px 0px 6px 12px",
+            "width": 209.8125
+          },
+          "lineHeight": "16px",
+          "padding": "0px",
+          "secondary": true,
+          "width": 280
+        },
+        {
+          "borderWidth": "1px",
+          "fontSize": "12px",
+          "height": 0,
+          "kind": "email",
+          "lineHeight": "16px",
+          "padding": "10px 12px 6px",
+          "placeholder": "rgba(255, 255, 255, 0.3)",
+          "secondary": false,
+          "width": 0
+        },
+        {
+          "borderWidth": "0px",
+          "fontSize": "12px",
+          "group": {
+            "centerDelta": 0,
+            "height": 0,
+            "width": 0
+          },
+          "height": 0,
+          "icon": {
+            "height": 0,
+            "loaded": true,
+            "src": "http://localhost:4173/assets/figma/components/action-next-mobile.svg",
+            "width": 0
+          },
+          "kind": "button",
+          "label": {
+            "fontSize": "12px",
+            "lineHeight": "16px",
+            "padding": "10px 0px 6px 12px",
+            "width": 0
+          },
+          "lineHeight": "16px",
+          "padding": "0px",
+          "secondary": false,
+          "width": 0
+        }
+      ],
+      "overflow": false,
+      "state": "ready",
+      "type": "chinatown:component-preview",
+      "viewport": 320
+    },
+    {
+      "controls": [
+        {
+          "borderWidth": "1px",
+          "fontSize": "12px",
+          "height": 34,
+          "kind": "email",
+          "lineHeight": "16px",
+          "padding": "10px 12px 6px",
+          "placeholder": "rgba(255, 255, 255, 0.3)",
+          "secondary": false,
+          "width": 280
+        }
+      ],
+      "overflow": false,
+      "state": "ready",
+      "type": "chinatown:component-preview",
+      "viewport": 320
+    },
+    {
+      "controls": [
+        {
+          "borderWidth": "0px",
+          "fontSize": "12px",
+          "group": {
+            "centerDelta": 0,
+            "height": 32,
+            "width": 241.8125
+          },
+          "height": 32,
+          "icon": {
+            "height": 32,
+            "loaded": true,
+            "src": "http://localhost:4173/assets/figma/components/action-next-mobile.svg",
+            "width": 32
+          },
+          "kind": "button",
+          "label": {
+            "fontSize": "12px",
+            "lineHeight": "16px",
+            "padding": "10px 0px 6px 12px",
+            "width": 209.8125
+          },
+          "lineHeight": "16px",
+          "padding": "0px",
+          "secondary": false,
+          "width": 288
+        },
+        {
+          "borderWidth": "1px",
+          "fontSize": "12px",
+          "height": 0,
+          "kind": "email",
+          "lineHeight": "16px",
+          "padding": "10px 12px 6px",
+          "placeholder": "rgba(255, 255, 255, 0.3)",
+          "secondary": false,
+          "width": 0
+        },
+        {
+          "borderWidth": "0px",
+          "fontSize": "12px",
+          "group": {
+            "centerDelta": 0,
+            "height": 0,
+            "width": 0
+          },
+          "height": 0,
+          "icon": {
+            "height": 0,
+            "loaded": true,
+            "src": "http://localhost:4173/assets/figma/components/action-next-mobile.svg",
+            "width": 0
+          },
+          "kind": "button",
+          "label": {
+            "fontSize": "12px",
+            "lineHeight": "16px",
+            "padding": "10px 0px 6px 12px",
+            "width": 0
+          },
+          "lineHeight": "16px",
+          "padding": "0px",
+          "secondary": false,
+          "width": 0
+        }
+      ],
+      "overflow": false,
+      "state": "ready",
+      "type": "chinatown:component-preview",
+      "viewport": 320
+    }
+  ],
+  "viewport390": [
+    {
+      "controls": [
+        {
+          "borderWidth": "0px",
+          "fontSize": "12px",
+          "group": {
+            "centerDelta": 0,
+            "height": 32,
+            "width": 241.8125
+          },
+          "height": 32,
+          "icon": {
+            "height": 32,
+            "loaded": true,
+            "src": "http://localhost:4173/assets/figma/components/action-next-mobile.svg",
+            "width": 32
+          },
+          "kind": "button",
+          "label": {
+            "fontSize": "12px",
+            "lineHeight": "16px",
+            "padding": "10px 0px 6px 12px",
+            "width": 209.8125
+          },
+          "lineHeight": "16px",
+          "padding": "0px",
+          "secondary": false,
+          "width": 350
+        },
+        {
+          "borderWidth": "1px",
+          "fontSize": "12px",
+          "height": 0,
+          "kind": "email",
+          "lineHeight": "16px",
+          "padding": "10px 12px 6px",
+          "placeholder": "rgba(255, 255, 255, 0.3)",
+          "secondary": false,
+          "width": 0
+        },
+        {
+          "borderWidth": "0px",
+          "fontSize": "12px",
+          "group": {
+            "centerDelta": 0,
+            "height": 0,
+            "width": 0
+          },
+          "height": 0,
+          "icon": {
+            "height": 0,
+            "loaded": true,
+            "src": "http://localhost:4173/assets/figma/components/action-next-mobile.svg",
+            "width": 0
+          },
+          "kind": "button",
+          "label": {
+            "fontSize": "12px",
+            "lineHeight": "16px",
+            "padding": "10px 0px 6px 12px",
+            "width": 0
+          },
+          "lineHeight": "16px",
+          "padding": "0px",
+          "secondary": false,
+          "width": 0
+        }
+      ],
+      "overflow": false,
+      "state": "ready",
+      "type": "chinatown:component-preview",
+      "viewport": 390
+    },
+    {
+      "controls": [
+        {
+          "borderWidth": "0px",
+          "fontSize": "12px",
+          "group": {
+            "centerDelta": 0,
+            "height": 32,
+            "width": 241.8125
+          },
+          "height": 32,
+          "icon": {
+            "height": 32,
+            "loaded": true,
+            "src": "http://localhost:4173/assets/figma/components/action-next-mobile.svg",
+            "width": 32
+          },
+          "kind": "button",
+          "label": {
+            "fontSize": "12px",
+            "lineHeight": "16px",
+            "padding": "10px 0px 6px 12px",
+            "width": 209.8125
+          },
+          "lineHeight": "16px",
+          "padding": "0px",
+          "secondary": true,
+          "width": 350
+        },
+        {
+          "borderWidth": "1px",
+          "fontSize": "12px",
+          "height": 0,
+          "kind": "email",
+          "lineHeight": "16px",
+          "padding": "10px 12px 6px",
+          "placeholder": "rgba(255, 255, 255, 0.3)",
+          "secondary": false,
+          "width": 0
+        },
+        {
+          "borderWidth": "0px",
+          "fontSize": "12px",
+          "group": {
+            "centerDelta": 0,
+            "height": 0,
+            "width": 0
+          },
+          "height": 0,
+          "icon": {
+            "height": 0,
+            "loaded": true,
+            "src": "http://localhost:4173/assets/figma/components/action-next-mobile.svg",
+            "width": 0
+          },
+          "kind": "button",
+          "label": {
+            "fontSize": "12px",
+            "lineHeight": "16px",
+            "padding": "10px 0px 6px 12px",
+            "width": 0
+          },
+          "lineHeight": "16px",
+          "padding": "0px",
+          "secondary": false,
+          "width": 0
+        }
+      ],
+      "overflow": false,
+      "state": "ready",
+      "type": "chinatown:component-preview",
+      "viewport": 390
+    },
+    {
+      "controls": [
+        {
+          "borderWidth": "1px",
+          "fontSize": "12px",
+          "height": 34,
+          "kind": "email",
+          "lineHeight": "16px",
+          "padding": "10px 12px 6px",
+          "placeholder": "rgba(255, 255, 255, 0.3)",
+          "secondary": false,
+          "width": 315
+        }
+      ],
+      "overflow": false,
+      "state": "ready",
+      "type": "chinatown:component-preview",
+      "viewport": 390
+    }
+  ],
+  "checks": {
+    "primaryOpensDialog": true,
+    "secondaryOpensDialog": true,
+    "escapeClosesDialog": true,
+    "emailEntry": true,
+    "validSubmissionReportsUnconfiguredService": true,
+    "desktopButtonHeight": 64,
+    "desktopFieldHeight": 64,
+    "testsPassed": 58
+  },
+  "currentRenderErrors": [],
+  "historicalBrowserDiagnostics": [
+    {
+      "level": "error",
+      "message": "Uncaught TypeError: Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.",
+      "timestamp": "2026-10-22T11:47:52.051Z"
+    },
+    {
+      "level": "error",
+      "message": "Uncaught TypeError: Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.",
+      "timestamp": "2026-10-22T11:53:58.221Z"
+    },
+    {
+      "level": "error",
+      "message": "Uncaught TypeError: Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.",
+      "timestamp": "2026-10-22T11:55:27.519Z"
+    }
+  ]
+}

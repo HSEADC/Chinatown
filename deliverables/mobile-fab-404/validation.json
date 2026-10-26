@@ -1,0 +1,223 @@
+{
+  "figma": "404:664",
+  "checks": [
+    {
+      "viewport": 320,
+      "visible": true,
+      "group": {
+        "x": 252,
+        "y": 664,
+        "width": 56,
+        "height": 168
+      },
+      "buttons": [
+        {
+          "mode": "menu",
+          "rect": {
+            "x": 276,
+            "y": 664,
+            "right": 308,
+            "bottom": 696,
+            "width": 32,
+            "height": 32
+          },
+          "icon": {
+            "width": 24,
+            "height": 24,
+            "centerX": 292,
+            "centerY": 680,
+            "loaded": true
+          },
+          "background": "rgb(50, 50, 50)",
+          "hitInset": "-6px"
+        },
+        {
+          "mode": "search",
+          "rect": {
+            "x": 276,
+            "y": 720,
+            "right": 308,
+            "bottom": 752,
+            "width": 32,
+            "height": 32
+          },
+          "icon": {
+            "width": 24,
+            "height": 24,
+            "centerX": 292,
+            "centerY": 736,
+            "loaded": true
+          },
+          "background": "rgb(50, 50, 50)",
+          "hitInset": "-6px"
+        },
+        {
+          "mode": "context",
+          "rect": {
+            "x": 252,
+            "y": 776,
+            "right": 308,
+            "bottom": 832,
+            "width": 56,
+            "height": 56
+          },
+          "icon": {
+            "width": 32,
+            "height": 32,
+            "centerX": 280,
+            "centerY": 804,
+            "loaded": true
+          },
+          "background": "rgb(252, 92, 255)",
+          "hitInset": "0px"
+        }
+      ]
+    },
+    {
+      "viewport": 390,
+      "visible": true,
+      "group": {
+        "x": 322,
+        "y": 664,
+        "width": 56,
+        "height": 168
+      },
+      "buttons": [
+        {
+          "mode": "menu",
+          "rect": {
+            "x": 346,
+            "y": 664,
+            "right": 378,
+            "bottom": 696,
+            "width": 32,
+            "height": 32
+          },
+          "icon": {
+            "width": 24,
+            "height": 24,
+            "centerX": 362,
+            "centerY": 680,
+            "loaded": true
+          },
+          "background": "rgb(50, 50, 50)",
+          "hitInset": "-6px"
+        },
+        {
+          "mode": "search",
+          "rect": {
+            "x": 346,
+            "y": 720,
+            "right": 378,
+            "bottom": 752,
+            "width": 32,
+            "height": 32
+          },
+          "icon": {
+            "width": 24,
+            "height": 24,
+            "centerX": 362,
+            "centerY": 736,
+            "loaded": true
+          },
+          "background": "rgb(50, 50, 50)",
+          "hitInset": "-6px"
+        },
+        {
+          "mode": "context",
+          "rect": {
+            "x": 322,
+            "y": 776,
+            "right": 378,
+            "bottom": 832,
+            "width": 56,
+            "height": 56
+          },
+          "icon": {
+            "width": 32,
+            "height": 32,
+            "centerX": 350,
+            "centerY": 804,
+            "loaded": true
+          },
+          "background": "rgb(252, 92, 255)",
+          "hitInset": "0px"
+        }
+      ]
+    },
+    {
+      "viewport": 760,
+      "visible": true,
+      "group": {
+        "x": 692,
+        "y": 664,
+        "width": 56,
+        "height": 168
+      },
+      "buttons": [
+        {
+          "mode": "menu",
+          "rect": {
+            "x": 716,
+            "y": 664,
+            "right": 748,
+            "bottom": 696,
+            "width": 32,
+            "height": 32
+          },
+          "icon": {
+            "width": 24,
+            "height": 24,
+            "centerX": 732,
+            "centerY": 680,
+            "loaded": true
+          },
+          "background": "rgb(50, 50, 50)",
+          "hitInset": "-6px"
+        },
+        {
+          "mode": "search",
+          "rect": {
+            "x": 716,
+            "y": 720,
+            "right": 748,
+            "bottom": 752,
+            "width": 32,
+            "height": 32
+          },
+          "icon": {
+            "width": 24,
+            "height": 24,
+            "centerX": 732,
+            "centerY": 736,
+            "loaded": true
+          },
+          "background": "rgb(50, 50, 50)",
+          "hitInset": "-6px"
+        },
+        {
+          "mode": "context",
+          "rect": {
+            "x": 692,
+            "y": 776,
+            "right": 748,
+            "bottom": 832,
+            "width": 56,
+            "height": 56
+          },
+          "icon": {
+            "width": 32,
+            "height": 32,
+            "centerX": 720,
+            "centerY": 804,
+            "loaded": true
+          },
+          "background": "rgb(252, 92, 255)",
+          "hitInset": "0px"
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "interaction": "Menu and search open from extended 44px hit areas; context FAB opens the sheet; phone breakpoint is 760px"
+}

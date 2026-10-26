@@ -1,0 +1,14 @@
+/* Content structure for editorial data. Mobile art direction is awaiting design. */
+/* .editorial-prose raises specificity over the article reset, which loads later. */
+.editorial-data, .editorial-prose .editorial-data { margin: var(--story-inset-gap, var(--space-12)) 0; min-width: 0; overflow-wrap: anywhere; }
+.editorial-data > h3, .story-section .editorial-data > h3 { margin: 0 0 var(--space-2); font: 700 var(--font-size-label)/var(--line-height-label) var(--font-body); letter-spacing: .04em; text-transform: none; }
+.editorial-data .editorial-data__scope { margin: 0 0 var(--space-6); color: var(--story-muted, #b7b7b7); font: 400 var(--font-size-caption)/var(--line-height-caption) var(--font-body); }
+.editorial-data__points { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 140px), 1fr)); gap: var(--space-6); margin: 0; padding: 0; list-style: none; }
+.story-section .editorial-data__point, .editorial-data__point { min-width: 0; margin: 0; padding: var(--space-4) 0 0; border-top: 1px solid var(--story-muted, #b7b7b7); }
+.editorial-data__point time { display: block; color: var(--story-muted, #b7b7b7); font: 400 var(--font-size-caption)/var(--line-height-caption) var(--font-body); }
+.editorial-data__point strong { display: block; margin-top: var(--space-2); font: 700 var(--font-size-body)/var(--line-height-body) var(--font-body); }
+.editorial-data__point p { margin: var(--space-2) 0 0; font: 400 var(--font-size-body)/var(--line-height-body) var(--font-body); }
+.editorial-data .editorial-data__value { margin: 0; font: 700 var(--font-size-heading)/var(--line-height-heading) var(--font-body); }
+.editorial-data .editorial-data__label { margin: var(--space-2) 0 0; font: 400 var(--font-size-body)/var(--line-height-body) var(--font-body); }
+.editorial-data figcaption { margin-top: var(--space-4); color: var(--story-muted, #b7b7b7); font: 400 var(--font-size-caption)/var(--line-height-caption) var(--font-body); }
+@media (max-width: 760px) { .editorial-data__points { grid-template-columns: minmax(0, 1fr); gap: var(--space-4); } }

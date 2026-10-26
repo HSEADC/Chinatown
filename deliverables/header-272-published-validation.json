@@ -1,0 +1,60 @@
+{
+  "sha": "fae4f84a6e67e2cbf4c42ce7a0ad0d99d3a27797",
+  "page": "https://pentaoo.github.io/media/article.html",
+  "workflowRun": "https://github.com/pentaoo/media/actions/runs/38758043586",
+  "deployment": "success",
+  "checks": [
+    {
+      "path": "article.html",
+      "matchesCommit": true
+    },
+    {
+      "path": "article.css",
+      "matchesCommit": true
+    },
+    {
+      "path": "src/article-header.js",
+      "matchesCommit": true
+    },
+    {
+      "path": "src/article-view.js",
+      "matchesCommit": true
+    },
+    {
+      "path": "src/article.js",
+      "matchesCommit": true
+    },
+    {
+      "path": "src/quote-scroll-state.js",
+      "matchesCommit": true
+    },
+    {
+      "path": "src/quote-scene.js",
+      "matchesCommit": true
+    }
+  ],
+  "browserChecks": {
+    "star": [
+      "none",
+      "none",
+      "none",
+      "none",
+      "none"
+    ],
+    "search": {
+      "node": "272:98",
+      "results": 0,
+      "resultsHidden": true
+    },
+    "burger": {
+      "node": "272:111",
+      "transforms": [
+        "matrix(1, 0, 0, 1, 24.5068, 0)",
+        "matrix(1, 0, 0, 1, 9.10722, 0)",
+        "matrix(1, 0, 0, 1, 2.71684, 0)",
+        "matrix(1, 0, 0, 1, 0.620051, 0)",
+        "matrix(1, 0, 0, 1, 0.0691301, 0)"
+      ]
+    }
+  }
+}

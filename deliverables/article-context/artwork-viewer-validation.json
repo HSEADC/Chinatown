@@ -1,0 +1,31 @@
+{
+  "hover": {
+    "scale": 1.0349998530498454,
+    "noLayoutShift": true
+  },
+  "centered": {
+    "bounds": {
+      "x": 378,
+      "y": 108,
+      "width": 684,
+      "height": 684
+    },
+    "background": "rgba(0, 0, 0, 0.8)"
+  },
+  "tilt": {
+    "x": "2deg",
+    "y": "2.4000001427722957deg"
+  },
+  "escapeAndFocus": "pass",
+  "historyForwardAndClose": "pass",
+  "backdrop": "pass",
+  "interruptedOpening": "pass",
+  "reversedClosing": "pass",
+  "keyboardAndBack": "pass",
+  "landscape": "pass",
+  "routeCleanup": "pass",
+  "mobile": "pass",
+  "nestedContext": "pass",
+  "reducedMotion": "pass",
+  "errors": []
+}

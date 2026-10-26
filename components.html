@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#111111">
+    <meta name="robots" content="noindex">
+    <meta name="description" content="Рабочий каталог компонентов CHINATOWN: семейства, варианты на десктопе и телефоне, задачи на дизайн.">
+    <title>Система компонентов — CHINATOWN</title>
+    <link rel="icon" href="./assets/favicon/favicon.ico" sizes="48x48" />
+    <link rel="icon" href="./assets/favicon/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="./assets/favicon/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="./assets/favicon/apple-touch-icon.png" />
+    <link rel="preload" href="./assets/fonts/Benzin-Bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="./components.css">
+  </head>
+  <body>
+    <a class="catalog-skip" href="#catalog">К компонентам</a>
+    <header class="catalog-header">
+      <a class="catalog-brand" href="./index.html"><img src="./assets/figma/article/header/star.svg" alt="" width="26" height="26">CHINATOWN<span>.SITE</span></a>
+      <span class="catalog-header__label">Рабочая библиотека / 01</span>
+      <a class="catalog-header__brief" href="#design-brief">Что отрисовать <span aria-hidden="true">↗</span></a>
+    </header>
+    <div class="catalog-layout">
+      <aside class="catalog-sidebar">
+        <p class="catalog-kicker">Содержание</p>
+        <nav id="family-nav" aria-label="Семейства компонентов"></nav>
+        <a class="catalog-sidebar__brief" href="#design-brief">Задачи на дизайн ↗</a>
+        <p class="catalog-sidebar__note">Текущая реализация.<br>Статусы — результат аудита,<br>не согласование дизайна.</p>
+      </aside>
+      <main>
+        <section class="catalog-intro" aria-labelledby="catalog-title">
+          <div class="catalog-intro__meta"><span class="catalog-kicker">Инвентаризация интерфейса</span><span>22.10.2026</span></div>
+          <h1 id="catalog-title">Один язык.<br><span>Разные истории.</span></h1>
+          <div class="catalog-intro__bottom"><p>Все семейства компонентов медиа в одном месте. Смотрим, что уже есть, доводим слабые места и собираем следующие страницы из общего набора.</p><a href="#catalog" class="catalog-jump">Открыть каталог <span aria-hidden="true">↓</span></a></div>
+          <div class="catalog-stats" id="catalog-stats"></div>
+        </section>
+        <section class="catalog-system" aria-label="Устройство системы">
+          <span class="catalog-kicker">Как собирать дальше</span>
+          <div><span>01 / Основа</span><strong>Цвет · шрифт · сетка</strong></div><span class="catalog-system__arrow" aria-hidden="true">→</span>
+          <div><span>02 / Компонент</span><strong>Один родитель, варианты</strong></div><span class="catalog-system__arrow" aria-hidden="true">→</span>
+          <div><span>03 / Страница</span><strong>Порядок блоков + контент</strong></div>
+        </section>
+        <section class="catalog-list" id="catalog" aria-labelledby="catalog-list-title">
+          <div class="catalog-toolbar">
+            <div><span class="catalog-kicker">Библиотека</span><h2 id="catalog-list-title">Компоненты <span id="visible-count"></span></h2></div>
+            <label class="catalog-search"><span class="sr-only">Найти компонент</span><span aria-hidden="true">⌕</span><input id="component-search" type="search" placeholder="Название, вариант или файл" autocomplete="off"></label>
+            <div class="catalog-filters" aria-label="Фильтр компонентов">
+              <button type="button" data-filter="all" aria-pressed="true">Все</button>
+              <button type="button" data-filter="shared" aria-pressed="false">Общие</button>
+              <button type="button" data-filter="extract" aria-pressed="false">Вынести в общие</button>
+              <button type="button" data-filter="design" aria-pressed="false">Нужен дизайн</button>
+            </div>
+          </div>
+          <p class="catalog-instruction">В окнах — текущий код сайта при ширине <b>1440</b> и <b>390 px</b>. Масштаб уменьшен; внутри можно нажимать и прокручивать. Для проверки без уменьшения открой вариант отдельно.</p>
+          <div id="component-list"></div>
+          <p id="catalog-empty" class="catalog-empty" role="status" hidden>Ничего не найдено. Попробуй другое название или сбрось фильтр.</p>
+          <p class="sr-only" id="filter-status" role="status" aria-live="polite"></p>
+        </section>
+        <section class="design-brief" id="design-brief" aria-labelledby="brief-title">
+          <div class="design-brief__head"><div><span class="catalog-kicker">Следующий шаг / твой дизайн</span><h2 id="brief-title">Давай дорисуем<br>недостающее<span>.</span></h2></div><button class="catalog-secondary" id="download-brief" type="button">Скачать бриф ↓</button></div>
+          <p class="design-brief__intro">Отрисуй, пожалуйста, эти семейства в Figma: один родительский компонент, варианты и состояния, десктоп 1440 px и телефон 390 px. Для адаптива проверь также 320 и 768 px. Ниже — конкретные задачи; отметки сохраняются в этом браузере.</p>
+          <div id="brief-list"></div>
+          <div class="design-brief__done"><span id="brief-progress" role="status" aria-live="polite"></span><span>Готовый дизайн → общий компонент → сборка страниц</span></div>
+        </section>
+        <footer class="catalog-footer"><span>CHINATOWN / Система компонентов</span><a href="./article.html">Открыть статью ↗</a><a href="./index.html">Открыть главную ↗</a></footer>
+      </main>
+    </div>
+    <noscript><p>Для живых превью нужен JavaScript. <a href="./docs/component-system.md">Карта компонентов и бриф доступны отдельным файлом.</a></p></noscript>
+    <script type="module" src="./src/focus-modality.js"></script>
+    <script type="module" src="./src/component-catalog.js"></script>
+  </body>
+</html>

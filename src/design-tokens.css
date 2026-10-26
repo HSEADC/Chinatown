@@ -1,0 +1,130 @@
+/* Two responsive profiles: desktop by default, phone at <= 760px.
+   Keep text/control values in px. Layout may resize; type never fits itself to width.
+   Desktop: Figma 268:408 / 276:101. Phone: 388:748–793.
+   CSS media queries and the action icon <source> use the same 760px boundary. */
+:root {
+  --font-display: Benzin, 'Giga Sans', sans-serif;
+  --font-body: 'Giga Sans', system-ui, sans-serif;
+  --font-size-display: 128px;
+  --font-size-title: 64px;
+  --font-size-heading: 36px;
+  --font-size-label: 14px;
+  --font-size-body: 20px;
+  --font-size-caption: 14px;
+  --font-size-quote: 48px;
+  --line-height-display: 128px;
+  --line-height-title: 64px;
+  --line-height-heading: 48px;
+  --line-height-label: 16px;
+  --line-height-body: 32px;
+  --line-height-caption: 16px;
+  --line-height-quote: 64px;
+  --type-display-tracking: .04em;
+  --type-title-tracking: 0;
+  --type-heading-tracking: 0;
+  --type-label-tracking: .04em;
+  --type-quote-tracking: .02em;
+  --type-lyric-gap: 96px;
+  --font-size-button: 24px;
+  --line-height-button: 32px;
+  --button-height: 64px;
+  --button-icon-size: 64px;
+  --button-label-padding: 20px 0 12px 24px;
+  --button-tracking: .02em;
+  --button-hit-extension: 0px;
+  --input-height: 64px;
+  /* The text line fills the field: inputs clip text to their line box, so a tighter line cuts the @ tail and the Й breve. */
+  --input-padding: 0 24px;
+  --input-line-height: 60px;
+  --input-border: 2px;
+  --font-input: 'Benzin Input', Benzin, sans-serif;
+  /* Spacing scale: --space-N is N × 4px. Margins, paddings and gaps take only these steps;
+     2px is reserved for hairlines and seams. Proximity levels, closest first:
+     inside one element 4–8 · parts of a group 8–12 · heading and its text, field and button 16 ·
+     paragraphs 24 (phone 16) · figures inside a section 48 (phone 32) · sections 64 (phone 48) · page zones 96–128. */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-32: 128px;
+  --space-40: 160px;
+  --story-paragraph-gap: var(--space-6);
+  --story-inset-gap: var(--space-12);
+  --page-gutter: var(--space-8);
+  --grid-gap: var(--space-8);
+  --font-size-nav: 14px;
+  --font-size-search: 24px;
+  --line-height-search: 24px;
+  --font-size-brand: 24px;
+  --icon-size: 32px;
+  --header-height: 64px;
+  --font-size-card-title: 24px;
+  --line-height-card-title: 24px;
+  --font-size-card-artist: 32px;
+  --line-height-card-artist: 32px;
+  /* Motion: one small set shared by bottom surfaces, FABs and the context pager.
+     Exits are slightly shorter than entries; presses are shorter than both. */
+  --motion-press: 90ms;
+  --motion-release: 160ms;
+  --motion-exit: 200ms;
+  --motion-enter: 260ms;
+  --motion-ease: cubic-bezier(.22, 1, .36, 1);
+  --motion-ease-exit: cubic-bezier(.4, 0, .2, 1);
+}
+
+/* Figma 388:767 / 784–789 / 793. These are text roles, not page geometry. */
+@media (max-width: 760px) {
+  :root {
+    --font-size-display: 40px;
+    --line-height-display: 40px;
+    --font-size-title: 64px;
+    --line-height-title: 64px;
+    --font-size-heading: 36px;
+    --line-height-heading: 48px;
+    --font-size-label: 14px;
+    --line-height-label: 16px;
+    --font-size-body: 16px;
+    --line-height-body: 26px;
+    --font-size-caption: 12px;
+    --line-height-caption: 16px;
+    --font-size-quote: 32px;
+    --line-height-quote: 38.4px;
+    --font-size-button: 12px;
+    --line-height-button: 16px;
+    --button-height: 32px;
+    --button-icon-size: 32px;
+    --button-label-padding: 10px 0 6px 12px;
+    --button-tracking: 0;
+    --button-hit-extension: -6px;
+    /* Mobile FAB group, Figma 404:664. */
+    --fab-secondary-size: 32px;
+    --fab-primary-size: 56px;
+    --fab-gap: 24px;
+    --fab-sheet-gap: 8px;
+    --input-height: 34px;
+    --input-padding: 4px 12px 0;
+    --input-line-height: 28px;
+    --input-border: 1px;
+    --font-input: Benzin, sans-serif;
+    --story-paragraph-gap: var(--space-4);
+    --story-inset-gap: var(--space-8);
+    --page-gutter: var(--space-5);
+    --grid-gap: var(--space-3);
+    --font-size-nav: 12px;
+    --font-size-search: 12px;
+    --line-height-search: 16px;
+    --font-size-brand: 14px;
+    --font-size-card-title: 32px;
+    --line-height-card-title: 38.4px;
+    --font-size-card-artist: 24px;
+    --line-height-card-artist: 32px;
+  }
+}

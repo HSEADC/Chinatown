@@ -1,0 +1,155 @@
+{
+  "checks": [
+    {
+      "width": 320,
+      "height": 568,
+      "reading": {
+        "top": 84,
+        "bottom": 568,
+        "fieldTop": 446,
+        "fieldBottom": 480,
+        "submitBottom": 536,
+        "visualTop": 0,
+        "visualBottom": 568,
+        "scrollTop": 0,
+        "height": 568,
+        "visualHeight": 568
+      },
+      "entering": {
+        "top": 24,
+        "bottom": 284,
+        "fieldTop": 162,
+        "fieldBottom": 196,
+        "submitBottom": 252,
+        "visualTop": 0,
+        "visualBottom": 284,
+        "scrollTop": 224,
+        "height": 568,
+        "visualHeight": 284
+      },
+      "submission": "mocked success",
+      "reopensWithoutInputFocus": true
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "reading": {
+        "top": 386,
+        "bottom": 844,
+        "fieldTop": 722,
+        "fieldBottom": 756,
+        "submitBottom": 812,
+        "visualTop": 0,
+        "visualBottom": 844,
+        "scrollTop": 0,
+        "height": 844,
+        "visualHeight": 844
+      },
+      "entering": {
+        "top": 66,
+        "bottom": 524,
+        "fieldTop": 402,
+        "fieldBottom": 436,
+        "submitBottom": 492,
+        "visualTop": 0,
+        "visualBottom": 524,
+        "scrollTop": 0,
+        "height": 844,
+        "visualHeight": 524
+      },
+      "submission": "mocked success",
+      "reopensWithoutInputFocus": true
+    },
+    {
+      "width": 760,
+      "height": 360,
+      "reading": {
+        "top": 24,
+        "bottom": 360,
+        "fieldTop": 244,
+        "fieldBottom": 278,
+        "submitBottom": 334,
+        "visualTop": 0,
+        "visualBottom": 360,
+        "scrollTop": 0,
+        "height": 360,
+        "visualHeight": 360
+      },
+      "entering": {
+        "top": 24,
+        "bottom": 180,
+        "fieldTop": 58,
+        "fieldBottom": 92,
+        "submitBottom": 148,
+        "visualTop": 0,
+        "visualBottom": 180,
+        "scrollTop": 186,
+        "height": 360,
+        "visualHeight": 180
+      },
+      "submission": "mocked success",
+      "reopensWithoutInputFocus": true
+    },
+    {
+      "width": 761,
+      "height": 900,
+      "reading": {
+        "top": 476,
+        "bottom": 900,
+        "fieldTop": 716,
+        "fieldBottom": 780,
+        "submitBottom": 868,
+        "visualTop": 0,
+        "visualBottom": 900,
+        "scrollTop": 0,
+        "height": 900,
+        "visualHeight": 900
+      },
+      "entering": {
+        "top": 476,
+        "bottom": 900,
+        "fieldTop": 716,
+        "fieldBottom": 780,
+        "submitBottom": 868,
+        "visualTop": 0,
+        "visualBottom": 900,
+        "scrollTop": 0,
+        "height": 900,
+        "visualHeight": 900
+      },
+      "submission": "mocked success",
+      "reopensWithoutInputFocus": false
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "reading": {
+        "top": 476,
+        "bottom": 900,
+        "fieldTop": 716,
+        "fieldBottom": 780,
+        "submitBottom": 868,
+        "visualTop": 0,
+        "visualBottom": 900,
+        "scrollTop": 0,
+        "height": 900,
+        "visualHeight": 900
+      },
+      "entering": {
+        "top": 476,
+        "bottom": 900,
+        "fieldTop": 716,
+        "fieldBottom": 780,
+        "submitBottom": 868,
+        "visualTop": 0,
+        "visualBottom": 900,
+        "scrollTop": 0,
+        "height": 900,
+        "visualHeight": 900
+      },
+      "submission": "mocked success",
+      "reopensWithoutInputFocus": false
+    }
+  ],
+  "errors": []
+}

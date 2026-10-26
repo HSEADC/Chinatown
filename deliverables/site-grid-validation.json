@@ -1,0 +1,79 @@
+{
+  "widths": [
+    {
+      "viewport": 1920,
+      "articleColumns": 4,
+      "railWidth": 377.59375,
+      "passed": true
+    },
+    {
+      "viewport": 1440,
+      "articleColumns": 4,
+      "railWidth": 281.59375,
+      "passed": true
+    },
+    {
+      "viewport": 1366,
+      "articleColumns": 4,
+      "railWidth": 266.796875,
+      "passed": true
+    },
+    {
+      "viewport": 1280,
+      "articleColumns": 4,
+      "railWidth": 249.59375,
+      "passed": true
+    },
+    {
+      "viewport": 1200,
+      "articleColumns": 4,
+      "railWidth": 233.59375,
+      "passed": true
+    },
+    {
+      "viewport": 1199,
+      "articleColumns": 5,
+      "railWidth": 0,
+      "passed": true
+    },
+    {
+      "viewport": 1024,
+      "articleColumns": 5,
+      "railWidth": 0,
+      "passed": true
+    },
+    {
+      "viewport": 768,
+      "articleColumns": 5,
+      "railWidth": 0,
+      "passed": true
+    },
+    {
+      "viewport": 390,
+      "articleColumns": 1,
+      "railWidth": 0,
+      "passed": true
+    },
+    {
+      "viewport": 320,
+      "articleColumns": 1,
+      "railWidth": 0,
+      "passed": true
+    }
+  ],
+  "customSpacing": true,
+  "search": true,
+  "manualContext": true,
+  "entireHeaderHides": {
+    "hidden": true,
+    "bottom": 0,
+    "background": "rgba(0, 0, 0, 0)"
+  },
+  "concertHeader": {
+    "phase": "reading",
+    "media": "1",
+    "hidden": true,
+    "background": "rgba(0, 0, 0, 0)"
+  },
+  "pageErrors": []
+}

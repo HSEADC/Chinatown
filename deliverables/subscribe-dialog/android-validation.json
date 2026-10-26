@@ -1,0 +1,35 @@
+{
+  "checks": [
+    {
+      "width": 392,
+      "height": 721,
+      "reading": {
+        "top": 263.4545593261719,
+        "bottom": 721.4545593261719,
+        "fieldTop": 599.45458984375,
+        "fieldBottom": 633.45458984375,
+        "submitBottom": 689.45458984375,
+        "visualTop": 0,
+        "visualBottom": 721.4545288085938,
+        "scrollTop": 0,
+        "height": 721,
+        "visualHeight": 721.4545288085938
+      },
+      "entering": {
+        "top": 24.460227966308594,
+        "bottom": 379.0000228881836,
+        "fieldTop": 256.8238830566406,
+        "fieldBottom": 290.8238830566406,
+        "submitBottom": 346.8238830566406,
+        "visualTop": 0,
+        "visualBottom": 378.5454406738281,
+        "scrollTop": 103.63636016845703,
+        "height": 721,
+        "visualHeight": 378.5454406738281
+      },
+      "submission": "mocked success",
+      "reopensWithoutInputFocus": true
+    }
+  ],
+  "errors": []
+}

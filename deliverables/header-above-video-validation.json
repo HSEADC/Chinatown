@@ -1,0 +1,432 @@
+{
+  "checks": [
+    "On both pages at 320–1920 px the header spans the viewport above the content and video",
+    "Rail expansion keeps the full header width; search and result anchors work",
+    "Auto-hide frees space above the video; pointer reveal restores the shared header row",
+    "Mobile navigation and search cover the video and remain keyboard-operable",
+    "Routing replaces the shared header without recreating the persistent video"
+  ],
+  "geometry": [
+    {
+      "route": "about.html",
+      "width": 1920,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 1920,
+        "height": 97,
+        "top": 0,
+        "right": 1920,
+        "bottom": 97,
+        "left": 0
+      },
+      "rail": {
+        "x": 1280,
+        "y": 97,
+        "width": 640,
+        "height": 803,
+        "top": 97,
+        "right": 1920,
+        "bottom": 900,
+        "left": 1280
+      },
+      "content": {
+        "x": 63.984375,
+        "y": 97,
+        "width": 1152.03125,
+        "height": 555,
+        "top": 97,
+        "right": 1216.015625,
+        "bottom": 652,
+        "left": 63.984375
+      },
+      "docWidth": 1920
+    },
+    {
+      "route": "article.html",
+      "width": 1920,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 1920,
+        "height": 88,
+        "top": 0,
+        "right": 1920,
+        "bottom": 88,
+        "left": 0
+      },
+      "rail": {
+        "x": 1500,
+        "y": 88,
+        "width": 420,
+        "height": 812,
+        "top": 88,
+        "right": 1920,
+        "bottom": 900,
+        "left": 1500
+      },
+      "content": {
+        "x": 0,
+        "y": 88,
+        "width": 1500,
+        "height": 687.5,
+        "top": 88,
+        "right": 1500,
+        "bottom": 775.5,
+        "left": 0
+      },
+      "docWidth": 1920
+    },
+    {
+      "route": "about.html",
+      "width": 1440,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 97,
+        "top": 0,
+        "right": 1440,
+        "bottom": 97,
+        "left": 0
+      },
+      "rail": {
+        "x": 892.8125,
+        "y": 97,
+        "width": 547.1875,
+        "height": 803,
+        "top": 97,
+        "right": 1440,
+        "bottom": 900,
+        "left": 892.8125
+      },
+      "content": {
+        "x": 47.984375,
+        "y": 97,
+        "width": 796.84375,
+        "height": 491,
+        "top": 97,
+        "right": 844.828125,
+        "bottom": 588,
+        "left": 47.984375
+      },
+      "docWidth": 1440
+    },
+    {
+      "route": "article.html",
+      "width": 1440,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 88,
+        "top": 0,
+        "right": 1440,
+        "bottom": 88,
+        "left": 0
+      },
+      "rail": {
+        "x": 1094.40625,
+        "y": 88,
+        "width": 345.59375,
+        "height": 812,
+        "top": 88,
+        "right": 1440,
+        "bottom": 900,
+        "left": 1094.40625
+      },
+      "content": {
+        "x": 0,
+        "y": 88,
+        "width": 1094.40625,
+        "height": 501.59375,
+        "top": 88,
+        "right": 1094.40625,
+        "bottom": 589.59375,
+        "left": 0
+      },
+      "docWidth": 1440
+    },
+    {
+      "route": "about.html",
+      "width": 1100,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 1100,
+        "height": 97,
+        "top": 0,
+        "right": 1100,
+        "bottom": 97,
+        "left": 0
+      },
+      "rail": {
+        "x": 682,
+        "y": 97,
+        "width": 418,
+        "height": 803,
+        "top": 97,
+        "right": 1100,
+        "bottom": 900,
+        "left": 682
+      },
+      "content": {
+        "x": 36.65625,
+        "y": 97,
+        "width": 608.6875,
+        "height": 395,
+        "top": 97,
+        "right": 645.34375,
+        "bottom": 492,
+        "left": 36.65625
+      },
+      "docWidth": 1100
+    },
+    {
+      "route": "article.html",
+      "width": 1100,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 1100,
+        "height": 88,
+        "top": 0,
+        "right": 1100,
+        "bottom": 88,
+        "left": 0
+      },
+      "rail": {
+        "x": 836,
+        "y": 88,
+        "width": 264,
+        "height": 812,
+        "top": 88,
+        "right": 1100,
+        "bottom": 900,
+        "left": 836
+      },
+      "content": {
+        "x": 0,
+        "y": 88,
+        "width": 836,
+        "height": 480,
+        "top": 88,
+        "right": 836,
+        "bottom": 568,
+        "left": 0
+      },
+      "docWidth": 1100
+    },
+    {
+      "route": "about.html",
+      "width": 768,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 768,
+        "height": 97,
+        "top": 0,
+        "right": 768,
+        "bottom": 97,
+        "left": 0
+      },
+      "rail": {
+        "x": 476.171875,
+        "y": 97,
+        "width": 291.828125,
+        "height": 803,
+        "top": 97,
+        "right": 768,
+        "bottom": 900,
+        "left": 476.171875
+      },
+      "content": {
+        "x": 25.59375,
+        "y": 97,
+        "width": 424.984375,
+        "height": 363,
+        "top": 97,
+        "right": 450.578125,
+        "bottom": 460,
+        "left": 25.59375
+      },
+      "docWidth": 768
+    },
+    {
+      "route": "article.html",
+      "width": 768,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 768,
+        "height": 88,
+        "top": 0,
+        "right": 768,
+        "bottom": 88,
+        "left": 0
+      },
+      "rail": {
+        "x": 576,
+        "y": 88,
+        "width": 192,
+        "height": 812,
+        "top": 88,
+        "right": 768,
+        "bottom": 900,
+        "left": 576
+      },
+      "content": {
+        "x": 0,
+        "y": 88,
+        "width": 576,
+        "height": 480,
+        "top": 88,
+        "right": 576,
+        "bottom": 568,
+        "left": 0
+      },
+      "docWidth": 768
+    },
+    {
+      "route": "about.html",
+      "width": 390,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 81,
+        "top": 0,
+        "right": 390,
+        "bottom": 81,
+        "left": 0
+      },
+      "rail": {
+        "x": 280.8125,
+        "y": 81,
+        "width": 109.1875,
+        "height": 819,
+        "top": 81,
+        "right": 390,
+        "bottom": 900,
+        "left": 280.8125
+      },
+      "content": {
+        "x": 20,
+        "y": 81,
+        "width": 240.8125,
+        "height": 427,
+        "top": 81,
+        "right": 260.8125,
+        "bottom": 508,
+        "left": 20
+      },
+      "docWidth": 390
+    },
+    {
+      "route": "article.html",
+      "width": 390,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 88,
+        "top": 0,
+        "right": 390,
+        "bottom": 88,
+        "left": 0
+      },
+      "rail": {
+        "x": 310,
+        "y": 88,
+        "width": 80,
+        "height": 812,
+        "top": 88,
+        "right": 390,
+        "bottom": 900,
+        "left": 310
+      },
+      "content": {
+        "x": 0,
+        "y": 88,
+        "width": 310,
+        "height": 480,
+        "top": 88,
+        "right": 310,
+        "bottom": 568,
+        "left": 0
+      },
+      "docWidth": 390
+    },
+    {
+      "route": "about.html",
+      "width": 320,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 320,
+        "height": 81,
+        "top": 0,
+        "right": 320,
+        "bottom": 81,
+        "left": 0
+      },
+      "rail": {
+        "x": 230.40625,
+        "y": 81,
+        "width": 89.59375,
+        "height": 819,
+        "top": 81,
+        "right": 320,
+        "bottom": 900,
+        "left": 230.40625
+      },
+      "content": {
+        "x": 20,
+        "y": 81,
+        "width": 190.40625,
+        "height": 515,
+        "top": 81,
+        "right": 210.40625,
+        "bottom": 596,
+        "left": 20
+      },
+      "docWidth": 320
+    },
+    {
+      "route": "article.html",
+      "width": 320,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 320,
+        "height": 88,
+        "top": 0,
+        "right": 320,
+        "bottom": 88,
+        "left": 0
+      },
+      "rail": {
+        "x": 240,
+        "y": 88,
+        "width": 80,
+        "height": 812,
+        "top": 88,
+        "right": 320,
+        "bottom": 900,
+        "left": 240
+      },
+      "content": {
+        "x": 0,
+        "y": 88,
+        "width": 240,
+        "height": 480,
+        "top": 88,
+        "right": 240,
+        "bottom": 568,
+        "left": 0
+      },
+      "docWidth": 320
+    }
+  ],
+  "errors": []
+}

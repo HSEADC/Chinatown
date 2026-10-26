@@ -1,0 +1,22 @@
+{
+  "browser": "Chrome 149 Android Custom Tab",
+  "before": {
+    "frames": 52,
+    "maxBottomGap": 55.09088134765625,
+    "maxIncorrectSheetInset": 55.54547119140625
+  },
+  "after": {
+    "frames": 48,
+    "maxBottomGap": 0.0909423828125,
+    "maxSearchInset": 0
+  },
+  "controlledVisualViewportChange": {
+    "obstruction": 64,
+    "previewBottomGap": 0,
+    "profiles": [
+      "320x510",
+      "390x844",
+      "760x360"
+    ]
+  }
+}

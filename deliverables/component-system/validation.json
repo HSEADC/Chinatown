@@ -1,0 +1,104 @@
+{
+  "date": "2026-10-22",
+  "families": 22,
+  "variants": 65,
+  "designTasks": 9,
+  "sourceReferencesChecked": 84,
+  "lyricScenes": [
+    {
+      "id": "quote",
+      "originalLines": 4,
+      "nextAnalysis": "chorus-freedom"
+    },
+    {
+      "id": "verse-excerpt",
+      "originalLines": 5,
+      "nextAnalysis": "verse-analysis"
+    }
+  ],
+  "browserChecks": {
+    "viewports": [
+      1440,
+      390
+    ],
+    "catalogResponsiveWidths": [
+      390,
+      320
+    ],
+    "searchEmptyResult": true,
+    "statusFilters": {
+      "shared": 4,
+      "design": 7
+    },
+    "checklistPersists": true,
+    "ctaOpensDialog": true,
+    "emailValidation": true,
+    "previewRuntimeErrors": 0
+  },
+  "existingTests": {
+    "passed": 58,
+    "failed": 0
+  },
+  "limitations": [
+    "Formspree endpoint is YOUR_FORM_ID; successful external delivery cannot be verified.",
+    "Yandex Music API responded HTTP 451 in the preview environment."
+  ],
+  "scope": "Local catalog and design brief. Proposed parent names do not mean all families have already been refactored.",
+  "mobileControls": {
+    "figmaNodes": [
+      "388:748",
+      "388:752",
+      "388:756"
+    ],
+    "buttonHeight": 32,
+    "fieldHeight": 34,
+    "iconSize": 32,
+    "fontSize": 12,
+    "lineHeight": 16,
+    "verifiedWidths": [
+      320,
+      390
+    ],
+    "desktopButtonHeight": 64
+  },
+  "mobileTypography": {
+    "figmaNodes": [
+      "388:767",
+      "388:785",
+      "388:788",
+      "388:786",
+      "388:779",
+      "388:787",
+      "388:789",
+      "388:793",
+      "388:784"
+    ],
+    "sharedFile": "src/components/typography.css",
+    "phoneWidths": [
+      320,
+      390
+    ],
+    "body": "16/26",
+    "display": "40/40",
+    "h1": "64/64",
+    "h2": "36/48",
+    "h3": "14/16",
+    "caption": "12/16",
+    "quote": "32/38.4",
+    "lyricGap": 92
+  },
+  "currentRevision": {
+    "date": "2026-10-22",
+    "families": 17,
+    "variants": 53,
+    "designTasks": 7,
+    "removed": [
+      "releases",
+      "tracks",
+      "player",
+      "teasers",
+      "experiments"
+    ],
+    "tests": 41
+  }
+}

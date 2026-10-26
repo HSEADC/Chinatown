@@ -1,0 +1,226 @@
+{
+  "version": 1,
+  "clips": [
+    {
+      "id": "kitay-night",
+      "title": "Ночная улица",
+      "caption": "Китай-город и новая сцена",
+      "preview": false,
+      "creditUrl": "",
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "rail": {
+        "small": "./kitay-night-86bc7af48de9/rail-small.mp4",
+        "large": "./kitay-night-86bc7af48de9/rail-large.mp4"
+      },
+      "poster": "./kitay-night-86bc7af48de9/poster.jpg",
+      "article": "./kitay-night-86bc7af48de9/article.mp4",
+      "articlePoster": "./kitay-night-86bc7af48de9/article-poster.jpg",
+      "exports": {
+        "rail-small": {
+          "src": "./kitay-night-86bc7af48de9/rail-small.mp4",
+          "bytes": 427474,
+          "width": 360,
+          "height": 640,
+          "duration": 8,
+          "hasAudio": false
+        },
+        "rail-large": {
+          "src": "./kitay-night-86bc7af48de9/rail-large.mp4",
+          "bytes": 1468300,
+          "width": 720,
+          "height": 1280,
+          "duration": 8,
+          "hasAudio": false
+        },
+        "article": {
+          "src": "./kitay-night-86bc7af48de9/article.mp4",
+          "bytes": 1948199,
+          "width": 720,
+          "height": 1280,
+          "duration": 8,
+          "hasAudio": true
+        }
+      }
+    },
+    {
+      "id": "kitay-street",
+      "title": "Город рядом",
+      "caption": "Китай-город и новая сцена",
+      "preview": false,
+      "creditUrl": "",
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "rail": {
+        "small": "./kitay-street-c41b36032219/rail-small.mp4",
+        "large": "./kitay-street-c41b36032219/rail-large.mp4"
+      },
+      "poster": "./kitay-street-c41b36032219/poster.jpg",
+      "article": "./kitay-street-c41b36032219/article.mp4",
+      "articlePoster": "./kitay-street-c41b36032219/article-poster.jpg",
+      "exports": {
+        "rail-small": {
+          "src": "./kitay-street-c41b36032219/rail-small.mp4",
+          "bytes": 303769,
+          "width": 360,
+          "height": 640,
+          "duration": 4,
+          "hasAudio": false
+        },
+        "rail-large": {
+          "src": "./kitay-street-c41b36032219/rail-large.mp4",
+          "bytes": 510616,
+          "width": 462,
+          "height": 824,
+          "duration": 4,
+          "hasAudio": false
+        },
+        "article": {
+          "src": "./kitay-street-c41b36032219/article.mp4",
+          "bytes": 720351,
+          "width": 464,
+          "height": 848,
+          "duration": 4,
+          "hasAudio": true
+        }
+      }
+    },
+    {
+      "id": "kitay-people",
+      "title": "Свои люди",
+      "caption": "Китай-город и новая сцена",
+      "preview": false,
+      "creditUrl": "",
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "rail": {
+        "small": "./kitay-people-0dd1e134849b/rail-small.mp4",
+        "large": "./kitay-people-0dd1e134849b/rail-large.mp4"
+      },
+      "poster": "./kitay-people-0dd1e134849b/poster.jpg",
+      "article": "./kitay-people-0dd1e134849b/article.mp4",
+      "articlePoster": "./kitay-people-0dd1e134849b/article-poster.jpg",
+      "exports": {
+        "rail-small": {
+          "src": "./kitay-people-0dd1e134849b/rail-small.mp4",
+          "bytes": 304680,
+          "width": 360,
+          "height": 640,
+          "duration": 5,
+          "hasAudio": false
+        },
+        "rail-large": {
+          "src": "./kitay-people-0dd1e134849b/rail-large.mp4",
+          "bytes": 487719,
+          "width": 462,
+          "height": 824,
+          "duration": 5,
+          "hasAudio": false
+        },
+        "article": {
+          "src": "./kitay-people-0dd1e134849b/article.mp4",
+          "bytes": 701051,
+          "width": 464,
+          "height": 848,
+          "duration": 5,
+          "hasAudio": true
+        }
+      }
+    },
+    {
+      "id": "concert-crowd",
+      "title": "В толпе",
+      "caption": "Китай-город и новая сцена",
+      "preview": false,
+      "creditUrl": "",
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "rail": {
+        "small": "./concert-crowd-7026abb1ab1c/rail-small.mp4",
+        "large": "./concert-crowd-7026abb1ab1c/rail-large.mp4"
+      },
+      "poster": "./concert-crowd-7026abb1ab1c/poster.jpg",
+      "article": "./concert-crowd-7026abb1ab1c/article.mp4",
+      "articlePoster": "./concert-crowd-7026abb1ab1c/article-poster.jpg",
+      "exports": {
+        "rail-small": {
+          "src": "./concert-crowd-7026abb1ab1c/rail-small.mp4",
+          "bytes": 257707,
+          "width": 360,
+          "height": 640,
+          "duration": 7.5,
+          "hasAudio": false
+        },
+        "rail-large": {
+          "src": "./concert-crowd-7026abb1ab1c/rail-large.mp4",
+          "bytes": 355182,
+          "width": 404,
+          "height": 720,
+          "duration": 7.5,
+          "hasAudio": false
+        },
+        "article": {
+          "src": "./concert-crowd-7026abb1ab1c/article.mp4",
+          "bytes": 1448554,
+          "width": 1280,
+          "height": 720,
+          "duration": 7.5,
+          "hasAudio": true
+        }
+      }
+    },
+    {
+      "id": "madk1d-chorus",
+      "title": "madk1d — фрагмент выступления",
+      "caption": "",
+      "preview": false,
+      "creditUrl": "",
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "railEnabled": false,
+      "rail": {
+        "small": "./madk1d-chorus-6e39d25cf629/rail-small.mp4",
+        "large": "./madk1d-chorus-6e39d25cf629/rail-large.mp4"
+      },
+      "poster": "./madk1d-chorus-6e39d25cf629/poster.jpg",
+      "article": "./madk1d-chorus-6e39d25cf629/article.mp4",
+      "articlePoster": "./madk1d-chorus-6e39d25cf629/article-poster.jpg",
+      "exports": {
+        "rail-small": {
+          "src": "./madk1d-chorus-6e39d25cf629/rail-small.mp4",
+          "bytes": 590166,
+          "width": 202,
+          "height": 360,
+          "duration": 20,
+          "hasAudio": false
+        },
+        "rail-large": {
+          "src": "./madk1d-chorus-6e39d25cf629/rail-large.mp4",
+          "bytes": 653218,
+          "width": 202,
+          "height": 360,
+          "duration": 20,
+          "hasAudio": false
+        },
+        "article": {
+          "src": "./madk1d-chorus-6e39d25cf629/article.mp4",
+          "bytes": 2238189,
+          "width": 640,
+          "height": 360,
+          "duration": 24,
+          "hasAudio": false
+        }
+      }
+    }
+  ]
+}

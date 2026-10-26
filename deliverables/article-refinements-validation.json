@@ -1,0 +1,360 @@
+{
+  "errors": [],
+  "checks": [
+    "Shared headline effect preserves the original title layout",
+    "Letters on all three title lines change fonts and restore after the pointer leaves",
+    "Search keeps typing focus with no outline or box shadow",
+    "Reduced motion suppresses headline font changes",
+    "Mobile scrolling triggers the shared title effect without horizontal overflow",
+    "Returning to the article mounts one clean headline effect"
+  ],
+  "glyphs": [
+    {
+      "row": 0,
+      "text": "m",
+      "x": 109.3125,
+      "y": 528,
+      "top": 464,
+      "active": [
+        {
+          "text": "M",
+          "font": "East Gates",
+          "x": 57.29619598388672,
+          "y": 467,
+          "height": 101,
+          "sourceRows": [
+            {
+              "x": 32,
+              "y": 464,
+              "width": 154.625,
+              "height": 128,
+              "top": 464,
+              "right": 186.625,
+              "bottom": 592,
+              "left": 32
+            },
+            {
+              "x": 186.625,
+              "y": 464,
+              "width": 137.859375,
+              "height": 128,
+              "top": 464,
+              "right": 324.484375,
+              "bottom": 592,
+              "left": 186.625
+            }
+          ],
+          "color": "rgb(252, 92, 255)"
+        },
+        {
+          "text": "A",
+          "font": "Elion Italic",
+          "x": 183.75747680664062,
+          "y": 416,
+          "height": 212,
+          "sourceRows": [
+            {
+              "x": 32,
+              "y": 464,
+              "width": 154.625,
+              "height": 128,
+              "top": 464,
+              "right": 186.625,
+              "bottom": 592,
+              "left": 32
+            },
+            {
+              "x": 186.625,
+              "y": 464,
+              "width": 137.859375,
+              "height": 128,
+              "top": 464,
+              "right": 324.484375,
+              "bottom": 592,
+              "left": 186.625
+            }
+          ],
+          "color": "rgb(252, 92, 255)"
+        },
+        {
+          "text": "Р",
+          "font": "East Gates",
+          "x": 166.4173126220703,
+          "y": 595,
+          "height": 101,
+          "sourceRows": [
+            {
+              "x": 140.296875,
+              "y": 592,
+              "width": 125.578125,
+              "height": 128,
+              "top": 592,
+              "right": 265.875,
+              "bottom": 720,
+              "left": 140.296875
+            }
+          ],
+          "color": "rgb(255, 255, 255)"
+        }
+      ]
+    },
+    {
+      "row": 1,
+      "text": "г",
+      "x": 86.1484375,
+      "y": 656,
+      "top": 592,
+      "active": [
+        {
+          "text": "Г",
+          "font": "Elion Italic",
+          "x": 33.831092834472656,
+          "y": 544,
+          "height": 212,
+          "sourceRows": [
+            {
+              "x": 32,
+              "y": 592,
+              "width": 108.296875,
+              "height": 128,
+              "top": 592,
+              "right": 140.296875,
+              "bottom": 720,
+              "left": 32
+            },
+            {
+              "x": 140.296875,
+              "y": 592,
+              "width": 125.578125,
+              "height": 128,
+              "top": 592,
+              "right": 265.875,
+              "bottom": 720,
+              "left": 140.296875
+            },
+            {
+              "x": 32,
+              "y": 720,
+              "width": 131.71875,
+              "height": 128,
+              "top": 720,
+              "right": 163.71875,
+              "bottom": 848,
+              "left": 32
+            }
+          ],
+          "color": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Р",
+          "font": "East Gates",
+          "x": 166.4173126220703,
+          "y": 595,
+          "height": 101,
+          "sourceRows": [
+            {
+              "x": 32,
+              "y": 592,
+              "width": 108.296875,
+              "height": 128,
+              "top": 592,
+              "right": 140.296875,
+              "bottom": 720,
+              "left": 32
+            },
+            {
+              "x": 140.296875,
+              "y": 592,
+              "width": 125.578125,
+              "height": 128,
+              "top": 592,
+              "right": 265.875,
+              "bottom": 720,
+              "left": 140.296875
+            },
+            {
+              "x": 32,
+              "y": 720,
+              "width": 131.71875,
+              "height": 128,
+              "top": 720,
+              "right": 163.71875,
+              "bottom": 848,
+              "left": 32
+            }
+          ],
+          "color": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Б",
+          "font": "Elion Italic",
+          "x": 42.542564392089844,
+          "y": 672,
+          "height": 212,
+          "sourceRows": [
+            {
+              "x": 32,
+              "y": 592,
+              "width": 108.296875,
+              "height": 128,
+              "top": 592,
+              "right": 140.296875,
+              "bottom": 720,
+              "left": 32
+            },
+            {
+              "x": 140.296875,
+              "y": 592,
+              "width": 125.578125,
+              "height": 128,
+              "top": 592,
+              "right": 265.875,
+              "bottom": 720,
+              "left": 140.296875
+            },
+            {
+              "x": 32,
+              "y": 720,
+              "width": 131.71875,
+              "height": 128,
+              "top": 720,
+              "right": 163.71875,
+              "bottom": 848,
+              "left": 32
+            }
+          ],
+          "color": "rgb(255, 255, 255)"
+        }
+      ]
+    },
+    {
+      "row": 2,
+      "text": "б",
+      "x": 97.859375,
+      "y": 784,
+      "top": 720,
+      "active": [
+        {
+          "text": "Г",
+          "font": "East Gates",
+          "x": 52.52490997314453,
+          "y": 595,
+          "height": 101,
+          "sourceRows": [
+            {
+              "x": 32,
+              "y": 592,
+              "width": 108.296875,
+              "height": 128,
+              "top": 592,
+              "right": 140.296875,
+              "bottom": 720,
+              "left": 32
+            },
+            {
+              "x": 32,
+              "y": 720,
+              "width": 131.71875,
+              "height": 128,
+              "top": 720,
+              "right": 163.71875,
+              "bottom": 848,
+              "left": 32
+            },
+            {
+              "x": 163.71875,
+              "y": 720,
+              "width": 168.203125,
+              "height": 128,
+              "top": 720,
+              "right": 331.921875,
+              "bottom": 848,
+              "left": 163.71875
+            }
+          ],
+          "color": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Б",
+          "font": "Sigma Boy",
+          "x": 67.23863220214844,
+          "y": 699,
+          "height": 147,
+          "sourceRows": [
+            {
+              "x": 32,
+              "y": 592,
+              "width": 108.296875,
+              "height": 128,
+              "top": 592,
+              "right": 140.296875,
+              "bottom": 720,
+              "left": 32
+            },
+            {
+              "x": 32,
+              "y": 720,
+              "width": 131.71875,
+              "height": 128,
+              "top": 720,
+              "right": 163.71875,
+              "bottom": 848,
+              "left": 32
+            },
+            {
+              "x": 163.71875,
+              "y": 720,
+              "width": 168.203125,
+              "height": 128,
+              "top": 720,
+              "right": 331.921875,
+              "bottom": 848,
+              "left": 163.71875
+            }
+          ],
+          "color": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Ы",
+          "font": "Sigma Boy",
+          "x": 194.1085205078125,
+          "y": 699,
+          "height": 147,
+          "sourceRows": [
+            {
+              "x": 32,
+              "y": 592,
+              "width": 108.296875,
+              "height": 128,
+              "top": 592,
+              "right": 140.296875,
+              "bottom": 720,
+              "left": 32
+            },
+            {
+              "x": 32,
+              "y": 720,
+              "width": 131.71875,
+              "height": 128,
+              "top": 720,
+              "right": 163.71875,
+              "bottom": 848,
+              "left": 32
+            },
+            {
+              "x": 163.71875,
+              "y": 720,
+              "width": 168.203125,
+              "height": 128,
+              "top": 720,
+              "right": 331.921875,
+              "bottom": 848,
+              "left": 163.71875
+            }
+          ],
+          "color": "rgb(255, 255, 255)"
+        }
+      ]
+    }
+  ]
+}

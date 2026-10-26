@@ -1,0 +1,39 @@
+{
+  "browser": "Chromium with native touch input",
+  "checks": [
+    {
+      "width": 320,
+      "height": 510,
+      "previewHeight": 88,
+      "expandedHeight": 462,
+      "previewBottomGap": 0,
+      "coverSwipe": 243,
+      "articleSwipe": 185,
+      "reverseSwipe": -185,
+      "swipeStartingOnPreview": 352
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "previewHeight": 88,
+      "expandedHeight": 796,
+      "previewBottomGap": 0,
+      "coverSwipe": 471,
+      "articleSwipe": 392,
+      "reverseSwipe": -328,
+      "swipeStartingOnPreview": 357
+    },
+    {
+      "width": 760,
+      "height": 360,
+      "previewHeight": 88,
+      "expandedHeight": 312,
+      "previewBottomGap": 0,
+      "coverSwipe": 129,
+      "articleSwipe": 142,
+      "reverseSwipe": -140,
+      "swipeStartingOnPreview": 314
+    }
+  ],
+  "errors": []
+}

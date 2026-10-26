@@ -1,0 +1,1267 @@
+{
+  "origin": "https://chinatown.site",
+  "checked_files": 209,
+  "passed": 209,
+  "failed": [],
+  "byte_range": {
+    "path": "assets/video/concert.mp4",
+    "ok": true,
+    "headers": "HTTP/2 206 \r\nserver: nginx\r\ndate: Fri, 23 Oct 2026 23:01:21 GMT\r\ncontent-type: video/mp4\r\ncontent-length: 1\r\nlast-modified: Fri, 23 Oct 2026 22:45:10 GMT\r\netag: \"6adbe376-21135e\"\r\nexpires: Mon, 07 Dec 2026 23:01:21 GMT\r\ncache-control: max-age=3888000\r\ncontent-range: bytes 0-0/2167646\r\n\r\n"
+  },
+  "files": [
+    {
+      "path": "about.html",
+      "size": 17420,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "article.css",
+      "size": 33080,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "article.html",
+      "size": 52985,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/LICENSE.material-design-icons",
+      "size": 11357,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/figma/article/arrow-left.svg",
+      "size": 482,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/figma/article/arrow-right.svg",
+      "size": 482,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/figma/article/header/close.svg",
+      "size": 564,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/figma/article/header/menu.svg",
+      "size": 454,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/figma/article/header/search-toggle.svg",
+      "size": 896,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/figma/article/header/search.svg",
+      "size": 898,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/figma/article/header/star.svg",
+      "size": 3665,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/figma/article/madk1d-concert.png",
+      "size": 8807758,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/figma/article/navigation/logo-menu.svg",
+      "size": 3697,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/figma/article/navigation/logo.svg",
+      "size": 3697,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/figma/article/navigation/menu-open.svg",
+      "size": 458,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/figma/article/navigation/menu-trail.svg",
+      "size": 458,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/figma/article/navigation/menu.svg",
+      "size": 456,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/figma/article/navigation/search-chevron.svg",
+      "size": 475,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/figma/article/navigation/search-toggle.svg",
+      "size": 947,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/figma/article/navigation/search.svg",
+      "size": 930,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/figma/article/navigation/star.svg",
+      "size": 3698,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/figma/article/rail/navigate-before.svg",
+      "size": 455,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/figma/article/rail/navigate-next.svg",
+      "size": 452,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/figma/article/rail/sexyswag.png",
+      "size": 377894,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/figma/article/sexyswag-cover.webp",
+      "size": 12390,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/figma/article/star.svg",
+      "size": 3685,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/figma/clear.svg",
+      "size": 576,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/figma/components/action-next-mobile.svg",
+      "size": 456,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/figma/intro-background.png",
+      "size": 8675820,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/figma/intro-north-east.svg",
+      "size": 862,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/figma/landing/hero-collage.jpg",
+      "size": 109310,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/figma/mobile-shell/arrow-down.svg",
+      "size": 477,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/figma/mobile-shell/arrow-up.svg",
+      "size": 475,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/figma/mobile-shell/close.svg",
+      "size": 492,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/figma/mobile-shell/menu-24.svg",
+      "size": 428,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/figma/mobile-shell/menu.svg",
+      "size": 454,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/figma/mobile-shell/search-24.svg",
+      "size": 674,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/figma/mobile-shell/search-field.svg",
+      "size": 678,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/figma/mobile-shell/search-scene.png",
+      "size": 985139,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/figma/mobile-shell/search.svg",
+      "size": 894,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/figma/north-east.svg",
+      "size": 404,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/figma/subscribe-close.svg",
+      "size": 576,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/figma/subscribe-star.svg",
+      "size": 3687,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/fonts/Benzin-Bold.woff2",
+      "size": 39556,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/fonts/Benzin-ExtraBold.woff2",
+      "size": 37080,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/fonts/Benzin-Input-Bold.woff2",
+      "size": 39552,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/fonts/Benzin-Input-Mobile-Bold.woff2",
+      "size": 39608,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/fonts/Benzin-Medium.woff2",
+      "size": 39432,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/fonts/Benzin-Regular.woff2",
+      "size": 37748,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/fonts/Benzin-Semibold.woff2",
+      "size": 39408,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/fonts/EastGates-Regular.woff2",
+      "size": 37220,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/fonts/Elion-Italic.otf",
+      "size": 34336,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/fonts/GigaSans-Black.otf",
+      "size": 66880,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/fonts/GigaSans-BlackItalic.otf",
+      "size": 70064,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/fonts/GigaSans-Bold.otf",
+      "size": 68560,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/fonts/GigaSans-BoldItalic.otf",
+      "size": 70748,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/fonts/GigaSans-ExtraBold.otf",
+      "size": 68796,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/fonts/GigaSans-ExtraBoldItalic.otf",
+      "size": 71192,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/fonts/GigaSans-ExtraLight.otf",
+      "size": 67472,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/fonts/GigaSans-ExtraLightItalic.otf",
+      "size": 71556,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/fonts/GigaSans-Italic.otf",
+      "size": 68856,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/fonts/GigaSans-Light.otf",
+      "size": 67352,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/fonts/GigaSans-LightItalic.otf",
+      "size": 71028,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/fonts/GigaSans-Medium.otf",
+      "size": 67608,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/fonts/GigaSans-MediumItalic.otf",
+      "size": 70328,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/fonts/GigaSans-Regular.otf",
+      "size": 65116,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/fonts/GigaSans-SemiBold.otf",
+      "size": 68344,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/fonts/GigaSans-SemiBoldItalic.otf",
+      "size": 70732,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/fonts/GigaSans-Thin.otf",
+      "size": 66524,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/fonts/GigaSans-ThinItalic.otf",
+      "size": 70556,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/fonts/SigmaBoy-Regular.woff2",
+      "size": 102636,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/icons/arrow-cursor.svg",
+      "size": 214,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/icons/content-copy-sharp.svg",
+      "size": 285,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/icons/copy-cursor.svg",
+      "size": 415,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/icons/intro-navigate-next.svg",
+      "size": 459,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/icons/intro-north-east.svg",
+      "size": 482,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/icons/navigate-next-sharp.svg",
+      "size": 218,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/icons/pointer-cursor.svg",
+      "size": 470,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/icons/text-cursor.svg",
+      "size": 290,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/link.svg",
+      "size": 479,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/stickers/album.svg",
+      "size": 250,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/stickers/artist.svg",
+      "size": 314,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/stickers/bify.svg",
+      "size": 176,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/stickers/bity.svg",
+      "size": 395,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/stickers/dropy.svg",
+      "size": 249,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/stickers/fity.svg",
+      "size": 266,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/stickers/klipy.svg",
+      "size": 162,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/stickers/propavshie.svg",
+      "size": 286,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/stickers/snippety.svg",
+      "size": 359,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/stickers/sohranyonki.svg",
+      "size": 170,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/stickers/time.svg",
+      "size": 340,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/stickers/track.svg",
+      "size": 349,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/stickers/udalyonnoe.svg",
+      "size": 211,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/textures/film-grain.svg",
+      "size": 319,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/textures/tag-outline.svg",
+      "size": 626,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/textures/topic-sticker.svg",
+      "size": 342,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/textures/torn-edge.svg",
+      "size": 275,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/textures/worn-mask.svg",
+      "size": 368,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/video/concert.jpg",
+      "size": 171742,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/video/concert.mp4",
+      "size": 2167646,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/video/dj.jpg",
+      "size": 15049,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/video/dj.mp4",
+      "size": 1442842,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/video/editorial/concert-crowd-7026abb1ab1c/article-poster.jpg",
+      "size": 55295,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/video/editorial/concert-crowd-7026abb1ab1c/article.mp4",
+      "size": 1448554,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/video/editorial/concert-crowd-7026abb1ab1c/poster.jpg",
+      "size": 15719,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/video/editorial/concert-crowd-7026abb1ab1c/rail-large.mp4",
+      "size": 355182,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/video/editorial/concert-crowd-7026abb1ab1c/rail-small.mp4",
+      "size": 257707,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/video/editorial/kitay-night-86bc7af48de9/article-poster.jpg",
+      "size": 80134,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/video/editorial/kitay-night-86bc7af48de9/article.mp4",
+      "size": 1948199,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/video/editorial/kitay-night-86bc7af48de9/poster.jpg",
+      "size": 80134,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+      "size": 1468300,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/video/editorial/kitay-night-86bc7af48de9/rail-small.mp4",
+      "size": 427474,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/video/editorial/kitay-people-0dd1e134849b/article-poster.jpg",
+      "size": 31794,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/video/editorial/kitay-people-0dd1e134849b/article.mp4",
+      "size": 701051,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/video/editorial/kitay-people-0dd1e134849b/poster.jpg",
+      "size": 31490,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/video/editorial/kitay-people-0dd1e134849b/rail-large.mp4",
+      "size": 487719,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/video/editorial/kitay-people-0dd1e134849b/rail-small.mp4",
+      "size": 304680,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/video/editorial/kitay-street-c41b36032219/article-poster.jpg",
+      "size": 46259,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/video/editorial/kitay-street-c41b36032219/article.mp4",
+      "size": 720351,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/video/editorial/kitay-street-c41b36032219/poster.jpg",
+      "size": 45844,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/video/editorial/kitay-street-c41b36032219/rail-large.mp4",
+      "size": 510616,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/video/editorial/kitay-street-c41b36032219/rail-small.mp4",
+      "size": 303769,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/video/editorial/madk1d-chorus-6e39d25cf629/article-poster.jpg",
+      "size": 9572,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/video/editorial/madk1d-chorus-6e39d25cf629/article.mp4",
+      "size": 2238189,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/video/editorial/madk1d-chorus-6e39d25cf629/poster.jpg",
+      "size": 5185,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/video/editorial/madk1d-chorus-6e39d25cf629/rail-large.mp4",
+      "size": 653218,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/video/editorial/madk1d-chorus-6e39d25cf629/rail-small.mp4",
+      "size": 590166,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/video/editorial/manifest.json",
+      "size": 6498,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/video/moscow.jpg",
+      "size": 53485,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "assets/video/moscow.mp4",
+      "size": 3299526,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "component-preview.html",
+      "size": 699,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "components.css",
+      "size": 12805,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "components.html",
+      "size": 6745,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "dev-panel.css",
+      "size": 6184,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "docs/article-context.md",
+      "size": 27205,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "docs/article-headings.md",
+      "size": 3055,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "docs/article-interactions.md",
+      "size": 65538,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "docs/component-system.md",
+      "size": 16276,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "docs/editorial-data.md",
+      "size": 8306,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "docs/editorial-typography.md",
+      "size": 10934,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "docs/mobile-shell.md",
+      "size": 19535,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "docs/motion.md",
+      "size": 8815,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "docs/responsive-system.md",
+      "size": 4490,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "docs/video-workflow.md",
+      "size": 10748,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "glitch-test.html",
+      "size": 1548,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "index.html",
+      "size": 5187,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "landing.css",
+      "size": 5511,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "light-editor.css",
+      "size": 6995,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "media.css",
+      "size": 811,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "scene-rail.css",
+      "size": 16494,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/article-context-data.js",
+      "size": 10686,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/article-context-state.js",
+      "size": 1329,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/article-context-view.js",
+      "size": 2438,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/article-context.js",
+      "size": 17697,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/article-copy.js",
+      "size": 24117,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/article-header.js",
+      "size": 11696,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/article-images.js",
+      "size": 10306,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/article-search-data.js",
+      "size": 2978,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/article-view.js",
+      "size": 15123,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/article.js",
+      "size": 4114,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/component-catalog-data.js",
+      "size": 29130,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/component-catalog.js",
+      "size": 11200,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/component-preview.css",
+      "size": 1566,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/component-preview.js",
+      "size": 17728,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/components/action-button.css",
+      "size": 2529,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/components/action-button.js",
+      "size": 1873,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/components/context-title.css",
+      "size": 1154,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/components/context-title.js",
+      "size": 2902,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/components/editorial-data.css",
+      "size": 1919,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/components/editorial-data.js",
+      "size": 1815,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/components/editorial-typography.css",
+      "size": 7426,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/components/editorial-typography.js",
+      "size": 1587,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/components/email-field.css",
+      "size": 741,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/components/film.css",
+      "size": 1241,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/components/tag.css",
+      "size": 6734,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/components/tag.js",
+      "size": 9460,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/components/typography.css",
+      "size": 1291,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/components/typography.js",
+      "size": 3162,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/context-pager.js",
+      "size": 3687,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/design-tokens.css",
+      "size": 3395,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/dev-panel.js",
+      "size": 16402,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/dev-settings.js",
+      "size": 1171,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/dev-tools.js",
+      "size": 452,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/drag-hint.js",
+      "size": 13283,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/editorial-video.js",
+      "size": 1146,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/email-subscribe.js",
+      "size": 2456,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/fonts.css",
+      "size": 4455,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/glitch-preview.js",
+      "size": 149,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/headline-glitch.js",
+      "size": 15326,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/intro.js",
+      "size": 4799,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/landing.js",
+      "size": 699,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/media-demo.js",
+      "size": 2941,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/media-views.js",
+      "size": 7594,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/mobile-city-video.js",
+      "size": 4559,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/mobile-shell-state.js",
+      "size": 2546,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/mobile-shell.css",
+      "size": 16367,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/mobile-shell.js",
+      "size": 25093,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/quote-background-video.js",
+      "size": 3497,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/quote-scene.js",
+      "size": 8809,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/quote-scroll-state.js",
+      "size": 2707,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/scene-rail.js",
+      "size": 16898,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/section-headings.js",
+      "size": 5180,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/site-cursor.js",
+      "size": 4329,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/story-club-editor.js",
+      "size": 15534,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/story-club-settings.js",
+      "size": 5386,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/story-club.js",
+      "size": 1991,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/subscribe-modal.js",
+      "size": 5349,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "src/video-sphere.js",
+      "size": 15819,
+      "ok": true,
+      "errors": []
+    },
+    {
+      "path": "styles.css",
+      "size": 35497,
+      "ok": true,
+      "errors": []
+    }
+  ]
+}

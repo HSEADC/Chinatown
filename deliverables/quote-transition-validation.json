@@ -1,0 +1,126 @@
+[
+  {
+    "height": 1080,
+    "mediaOpacity": "0",
+    "mediaVisibility": "hidden",
+    "phase": "before",
+    "quoteTop": 512,
+    "videoState": "loading",
+    "width": 1920,
+    "y": 984
+  },
+  {
+    "mediaOpacity": "0.522634",
+    "phase": "entering",
+    "quoteTop": 232,
+    "videoState": "loading",
+    "y": 1264
+  },
+  {
+    "iframe": "https://www.youtube.com/embed/7r8eppkaOZM?enablejsapi=1&origin=http%3A%2F%2Flocalhost%3A4173&start=417&autoplay=0&mute=1&playsinline=1&controls=0&disablekb=1&fs=0&rel=0",
+    "lyricsOpacity": "1",
+    "mediaOpacity": "1",
+    "phase": "reading",
+    "videoState": "loading",
+    "y": 1496
+  },
+  {
+    "current": 1,
+    "mediaOpacity": "1",
+    "phase": "last-phrase",
+    "videoState": "ready",
+    "y": 1856
+  },
+  {
+    "lyricsOpacity": "0",
+    "mediaOpacity": "0.520237",
+    "nextTop": 509.40625,
+    "phase": "leaving",
+    "videoState": "ready",
+    "y": 2256
+  },
+  {
+    "mediaOpacity": "0.520237",
+    "phase": "video-playing",
+    "videoState": "playing"
+  },
+  {
+    "headerInert": false,
+    "mediaOpacity": "0",
+    "mediaVisibility": "hidden",
+    "nextTop": 109.40625,
+    "phase": "after",
+    "videoState": "paused",
+    "y": 2656
+  },
+  {
+    "current": 1,
+    "lyricsOpacity": "1",
+    "mediaOpacity": "1",
+    "phase": "reverse",
+    "videoState": "playing",
+    "y": 1816
+  },
+  {
+    "height": 844,
+    "opacity": "0",
+    "overflow": false,
+    "phase": "mobile-before",
+    "quoteTop": 616,
+    "width": 390
+  },
+  {
+    "headerInert": true,
+    "lyricsWidth": 350,
+    "opacity": "1",
+    "overflow": false,
+    "phase": "mobile-reading",
+    "stage": {
+      "bottom": 844,
+      "height": 844,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "lyricsOpacity": "0",
+    "nextTop": 413.921875,
+    "opacity": "0.542552",
+    "overflow": false,
+    "phase": "mobile-leaving",
+    "videoState": "buffering"
+  },
+  {
+    "headerInert": false,
+    "nextTop": 13.921875,
+    "opacity": "0",
+    "phase": "mobile-after",
+    "videoState": "buffering"
+  },
+  {
+    "height": 900,
+    "opacity": "1",
+    "overflow": false,
+    "phase": "1440-reading",
+    "stageWidth": 1440,
+    "width": 1440
+  },
+  {
+    "headerOpacity": "1",
+    "opacity": "0.0185185",
+    "phase": "final-video-reading",
+    "source": "https://www.youtube.com/embed/7r8eppkaOZM?enablejsapi=1&origin=http%3A%2F%2Flocalhost%3A4173&start=417&autoplay=0&mute=1&playsinline=1&controls=0&disablekb=1&fs=0&rel=0",
+    "videoState": "buffering"
+  },
+  {
+    "lyricsOpacity": "0.626075",
+    "nextTop": 723.40625,
+    "opacity": "0.831734",
+    "phase": "final-video-exit",
+    "videoState": "playing"
+  }
+]

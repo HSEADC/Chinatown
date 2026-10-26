@@ -1,0 +1,58 @@
+{
+  "errors": [],
+  "checks": [
+    "Presets, HEX input, keyboard-operated sliders and exact number inputs update the real article; invalid color text preserves the last valid color.",
+    "Pausing and frame scrubbing freeze the layers at the selected time; clipboard JSON contains the tuned settings, units, blend mode, timings and rendered frame.",
+    "CSS copies the active variables and the downloaded JSON matches the selected settings.",
+    "Import reports malformed JSON without discarding settings; valid imports survive a reload.",
+    "Clean-background preview restores the article when collapsed; Escape returns keyboard focus to the launcher.",
+    "The panel and export buttons stay within the viewport from 320 to 1920 px.",
+    "Reduced motion preserves a static light preview and disables animation controls.",
+    "Blocked clipboard access exposes selected JSON for manual copying.",
+    "Client-side page changes dispose the editor; returning mounts a single launcher."
+  ],
+  "widths": [
+    {
+      "left": 12,
+      "right": 308,
+      "bottom": 832,
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "left": 12,
+      "right": 352,
+      "bottom": 832,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "left": 16,
+      "right": 336,
+      "bottom": 828,
+      "scrollWidth": 768,
+      "width": 768
+    },
+    {
+      "left": 16,
+      "right": 336,
+      "bottom": 828,
+      "scrollWidth": 1101,
+      "width": 1101
+    },
+    {
+      "left": 16,
+      "right": 336,
+      "bottom": 828,
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "left": 16,
+      "right": 336,
+      "bottom": 828,
+      "scrollWidth": 1920,
+      "width": 1920
+    }
+  ]
+}

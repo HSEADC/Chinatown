@@ -1,0 +1,36 @@
+{
+  "checks": [
+    {
+      "check": "visible-40px-rest-without-arrow",
+      "passed": true
+    },
+    {
+      "check": "hover-reveals-content-without-moving-text-or-saving-state",
+      "passed": true
+    },
+    {
+      "check": "moving-inside-preview-holds-it-leaving-retracts",
+      "passed": true
+    },
+    {
+      "check": "click-visible-content-opens-full-panel-once",
+      "passed": true
+    },
+    {
+      "check": "keyboard-focus-previews-enter-opens",
+      "passed": true
+    },
+    {
+      "check": "reduced-motion-and-cover-reset-transient-preview",
+      "passed": true
+    },
+    {
+      "check": "touch-edge-opens-without-hover",
+      "passed": true
+    }
+  ],
+  "widths": {
+    "rest": 40,
+    "preview": 72
+  }
+}

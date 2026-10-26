@@ -1,0 +1,52 @@
+{
+  "status": "passed",
+  "checks": [
+    "No initial audio download",
+    "Actual MP3 playback",
+    "Persistent audio across article/home and history",
+    "Seeking and 30s jump",
+    "Volume",
+    "Queue advances on actual end",
+    "Queue can stop",
+    "Reload restores position without auto-play",
+    "Close stops playback and restores focus",
+    "License visible from player",
+    "MP3 HTTP byte range",
+    "Touch viewport preview",
+    "Network error displayed and retry plays successfully",
+    "Article remains visible with JavaScript disabled"
+  ],
+  "layouts": [
+    {
+      "width": 320,
+      "overflow": false,
+      "images": true,
+      "font": "Benzin, \"Giga Sans\", sans-serif"
+    },
+    {
+      "width": 375,
+      "overflow": false,
+      "images": true,
+      "font": "Benzin, \"Giga Sans\", sans-serif"
+    },
+    {
+      "width": 768,
+      "overflow": false,
+      "images": true,
+      "font": "Benzin, \"Giga Sans\", sans-serif"
+    },
+    {
+      "width": 1280,
+      "overflow": false,
+      "images": true,
+      "font": "Benzin, \"Giga Sans\", sans-serif"
+    },
+    {
+      "width": 1920,
+      "overflow": false,
+      "images": true,
+      "font": "Benzin, \"Giga Sans\", sans-serif"
+    }
+  ],
+  "errors": []
+}

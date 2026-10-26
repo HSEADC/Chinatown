@@ -1,0 +1,203 @@
+{
+  "widths": [
+    {
+      "width": 1440,
+      "overflow": {
+        "scroll": 1440,
+        "client": 1440
+      },
+      "cta": {
+        "width": 812.796875,
+        "groupWidth": 487.75,
+        "centerError": 0.0078125,
+        "color": "rgb(255, 255, 255)",
+        "bg": "rgb(252, 92, 255)",
+        "radius": "0px"
+      }
+    },
+    {
+      "width": 1200,
+      "overflow": {
+        "scroll": 1200,
+        "client": 1200
+      },
+      "cta": {
+        "width": 668.796875,
+        "groupWidth": 487.75,
+        "centerError": 0.0078125,
+        "color": "rgb(255, 255, 255)",
+        "bg": "rgb(252, 92, 255)",
+        "radius": "0px"
+      }
+    },
+    {
+      "width": 1199,
+      "overflow": {
+        "scroll": 1199,
+        "client": 1199
+      },
+      "cta": {
+        "width": 668.203125,
+        "groupWidth": 487.75,
+        "centerError": 0.0078125,
+        "color": "rgb(255, 255, 255)",
+        "bg": "rgb(252, 92, 255)",
+        "radius": "0px"
+      }
+    },
+    {
+      "width": 1024,
+      "overflow": {
+        "scroll": 1024,
+        "client": 1024
+      },
+      "cta": {
+        "width": 563.203125,
+        "groupWidth": 487.75,
+        "centerError": 0.0078125,
+        "color": "rgb(255, 255, 255)",
+        "bg": "rgb(252, 92, 255)",
+        "radius": "0px"
+      }
+    },
+    {
+      "width": 390,
+      "overflow": {
+        "scroll": 390,
+        "client": 390
+      },
+      "cta": {
+        "width": 350,
+        "groupWidth": 263.875,
+        "centerError": 0,
+        "color": "rgb(255, 255, 255)",
+        "bg": "rgb(252, 92, 255)",
+        "radius": "0px"
+      }
+    },
+    {
+      "width": 320,
+      "overflow": {
+        "scroll": 320,
+        "client": 320
+      },
+      "cta": {
+        "width": 280,
+        "groupWidth": 263.875,
+        "centerError": 0,
+        "color": "rgb(255, 255, 255)",
+        "bg": "rgb(252, 92, 255)",
+        "radius": "0px"
+      }
+    }
+  ],
+  "pageErrors": [],
+  "screenshots": [
+    "desktop-spread.png",
+    "desktop-end.png",
+    "desktop-cover.png",
+    "mobile-glossary.png",
+    "mobile-spread.png",
+    "mobile-cover.png",
+    "desktop-concert.png"
+  ],
+  "checks": [
+    "Updated title on SPA entry",
+    "All approved paragraphs transferred verbatim",
+    "Unique IDs",
+    "All context references resolve",
+    "No song quotations or editorial placeholder in the reader flow",
+    "Three timeline positions rendered",
+    "Artist card opens in the rail",
+    "Concert scene hides the rail",
+    "Video-only concert has finite scroll positions",
+    "Manual card survives concert and chapter change",
+    "Closing manual selection restores the current glossary",
+    "Rail collapses",
+    "Rail expands",
+    "Track opens in existing Yandex player",
+    "Player loads the approved track ID",
+    "Player iframe survives SPA exit",
+    "Article release does not alter the curated home selection",
+    "Player iframe survives SPA return",
+    "No page overflow at 1440",
+    "Timeline reflows at 1440",
+    "CTA centered without overflow at 1440",
+    "Shared CTA appearance at 1440",
+    "No page overflow at 1200",
+    "Timeline reflows at 1200",
+    "CTA centered without overflow at 1200",
+    "Shared CTA appearance at 1200",
+    "No page overflow at 1199",
+    "Timeline reflows at 1199",
+    "CTA centered without overflow at 1199",
+    "Shared CTA appearance at 1199",
+    "No page overflow at 1024",
+    "Timeline reflows at 1024",
+    "CTA centered without overflow at 1024",
+    "Shared CTA appearance at 1024",
+    "No page overflow at 390",
+    "Timeline reflows at 390",
+    "CTA centered without overflow at 390",
+    "Shared CTA appearance at 390",
+    "No page overflow at 320",
+    "Timeline reflows at 320",
+    "CTA centered without overflow at 320",
+    "Shared CTA appearance at 320",
+    "Album opens in the shared image viewer",
+    "Image viewer closes and returns",
+    "Upcoming story appears at the article end after card interaction finishes",
+    "Search finds new article chapters",
+    "Search navigates to the growth chapter",
+    "Mobile glossary opens as a separate screen",
+    "Mobile glossary returns to the article",
+    "Mobile footnote expands inline",
+    "Footnote does not open a mobile screen",
+    "Static build retains all explanations without JavaScript",
+    "Reduced motion keeps the concert static",
+    "Whitelist uses the same shared CTA markup",
+    "Whitelist group is centered without overflow",
+    "Whitelist opens the subscription window",
+    "Subscribe group is centered without overflow",
+    "Subscription validates the email",
+    "Subscription control is restored after the mocked response",
+    "No application runtime errors"
+  ],
+  "externalPlayback": "Widget UI and iframe lifetime checked with a local response; audio playback is owned by Yandex.",
+  "form": {
+    "validation": true,
+    "mockedSubmission": true,
+    "realRequestSent": false,
+    "configuredEndpoint": "https://formspree.io/f/YOUR_FORM_ID"
+  },
+  "status": "passed",
+  "finalWidgetAccessibility": true,
+  "finalStaticBuild": true,
+  "ctaHover": {
+    "iconShift": 4,
+    "labelStationary": true,
+    "sizeStationary": true,
+    "textWhite": true
+  },
+  "unitTests": 58,
+  "build": "passed",
+  "changedProjectFiles": [
+    "about.html",
+    "article.css",
+    "article.html",
+    "docs/article-context.md",
+    "scripts/generate-article.mjs",
+    "src/article-context-data.js",
+    "src/article-context-view.js",
+    "src/article-copy.js",
+    "src/article-view.js",
+    "src/media-demo.js",
+    "src/media-views.js",
+    "src/media-yandex-player.js",
+    "src/quote-scene.js",
+    "src/releases.js"
+  ],
+  "unrelatedExistingFilesPreserved": true,
+  "sharedActionButtonUnchanged": true,
+  "scene": "Concert video and label, no lyric quotation. Line highlighting remains available for an approved fragment."
+}

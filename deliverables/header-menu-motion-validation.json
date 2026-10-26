@@ -1,0 +1,126 @@
+{
+  "starClick": {
+    "ghosts": 0,
+    "items": [
+      {
+        "text": "Карта артистов",
+        "transform": "none",
+        "x": 409.59375
+      },
+      {
+        "text": "Карта артистов",
+        "transform": "none",
+        "x": 718.421875
+      },
+      {
+        "text": "Статьи",
+        "transform": "none",
+        "x": 1027.25
+      },
+      {
+        "text": "Тесты",
+        "transform": "none",
+        "x": 1249.9375
+      },
+      {
+        "text": "Мерч",
+        "transform": "none",
+        "x": 1464.8671875
+      }
+    ],
+    "starTransform": "none"
+  },
+  "search": {
+    "node": "272:98",
+    "resultsHidden": true
+  },
+  "menuReturn": {
+    "items": [
+      {
+        "opacity": "0.961519",
+        "text": "Карта артистов",
+        "transform": "matrix(1, 0, 0, 1, 104.463, 0)",
+        "x": 514.0568237304688
+      },
+      {
+        "opacity": "0.978981",
+        "text": "Карта артистов",
+        "transform": "matrix(1, 0, 0, 1, 45.6349, 0)",
+        "x": 764.0567626953125
+      },
+      {
+        "opacity": "0.989074",
+        "text": "Статьи",
+        "transform": "matrix(1, 0, 0, 1, 17.7825, 0)",
+        "x": 1045.032470703125
+      },
+      {
+        "opacity": "0.994768",
+        "text": "Тесты",
+        "transform": "matrix(1, 0, 0, 1, 6.46505, 0)",
+        "x": 1256.402587890625
+      },
+      {
+        "opacity": "0.997809",
+        "text": "Мерч",
+        "transform": "matrix(1, 0, 0, 1, 1.87812, 0)",
+        "x": 1466.745361328125
+      }
+    ],
+    "node": "272:111"
+  },
+  "starImmediate": [
+    "none",
+    "none",
+    "none",
+    "none",
+    "none"
+  ],
+  "interrupted": {
+    "node": "272:98",
+    "resultsHidden": true,
+    "transforms": [
+      "none",
+      "none",
+      "none",
+      "none",
+      "none"
+    ]
+  },
+  "mobileStar": {
+    "expanded": "true",
+    "scrollWidth": 390,
+    "transforms": [
+      "none",
+      "none",
+      "none",
+      "none",
+      "none"
+    ],
+    "width": 390
+  },
+  "mobileReturn": {
+    "expanded": "true",
+    "node": "272:111",
+    "scrollWidth": 390,
+    "transforms": [
+      "matrix(1, 0, 0, 1, 65.0876, 0)",
+      "matrix(1, 0, 0, 1, 19.6309, 0)",
+      "matrix(1, 0, 0, 1, 20.3723, 0)",
+      "matrix(1, 0, 0, 1, 5.82877, 0)",
+      "matrix(1, 0, 0, 1, 5.47004, 0)"
+    ],
+    "width": 390
+  },
+  "settled": {
+    "headerNode": "272:111",
+    "transforms": [
+      "none",
+      "none",
+      "none",
+      "none",
+      "none"
+    ]
+  },
+  "buildPassed": true
+}

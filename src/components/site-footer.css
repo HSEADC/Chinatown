@@ -1,0 +1,56 @@
+/* Site footer, Figma 444:737 (1920). The band carries the page's last word: subscribe.
+   Type and controls come from shared tokens; this file places them on the pink band. */
+.site-footer {
+  position: relative;
+  /* The band sits flush under the page's last block. The footer box starts higher, over that block, so the star can
+     reach up onto it as in the mock-up; the page's side and bottom edges cut its other rays, so the band is the last
+     thing on the page. The empty top lets clicks through to the block underneath. */
+  overflow: clip;
+  margin-top: calc(-1 * var(--space-32));
+  padding-top: var(--space-32);
+  pointer-events: none;
+  color: #000;
+}
+.site-footer__band {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  column-gap: var(--grid-gap);
+  align-items: start;
+  padding: var(--space-16) var(--page-gutter);
+  background: #fc5cff;
+  pointer-events: auto;
+  container-type: inline-size;
+}
+.site-footer__copy { grid-column: 1 / span 2; display: flex; flex-direction: column; gap: var(--space-4); max-width: 629px; }
+.site-footer__title { margin: 0; font: 700 var(--font-size-title)/var(--line-height-title) var(--font-display); letter-spacing: 0; text-transform: uppercase; }
+.site-footer__text { margin: 0; font: 400 var(--font-size-body)/var(--line-height-body) var(--font-body); }
+.site-footer__text strong { font-weight: 700; }
+.site-footer__form { position: relative; grid-column: 3 / span 2; display: flex; flex-direction: column; gap: var(--space-6); max-width: 629px; }
+.site-footer__status { position: absolute; top: calc(100% + 8px); left: 0; right: 0; margin: 0; font: 700 var(--font-size-caption)/var(--line-height-caption) var(--font-body); }
+.site-footer__status:empty { display: none; }
+.site-footer__star {
+  position: absolute;
+  z-index: -1;
+  /* Figma at 1920: a 474 px star centred 175 px from the band's right edge and 139 px below its top; the file keeps the
+     mock-up's 515 px frame but drops its pink glow, so the star's edge takes the colour of whatever it sits on. A narrower band (the article beside its rail) shrinks it so it stays in the last column, clear of the form. */
+  --star-size: clamp(300px, 26.8cqi, 515px);
+  top: calc(var(--star-size) * -.23);
+  right: calc(var(--star-size) * -.16);
+  width: var(--star-size);
+  height: var(--star-size);
+  max-width: none;
+  pointer-events: none;
+  user-select: none;
+}
+
+@media (max-width: 760px) {
+  /* Benzin caps are wider: «ДЕРЖИМ» fits a phone at 48px. */
+  .site-footer__title { font-size: 48px; line-height: 48px; }
+  .site-footer__band { display: flex; flex-direction: column; gap: var(--space-8); padding: var(--space-12) var(--page-gutter); }
+  .site-footer__copy, .site-footer__form { max-width: none; width: 100%; }
+  .site-footer__form { gap: var(--space-4); }
+  .site-footer__status { position: static; }
+  .site-footer__star { --star-size: 240px; }
+}

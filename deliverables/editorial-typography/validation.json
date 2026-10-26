@@ -1,0 +1,21 @@
+{
+  "hoverPreviewAndHandoff": "pass",
+  "previewEscapeFromRail": "pass",
+  "pinAndEscape": "pass",
+  "keyboard": "pass",
+  "collapsedAndAlbum": "pass",
+  "typography": {
+    "font": "\"Elion Italic\", \"Giga Sans\", system-ui, sans-serif",
+    "style": "normal",
+    "lineHeight": "0px"
+  },
+  "mobileCardsAndBack": "pass",
+  "mobileForwardAndClose": "pass",
+  "nestedImageViewer": "pass",
+  "noOverflow": "pass",
+  "noJavaScriptFallback": "pass",
+  "reducedMotion": "pass",
+  "layoutBoundaryAndNarrowScreen": "pass",
+  "directHashAndRouteCleanup": "pass",
+  "pageErrors": []
+}

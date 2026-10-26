@@ -1,0 +1,87 @@
+{
+  "results": [
+    {
+      "width": 1920,
+      "headerWidth": 1580,
+      "articleWidth": 1580,
+      "margin": 32,
+      "columnsMatch": true,
+      "menuFits": true
+    },
+    {
+      "width": 1440,
+      "headerWidth": 1100,
+      "articleWidth": 1100,
+      "margin": 32,
+      "columnsMatch": true,
+      "menuFits": true
+    },
+    {
+      "width": 1366,
+      "headerWidth": 1026,
+      "articleWidth": 1026,
+      "margin": 32,
+      "columnsMatch": true,
+      "menuFits": true
+    },
+    {
+      "width": 1280,
+      "headerWidth": 940,
+      "articleWidth": 940,
+      "margin": 32,
+      "columnsMatch": true,
+      "menuFits": true
+    },
+    {
+      "width": 1200,
+      "headerWidth": 860,
+      "articleWidth": 860,
+      "margin": 32,
+      "columnsMatch": true,
+      "menuFits": true
+    },
+    {
+      "width": 1199,
+      "headerWidth": 1199,
+      "articleWidth": 1199,
+      "margin": 32,
+      "columnsMatch": true,
+      "menuFits": true
+    },
+    {
+      "width": 1024,
+      "headerWidth": 1024,
+      "articleWidth": 1024,
+      "margin": 32,
+      "columnsMatch": true,
+      "menuFits": true
+    },
+    {
+      "width": 768,
+      "headerWidth": 768,
+      "articleWidth": 768,
+      "margin": 32,
+      "columnsMatch": true,
+      "menuFits": true
+    },
+    {
+      "width": 390,
+      "headerWidth": 390,
+      "articleWidth": 390,
+      "margin": 20,
+      "columnsMatch": true,
+      "menuFits": true
+    },
+    {
+      "width": 320,
+      "headerWidth": 320,
+      "articleWidth": 320,
+      "margin": 20,
+      "columnsMatch": true,
+      "menuFits": true
+    }
+  ],
+  "customSpacingMatches": true,
+  "searchWorks": true,
+  "pageErrors": []
+}

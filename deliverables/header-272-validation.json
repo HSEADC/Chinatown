@@ -1,0 +1,196 @@
+{
+  "navigation": {
+    "height": 88,
+    "images": [
+      {
+        "height": 53.375,
+        "loaded": true,
+        "src": "./assets/figma/article/header/star.svg",
+        "width": 53.109375
+      },
+      {
+        "height": 32,
+        "loaded": true,
+        "src": "./assets/figma/article/header/search.svg",
+        "width": 32
+      },
+      {
+        "height": 32,
+        "loaded": true,
+        "src": "./assets/figma/article/header/search.svg",
+        "width": 32
+      },
+      {
+        "height": 0,
+        "loaded": true,
+        "src": "./assets/figma/article/header/menu.svg",
+        "width": 0
+      }
+    ],
+    "items": [
+      {
+        "height": 16,
+        "text": "Карта артистов",
+        "width": 148.890625,
+        "x": 409.59375,
+        "y": 36
+      },
+      {
+        "height": 16,
+        "text": "Карта артистов",
+        "width": 148.890625,
+        "x": 718.421875,
+        "y": 36
+      },
+      {
+        "height": 16,
+        "text": "Статьи",
+        "width": 62.75,
+        "x": 1027.25,
+        "y": 36
+      },
+      {
+        "height": 16,
+        "text": "Тесты",
+        "width": 54.9921875,
+        "x": 1249.9375,
+        "y": 36
+      },
+      {
+        "height": 16,
+        "text": "Мерч",
+        "width": 45.53125,
+        "x": 1464.8671875,
+        "y": 36
+      }
+    ],
+    "node": "272:111",
+    "search": {
+      "height": 32,
+      "width": 32,
+      "x": 1856,
+      "y": 28
+    }
+  },
+  "searchOpened": {
+    "focused": "article-search",
+    "form": {
+      "height": 56,
+      "width": 1100.8046875,
+      "x": 409.71966552734375,
+      "y": 16
+    },
+    "items": 0,
+    "menuIcon": {
+      "height": 32,
+      "width": 32
+    },
+    "node": "272:98",
+    "resultsHidden": true
+  },
+  "query": {
+    "hidden": false,
+    "links": [
+      "Равнодушие с адресатом"
+    ],
+    "status": "Найдено разделов: 1"
+  },
+  "reopened": {
+    "hidden": true,
+    "value": "Томск"
+  },
+  "cleared": {
+    "count": 0,
+    "hidden": true
+  },
+  "searchPinned": {
+    "bottom": 88,
+    "hidden": false,
+    "y": 540
+  },
+  "scrollDown": {
+    "bottom": 0,
+    "focus": "H1",
+    "hidden": true,
+    "y": 216
+  },
+  "scrollUp": {
+    "bottom": 87.97633361816406,
+    "hidden": false,
+    "y": 162
+  },
+  "beforeTopReveal": {
+    "hidden": true,
+    "y": 378
+  },
+  "topReveal": {
+    "bottom": 88,
+    "hidden": false,
+    "y": 378
+  },
+  "mobileClosed": {
+    "expanded": "false",
+    "scrollWidth": 390,
+    "search": {
+      "bottom": 66,
+      "height": 44,
+      "left": 326,
+      "right": 370,
+      "top": 22,
+      "width": 44,
+      "x": 326,
+      "y": 22
+    },
+    "width": 390,
+    "y": 0
+  },
+  "mobileNavigation": {
+    "barHeight": 228,
+    "expanded": "true",
+    "scrollWidth": 390
+  },
+  "mobileSearch": {
+    "form": {
+      "bottom": 72,
+      "height": 56,
+      "left": 81.13301849365234,
+      "right": 315.13301849365234,
+      "top": 16,
+      "width": 234,
+      "x": 81.13301849365234,
+      "y": 16
+    },
+    "hidden": true,
+    "scrollWidth": 390,
+    "width": 390
+  },
+  "narrowSearch": {
+    "inputWidth": 116,
+    "resultsHidden": true,
+    "scrollWidth": 320,
+    "width": 320
+  },
+  "quoteDown": {
+    "headerHidden": true,
+    "quote": true,
+    "y": 2376
+  },
+  "quoteUp": {
+    "bottom": 87.943359375,
+    "headerHidden": false,
+    "headerInert": false,
+    "quote": true,
+    "y": 2289.5
+  },
+  "checks": {
+    "staticClientHeaderEqual": true,
+    "testsPassed": 36,
+    "buildPassed": true,
+    "testedWidths": [
+      320,
+      390,
+      1920
+    ],
+    "topEdgeReveal": "pointer movement to the top via native coordinate click"
+  }
+}

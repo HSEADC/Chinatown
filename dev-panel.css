@@ -1,0 +1,75 @@
+.dev-tool {
+  position: fixed;
+  z-index: 300;
+  top: 104px;
+  left: 16px;
+  color: #eee9ec;
+  color-scheme: dark;
+  font: 400 12px/1.5 "Giga Sans", sans-serif;
+  --site-cursor-mode: default;
+}
+.dev-tool, .dev-tool * { box-sizing: border-box; }
+.dev-tool [hidden], .dev-grid[hidden] { display: none !important; }
+.dev-tool :is(button, input) { font: inherit; letter-spacing: normal; text-transform: none; }
+.dev-tool button { min-height: 36px; padding: 7px 12px; border: 1px solid #ffffff1c; border-radius: 6px; background: #ffffff06; color: inherit; cursor: default; }
+.dev-tool button:hover { border-color: #ffffff40; background: #ffffff12; }
+.dev-tool :is(button, a, input):focus-visible { outline: 2px solid #ffa2cc; outline-offset: 3px; }
+.dev-tool input:disabled { opacity: .4; }
+.dev-tool__launcher { position: fixed; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom)); display: flex; align-items: center; gap: 10px; background: #252126 !important; box-shadow: 0 6px 24px #0005; }
+.dev-tool__launcher > span:first-child { color: #f8a8cf; font-size: 10px; font-weight: 700; letter-spacing: .08em; }
+.dev-panel { display: flex; flex-direction: column; width: 336px; max-width: calc(100vw - 32px); max-height: calc(100dvh - 120px); overflow: hidden; border: 1px solid #54404b; border-radius: 10px; background: #201d21; box-shadow: 0 12px 48px #0006; }
+.dev-panel__header { display: flex; flex: none; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 18px; }
+.dev-panel__header > div > span { color: #af8f9e; font-size: 9px; letter-spacing: .12em; }
+.dev-panel__header h2 { margin: 4px 0 0; color: #fff; font: 700 18px/24px "Giga Sans", sans-serif; letter-spacing: 0; }
+.dev-panel__header button { width: 36px; padding: 0; font-size: 24px; }
+.dev-panel__tabs { display: grid; flex: none; grid-template-columns: 1fr 1fr; gap: 4px; padding: 0 18px 14px; border-bottom: 1px solid #ffffff16; }
+.dev-panel__tabs button { font-weight: 700; }
+.dev-panel__tabs [aria-selected="true"] { border-color: #f687b9; background: #ff82bc16; color: #ffd2e6; }
+.dev-panel__pane { min-height: 0; overflow: auto; overscroll-behavior: contain; scrollbar-width: thin; }
+.dev-panel__grid { padding: 18px; }
+.dev-panel__intro { margin: 0 0 18px; color: #b8aeb5; font-size: 11px; line-height: 18px; }
+.dev-panel__toggle { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 36px; color: #f4eaf0; font-size: 12px; }
+.dev-panel__toggle input { flex: none; width: 18px; height: 18px; margin: 0; accent-color: #f49cc4; }
+.dev-panel__context { margin: 16px 0 20px; padding: 10px; border: 1px solid #ffffff16; border-radius: 5px; background: #ffffff04; color: #d3b6c5; font-size: 10px; font-variant-numeric: tabular-nums; }
+.dev-panel__range { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 8px; margin-top: 20px; }
+.dev-panel__range label { color: #d0c7cd; font-size: 11px; }
+.dev-panel__range > span { display: flex; align-items: center; gap: 5px; color: #9f9099; font-size: 10px; }
+.dev-panel__range input[type="number"] { width: 58px; min-width: 0; height: 30px; padding: 4px; border: 1px solid #ffffff1a; border-radius: 4px; background: #141215; color: #f4ebf0; text-align: right; font-size: 11px; font-variant-numeric: tabular-nums; }
+.dev-panel__range input[type="range"] { grid-column: 1 / -1; width: 100%; min-width: 0; height: 24px; margin: 0; padding: 0; accent-color: #f49cc4; cursor: ew-resize; }
+.dev-panel__note { margin: 12px 0 0; color: #ad9ea8; font-size: 10px; line-height: 17px; }
+.dev-panel__metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 20px 0; padding-block: 14px; border-block: 1px solid #ffffff16; }
+.dev-panel__metrics > div { display: grid; gap: 4px; }
+.dev-panel__metrics span { color: #ad9ea8; font-size: 10px; }
+.dev-panel__metrics output { color: #f4eaf0; font-size: 15px; font-variant-numeric: tabular-nums; }
+.dev-panel__reset { width: 100%; }
+.dev-panel__preview { padding: 12px 18px 16px; border-bottom: 1px solid #ffffff16; }
+.dev-panel__preview > button { margin-top: 12px; width: 100%; }
+.dev-panel__empty { padding: 18px; color: #b8aeb5; }
+.dev-panel__empty p { margin: 0 0 16px; }
+.dev-panel__empty a { display: inline-flex; align-items: center; min-height: 44px; color: #ffd2e6; text-underline-offset: 3px; }
+/* Keep the existing light controls in the shared panel's scroll area. */
+.dev-tool .light-tool--embedded { position: static; color: inherit; }
+.dev-tool .light-tool--embedded .light-editor { width: 100%; max-height: none; overflow: visible; border: 0; border-radius: 0; background: transparent; box-shadow: none; }
+.dev-tool .light-tool--embedded .light-editor__header,
+.dev-tool .light-tool--embedded .light-editor__intro { display: none; }
+.dev-tool .light-tool--embedded .light-editor__body { overflow: visible; }
+.dev-grid { position: fixed; z-index: 240; top: 0; bottom: 0; display: grid; pointer-events: none; user-select: none; }
+.dev-grid > div { min-width: 0; border-inline: 1px solid #ff8bc675; background: #ff76b514; }
+.dev-grid > div > span { display: block; width: fit-content; margin: 8px auto; padding: 1px 5px; border-radius: 3px; background: #391a2d; color: #ffc6e3; font: 10px/18px "Giga Sans", sans-serif; font-variant-numeric: tabular-nums; }
+@media (max-width: 760px) {
+  .dev-tool { top: auto; bottom: calc(12px + env(safe-area-inset-bottom)); left: 12px; }
+  .dev-panel { width: 336px; max-width: calc(100vw - 24px); max-height: min(64dvh, 680px); }
+  .dev-tool button { min-height: 44px; }
+  .dev-tool__launcher-label { display: none; }
+  body:has(#intro) .dev-tool__launcher { top: 12px; right: auto; bottom: auto; left: 12px; }
+  .dev-panel__header { padding-block: 10px; }
+  .dev-panel__tabs { padding-bottom: 10px; }
+  .dev-panel__toggle { min-height: 44px; }
+  .dev-panel__range input[type="range"] { height: 32px; }
+  .dev-panel__range input[type="number"] { height: 36px; }
+  .dev-tool .light-tool--embedded .light-editor__toggle { min-height: 44px; }
+}
+@media (max-height: 500px) and (min-width: 761px) {
+  .dev-tool { top: 12px; }
+  .dev-panel { max-height: calc(100dvh - 24px); }
+}

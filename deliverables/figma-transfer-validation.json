@@ -1,0 +1,17 @@
+{
+  "missingFonts": 0,
+  "zeroHeightText": 0,
+  "completeUiRasters": 0,
+  "editableNativeLayers": true,
+  "imagesAreDiscreteContentAssets": true,
+  "componentCount": 7,
+  "variableCount": 9,
+  "textStyleCount": 9,
+  "coverDesktop": 810,
+  "coverMobile": 759.6,
+  "removedReferenceNodes": [
+    "281:46",
+    "284:46"
+  ],
+  "sourceViewportRestored": true
+}

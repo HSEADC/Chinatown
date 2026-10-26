@@ -1,0 +1,502 @@
+{
+  "geometry": {
+    "offset": 358.6666666666667,
+    "coverEnd": 898,
+    "anchors": {
+      "artist": 970,
+      "chorus": 1390,
+      "quote": 2050,
+      "chorus-freedom": 3595,
+      "delivery": 4611,
+      "article-end": 5718.203125
+    }
+  },
+  "chapters": [
+    {
+      "id": "artist",
+      "material": "madk1d-live",
+      "samples": [
+        {
+          "material": "madk1d-live",
+          "kind": "material",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": true
+        },
+        {
+          "material": "madk1d-live",
+          "kind": "material",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": true
+        },
+        {
+          "material": "madk1d-live",
+          "kind": "material",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": true
+        },
+        {
+          "material": "madk1d-live",
+          "kind": "material",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": true
+        },
+        {
+          "material": "madk1d-live",
+          "kind": "material",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": true
+        },
+        {
+          "material": "madk1d-live",
+          "kind": "material",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": true
+        },
+        {
+          "material": "madk1d-live",
+          "kind": "material",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": true
+        },
+        {
+          "material": "madk1d-live",
+          "kind": "material",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": true
+        },
+        {
+          "material": "madk1d-live",
+          "kind": "material",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": true
+        },
+        {
+          "material": "madk1d-live",
+          "kind": "material",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": true
+        },
+        {
+          "material": "madk1d-live",
+          "kind": "material",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": true
+        },
+        {
+          "material": "madk1d-live",
+          "kind": "material",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": true
+        },
+        {
+          "material": "madk1d-live",
+          "kind": "material",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": true
+        },
+        {
+          "material": "madk1d-live",
+          "kind": "material",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": true
+        },
+        {
+          "material": "madk1d-live",
+          "kind": "material",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": true
+        }
+      ],
+      "audit": {
+        "moves": 0,
+        "srcChanges": 0,
+        "loadStarts": 0
+      }
+    },
+    {
+      "id": "chorus",
+      "material": "address-note",
+      "samples": [
+        {
+          "material": "address-note",
+          "kind": "material",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": true
+        },
+        {
+          "material": "address-note",
+          "kind": "material",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": true
+        },
+        {
+          "material": "address-note",
+          "kind": "material",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": true
+        },
+        {
+          "material": "address-note",
+          "kind": "material",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": true
+        },
+        {
+          "material": "address-note",
+          "kind": "material",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": true
+        },
+        {
+          "material": "address-note",
+          "kind": "material",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": true
+        },
+        {
+          "material": "address-note",
+          "kind": "material",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": true
+        },
+        {
+          "material": "address-note",
+          "kind": "material",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": true
+        },
+        {
+          "material": "address-note",
+          "kind": "material",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": false
+        },
+        {
+          "material": "address-note",
+          "kind": "material",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": false
+        },
+        {
+          "material": "address-note",
+          "kind": "material",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": false
+        },
+        {
+          "material": "address-note",
+          "kind": "material",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": false
+        },
+        {
+          "material": "address-note",
+          "kind": "material",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": false
+        },
+        {
+          "material": "address-note",
+          "kind": "material",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": false
+        },
+        {
+          "material": "address-note",
+          "kind": "material",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": false
+        }
+      ],
+      "audit": {
+        "moves": 0,
+        "srcChanges": 0,
+        "loadStarts": 0
+      }
+    },
+    {
+      "id": "chorus-freedom",
+      "material": null,
+      "samples": [
+        {
+          "material": null,
+          "kind": "video",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": true
+        },
+        {
+          "material": null,
+          "kind": "video",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": true
+        },
+        {
+          "material": null,
+          "kind": "video",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": true
+        },
+        {
+          "material": null,
+          "kind": "video",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": true
+        },
+        {
+          "material": null,
+          "kind": "video",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": true
+        },
+        {
+          "material": null,
+          "kind": "video",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": true
+        },
+        {
+          "material": null,
+          "kind": "video",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": true
+        },
+        {
+          "material": null,
+          "kind": "video",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": true
+        },
+        {
+          "material": null,
+          "kind": "video",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": false
+        },
+        {
+          "material": null,
+          "kind": "video",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": false
+        },
+        {
+          "material": null,
+          "kind": "video",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": false
+        },
+        {
+          "material": null,
+          "kind": "video",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": false
+        },
+        {
+          "material": null,
+          "kind": "video",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": false
+        },
+        {
+          "material": null,
+          "kind": "video",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": false
+        },
+        {
+          "material": null,
+          "kind": "video",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": false
+        }
+      ],
+      "audit": {
+        "moves": 0,
+        "srcChanges": 0,
+        "loadStarts": 0
+      }
+    },
+    {
+      "id": "delivery",
+      "material": null,
+      "samples": [
+        {
+          "material": null,
+          "kind": "video",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": true
+        },
+        {
+          "material": null,
+          "kind": "video",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": true
+        },
+        {
+          "material": null,
+          "kind": "video",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": true
+        },
+        {
+          "material": null,
+          "kind": "video",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": true
+        },
+        {
+          "material": null,
+          "kind": "video",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": true
+        },
+        {
+          "material": null,
+          "kind": "video",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": true
+        },
+        {
+          "material": null,
+          "kind": "video",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": true
+        },
+        {
+          "material": null,
+          "kind": "video",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": true
+        },
+        {
+          "material": null,
+          "kind": "video",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": false
+        },
+        {
+          "material": null,
+          "kind": "video",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": false
+        },
+        {
+          "material": null,
+          "kind": "video",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": false
+        },
+        {
+          "material": null,
+          "kind": "video",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": false
+        },
+        {
+          "material": null,
+          "kind": "video",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": false
+        },
+        {
+          "material": null,
+          "kind": "video",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": false
+        },
+        {
+          "material": null,
+          "kind": "video",
+          "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+          "loop": true,
+          "hidden": false
+        }
+      ],
+      "audit": {
+        "moves": 0,
+        "srcChanges": 0,
+        "loadStarts": 0
+      }
+    }
+  ],
+  "errors": [],
+  "articleEnded": {
+    "before": {
+      "material": null,
+      "kind": "video",
+      "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+      "loop": true,
+      "hidden": false
+    },
+    "after": {
+      "material": null,
+      "kind": "video",
+      "src": "http://localhost:4173/assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+      "loop": true,
+      "hidden": false
+    }
+  },
+  "nextAtEnd": "pass",
+  "boundaryJitter": "pass",
+  "manualFootnote": "pass",
+  "homeRotation": "pass",
+  "mobileFootnote": "pass"
+}

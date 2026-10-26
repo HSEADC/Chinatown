@@ -1,0 +1,951 @@
+{
+  "browser": "Chromium",
+  "checks": [
+    {
+      "width": 320,
+      "height": 568,
+      "id": "quote",
+      "lines": 4,
+      "stageHeight": 568,
+      "first": {
+        "enhanced": true,
+        "phase": "reading",
+        "top": 2006,
+        "runway": 1154,
+        "stageTop": 0,
+        "height": 568,
+        "inset": 20,
+        "current": 0,
+        "offsets": [
+          0,
+          273,
+          547,
+          820
+        ],
+        "transform": -0.711089,
+        "mediaDisplay": "block",
+        "mediaOpacity": 1,
+        "lyricsOpacity": 1,
+        "videoState": "playing",
+        "video": {
+          "muted": true,
+          "playsInline": true,
+          "paused": false
+        },
+        "overflow": false,
+        "analysis": true
+      },
+      "last": {
+        "enhanced": true,
+        "phase": "reading",
+        "top": 2006,
+        "runway": 1154,
+        "stageTop": 0,
+        "height": 568,
+        "inset": 20,
+        "current": 3,
+        "offsets": [
+          0,
+          273,
+          547,
+          820
+        ],
+        "transform": -820,
+        "mediaDisplay": "block",
+        "mediaOpacity": 1,
+        "lyricsOpacity": 1,
+        "videoState": "playing",
+        "video": {
+          "muted": true,
+          "playsInline": true,
+          "paused": false
+        },
+        "overflow": false,
+        "analysis": true
+      },
+      "after": {
+        "enhanced": true,
+        "phase": "after",
+        "top": 2006,
+        "runway": 1154,
+        "stageTop": -256,
+        "height": 568,
+        "inset": 20,
+        "current": 3,
+        "offsets": [
+          0,
+          273,
+          547,
+          820
+        ],
+        "transform": -820,
+        "mediaDisplay": "block",
+        "mediaOpacity": 0,
+        "lyricsOpacity": 0,
+        "videoState": "paused",
+        "video": {
+          "muted": true,
+          "playsInline": true,
+          "paused": true
+        },
+        "overflow": false,
+        "analysis": true
+      }
+    },
+    {
+      "width": 320,
+      "height": 568,
+      "id": "verse-excerpt",
+      "lines": 5,
+      "stageHeight": 568,
+      "first": {
+        "enhanced": true,
+        "phase": "reading",
+        "top": 7478.25,
+        "runway": 1813,
+        "stageTop": 0,
+        "height": 568,
+        "inset": 20,
+        "current": 0,
+        "offsets": [
+          0,
+          235,
+          628,
+          1059,
+          1371
+        ],
+        "transform": -0.567351,
+        "mediaDisplay": "block",
+        "mediaOpacity": 1,
+        "lyricsOpacity": 1,
+        "videoState": "playing",
+        "video": {
+          "muted": true,
+          "playsInline": true,
+          "paused": false
+        },
+        "overflow": false,
+        "analysis": true
+      },
+      "last": {
+        "enhanced": true,
+        "phase": "reading",
+        "top": 7478.25,
+        "runway": 1813,
+        "stageTop": 0,
+        "height": 568,
+        "inset": 20,
+        "current": 4,
+        "offsets": [
+          0,
+          235,
+          628,
+          1059,
+          1371
+        ],
+        "transform": -1371,
+        "mediaDisplay": "block",
+        "mediaOpacity": 1,
+        "lyricsOpacity": 1,
+        "videoState": "playing",
+        "video": {
+          "muted": true,
+          "playsInline": true,
+          "paused": false
+        },
+        "overflow": false,
+        "analysis": true
+      },
+      "after": {
+        "enhanced": true,
+        "phase": "after",
+        "top": 7478.25,
+        "runway": 1813,
+        "stageTop": -255.75,
+        "height": 568,
+        "inset": 20,
+        "current": 4,
+        "offsets": [
+          0,
+          235,
+          628,
+          1059,
+          1371
+        ],
+        "transform": -1371,
+        "mediaDisplay": "block",
+        "mediaOpacity": 0,
+        "lyricsOpacity": 0,
+        "videoState": "paused",
+        "video": {
+          "muted": true,
+          "playsInline": true,
+          "paused": true
+        },
+        "overflow": false,
+        "analysis": true
+      }
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "id": "quote",
+      "nativeForward": 282,
+      "nativeBackward": -238
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "id": "quote",
+      "lines": 4,
+      "stageHeight": 844,
+      "first": {
+        "enhanced": true,
+        "phase": "reading",
+        "top": 1925.59375,
+        "runway": 1079,
+        "stageTop": 0,
+        "height": 844,
+        "inset": 20,
+        "current": 0,
+        "offsets": [
+          0,
+          235,
+          431,
+          666
+        ],
+        "transform": -0.868651,
+        "mediaDisplay": "block",
+        "mediaOpacity": 1,
+        "lyricsOpacity": 1,
+        "videoState": "playing",
+        "video": {
+          "muted": true,
+          "playsInline": true,
+          "paused": false
+        },
+        "overflow": false,
+        "analysis": true
+      },
+      "last": {
+        "enhanced": true,
+        "phase": "leaving",
+        "top": 1925.59375,
+        "runway": 1079,
+        "stageTop": 0,
+        "height": 844,
+        "inset": 20,
+        "current": 3,
+        "offsets": [
+          0,
+          235,
+          431,
+          666
+        ],
+        "transform": -666,
+        "mediaDisplay": "block",
+        "mediaOpacity": 0.999154,
+        "lyricsOpacity": 0.99906,
+        "videoState": "playing",
+        "video": {
+          "muted": true,
+          "playsInline": true,
+          "paused": false
+        },
+        "overflow": false,
+        "analysis": true
+      },
+      "after": {
+        "enhanced": true,
+        "phase": "after",
+        "top": 1925.59375,
+        "runway": 1079,
+        "stageTop": -379.40625,
+        "height": 844,
+        "inset": 20,
+        "current": 3,
+        "offsets": [
+          0,
+          235,
+          431,
+          666
+        ],
+        "transform": -666,
+        "mediaDisplay": "block",
+        "mediaOpacity": 0,
+        "lyricsOpacity": 0,
+        "videoState": "paused",
+        "video": {
+          "muted": true,
+          "playsInline": true,
+          "paused": true
+        },
+        "overflow": false,
+        "analysis": true
+      }
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "id": "verse-excerpt",
+      "nativeForward": 238,
+      "nativeBackward": -238
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "id": "verse-excerpt",
+      "lines": 5,
+      "stageHeight": 844,
+      "first": {
+        "enhanced": true,
+        "phase": "reading",
+        "top": 6686.515625,
+        "runway": 1750,
+        "stageTop": 0,
+        "height": 844,
+        "inset": 20,
+        "current": 0,
+        "offsets": [
+          0,
+          235,
+          628,
+          983,
+          1217
+        ],
+        "transform": -1.03239,
+        "mediaDisplay": "block",
+        "mediaOpacity": 1,
+        "lyricsOpacity": 1,
+        "videoState": "playing",
+        "video": {
+          "muted": true,
+          "playsInline": true,
+          "paused": false
+        },
+        "overflow": false,
+        "analysis": true
+      },
+      "last": {
+        "enhanced": true,
+        "phase": "reading",
+        "top": 6686.515625,
+        "runway": 1750,
+        "stageTop": 0,
+        "height": 844,
+        "inset": 20,
+        "current": 4,
+        "offsets": [
+          0,
+          235,
+          628,
+          983,
+          1217
+        ],
+        "transform": -1217,
+        "mediaDisplay": "block",
+        "mediaOpacity": 1,
+        "lyricsOpacity": 1,
+        "videoState": "playing",
+        "video": {
+          "muted": true,
+          "playsInline": true,
+          "paused": false
+        },
+        "overflow": false,
+        "analysis": true
+      },
+      "after": {
+        "enhanced": true,
+        "phase": "after",
+        "top": 6686.515625,
+        "runway": 1750,
+        "stageTop": -379.484375,
+        "height": 844,
+        "inset": 20,
+        "current": 4,
+        "offsets": [
+          0,
+          235,
+          628,
+          983,
+          1217
+        ],
+        "transform": -1217,
+        "mediaDisplay": "block",
+        "mediaOpacity": 0,
+        "lyricsOpacity": 0,
+        "videoState": "paused",
+        "video": {
+          "muted": true,
+          "playsInline": true,
+          "paused": true
+        },
+        "overflow": false,
+        "analysis": true
+      }
+    },
+    {
+      "width": 760,
+      "height": 360,
+      "id": "quote",
+      "lines": 4,
+      "stageHeight": 360,
+      "first": {
+        "enhanced": true,
+        "phase": "reading",
+        "top": 1026,
+        "runway": 694,
+        "stageTop": 0,
+        "height": 360,
+        "inset": 20,
+        "current": 0,
+        "offsets": [
+          0,
+          158,
+          316,
+          474
+        ],
+        "transform": -0.683096,
+        "mediaDisplay": "block",
+        "mediaOpacity": 1,
+        "lyricsOpacity": 1,
+        "videoState": "playing",
+        "video": {
+          "muted": true,
+          "playsInline": true,
+          "paused": false
+        },
+        "overflow": false,
+        "analysis": true
+      },
+      "last": {
+        "enhanced": true,
+        "phase": "reading",
+        "top": 1026,
+        "runway": 694,
+        "stageTop": 0,
+        "height": 360,
+        "inset": 20,
+        "current": 3,
+        "offsets": [
+          0,
+          158,
+          316,
+          474
+        ],
+        "transform": -474,
+        "mediaDisplay": "block",
+        "mediaOpacity": 1,
+        "lyricsOpacity": 1,
+        "videoState": "playing",
+        "video": {
+          "muted": true,
+          "playsInline": true,
+          "paused": false
+        },
+        "overflow": false,
+        "analysis": true
+      },
+      "after": {
+        "enhanced": true,
+        "phase": "after",
+        "top": 1026,
+        "runway": 694,
+        "stageTop": -162,
+        "height": 360,
+        "inset": 20,
+        "current": 3,
+        "offsets": [
+          0,
+          158,
+          316,
+          474
+        ],
+        "transform": -474,
+        "mediaDisplay": "block",
+        "mediaOpacity": 0,
+        "lyricsOpacity": 0,
+        "videoState": "paused",
+        "video": {
+          "muted": true,
+          "playsInline": true,
+          "paused": true
+        },
+        "overflow": false,
+        "analysis": true
+      }
+    },
+    {
+      "width": 760,
+      "height": 360,
+      "id": "verse-excerpt",
+      "lines": 5,
+      "stageHeight": 360,
+      "first": {
+        "enhanced": true,
+        "phase": "reading",
+        "top": 3610.8125,
+        "runway": 1176,
+        "stageTop": 0,
+        "height": 360,
+        "inset": 20,
+        "current": 0,
+        "offsets": [
+          0,
+          158,
+          436,
+          714,
+          872
+        ],
+        "transform": -0.880827,
+        "mediaDisplay": "block",
+        "mediaOpacity": 1,
+        "lyricsOpacity": 1,
+        "videoState": "playing",
+        "video": {
+          "muted": true,
+          "playsInline": true,
+          "paused": false
+        },
+        "overflow": false,
+        "analysis": true
+      },
+      "last": {
+        "enhanced": true,
+        "phase": "reading",
+        "top": 3610.8125,
+        "runway": 1176,
+        "stageTop": 0,
+        "height": 360,
+        "inset": 20,
+        "current": 4,
+        "offsets": [
+          0,
+          158,
+          436,
+          714,
+          872
+        ],
+        "transform": -872,
+        "mediaDisplay": "block",
+        "mediaOpacity": 1,
+        "lyricsOpacity": 1,
+        "videoState": "playing",
+        "video": {
+          "muted": true,
+          "playsInline": true,
+          "paused": false
+        },
+        "overflow": false,
+        "analysis": true
+      },
+      "after": {
+        "enhanced": true,
+        "phase": "after",
+        "top": 3610.8125,
+        "runway": 1176,
+        "stageTop": -162.1875,
+        "height": 360,
+        "inset": 20,
+        "current": 4,
+        "offsets": [
+          0,
+          158,
+          436,
+          714,
+          872
+        ],
+        "transform": -872,
+        "mediaDisplay": "block",
+        "mediaOpacity": 0,
+        "lyricsOpacity": 0,
+        "videoState": "paused",
+        "video": {
+          "muted": true,
+          "playsInline": true,
+          "paused": true
+        },
+        "overflow": false,
+        "analysis": true
+      }
+    },
+    {
+      "width": 761,
+      "height": 900,
+      "id": "quote",
+      "lines": 4,
+      "stageHeight": 900,
+      "first": {
+        "enhanced": true,
+        "phase": "reading",
+        "top": 2818.0625,
+        "runway": 1377,
+        "stageTop": 0,
+        "height": 900,
+        "inset": 101.467,
+        "current": 0,
+        "offsets": [
+          0,
+          324,
+          583,
+          907
+        ],
+        "transform": -0.617937,
+        "mediaDisplay": "block",
+        "mediaOpacity": 1,
+        "lyricsOpacity": 1,
+        "videoState": "playing",
+        "video": {
+          "muted": true,
+          "playsInline": true,
+          "paused": false
+        },
+        "overflow": false,
+        "analysis": true
+      },
+      "last": {
+        "enhanced": true,
+        "phase": "reading",
+        "top": 2818.0625,
+        "runway": 1377,
+        "stageTop": 0,
+        "height": 900,
+        "inset": 101.467,
+        "current": 3,
+        "offsets": [
+          0,
+          324,
+          583,
+          907
+        ],
+        "transform": -907,
+        "mediaDisplay": "block",
+        "mediaOpacity": 1,
+        "lyricsOpacity": 1,
+        "videoState": "playing",
+        "video": {
+          "muted": true,
+          "playsInline": true,
+          "paused": false
+        },
+        "overflow": false,
+        "analysis": true
+      },
+      "after": {
+        "enhanced": true,
+        "phase": "after",
+        "top": 2818.0625,
+        "runway": 1377,
+        "stageTop": -404.9375,
+        "height": 900,
+        "inset": 101.467,
+        "current": 3,
+        "offsets": [
+          0,
+          324,
+          583,
+          907
+        ],
+        "transform": -907,
+        "mediaDisplay": "block",
+        "mediaOpacity": 0,
+        "lyricsOpacity": 0,
+        "videoState": "paused",
+        "video": {
+          "muted": true,
+          "playsInline": true,
+          "paused": true
+        },
+        "overflow": false,
+        "analysis": true
+      }
+    },
+    {
+      "width": 761,
+      "height": 900,
+      "id": "verse-excerpt",
+      "lines": 5,
+      "stageHeight": 900,
+      "first": {
+        "enhanced": true,
+        "phase": "reading",
+        "top": 8151.0625,
+        "runway": 2238,
+        "stageTop": 0,
+        "height": 900,
+        "inset": 101.467,
+        "current": 0,
+        "offsets": [
+          0,
+          324,
+          843,
+          1298,
+          1621
+        ],
+        "transform": -0.679144,
+        "mediaDisplay": "block",
+        "mediaOpacity": 1,
+        "lyricsOpacity": 1,
+        "videoState": "playing",
+        "video": {
+          "muted": true,
+          "playsInline": true,
+          "paused": false
+        },
+        "overflow": false,
+        "analysis": true
+      },
+      "last": {
+        "enhanced": true,
+        "phase": "reading",
+        "top": 8151.0625,
+        "runway": 2238,
+        "stageTop": 0,
+        "height": 900,
+        "inset": 101.467,
+        "current": 4,
+        "offsets": [
+          0,
+          324,
+          843,
+          1298,
+          1621
+        ],
+        "transform": -1621,
+        "mediaDisplay": "block",
+        "mediaOpacity": 1,
+        "lyricsOpacity": 1,
+        "videoState": "playing",
+        "video": {
+          "muted": true,
+          "playsInline": true,
+          "paused": false
+        },
+        "overflow": false,
+        "analysis": true
+      },
+      "after": {
+        "enhanced": true,
+        "phase": "after",
+        "top": 8151.0625,
+        "runway": 2238,
+        "stageTop": -404.9375,
+        "height": 900,
+        "inset": 101.467,
+        "current": 4,
+        "offsets": [
+          0,
+          324,
+          843,
+          1298,
+          1621
+        ],
+        "transform": -1621,
+        "mediaDisplay": "block",
+        "mediaOpacity": 0,
+        "lyricsOpacity": 0,
+        "videoState": "paused",
+        "video": {
+          "muted": true,
+          "playsInline": true,
+          "paused": true
+        },
+        "overflow": false,
+        "analysis": true
+      }
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "id": "quote",
+      "lines": 4,
+      "stageHeight": 900,
+      "first": {
+        "enhanced": true,
+        "phase": "reading",
+        "top": 1820.0625,
+        "runway": 1082,
+        "stageTop": 0,
+        "height": 900,
+        "inset": 154.452,
+        "current": 0,
+        "offsets": [
+          0,
+          260,
+          455,
+          651
+        ],
+        "transform": -0.564242,
+        "mediaDisplay": "block",
+        "mediaOpacity": 1,
+        "lyricsOpacity": 1,
+        "videoState": "playing",
+        "video": {
+          "muted": true,
+          "playsInline": true,
+          "paused": false
+        },
+        "overflow": false,
+        "analysis": true
+      },
+      "last": {
+        "enhanced": true,
+        "phase": "reading",
+        "top": 1820.0625,
+        "runway": 1082,
+        "stageTop": 0,
+        "height": 900,
+        "inset": 154.452,
+        "current": 3,
+        "offsets": [
+          0,
+          260,
+          455,
+          651
+        ],
+        "transform": -651,
+        "mediaDisplay": "block",
+        "mediaOpacity": 1,
+        "lyricsOpacity": 1,
+        "videoState": "playing",
+        "video": {
+          "muted": true,
+          "playsInline": true,
+          "paused": false
+        },
+        "overflow": false,
+        "analysis": true
+      },
+      "after": {
+        "enhanced": true,
+        "phase": "after",
+        "top": 1820.0625,
+        "runway": 1082,
+        "stageTop": -404.9375,
+        "height": 900,
+        "inset": 154.452,
+        "current": 3,
+        "offsets": [
+          0,
+          260,
+          455,
+          651
+        ],
+        "transform": -651,
+        "mediaDisplay": "block",
+        "mediaOpacity": 0,
+        "lyricsOpacity": 0,
+        "videoState": "paused",
+        "video": {
+          "muted": true,
+          "playsInline": true,
+          "paused": true
+        },
+        "overflow": false,
+        "analysis": true
+      }
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "id": "verse-excerpt",
+      "lines": 5,
+      "stageHeight": 900,
+      "first": {
+        "enhanced": true,
+        "phase": "reading",
+        "top": 5732.0625,
+        "runway": 1797,
+        "stageTop": 0,
+        "height": 900,
+        "inset": 154.452,
+        "current": 0,
+        "offsets": [
+          0,
+          196,
+          587,
+          978,
+          1237
+        ],
+        "transform": -0.645688,
+        "mediaDisplay": "block",
+        "mediaOpacity": 1,
+        "lyricsOpacity": 1,
+        "videoState": "playing",
+        "video": {
+          "muted": true,
+          "playsInline": true,
+          "paused": false
+        },
+        "overflow": false,
+        "analysis": true
+      },
+      "last": {
+        "enhanced": true,
+        "phase": "reading",
+        "top": 5732.0625,
+        "runway": 1797,
+        "stageTop": 0,
+        "height": 900,
+        "inset": 154.452,
+        "current": 4,
+        "offsets": [
+          0,
+          196,
+          587,
+          978,
+          1237
+        ],
+        "transform": -1237,
+        "mediaDisplay": "block",
+        "mediaOpacity": 1,
+        "lyricsOpacity": 1,
+        "videoState": "playing",
+        "video": {
+          "muted": true,
+          "playsInline": true,
+          "paused": false
+        },
+        "overflow": false,
+        "analysis": true
+      },
+      "after": {
+        "enhanced": true,
+        "phase": "after",
+        "top": 5732.0625,
+        "runway": 1797,
+        "stageTop": -404.9375,
+        "height": 900,
+        "inset": 154.452,
+        "current": 4,
+        "offsets": [
+          0,
+          196,
+          587,
+          978,
+          1237
+        ],
+        "transform": -1237,
+        "mediaDisplay": "block",
+        "mediaOpacity": 0,
+        "lyricsOpacity": 0,
+        "videoState": "paused",
+        "video": {
+          "muted": true,
+          "playsInline": true,
+          "paused": true
+        },
+        "overflow": false,
+        "analysis": true
+      }
+    },
+    {
+      "resizeAndMotionPreference": "passed"
+    },
+    {
+      "failedVideoKeepsPhotoAndLyrics": "passed"
+    }
+  ],
+  "errors": []
+}

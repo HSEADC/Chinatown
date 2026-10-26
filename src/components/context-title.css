@@ -1,0 +1,21 @@
+/* The marquee clips sideways only: the extra block padding keeps the Й breve and descenders inside the clip box. */
+.context-title__viewport { display: block; margin-block: -.25em; padding-block: .25em; /* spacing-exception: clip box for glyphs, scales with the type */ overflow: hidden; white-space: nowrap; }
+.context-title__track { display: inline-flex; width: max-content; gap: var(--space-8); vertical-align: top; }
+.context-title__text, .context-title__repeat { display: block; flex: none; }
+.context-title__repeat { display: none; user-select: none; }
+[data-overflowing] .context-title__repeat { display: block; }
+@media (prefers-reduced-motion: no-preference) {
+  [data-overflowing] .context-title__track { animation: context-title-loop var(--context-title-duration) linear 1s infinite; }
+  [data-titles-paused] .context-title__track,
+  [data-overflow-title]:hover .context-title__track,
+  .scene-rail:has(:focus-visible) .context-title__track,
+  .is-story-quote-active .scene-rail .context-title__track { animation-play-state: paused; }
+}
+@keyframes context-title-loop {
+  to { transform: translateX(calc(-1 * var(--context-title-distance))); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .context-title__viewport { overflow: visible; white-space: normal; }
+  .context-title__track { display: block; width: auto; }
+  [data-overflowing] .context-title__repeat { display: none; }
+}

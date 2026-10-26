@@ -1,0 +1,191 @@
+{
+  "errors": [],
+  "widths": [
+    {
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "18px / 28.8px \"Giga Sans\", system-ui, sans-serif",
+      "column": 280,
+      "titleInsideCover": true
+    },
+    {
+      "width": 360,
+      "scrollWidth": 360,
+      "font": "18px / 28.8px \"Giga Sans\", system-ui, sans-serif",
+      "column": 320,
+      "titleInsideCover": true
+    },
+    {
+      "width": 390,
+      "scrollWidth": 390,
+      "font": "18px / 28.8px \"Giga Sans\", system-ui, sans-serif",
+      "column": 350,
+      "titleInsideCover": true
+    },
+    {
+      "width": 760,
+      "scrollWidth": 760,
+      "font": "18px / 28.8px \"Giga Sans\", system-ui, sans-serif",
+      "column": 680,
+      "titleInsideCover": true
+    },
+    {
+      "width": 768,
+      "scrollWidth": 768,
+      "font": "20px / 32px \"Giga Sans\", system-ui, sans-serif",
+      "column": 680,
+      "titleInsideCover": true
+    },
+    {
+      "width": 1024,
+      "scrollWidth": 1024,
+      "font": "20px / 32px \"Giga Sans\", system-ui, sans-serif",
+      "column": 680,
+      "titleInsideCover": true
+    },
+    {
+      "width": 1440,
+      "scrollWidth": 1440,
+      "font": "20px / 32px \"Giga Sans\", system-ui, sans-serif",
+      "column": 680,
+      "titleInsideCover": true
+    },
+    {
+      "width": 1920,
+      "scrollWidth": 1920,
+      "font": "20px / 32px \"Giga Sans\", system-ui, sans-serif",
+      "column": 680,
+      "titleInsideCover": true
+    }
+  ],
+  "interactions": [
+    "Menu opens and closes with Escape, returning focus",
+    "Search finds article text and jumps to an unobscured heading",
+    "Footnote and backlink preserve the reading location",
+    "320 px with 200% text: no overflow or clipped title",
+    "Custom line, letter, word, and paragraph spacing: no overflow",
+    "Client-side navigation and Back remount article behavior",
+    "Complete article is readable without JavaScript"
+  ],
+  "assets": [
+    {
+      "src": "./assets/figma/article/navigation/logo.svg",
+      "loaded": true,
+      "width": 70.8125,
+      "height": 71.15625,
+      "node": "250:110"
+    },
+    {
+      "src": "./assets/figma/article/navigation/search-chevron.svg",
+      "loaded": true,
+      "width": 64,
+      "height": 64,
+      "node": "250:114"
+    },
+    {
+      "src": "./assets/figma/article/navigation/menu.svg",
+      "loaded": true,
+      "width": 64,
+      "height": 64,
+      "node": "250:117"
+    },
+    {
+      "src": "./assets/figma/article/madk1d-concert.png",
+      "loaded": true,
+      "width": 1920,
+      "height": 1082.828125,
+      "node": "250:108"
+    },
+    {
+      "src": "./assets/figma/article/sexyswag-cover.webp",
+      "loaded": true,
+      "width": 420,
+      "height": 420,
+      "node": "250:107"
+    },
+    {
+      "src": "./assets/figma/article/navigation/logo-menu.svg",
+      "loaded": true,
+      "width": 70.8125,
+      "height": 71.15625,
+      "node": "250:163"
+    },
+    {
+      "src": "./assets/figma/article/navigation/search.svg",
+      "loaded": true,
+      "width": 64,
+      "height": 64,
+      "node": "250:146"
+    },
+    {
+      "src": "./assets/figma/article/navigation/menu-open.svg",
+      "loaded": true,
+      "width": 64,
+      "height": 64,
+      "node": "250:162"
+    },
+    {
+      "src": "./assets/figma/article/madk1d-concert.png",
+      "loaded": true,
+      "width": 1920,
+      "height": 1082.828125,
+      "node": "250:108"
+    },
+    {
+      "src": "./assets/figma/article/sexyswag-cover.webp",
+      "loaded": true,
+      "width": 420,
+      "height": 420,
+      "node": "250:107"
+    },
+    {
+      "src": "./assets/figma/article/navigation/logo.svg",
+      "loaded": true,
+      "width": 70.8125,
+      "height": 71.15625,
+      "node": "250:110"
+    },
+    {
+      "src": "./assets/figma/article/navigation/search.svg",
+      "loaded": true,
+      "width": 64,
+      "height": 64,
+      "node": "250:146"
+    },
+    {
+      "src": "./assets/figma/article/navigation/menu.svg",
+      "loaded": true,
+      "width": 64,
+      "height": 64,
+      "node": "250:117"
+    },
+    {
+      "src": "./assets/figma/article/navigation/previous.svg",
+      "loaded": true,
+      "width": 64,
+      "height": 64,
+      "node": "250:135"
+    },
+    {
+      "src": "./assets/figma/article/navigation/next.svg",
+      "loaded": true,
+      "width": 64,
+      "height": 64,
+      "node": "250:140"
+    },
+    {
+      "src": "./assets/figma/article/madk1d-concert.png",
+      "loaded": true,
+      "width": 1920,
+      "height": 1082.828125,
+      "node": "250:108"
+    },
+    {
+      "src": "./assets/figma/article/sexyswag-cover.webp",
+      "loaded": true,
+      "width": 420,
+      "height": 420,
+      "node": "250:107"
+    }
+  ]
+}

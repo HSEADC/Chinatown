@@ -1,0 +1,1784 @@
+{
+  "verified_at": "2026-10-25T15:52:49.276681+00:00",
+  "commit": "8f8b92e203e9d5c5f23f73266327b54770801b80",
+  "site": "https://chinatown.site/",
+  "total_files": 195,
+  "matched_files": 195,
+  "failures": [],
+  "range": {
+    "path": "assets/video/concert.mp4",
+    "status": 206,
+    "bytes": 1024,
+    "content_range": "bytes 0-1023/2167646",
+    "passed": true
+  },
+  "http_redirect": {
+    "status": 301,
+    "location": "https://chinatown.site:443/article.html",
+    "passed": true
+  },
+  "www": {
+    "status": 200,
+    "final_url": "https://www.chinatown.site/?deploy=8f8b92e",
+    "passed": true
+  },
+  "files": [
+    {
+      "path": "about.html",
+      "status": 200,
+      "bytes": 17211,
+      "sha256": "065e31c97defe7dddb40ca42a16d66e20bcb8bc745d9760d0bc396c5ad32333a",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "article.css",
+      "status": 200,
+      "bytes": 35975,
+      "sha256": "1a14c3f99cfdb4735b266e8e27ef929bc5749ccfe7f5abbf11512ef8dc4f1c6e",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "article.html",
+      "status": 200,
+      "bytes": 53702,
+      "sha256": "1028c7da2ea4bd2ce76b86efe1701fca224cae392a1b0821415bd4c141a4fdbb",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/LICENSE.material-design-icons",
+      "status": 200,
+      "bytes": 11357,
+      "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/figma/article/arrow-left.svg",
+      "status": 200,
+      "bytes": 482,
+      "sha256": "b77c10f8767fbbd5a2a6206ed5df9e3e477669123043e39df99f44cd2d5bf3ce",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/figma/article/arrow-right.svg",
+      "status": 200,
+      "bytes": 482,
+      "sha256": "c4e0a4047848c5b08d2cc6fd0b6c20576597adce912f461c2cc65e2d53508451",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/figma/article/header/close.svg",
+      "status": 200,
+      "bytes": 564,
+      "sha256": "16961e043ecc63bd46830c8c4de96e8d05796871ffb3d569886556fb9c8cc12c",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/figma/article/header/menu.svg",
+      "status": 200,
+      "bytes": 454,
+      "sha256": "317ffd4d68ec24e7a946bb7fd5bbd77960950bf839cb0301f7aa17a3b172e5c5",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/figma/article/header/search-toggle.svg",
+      "status": 200,
+      "bytes": 896,
+      "sha256": "0457586de20da6f14299a5782bc308e1797a38a1ad170d0d2dee6df361763776",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/figma/article/header/search.svg",
+      "status": 200,
+      "bytes": 898,
+      "sha256": "e70a138bf68652a25d76cb37c766409d841a0d8c4c282b89a8a412214c9c4af2",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/figma/article/header/star.svg",
+      "status": 200,
+      "bytes": 3665,
+      "sha256": "777d19f521c13d9e45200066866cb430c1e6a24c1adef36b6ebb20c559ee914a",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/figma/article/madk1d-concert.png",
+      "status": 200,
+      "bytes": 8807758,
+      "sha256": "0f9af4bbd6ab5932b398ae00dc2a23b10841d8ee0af872d67cfdb99cf7834a1d",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/figma/article/navigation/logo-menu.svg",
+      "status": 200,
+      "bytes": 3697,
+      "sha256": "1e24bc22856b18c3ad8f4da353df48304779d1770f1014d97ab7900d501b47cc",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/figma/article/navigation/logo.svg",
+      "status": 200,
+      "bytes": 3697,
+      "sha256": "5e66f8f758254085a86e2c0759c19b1f7ee50d6dce416aace823d9807572c4ae",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/figma/article/navigation/menu-open.svg",
+      "status": 200,
+      "bytes": 458,
+      "sha256": "63d86d9f40564930b79442d15cd0368cbfc4ec4c713ed6c02e5b3bcac852ef6f",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/figma/article/navigation/menu-trail.svg",
+      "status": 200,
+      "bytes": 458,
+      "sha256": "a86e1691d095bc0836b533afa5354751cd65b902f7cf806e9c19aecd15644613",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/figma/article/navigation/menu.svg",
+      "status": 200,
+      "bytes": 456,
+      "sha256": "c49c2edca0a2e7a47ca05dd62abc1e398dc7e38ae6b4cbafeba9f466abfae371",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/figma/article/navigation/search-chevron.svg",
+      "status": 200,
+      "bytes": 475,
+      "sha256": "5eea7c706af2b02ceb9627834494c82666a0e3b9d8257ce3fe7e8ca13cea3721",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/figma/article/navigation/search-toggle.svg",
+      "status": 200,
+      "bytes": 947,
+      "sha256": "cd5b55ebff2da7c1f7ce5f660a33bd539fd4709e6e9237498ec0519ad60b7c7c",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/figma/article/navigation/search.svg",
+      "status": 200,
+      "bytes": 930,
+      "sha256": "ab1430b939a85276dbed1a35b5f268c457dd18c37cfd0dd41150e476227f0bc6",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/figma/article/navigation/star.svg",
+      "status": 200,
+      "bytes": 3698,
+      "sha256": "78911a2390a12aff2954869335ade1d3b331b432cd830f299fd5c283d800fbc7",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/figma/article/rail/navigate-before.svg",
+      "status": 200,
+      "bytes": 455,
+      "sha256": "1fe074b296fee1e7d3067e1056a6b1f0b2d3f5fc1956ab7fe65d2fa892836f34",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/figma/article/rail/navigate-next.svg",
+      "status": 200,
+      "bytes": 452,
+      "sha256": "0d129a821c9a917b78c4885002c3954dd81cbaef439b02f67679cda06d9f3382",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/figma/article/rail/sexyswag.png",
+      "status": 200,
+      "bytes": 377894,
+      "sha256": "d76b696a12e44605894d78776fb16fb59444481937e2ea51d9de5235f40735b2",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/figma/article/sexyswag-cover.webp",
+      "status": 200,
+      "bytes": 12390,
+      "sha256": "12baab2bebdcd06aff53786207cc6eab0b3e4dc26844531c34a5158e929c32b2",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/figma/article/star.svg",
+      "status": 200,
+      "bytes": 3685,
+      "sha256": "dd6ba3d459fb3391ffe0dab9e9ae72a14d0de7c3c5b375edd402fa333205f8ea",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/figma/clear.svg",
+      "status": 200,
+      "bytes": 576,
+      "sha256": "218c65ab318b0b8b390d18b33db5d735eb305fffccbb728e9d7ad2566270c3e0",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/figma/components/action-next-mobile.svg",
+      "status": 200,
+      "bytes": 456,
+      "sha256": "cdc924ade91c0420ce956935724e1ff2504da6cb6a39cb82d9f7a63e76f56054",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/figma/footer-star.svg",
+      "status": 200,
+      "bytes": 3122,
+      "sha256": "c7c08e02f232e4492b27c73837d3b5e4eea205ac7b89fb388874ee8c279c8191",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/figma/intro-background.png",
+      "status": 200,
+      "bytes": 8675820,
+      "sha256": "b4a0d57e032c39e34852c8ccf63b8b46b3240d8b70a38c41dbad11420963c007",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/figma/intro-north-east.svg",
+      "status": 200,
+      "bytes": 862,
+      "sha256": "b1a424f824c9b60a717fa9f845331bf1a6c462b161eefa827a497764cb0270bd",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/figma/landing/hero-collage.jpg",
+      "status": 200,
+      "bytes": 109310,
+      "sha256": "5a6419d9b1b761390e3a78b643520a659eef0a34892858b5dde6658993140d01",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/figma/mobile-shell/arrow-down.svg",
+      "status": 200,
+      "bytes": 477,
+      "sha256": "ffe2511bbcfc0d97c22a7e149df89e4e6a6122f96427b4a62c48138266c79873",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/figma/mobile-shell/arrow-up.svg",
+      "status": 200,
+      "bytes": 475,
+      "sha256": "82e04e698f02f7b9bf7a4a86ec46f34d1ebb61d8621f9ee22ba5fddf181b03ab",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/figma/mobile-shell/close.svg",
+      "status": 200,
+      "bytes": 492,
+      "sha256": "d096a8826fbda5dc7fdd8720535f56fb66fb3913053a7942cc9e0be353c0f411",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/figma/mobile-shell/menu-24.svg",
+      "status": 200,
+      "bytes": 428,
+      "sha256": "b5569209fb153d32588bc8bb9f9ce689acb68fc0c15eb956fd89a008298a05a4",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/figma/mobile-shell/menu.svg",
+      "status": 200,
+      "bytes": 454,
+      "sha256": "d680f1968b9a8d60ad70cc7d8bcc33d2f4a3dee7fca52ade6b8cd7ff7b1118bb",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/figma/mobile-shell/search-24.svg",
+      "status": 200,
+      "bytes": 674,
+      "sha256": "910ca38c7b093c2de67888bf0f0db9300e963bbc36bdf9a26caff74300113534",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/figma/mobile-shell/search-field.svg",
+      "status": 200,
+      "bytes": 678,
+      "sha256": "914392a2dc6943a407c1e537a03597f0c4352d799c4bca19b8f800057297f9ed",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/figma/mobile-shell/search-scene.png",
+      "status": 200,
+      "bytes": 985139,
+      "sha256": "d389e5fc92202ac76a0347889d0c443f976f12cecf589544c9e4c8d1e1c606fb",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/figma/mobile-shell/search.svg",
+      "status": 200,
+      "bytes": 894,
+      "sha256": "3dc03588b5b4334f0f968fcd3bd2f8b0af8701fb8c082fb6a5adae9a5e786d70",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/figma/north-east.svg",
+      "status": 200,
+      "bytes": 404,
+      "sha256": "deb64201fe965820cb1e49076ce553e5d2d57f82b3160a12854a8d8fec47f95f",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/figma/subscribe-close.svg",
+      "status": 200,
+      "bytes": 576,
+      "sha256": "a6fd50aaa4affaa435473254e5af8ddbd417da14b631afa5c312fb8017e09dc2",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/figma/subscribe-head.webp",
+      "status": 200,
+      "bytes": 77738,
+      "sha256": "c6d8b28ccf24e234026de03b00511fa2689f9c53ee9687a28ca0cb8a9d56b9f9",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/figma/subscribe-star.svg",
+      "status": 200,
+      "bytes": 3687,
+      "sha256": "69a99949b76ba560579e5fe033921b1b705b53ee7cadccf8ff27ea616f16de58",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/fonts/Benzin-Bold.woff2",
+      "status": 200,
+      "bytes": 39556,
+      "sha256": "f3360f865fe7eaa409b787e37d0ac1e82f1c02433ebb54b5d23261407fdf8b73",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/fonts/Benzin-ExtraBold.woff2",
+      "status": 200,
+      "bytes": 37080,
+      "sha256": "7778a64cb0cb973fd902fd7b9c21095a614ef182a1eb868d5c2bb8b66c773d60",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/fonts/Benzin-Input-Bold.woff2",
+      "status": 200,
+      "bytes": 39552,
+      "sha256": "19561c96a57e1d400e17302a8abce46bf45b24880a3df8cee3135452d3d95667",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/fonts/EastGates-Regular.woff2",
+      "status": 200,
+      "bytes": 37220,
+      "sha256": "c47408857535dfb49396ea19a7fd058f4e58c3ad38d6a56edea18ced659b7948",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/fonts/Elion-Italic.otf",
+      "status": 200,
+      "bytes": 34336,
+      "sha256": "56fd4eee110001b2660bdbca2aaa50502ca1df8fac9f9cf543f5865d89eab7b9",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/fonts/GigaSans-Bold.otf",
+      "status": 200,
+      "bytes": 68560,
+      "sha256": "c38ea0145daad2bdaf6dbd632f9781d5979ae85754c7db93681b651af30b14ea",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/fonts/GigaSans-Italic.otf",
+      "status": 200,
+      "bytes": 68856,
+      "sha256": "caca30e6bf37ea4338d6ed15a93827a9116173e0171f8f934063426e37fe81fb",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/fonts/GigaSans-Regular.otf",
+      "status": 200,
+      "bytes": 65116,
+      "sha256": "c4aa2533cc1214fc7ea736ca72fe33b30997d72c7b3d69f4318241d09622b8f9",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/fonts/SigmaBoy-Regular.woff2",
+      "status": 200,
+      "bytes": 102636,
+      "sha256": "32be093cc2196b0c17334a9e67f49f15ee1cd19daa4403bdc1120f98c6ee72b3",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/icons/arrow-cursor.svg",
+      "status": 200,
+      "bytes": 214,
+      "sha256": "94516366711019d5970ced01964e1cc4f1a3165e7428d467a4fadb51ff525a05",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/icons/content-copy-sharp.svg",
+      "status": 200,
+      "bytes": 285,
+      "sha256": "22921de7c5bcdfc1db4bf9e58932eabd2f47540ae4f15f73d2c1ad806c9848a5",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/icons/copy-cursor.svg",
+      "status": 200,
+      "bytes": 415,
+      "sha256": "d6655731c957214235867d5f8dfa34776f95147560d6e75a01974eeb847b7c92",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/icons/intro-navigate-next.svg",
+      "status": 200,
+      "bytes": 459,
+      "sha256": "7b2d03f6abf7b2b0de401ab12bd79881e902a06ba7d66c0b8eb56dacf70b7f55",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/icons/intro-north-east.svg",
+      "status": 200,
+      "bytes": 482,
+      "sha256": "2290293b2bc300eeee001a2f9033886e28a8f273603c719563cce23ffbe1bbd3",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/icons/navigate-next-sharp.svg",
+      "status": 200,
+      "bytes": 218,
+      "sha256": "60654cd92b76d3a0fb1bb2eadca648d0a5e69370dd961a0b91a8f6da7c071ab0",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/icons/pointer-cursor.svg",
+      "status": 200,
+      "bytes": 470,
+      "sha256": "c05221ca44f0d37e105a39ca08f50da59d24cb31f9a2f36633eb4ec2983530d2",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/icons/text-cursor.svg",
+      "status": 200,
+      "bytes": 290,
+      "sha256": "e502965abe94ef3b09fb57401fdbacac905a2374d8dc33af492d296c34f58d5c",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/link.svg",
+      "status": 200,
+      "bytes": 479,
+      "sha256": "5b6f888536d1247e4b50749642c3d653020c5ff228f5586952922b3676482cf7",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/stickers/album.svg",
+      "status": 200,
+      "bytes": 250,
+      "sha256": "75b22f884e0fc2ec778ae88be1f9099461cff00814cd2a67cead0a641e64901c",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/stickers/artist.svg",
+      "status": 200,
+      "bytes": 314,
+      "sha256": "8a0681b4f145077be618d3848b56de9cc92359b0b8a358e479036a41beeb2e2d",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/stickers/bify.svg",
+      "status": 200,
+      "bytes": 176,
+      "sha256": "bbb88e90b1e3ba6c17f3772313f827628db0e7e61f3308c33331298a79fc7c71",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/stickers/bity.svg",
+      "status": 200,
+      "bytes": 395,
+      "sha256": "847b2acbca8d7b09e8679895566a1e0642d3383234b6e02fd1afbe299355893d",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/stickers/dropy.svg",
+      "status": 200,
+      "bytes": 249,
+      "sha256": "945ac82b1de293c61937c538abef17f9b10eb441ed3234108c9e37ff73017f34",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/stickers/fity.svg",
+      "status": 200,
+      "bytes": 266,
+      "sha256": "64834058bfe28cc03223f859a0f57e72af1b318aa1acfc0b403837a92dcb74e6",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/stickers/klipy.svg",
+      "status": 200,
+      "bytes": 162,
+      "sha256": "488cb0f36bfb1dbef04ebb29c198ceb87e253f2c0a163f6f625820f7bdd8bb81",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/stickers/propavshie.svg",
+      "status": 200,
+      "bytes": 286,
+      "sha256": "16d191dc7b95bd08577604a8733a0cb74a70b9220c6477a32c2910086c554af1",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/stickers/snippety.svg",
+      "status": 200,
+      "bytes": 359,
+      "sha256": "9c516632e8daea0c67549a0e666c4cc3ae1ce3da448cd9614c83d24b137555aa",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/stickers/sohranyonki.svg",
+      "status": 200,
+      "bytes": 170,
+      "sha256": "2ab5cdda7b0fe2a208a310a1e62ecdb1753f170c58e9514ec125e0ef340dc325",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/stickers/time.svg",
+      "status": 200,
+      "bytes": 340,
+      "sha256": "63267fe397be0aa8893eb12027808dee8ee9c0aba8f367739fea7a6d0ccfc869",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/stickers/track.svg",
+      "status": 200,
+      "bytes": 349,
+      "sha256": "ae2b5c168dfbc5d297860f7c857fc13cf1b6f6f698ce2a85968f401b4e1869ab",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/stickers/udalyonnoe.svg",
+      "status": 200,
+      "bytes": 211,
+      "sha256": "b98eb899ca9bd9fd5dc12fac5114f3111e89c482f45842d3e1c0df3a4fbe0f69",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/textures/tag-outline.svg",
+      "status": 200,
+      "bytes": 626,
+      "sha256": "73ab01bdd339adfeffdd91cabd4cde9c7614445d9494fdd0a46d08df4a78cd41",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/textures/topic-sticker.svg",
+      "status": 200,
+      "bytes": 342,
+      "sha256": "e9983fd28b555e914849edd44ec97a84dc1404cc429120b8e3e218329bfca8f1",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/textures/torn-edge.svg",
+      "status": 200,
+      "bytes": 275,
+      "sha256": "309ab375d07480b845d061632706a974780d4007ba21b029fdb75b28a2918954",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/textures/worn-mask.svg",
+      "status": 200,
+      "bytes": 368,
+      "sha256": "1bbf112745bdb58fc694ccd4a6951954c093b3fece2938ecbf9faad28a3188a1",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/video/concert.jpg",
+      "status": 200,
+      "bytes": 171742,
+      "sha256": "3861f653f09ef2883f67d909dd46c2d8a82270e5ebec4348fd16f602e49fd1c9",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/video/concert.mp4",
+      "status": 200,
+      "bytes": 2167646,
+      "sha256": "40bdce7595e97f10fdc9ebe605d4ef68afe719e5fb0902e19b96781cd0687a07",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/video/dj.jpg",
+      "status": 200,
+      "bytes": 15049,
+      "sha256": "f15b34a0975d17a9eb0f6adc82c7a1222e62e12a7627e7599f964e67045acc94",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/video/dj.mp4",
+      "status": 200,
+      "bytes": 1442842,
+      "sha256": "3487c8ebf8b52bdabf60a292e96a4ef538bebb5f86891878469b7d38e5d845dc",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/video/editorial/concert-crowd-7026abb1ab1c/article-poster.jpg",
+      "status": 200,
+      "bytes": 55295,
+      "sha256": "2165ca700f852478bab8579e9ba94c10e1db25c56a501d75f7603f76917182b8",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/video/editorial/concert-crowd-7026abb1ab1c/article.mp4",
+      "status": 200,
+      "bytes": 1448554,
+      "sha256": "7ec2fda8e1647133c16033b87fcbebe31870d39c3393e1e283e35f797acb7d12",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/video/editorial/concert-crowd-7026abb1ab1c/poster.jpg",
+      "status": 200,
+      "bytes": 15719,
+      "sha256": "fe5a2589797728a57fe935165312fec4a8fbfdff4958cbb7485aa0b6c7d5dd4a",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/video/editorial/concert-crowd-7026abb1ab1c/rail-large.mp4",
+      "status": 200,
+      "bytes": 355182,
+      "sha256": "397e570b170820cfa2be13deea2721d97878fdf9a973349feb7dfd0eea9c262e",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/video/editorial/concert-crowd-7026abb1ab1c/rail-small.mp4",
+      "status": 200,
+      "bytes": 257707,
+      "sha256": "76bb6db0990dedbc004048c6632930258ece63608be32721d59d2b732a802cb2",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/video/editorial/kitay-night-86bc7af48de9/article-poster.jpg",
+      "status": 200,
+      "bytes": 80134,
+      "sha256": "5c027f45d3fd59c9a88f5d7823d29e9e31e5afa4e3b5337aa83a4216e570de00",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/video/editorial/kitay-night-86bc7af48de9/article.mp4",
+      "status": 200,
+      "bytes": 1948199,
+      "sha256": "baa57b056e2ac42ba7358750f63d10fbdbbbecd46b3f919633e591028c1e80b4",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/video/editorial/kitay-night-86bc7af48de9/poster.jpg",
+      "status": 200,
+      "bytes": 80134,
+      "sha256": "5c027f45d3fd59c9a88f5d7823d29e9e31e5afa4e3b5337aa83a4216e570de00",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/video/editorial/kitay-night-86bc7af48de9/rail-large.mp4",
+      "status": 200,
+      "bytes": 1468300,
+      "sha256": "0451d4dbd0738749cdc15c2e67b5da64a11183c0347607fcce40b74d1af31d4d",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/video/editorial/kitay-night-86bc7af48de9/rail-small.mp4",
+      "status": 200,
+      "bytes": 427474,
+      "sha256": "d85012777a15188313b513659e75725aec7576ad455d19e0893d37708f1f374d",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/video/editorial/kitay-people-0dd1e134849b/article-poster.jpg",
+      "status": 200,
+      "bytes": 31794,
+      "sha256": "4deec62d06fb9a33e8a0f5cdd613281ab5ce34c9433d1869769a1eb1ecde910d",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/video/editorial/kitay-people-0dd1e134849b/article.mp4",
+      "status": 200,
+      "bytes": 701051,
+      "sha256": "a0014134c2315e8a1c19f469fb4bc6ae9a46be693ac40f3ee66d9f9e9f334583",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/video/editorial/kitay-people-0dd1e134849b/poster.jpg",
+      "status": 200,
+      "bytes": 31490,
+      "sha256": "f6ee8235630f01068af53e0c42a340915b320760f9f63e535ec5506fdc902ef2",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/video/editorial/kitay-people-0dd1e134849b/rail-large.mp4",
+      "status": 200,
+      "bytes": 487719,
+      "sha256": "ef55321e097ce18e434d01d65e081a8cf28e0e7745ea0d49e9f91de2500dfaa7",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/video/editorial/kitay-people-0dd1e134849b/rail-small.mp4",
+      "status": 200,
+      "bytes": 304680,
+      "sha256": "09bd2393302f60ed6c1b2e78e373c40eb28e66aef2d83e4eedde1e65db11705a",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/video/editorial/kitay-street-c41b36032219/article-poster.jpg",
+      "status": 200,
+      "bytes": 46259,
+      "sha256": "465c41225e6af1c3f957196d667f41d7f0f786b0840dc6cd2e4142b3fd769889",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/video/editorial/kitay-street-c41b36032219/article.mp4",
+      "status": 200,
+      "bytes": 720351,
+      "sha256": "17e8ed76647cb727541c6e3764228ff4db4d58786262678cbc3ec6be5e65c139",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/video/editorial/kitay-street-c41b36032219/poster.jpg",
+      "status": 200,
+      "bytes": 45844,
+      "sha256": "dd16dc2e40941bf5ac23bf14054bc3ccd2f2595ebb4983510babb938eda85b9a",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/video/editorial/kitay-street-c41b36032219/rail-large.mp4",
+      "status": 200,
+      "bytes": 510616,
+      "sha256": "f161fe0354fad24852d52d5a9f369a92498c96f87695286d9b79205b034135b8",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/video/editorial/kitay-street-c41b36032219/rail-small.mp4",
+      "status": 200,
+      "bytes": 303769,
+      "sha256": "4d38474a78a8e09d2abea11c754ea729d310bb30da92fd1c52c7209102ff99e6",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/video/editorial/madk1d-chorus-6e39d25cf629/article-poster.jpg",
+      "status": 200,
+      "bytes": 9572,
+      "sha256": "f84696ef9e4811d97709b18935764a8be41a349e257357a08c27c78392561382",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/video/editorial/madk1d-chorus-6e39d25cf629/article.mp4",
+      "status": 200,
+      "bytes": 2238189,
+      "sha256": "192f0d2d493a44eb20606c82581978115322ad5c874c3f6e0ca17763ea83f204",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/video/editorial/madk1d-chorus-6e39d25cf629/poster.jpg",
+      "status": 200,
+      "bytes": 5185,
+      "sha256": "d877e737e86d12279ecd42e5616db78de8e90bd51fb6a1578a7ee297cc4d7673",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/video/editorial/madk1d-chorus-6e39d25cf629/rail-large.mp4",
+      "status": 200,
+      "bytes": 653218,
+      "sha256": "26cfa2020de3cee93dcb18258f289b631ebc2652b840f6a4aef4ab2dc9b79399",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/video/editorial/madk1d-chorus-6e39d25cf629/rail-small.mp4",
+      "status": 200,
+      "bytes": 590166,
+      "sha256": "e66b9a755dc52529f31c2a0deef6262341b9b7ad820b77aa524a640092a3f40f",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/video/editorial/manifest.json",
+      "status": 200,
+      "bytes": 6498,
+      "sha256": "8dd75f4773056a15279f3f3dbcaded2ee0b85a4c953cc9d7273867c6ae62023d",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/video/moscow.jpg",
+      "status": 200,
+      "bytes": 53485,
+      "sha256": "17e544b25c51118952b8834bcec69c0d6707e740767d7433f0a8d893f0f509fd",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "assets/video/moscow.mp4",
+      "status": 200,
+      "bytes": 3299526,
+      "sha256": "85850cdda38a468364c9941afbd25080f26aa2ccec4c85a338f881ac28037453",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "component-preview.html",
+      "status": 200,
+      "bytes": 765,
+      "sha256": "972a4835d6a83ed7484efaf44c414ca4f2d6d292362b98ff1ac0dc8565b99c60",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "components.css",
+      "status": 200,
+      "bytes": 12862,
+      "sha256": "52e7f2cc0b47cf9406b0b8213d6ec97665f339f5e069e3bd642d0e0c050166b6",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "components.html",
+      "status": 200,
+      "bytes": 6811,
+      "sha256": "6274d12985f9cc5a1a2e07d189450d2ef7b486c49ad78844b73d837d33d2dadd",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "dev-panel.css",
+      "status": 200,
+      "bytes": 6184,
+      "sha256": "910770e9d62ab3c2d85d92ae401f4fad313b29a38ca0af7545e37def4475a8cb",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "docs/article-context.md",
+      "status": 200,
+      "bytes": 27205,
+      "sha256": "4c9ed688b97c390b2a4f9c21cdfe30c07f216aac9fe6734007ff5079f9facaac",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "docs/article-headings.md",
+      "status": 200,
+      "bytes": 3055,
+      "sha256": "1ca8603d5bfad5e3b7c9e6a523589300e616ed020af3df7694e9b1a13e10f3d1",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "docs/article-interactions.md",
+      "status": 200,
+      "bytes": 65538,
+      "sha256": "a53f5f3f08bd887ebc5b3f276986eac483c84adea6f9e802175d29e81da8a179",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "docs/component-system.md",
+      "status": 200,
+      "bytes": 16461,
+      "sha256": "6eee7f632ace473bca670d4ac4e6c36315a2e952d339d49f4138153f3bbeddf8",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "docs/editorial-data.md",
+      "status": 200,
+      "bytes": 8306,
+      "sha256": "6c6bd58ffaad48fd609516f0fc4400bf611bf4a6c70c2efe97b95d59f43426f7",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "docs/editorial-typography.md",
+      "status": 200,
+      "bytes": 14659,
+      "sha256": "b8916584d44a38ad73a0e4aae7b93cd9be9b2313d231e4ecb0c034ae809ee741",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "docs/mobile-shell.md",
+      "status": 200,
+      "bytes": 19535,
+      "sha256": "70c1386879cc350974779834971a9ec0912ee502cce36fab157b4464a33b26d1",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "docs/motion.md",
+      "status": 200,
+      "bytes": 9560,
+      "sha256": "f509222721ee5bbfee8d6b466fdf98b27328444187ae448c556be3ab8c6e2446",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "docs/responsive-system.md",
+      "status": 200,
+      "bytes": 4490,
+      "sha256": "afb70ba17d49069e30e67c2f829f3260a55bc478409a58a6559c44e6d7c93589",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "docs/video-workflow.md",
+      "status": 200,
+      "bytes": 10748,
+      "sha256": "aaa188e1e85a27a8f0908414182d15af03612af804d2a3fe065efab48f972090",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "glitch-test.html",
+      "status": 200,
+      "bytes": 1614,
+      "sha256": "4fe581594cc2ea7bf4d9d253dd41815a7afdb0a2ee6a9c68f7ed3abce60c8a68",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "index.html",
+      "status": 200,
+      "bytes": 5524,
+      "sha256": "24bc12b747737ae33752d5aabed80771ac0b572c8b9dac1f2f140eb05d501bf0",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "landing.css",
+      "status": 200,
+      "bytes": 6425,
+      "sha256": "db08c8aefb8bebeae66c89008737dfdedd5d80a5b5edb3f1144b40fde8420544",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "light-editor.css",
+      "status": 200,
+      "bytes": 6980,
+      "sha256": "4d8e2ca73069cfbe53062858902f3ae833b5b7ec2a1b2326c49147ca44c2a372",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "media.css",
+      "status": 200,
+      "bytes": 811,
+      "sha256": "787c570bc8444b4992154084d4bf21157072de78f64aaa02dde1805cd0c5426e",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "scene-rail.css",
+      "status": 200,
+      "bytes": 17869,
+      "sha256": "d4f912f79438567d40f9ab4502411286a0ace3bb0a8a74adb91322da7db3ddbb",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/article-context-data.js",
+      "status": 200,
+      "bytes": 11061,
+      "sha256": "dc5a1f50df425a0e15959a32eb7de8ac8696f3f2ba797340826f1c752e8392fa",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/article-context-state.js",
+      "status": 200,
+      "bytes": 1329,
+      "sha256": "47ac2ae69d1799f751fd703caf7c50ef1b13eeacb0040157699070fd891a494e",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/article-context-view.js",
+      "status": 200,
+      "bytes": 2402,
+      "sha256": "28e9bc398d39281c5e74a35d8d97fe446021abdf2d3769e019f71a30c8c2fe7d",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/article-context.js",
+      "status": 200,
+      "bytes": 17908,
+      "sha256": "83d7a8590512cb859f5faf26858606083682609b857315112b2331fa63377dbc",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/article-copy.js",
+      "status": 200,
+      "bytes": 21851,
+      "sha256": "c0c779b6467132e2c3fa27a2e29e3a0b9214612a00bf80bdd85113cae8557b5d",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/article-header.js",
+      "status": 200,
+      "bytes": 11684,
+      "sha256": "726343b653beb78a25e2badeb243710ba6aafe3b130294c0c6bb4946634715a0",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/article-images.js",
+      "status": 200,
+      "bytes": 10389,
+      "sha256": "c8b8f6c942f891d13dbf51c0340554f383addf4e4ddf61afe26b37ef6fa04563",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/article-search-data.js",
+      "status": 200,
+      "bytes": 2978,
+      "sha256": "808d6fb790992412ef7d33f455e1e7f7cfed2ca2c3dcace02232a1afe57391b1",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/article-view.js",
+      "status": 200,
+      "bytes": 15271,
+      "sha256": "d9bfb48f216381dd0bd410cf98c6f97dade0309ff8371c2e0348e1e6c4d19c96",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/article.js",
+      "status": 200,
+      "bytes": 4858,
+      "sha256": "0f179358f2a8582bacee231d1287995dffa5bfac6673ecd0a64661639070db21",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/component-catalog-data.js",
+      "status": 200,
+      "bytes": 29191,
+      "sha256": "99ca63bf80e05fa3f4178d24a4f1a814c3700e7d6936bafa006587e070c9c8e9",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/component-catalog.js",
+      "status": 200,
+      "bytes": 11200,
+      "sha256": "377f388a5e28f2804a7635b6fef7f0420cc5776c937150e350035d3a403ecbf0",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/component-preview.css",
+      "status": 200,
+      "bytes": 1566,
+      "sha256": "6559acc5a9efa20bd65be3335a7b85a60757d5777a35310903aab105eb256675",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/component-preview.js",
+      "status": 200,
+      "bytes": 17712,
+      "sha256": "178b4340a043a8302afe4a48c1ef03fc9d78e09465e16e16b5cdde46a39a0374",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/components/action-button.css",
+      "status": 200,
+      "bytes": 2871,
+      "sha256": "a89b4af16c01aaba27e9eb1084e8c372da81e5c9f1d43c8282ceb6c31152b88f",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/components/action-button.js",
+      "status": 200,
+      "bytes": 1873,
+      "sha256": "4d2a177cdd3994833c6bc8a7cff8e7072ce47e8cc069856fa5102960c88a3472",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/components/context-title.css",
+      "status": 200,
+      "bytes": 1393,
+      "sha256": "4b150f446c9abd0e93b10d6d6bc01b1a0c7ecd12671e255ef8c0fcb1770c226a",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/components/context-title.js",
+      "status": 200,
+      "bytes": 2902,
+      "sha256": "bc932f84cd12dc277a1059194501a013e74f98fcfc9d7ade1429dd0f262a91ef",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/components/editorial-data.css",
+      "status": 200,
+      "bytes": 2079,
+      "sha256": "ac6ef980599a154ee2688f96a04781a2f6c11f8c7c2914abf42d3206d5721f8d",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/components/editorial-data.js",
+      "status": 200,
+      "bytes": 1815,
+      "sha256": "df47bf6b57ce0df4d9446a9fa36bdf5fd300a0dbe3f2338dde3571514daebdfa",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/components/editorial-typography.css",
+      "status": 200,
+      "bytes": 8660,
+      "sha256": "bd08e42bb9c091bbd42fb5f1b9412789ac582323d314a9b148960830399d832e",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/components/editorial-typography.js",
+      "status": 200,
+      "bytes": 1524,
+      "sha256": "8a58a0722f186ffe423022fe37abc1ee05b776c146e465f429aa6dba529031b0",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/components/email-field.css",
+      "status": 200,
+      "bytes": 1277,
+      "sha256": "ad8fb036700978548086d20e4b9d17be95a218699eae5bb66a182c0ea9c46319",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/components/film.css",
+      "status": 200,
+      "bytes": 478,
+      "sha256": "fab01a823b75cc7e94c739a4a3564024387588ae0d040de856ada1a239bfa4ec",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/components/site-footer.css",
+      "status": 200,
+      "bytes": 2782,
+      "sha256": "cfda94fba4eb62654fc1981456f9c38a607bb5089b022b0c9c23567f5f5e501b",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/components/site-footer.js",
+      "status": 200,
+      "bytes": 2164,
+      "sha256": "86c97560015f56a7737d89da4ba8f7f0dbe5353ade2a2a981061f53fa637c07f",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/components/subscribe-dialog.js",
+      "status": 200,
+      "bytes": 9169,
+      "sha256": "0b2c79298a33d152e814aec5987a5585c6267a1ca93fa3975e9912d15721603d",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/components/tag.css",
+      "status": 200,
+      "bytes": 7176,
+      "sha256": "d63f8eb5bf093754e0f778b57abff33545dfbb43eab2f3cb02513c9398b4eaab",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/components/tag.js",
+      "status": 200,
+      "bytes": 10821,
+      "sha256": "ff35ec9b65ffcbd2f0a0ebd0d329e7316fc739e9a1a3eabbf26d9d9ae75de6c7",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/components/typography.css",
+      "status": 200,
+      "bytes": 1291,
+      "sha256": "843591e0ded2e69a8859e3bebeaa84bb6bf62ba57d0909d529f58748c8511bbb",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/components/typography.js",
+      "status": 200,
+      "bytes": 3162,
+      "sha256": "258d3a50fbf2b678c0b5f503f463426a483cb3e254a4a57330e172b29171a115",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/context-pager.js",
+      "status": 200,
+      "bytes": 3687,
+      "sha256": "bf7d381ef021e960c4506f4a186421dc1f9cbf438e17edfe3fa63e4ac72af744",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/design-tokens.css",
+      "status": 200,
+      "bytes": 4452,
+      "sha256": "8c3239084cd6124a85f0e4207a8bb089d33368fb0d318cb764ac57caf7f73f35",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/dev-panel.js",
+      "status": 200,
+      "bytes": 16402,
+      "sha256": "aca112d440615af2b4761b70ca78e8469f1da9c1e539620752a68ed6397759de",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/dev-settings.js",
+      "status": 200,
+      "bytes": 1171,
+      "sha256": "99aa50f50916a54e672c54e1205ab838f3ecb9db6cd68dd99dc942b4d6935f18",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/dev-tools.js",
+      "status": 200,
+      "bytes": 452,
+      "sha256": "8a45ada172b24bffc0f85d78aa1895f237aa06cb318b724b9a95a34c38554c26",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/drag-hint.js",
+      "status": 200,
+      "bytes": 13275,
+      "sha256": "fba7f209a836a70c2f7a2b1402b2c49ee4118f861c68fb99722504bde6a76e99",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/editorial-video.js",
+      "status": 200,
+      "bytes": 1146,
+      "sha256": "0500206cd319cb3cf19d166c741ac38248c2c31a5076fcf90796020622bb0cab",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/email-subscribe.js",
+      "status": 200,
+      "bytes": 2412,
+      "sha256": "e0afd6c0eadfec4acd047fb7abe5c74db9101cc9d56566c17553fbf6e94d64b0",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/focus-modality.js",
+      "status": 200,
+      "bytes": 667,
+      "sha256": "f38ffbc294a2b4837a48ea4157b061241efd6d3b899eaa28c6e79628fad4465f",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/fonts.css",
+      "status": 200,
+      "bytes": 1474,
+      "sha256": "654b24331a62eba633d0c7d5ff764d668b68693f734db3e175f39c7a8185e5ca",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/glitch-preview.js",
+      "status": 200,
+      "bytes": 149,
+      "sha256": "b398525e392d3aea5a03608a1f5763f271f016abd701e06b9f4a0bcfda4f5463",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/headline-glitch.js",
+      "status": 200,
+      "bytes": 17257,
+      "sha256": "803165388866d9a4ddc2eb8bc26c514b483dd72393000668df749889a3d189ed",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/intro.js",
+      "status": 200,
+      "bytes": 5102,
+      "sha256": "f8cb502f3f82ebfc83202a80d33ee063baa70977c6fa0f26345854a3a2c799e5",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/landing.js",
+      "status": 200,
+      "bytes": 962,
+      "sha256": "89979e48e386174351b17e86ca8e001724175c7477379b2a11d81de016f7c97b",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/media-demo.js",
+      "status": 200,
+      "bytes": 2941,
+      "sha256": "9d69a2471eb00a38194bba7adec52b73911c6f994edcc6a077aa5df52bf4619e",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/media-views.js",
+      "status": 200,
+      "bytes": 6037,
+      "sha256": "a2a35b24b5eba5196c9951d493c332f4e2e915e28dd40bc99766bfbd80664a4f",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/mobile-city-video.js",
+      "status": 200,
+      "bytes": 4559,
+      "sha256": "aa73d29665afd673ec9d4233cb599ef2cac679eeeb773e0033a6d500117a39a6",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/mobile-shell-state.js",
+      "status": 200,
+      "bytes": 2546,
+      "sha256": "960f94e81115f5983b7f9ca0c438df82fd5e64ae5ec65a67be128fc155253eed",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/mobile-shell.css",
+      "status": 200,
+      "bytes": 17451,
+      "sha256": "a6982d51748866445e8b44f3d8c26273e1254fd0535f945484eeb543c6faabac",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/mobile-shell.js",
+      "status": 200,
+      "bytes": 25402,
+      "sha256": "c3bbc5b74b983fe155bf0525fa86f4d2f7edc4580447eca299e9227471829244",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/quote-background-video.js",
+      "status": 200,
+      "bytes": 3497,
+      "sha256": "a1bce6542ae9b80c3d9a90398b60007c68745d56f6380bae49908a9f96c72620",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/quote-scene.js",
+      "status": 200,
+      "bytes": 8809,
+      "sha256": "a34868ad087053a559a92659acf10fa5c2c5cd7d348c6593f3a243b2784969e4",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/quote-scroll-state.js",
+      "status": 200,
+      "bytes": 2707,
+      "sha256": "3220175e9b45571e75c16322ea24288a758e17fcc42300f9a3298726a54be6f6",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/scene-rail.js",
+      "status": 200,
+      "bytes": 17335,
+      "sha256": "ff41af288dab3a3859b151060586df04717771f3b1b3c5acbef5a65f0801616e",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/section-headings.js",
+      "status": 200,
+      "bytes": 5180,
+      "sha256": "c5a807580bb33dd8d77b0f51769ad736124f52a1a4536a28aac8baf4cb73c2e5",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/site-cursor.js",
+      "status": 200,
+      "bytes": 4329,
+      "sha256": "b44ecd3717322eb94da80a338f7761d9c458cdeacadb8c2629e6319c9d79658e",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/story-club-editor.js",
+      "status": 200,
+      "bytes": 15534,
+      "sha256": "e281f92372abaa913cfef135c867dd331ff4fa7676c153a040ddc8331b30b31d",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/story-club-settings.js",
+      "status": 200,
+      "bytes": 5386,
+      "sha256": "6b8a557d915accb496283f507c8892c567fbfecaf540663432d03a7f14dde970",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/story-club.js",
+      "status": 200,
+      "bytes": 1991,
+      "sha256": "0b33c446ed2e5797a7323682394e0f3cfcd4e228b04d046e1156e526a9ecec5f",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/subscribe-modal.js",
+      "status": 200,
+      "bytes": 475,
+      "sha256": "ee195b47c5ca1c9c936faf2211f16f8bdc64b3493630c206a16620304cba5401",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "src/video-sphere.js",
+      "status": 200,
+      "bytes": 16056,
+      "sha256": "a32c4cf4a00c4cbeb9403a2263256d4e423071ffe30a30ec60611b6579a0f3ee",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    },
+    {
+      "path": "styles.css",
+      "status": 200,
+      "bytes": 40225,
+      "sha256": "305e44244f1476fec3e32567a6bbd895230b013cabf9c388cbedea8745411878",
+      "last_modified": "Sun, 25 Oct 2026 15:49:42 GMT",
+      "modern_date": true,
+      "matches": true
+    }
+  ],
+  "tls_verified": true,
+  "passed": true
+}

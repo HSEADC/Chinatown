@@ -1,0 +1,69 @@
+{
+  "clips": [
+    {
+      "id": "kitay-night",
+      "source": "../video-originals/IMG_6977.MP4",
+      "start": 1,
+      "duration": 8,
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "title": "Ночная улица",
+      "caption": "Китай-город и новая сцена",
+      "preview": false
+    },
+    {
+      "id": "kitay-street",
+      "source": "../video-originals/IMG_3621.MOV",
+      "start": 0,
+      "duration": 4,
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "title": "Город рядом",
+      "caption": "Китай-город и новая сцена",
+      "preview": false
+    },
+    {
+      "id": "kitay-people",
+      "source": "../video-originals/IMG_6342.MP4",
+      "start": 0.3,
+      "duration": 5,
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "title": "Свои люди",
+      "caption": "Китай-город и новая сцена",
+      "preview": false
+    },
+    {
+      "id": "concert-crowd",
+      "source": "../video-originals/IMG_0114.MP4",
+      "start": 0.4,
+      "duration": 7.5,
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "title": "В толпе",
+      "caption": "Китай-город и новая сцена",
+      "preview": false
+    },
+    {
+      "id": "madk1d-chorus",
+      "source": "../video-originals/madk1d-concert.mp4",
+      "start": 417,
+      "duration": 24,
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "title": "madk1d — фрагмент выступления",
+      "articleAudio": false,
+      "railEnabled": false
+    }
+  ]
+}

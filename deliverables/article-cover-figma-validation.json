@@ -1,0 +1,513 @@
+{
+  "checks": [
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "cover": {
+        "x": 0,
+        "y": 88,
+        "width": 1440,
+        "height": 810
+      },
+      "meta": {
+        "x": 32,
+        "y": 32,
+        "width": 1376,
+        "height": 16,
+        "bottom": 48
+      },
+      "category": {
+        "x": 32,
+        "y": 32,
+        "width": 680,
+        "height": 16,
+        "bottom": 48
+      },
+      "time": {
+        "x": 728,
+        "y": 32,
+        "width": 680,
+        "height": 16,
+        "bottom": 48
+      },
+      "intro": {
+        "x": 582.390625,
+        "y": 237,
+        "width": 825.609375,
+        "height": 64,
+        "bottom": 301
+      },
+      "title": {
+        "x": 32,
+        "y": 490,
+        "width": 1376,
+        "height": 288,
+        "bottom": 778
+      },
+      "titleFont": {
+        "size": "90px",
+        "lineHeight": "96px"
+      },
+      "titleLines": [
+        "madk1d: слишком",
+        "",
+        "громко, чтобы",
+        "было всё равно"
+      ],
+      "overflow": false,
+      "railHidden": true,
+      "railInert": true,
+      "coverContentFits": true,
+      "railAnimation": {
+        "visibility": "visible",
+        "opacity": "0.352731",
+        "transform": "matrix(1, 0, 0, 1, 108.484, 0)",
+        "transition": "transform 0.48s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.36s ease-out, visibility linear, top 0.22s cubic-bezier(0.16, 1, 0.3, 1)",
+        "inert": false
+      },
+      "railVisibleAfterCover": true
+    },
+    {
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "cover": {
+        "x": 0,
+        "y": 88,
+        "width": 1920,
+        "height": 972
+      },
+      "meta": {
+        "x": 32,
+        "y": 32,
+        "width": 1856,
+        "height": 16,
+        "bottom": 48
+      },
+      "category": {
+        "x": 32,
+        "y": 32,
+        "width": 920,
+        "height": 16,
+        "bottom": 48
+      },
+      "time": {
+        "x": 968,
+        "y": 32,
+        "width": 920,
+        "height": 16,
+        "bottom": 48
+      },
+      "intro": {
+        "x": 774.390625,
+        "y": 294,
+        "width": 1113.609375,
+        "height": 64,
+        "bottom": 358
+      },
+      "title": {
+        "x": 32,
+        "y": 604,
+        "width": 1856,
+        "height": 336,
+        "bottom": 940
+      },
+      "titleFont": {
+        "size": "108px",
+        "lineHeight": "112px"
+      },
+      "titleLines": [
+        "madk1d: слишком",
+        "",
+        "громко, чтобы",
+        "было всё равно"
+      ],
+      "overflow": false,
+      "railHidden": true,
+      "railInert": true,
+      "coverContentFits": true
+    },
+    {
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "cover": {
+        "x": 0,
+        "y": 88,
+        "width": 1280,
+        "height": 648
+      },
+      "meta": {
+        "x": 32,
+        "y": 32,
+        "width": 1216,
+        "height": 16,
+        "bottom": 48
+      },
+      "category": {
+        "x": 32,
+        "y": 32,
+        "width": 600,
+        "height": 16,
+        "bottom": 48
+      },
+      "time": {
+        "x": 648,
+        "y": 32,
+        "width": 600,
+        "height": 16,
+        "bottom": 48
+      },
+      "intro": {
+        "x": 518.390625,
+        "y": 180,
+        "width": 729.609375,
+        "height": 64,
+        "bottom": 244
+      },
+      "title": {
+        "x": 32,
+        "y": 376,
+        "width": 1216,
+        "height": 240,
+        "bottom": 616
+      },
+      "titleFont": {
+        "size": "72px",
+        "lineHeight": "80px"
+      },
+      "titleLines": [
+        "madk1d: слишком",
+        "",
+        "громко, чтобы",
+        "было всё равно"
+      ],
+      "overflow": false,
+      "railHidden": true,
+      "railInert": true,
+      "coverContentFits": true
+    },
+    {
+      "viewport": {
+        "width": 1024,
+        "height": 768
+      },
+      "cover": {
+        "x": 0,
+        "y": 88,
+        "width": 1024,
+        "height": 691.1875
+      },
+      "meta": {
+        "x": 32,
+        "y": 32,
+        "width": 960,
+        "height": 16,
+        "bottom": 48
+      },
+      "category": {
+        "x": 32,
+        "y": 32,
+        "width": 472,
+        "height": 16,
+        "bottom": 48
+      },
+      "time": {
+        "x": 520,
+        "y": 32,
+        "width": 472,
+        "height": 16,
+        "bottom": 48
+      },
+      "intro": {
+        "x": 416,
+        "y": 145.59375,
+        "width": 576,
+        "height": 96,
+        "bottom": 241.59375
+      },
+      "title": {
+        "x": 32,
+        "y": 339.1875,
+        "width": 960,
+        "height": 320,
+        "bottom": 659.1875
+      },
+      "titleFont": {
+        "size": "68.2667px",
+        "lineHeight": "80px"
+      },
+      "titleLines": [
+        "madk1d:",
+        "",
+        "слишком",
+        "громко, чтобы",
+        "было всё равно"
+      ],
+      "overflow": false,
+      "railHidden": true,
+      "railInert": true,
+      "coverContentFits": true
+    },
+    {
+      "viewport": {
+        "width": 760,
+        "height": 900
+      },
+      "cover": {
+        "x": 0,
+        "y": 88,
+        "width": 760,
+        "height": 810
+      },
+      "meta": {
+        "x": 20,
+        "y": 32,
+        "width": 720,
+        "height": 16,
+        "bottom": 48
+      },
+      "category": {
+        "x": 20,
+        "y": 32,
+        "width": 172.078125,
+        "height": 16,
+        "bottom": 48
+      },
+      "time": {
+        "x": 672.984375,
+        "y": 32,
+        "width": 67.015625,
+        "height": 16,
+        "bottom": 48
+      },
+      "intro": {
+        "x": 20,
+        "y": 253,
+        "width": 720,
+        "height": 64,
+        "bottom": 317
+      },
+      "title": {
+        "x": 20,
+        "y": 522,
+        "width": 720,
+        "height": 256,
+        "bottom": 778
+      },
+      "titleFont": {
+        "size": "53.96px",
+        "lineHeight": "64px"
+      },
+      "titleLines": [
+        "madk1d:",
+        "",
+        "слишком",
+        "громко, чтобы",
+        "было всё равно"
+      ],
+      "overflow": false,
+      "railHidden": true,
+      "railInert": true,
+      "coverContentFits": true
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "cover": {
+        "x": 0,
+        "y": 88,
+        "width": 390,
+        "height": 759.59375
+      },
+      "meta": {
+        "x": 20,
+        "y": 32,
+        "width": 350,
+        "height": 16,
+        "bottom": 48
+      },
+      "category": {
+        "x": 20,
+        "y": 32,
+        "width": 172.078125,
+        "height": 16,
+        "bottom": 48
+      },
+      "time": {
+        "x": 302.984375,
+        "y": 32,
+        "width": 67.015625,
+        "height": 16,
+        "bottom": 48
+      },
+      "intro": {
+        "x": 20,
+        "y": 243.796875,
+        "width": 350,
+        "height": 128,
+        "bottom": 371.796875
+      },
+      "title": {
+        "x": 20,
+        "y": 567.59375,
+        "width": 350,
+        "height": 160,
+        "bottom": 727.59375
+      },
+      "titleFont": {
+        "size": "30px",
+        "lineHeight": "32px"
+      },
+      "titleLines": [
+        "madk1d:",
+        "",
+        "слишком",
+        "громко,",
+        "чтобы было",
+        "всё равно"
+      ],
+      "overflow": false,
+      "railHidden": true,
+      "railInert": true,
+      "coverContentFits": true
+    },
+    {
+      "viewport": {
+        "width": 320,
+        "height": 568
+      },
+      "cover": {
+        "x": 0,
+        "y": 88,
+        "width": 320,
+        "height": 511.1875
+      },
+      "meta": {
+        "x": 20,
+        "y": 32,
+        "width": 280,
+        "height": 16,
+        "bottom": 48
+      },
+      "category": {
+        "x": 20,
+        "y": 32,
+        "width": 172.078125,
+        "height": 16,
+        "bottom": 48
+      },
+      "time": {
+        "x": 232.984375,
+        "y": 32,
+        "width": 67.015625,
+        "height": 16,
+        "bottom": 48
+      },
+      "intro": {
+        "x": 20,
+        "y": 87.59375,
+        "width": 280,
+        "height": 160,
+        "bottom": 247.59375
+      },
+      "title": {
+        "x": 20,
+        "y": 287.1875,
+        "width": 280,
+        "height": 192,
+        "bottom": 479.1875
+      },
+      "titleFont": {
+        "size": "30px",
+        "lineHeight": "32px"
+      },
+      "titleLines": [
+        "madk1d:",
+        "",
+        "слишком",
+        "громко,",
+        "чтобы",
+        "было всё",
+        "равно"
+      ],
+      "overflow": false,
+      "railHidden": true,
+      "railInert": true,
+      "coverContentFits": true
+    },
+    {
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "cover": {
+        "x": 0,
+        "y": 88,
+        "width": 844,
+        "height": 384
+      },
+      "meta": {
+        "x": 32,
+        "y": 32,
+        "width": 780,
+        "height": 16,
+        "bottom": 48
+      },
+      "category": {
+        "x": 32,
+        "y": 32,
+        "width": 382,
+        "height": 16,
+        "bottom": 48
+      },
+      "time": {
+        "x": 430,
+        "y": 32,
+        "width": 382,
+        "height": 16,
+        "bottom": 48
+      },
+      "intro": {
+        "x": 344,
+        "y": 64,
+        "width": 468,
+        "height": 128,
+        "bottom": 192
+      },
+      "title": {
+        "x": 32,
+        "y": 208,
+        "width": 780,
+        "height": 144,
+        "bottom": 352
+      },
+      "titleFont": {
+        "size": "42px",
+        "lineHeight": "48px"
+      },
+      "titleLines": [
+        "madk1d: слишком",
+        "",
+        "громко, чтобы",
+        "было всё равно"
+      ],
+      "overflow": false,
+      "railHidden": true,
+      "railInert": true,
+      "coverContentFits": true
+    }
+  ],
+  "staticResult": {
+    "text": "НОВАЯ СЦЕНА  /  ПОРТРЕТ\n\n3 минуты\n\nВ «так похуй» madk1d собирает злость и браваду в одну цепкую фразу. Разбираемся, что скрывается за равнодушием.\n\nMADK1D: СЛИШКОМ ГРОМКО, ЧТОБЫ БЫЛО ВСЁ РАВНО",
+    "width": 1440,
+    "height": 810
+  },
+  "errors": []
+}

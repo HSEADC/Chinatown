@@ -1,0 +1,197 @@
+{
+  "checks": [
+    "The same video element and timestamp survive navigation, including user pause",
+    "Scroll changes emphasis; manual expansion persists until Auto",
+    "Next video works while paused and the playlist advances at the end",
+    "At 320–1920 px the video stays right, content reserves its width, no page overflow",
+    "Header switches by available article width; navigation and search work",
+    "Article cuts use the separate manual-play export and release their media on disposal",
+    "Reduced motion shows only a poster until Play; phones receive the small export",
+    "Unavailable media offers retry, recovers, and clears stale errors when switching clips",
+    "Visibility events pause playback and resume it without overriding a reader pause",
+    "Missing manifest restores full content width; 320 px landing title stays inside its column"
+  ],
+  "layouts": [
+    {
+      "route": "about.html",
+      "viewport": 1920,
+      "mainRight": 1280,
+      "railLeft": 1280,
+      "railRight": 1920,
+      "railWidth": 640,
+      "docWidth": 1920,
+      "over": []
+    },
+    {
+      "route": "article.html",
+      "viewport": 1920,
+      "mainRight": 1500,
+      "railLeft": 1500,
+      "railRight": 1920,
+      "railWidth": 420,
+      "docWidth": 1920,
+      "over": []
+    },
+    {
+      "route": "about.html",
+      "viewport": 1440,
+      "mainRight": 892.8125,
+      "railLeft": 892.8125,
+      "railRight": 1440,
+      "railWidth": 547.1875,
+      "docWidth": 1440,
+      "over": []
+    },
+    {
+      "route": "article.html",
+      "viewport": 1440,
+      "mainRight": 1094.40625,
+      "railLeft": 1094.40625,
+      "railRight": 1440,
+      "railWidth": 345.59375,
+      "docWidth": 1440,
+      "over": []
+    },
+    {
+      "route": "about.html",
+      "viewport": 1100,
+      "mainRight": 682,
+      "railLeft": 682,
+      "railRight": 1100,
+      "railWidth": 418,
+      "docWidth": 1100,
+      "over": []
+    },
+    {
+      "route": "article.html",
+      "viewport": 1100,
+      "mainRight": 836,
+      "railLeft": 836,
+      "railRight": 1100,
+      "railWidth": 264,
+      "docWidth": 1100,
+      "over": []
+    },
+    {
+      "route": "about.html",
+      "viewport": 820,
+      "mainRight": 508.40625,
+      "railLeft": 508.40625,
+      "railRight": 820,
+      "railWidth": 311.59375,
+      "docWidth": 820,
+      "over": []
+    },
+    {
+      "route": "article.html",
+      "viewport": 820,
+      "mainRight": 623.203125,
+      "railLeft": 623.203125,
+      "railRight": 820,
+      "railWidth": 196.796875,
+      "docWidth": 820,
+      "over": []
+    },
+    {
+      "route": "about.html",
+      "viewport": 768,
+      "mainRight": 476.171875,
+      "railLeft": 476.171875,
+      "railRight": 768,
+      "railWidth": 291.828125,
+      "docWidth": 768,
+      "over": []
+    },
+    {
+      "route": "article.html",
+      "viewport": 768,
+      "mainRight": 576,
+      "railLeft": 576,
+      "railRight": 768,
+      "railWidth": 192,
+      "docWidth": 768,
+      "over": []
+    },
+    {
+      "route": "about.html",
+      "viewport": 760,
+      "mainRight": 648,
+      "railLeft": 648,
+      "railRight": 760,
+      "railWidth": 112,
+      "docWidth": 760,
+      "over": []
+    },
+    {
+      "route": "article.html",
+      "viewport": 760,
+      "mainRight": 680,
+      "railLeft": 680,
+      "railRight": 760,
+      "railWidth": 80,
+      "docWidth": 760,
+      "over": []
+    },
+    {
+      "route": "about.html",
+      "viewport": 667,
+      "mainRight": 555,
+      "railLeft": 555,
+      "railRight": 667,
+      "railWidth": 112,
+      "docWidth": 667,
+      "over": []
+    },
+    {
+      "route": "article.html",
+      "viewport": 667,
+      "mainRight": 587,
+      "railLeft": 587,
+      "railRight": 667,
+      "railWidth": 80,
+      "docWidth": 667,
+      "over": []
+    },
+    {
+      "route": "about.html",
+      "viewport": 390,
+      "mainRight": 280.8125,
+      "railLeft": 280.8125,
+      "railRight": 390,
+      "railWidth": 109.1875,
+      "docWidth": 390,
+      "over": []
+    },
+    {
+      "route": "article.html",
+      "viewport": 390,
+      "mainRight": 310,
+      "railLeft": 310,
+      "railRight": 390,
+      "railWidth": 80,
+      "docWidth": 390,
+      "over": []
+    },
+    {
+      "route": "about.html",
+      "viewport": 320,
+      "mainRight": 230.40625,
+      "railLeft": 230.40625,
+      "railRight": 320,
+      "railWidth": 89.59375,
+      "docWidth": 320,
+      "over": []
+    },
+    {
+      "route": "article.html",
+      "viewport": 320,
+      "mainRight": 240,
+      "railLeft": 240,
+      "railRight": 320,
+      "railWidth": 80,
+      "docWidth": 320,
+      "over": []
+    }
+  ],
+  "errors": []
+}

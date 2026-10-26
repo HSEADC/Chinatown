@@ -1,0 +1,206 @@
+@import url('./src/components/context-title.css');
+
+/* The video owns its space; the article and its fixed layers end at its left edge. */
+.has-scene-rail { --scene-rail-full-width: clamp(192px, 24vw, 420px); --scene-rail-collapsed-width: 40px; --scene-rail-peek-width: 72px; --scene-rail-peek-inset: 32px; --scene-rail-bg: #171717; --scene-rail-width: var(--scene-rail-full-width); --scene-motion: 480ms cubic-bezier(.22, 1, .36, 1); --scene-shell-motion: 280ms cubic-bezier(.22, 1, .36, 1); --scene-rail-top: var(--media-header-height, 0px); }
+.has-scene-rail:has(.story-header.is-auto-hidden) { --scene-rail-top: 0px; }
+.has-scene-rail[data-scene-emphasis="ambient"] { --scene-rail-full-width: clamp(144px, 16vw, 280px); }
+.has-scene-rail[data-scene-emphasis="featured"] { --scene-rail-full-width: clamp(280px, 38vw, 640px); }
+#media-content { container: editorial / inline-size; }
+.media-site-header { position: sticky; z-index: 60; top: 0; width: 100%; background: transparent; pointer-events: none; }
+.media-site-header > header { pointer-events: auto; }
+.media-site-header > .is-auto-hidden { pointer-events: none; }
+.media-site-header > .story-header { position: relative; }
+.has-scene-rail #media-content { margin-right: var(--scene-rail-width); transition: margin-right var(--scene-motion); }
+.scene-rail { position: fixed; z-index: 45; inset: var(--scene-rail-top, 0px) 0 0 auto; width: var(--scene-rail-width, 0px); overflow: visible; background: var(--scene-rail-bg); color: #fff; transition: width var(--scene-motion), top 220ms cubic-bezier(.16, 1, .3, 1); }
+/* The rail rides up off the footer's pink band as it scrolls into view (scene-rail.js); the band's star, a sticker,
+   stays on top of the rail. */
+.scene-rail { translate: 0 calc(-1 * var(--scene-rail-lift, 0px)); }
+.has-scene-rail .site-footer { z-index: 46; }
+.scene-rail__video, .scene-rail__shade { position: absolute; inset: 0; width: 100%; height: 100%; }
+.scene-rail__video { display: block; object-fit: cover; }
+.scene-rail__shade { pointer-events: none; background: linear-gradient(180deg, #0009, transparent 30%, transparent 60%, #000b); }
+.scene-rail__bottom { position: absolute; inset: auto 20px max(20px, env(safe-area-inset-bottom)); }
+.scene-rail__status { margin: 0 0 var(--space-4); color: #ffffffb3; font: 400 12px/16px var(--font-body); overflow-wrap: anywhere; }
+.scene-rail__status:empty { display: none; }
+.scene-rail__controls { display: flex; flex-wrap: wrap; gap: var(--space-1); }
+/* Icon buttons as in the header kit: icon only, no frame or fill; 44px hit area. */
+.scene-rail__controls button { display: grid; place-items: center; min-width: 44px; height: 44px; padding: 0 var(--space-3); border: 0; border-radius: 0; background: transparent; color: #fff; font: 400 11px/16px var(--font-body); cursor: pointer; }
+.scene-rail__credit { display: inline-block; margin-top: var(--space-4); font: 400 11px/16px var(--font-body); text-underline-offset: 3px; }
+/* The concert fills the viewport behind the departing rail; copy keeps its grid. */
+.has-scene-rail .story-club {
+  z-index: 46;
+  inset: var(--scene-rail-top, 0px) 0 0 auto;
+  width: min(var(--club-width, 46vw), var(--club-max-width, 880px), var(--scene-rail-width));
+  transition: opacity 600ms ease-out, visibility 600ms, top 220ms cubic-bezier(.16, 1, .3, 1);
+}
+.has-scene-rail[data-media-page="article"] .story-cover { width: 100vw; }
+/* The page scrollbar would overlay the fixed right rail and its toggle, so the article hides it on desktop.
+   Wheel, trackpad and keyboard scrolling are unaffected. */
+@media (min-width: 761px) {
+  html:has(> body.has-scene-rail[data-media-page="article"]) { scrollbar-width: none; }
+  html:has(> body.has-scene-rail[data-media-page="article"])::-webkit-scrollbar { display: none; }
+}
+.is-story-cover-active .story-club { visibility: hidden; pointer-events: none; }
+@media (min-width: 761px) {
+  .has-scene-rail[data-media-page="article"] { overflow-x: clip; }
+  .has-scene-rail .story-quote-scene { --quote-inset: clamp(20px, 13.333333cqw, 256px); }
+  .has-scene-rail .story-quote-scene__lyrics { width: min(70cqw, 1080px); }
+}
+.story-content video[data-editorial-video] { display: block; width: 100%; height: auto; max-height: 75svh; object-fit: contain; background: #000; }
+.story-video figcaption { margin-top: var(--space-4); color: var(--story-muted); font: 400 var(--font-size-caption)/var(--line-height-caption) var(--font-body); }
+@media (min-width: 1200px) {
+  .has-scene-rail[data-media-page="article"] .story-page { --story-column-count: 4; --story-artwork-span: 1; --story-end-gutter: var(--story-grid-gap); }
+}
+@container editorial (max-width: 1365px) and (min-width: 761px) {
+  .story-page { --story-copy-span: 3; }
+  .story-margin-note { grid-column: 2 / span var(--story-copy-span); margin-top: 0; }
+  .story-artwork { grid-column: 2 / span var(--story-copy-span); }
+  .story-artwork > .story-artwork__cover { grid-column: 1 / span 2; }
+}
+@container editorial (max-width: 1100px) {
+  .story-page { --story-copy-span: 4; --story-wide-span: 4; }
+}
+@container editorial (max-width: 760px) {
+  .story-page { --story-gutter: var(--dev-article-margin, var(--page-gutter)); }
+  .story-content { display: block; padding-block: var(--space-12); }
+  .story-analysis, .story-artwork { display: block; }
+  .story-section { margin-top: var(--space-12); }
+  .story-margin-note, .story-footnotes { margin-top: var(--space-8); }
+  .story-artwork { margin-top: var(--space-8) !important; }
+  .story-quote { margin-block: var(--space-12); }
+  .story-quote-scene .story-quote-scene__lyrics { width: 100%; }
+  .story-quote-scene { --quote-inset: 20px; --quote-gap: var(--type-lyric-gap); }
+
+}
+@media (max-width: 760px) {
+  .has-scene-rail { --scene-rail-full-width: 80px; }
+  .has-scene-rail[data-scene-emphasis="ambient"] { --scene-rail-full-width: 64px; }
+  .has-scene-rail[data-scene-emphasis="featured"] { --scene-rail-full-width: min(28vw, 112px); }
+  .scene-rail__bottom { inset-inline: 8px; }
+  .scene-rail__credit { display: none; }
+  .scene-rail__status { font-size: 10px; line-height: 14px; }
+  .scene-rail__controls { flex-direction: column; align-items: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .has-scene-rail { --scene-motion: 0s; }
+}
+
+/* One full-width grid: copy uses tracks 1–4, the rail uses track 5 plus the right margin. */
+.has-scene-rail[data-media-page="article"] {
+  --scene-rail-full-width: calc((100vw - 2 * var(--story-gutter) - 4 * var(--story-grid-gap)) / 5 + var(--story-gutter));
+  --scene-motion: 0s;
+}
+.has-scene-rail[data-media-page="article"] #media-content { transition: none; }
+@media (min-width: 1200px) {
+  .has-scene-rail[data-media-page="article"] .story-page { --story-wide-span: 3; }
+  @container editorial (max-width: 1100px) {
+    .has-scene-rail[data-media-page="article"] .story-page { --story-copy-span: 3; }
+  }
+}
+.scene-rail--article { transform: translateX(0); opacity: 1; visibility: visible; transition: transform 480ms cubic-bezier(.22, 1, .36, 1), opacity 360ms ease-out, visibility 0s linear, top 220ms cubic-bezier(.16, 1, .3, 1), width var(--scene-motion); }
+/* Editorial cards keep Figma's flat background above the ambient video lights. */
+.scene-rail[data-context-state="material"] { z-index: 47; }
+.is-story-cover-active .scene-rail--article { transform: translateX(100%); opacity: 0; visibility: hidden; pointer-events: none; transition-delay: 0s, 0s, 480ms, 0s; }
+.is-story-quote-active .scene-rail--article { transform: translateX(100%); }
+.scene-rail [hidden], .has-article-context [hidden] { display: none !important; }
+.scene-rail__context { position: absolute; inset: 0; overflow: clip; }
+.scene-rail__context-content { position: absolute; inset: 0; overflow-x: hidden; overflow-y: auto; overscroll-behavior: contain; padding: var(--space-4); background: var(--scene-rail-bg); }
+.scene-rail__context-outgoing { pointer-events: none; }
+.scene-rail--article .scene-rail__status, .scene-rail--article .scene-rail__credit { font: 400 var(--font-size-caption)/var(--line-height-caption) var(--font-body); }
+.article-context-material { min-width: 0; margin-block: var(--space-6); padding: var(--space-6) 0 var(--space-6) var(--space-5); border-left: 1px solid var(--media-accent); color: #fff; font: 400 var(--font-size-body)/var(--line-height-body) var(--font-body); overflow-wrap: anywhere; }
+.article-context-material h2 { margin: 0 0 var(--space-6); color: #fff; font: 700 var(--font-size-heading)/var(--line-height-heading) var(--font-body); text-wrap: balance; }
+.article-context-material p { margin: 0; font: inherit; }
+.article-context-material p + p { margin-top: var(--space-6); }
+.article-context-material figure { margin: 0 0 var(--space-6); }
+.article-context-material img { display: block; width: 100%; height: auto; }
+.article-context-material figcaption, .article-context-sources, .article-context-backlink { font: 400 var(--font-size-caption)/var(--line-height-caption) var(--font-body); }
+.article-context-material figcaption { margin-top: var(--space-4); }
+.article-context-sources { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-2); }
+.article-context-material a { color: inherit; text-underline-offset: .2em; }
+.article-context-material a:hover { color: var(--media-accent); }
+.article-context-entry { margin-top: var(--space-6) !important; }
+.article-context-entry a { display: inline-flex; align-items: baseline; gap: var(--space-4); min-height: 44px; padding-block: var(--space-2); color: var(--media-accent); }
+.article-context-entry span { flex: none; }
+.story-footnote-ref { position: relative; }
+.story-footnote-ref::after { position: absolute; content: ''; top: 50%; left: 50%; width: 24px; height: 28px; transform: translate(-50%, -50%); }
+.story-section .article-context-material[hidden] + p { margin-top: var(--story-paragraph-gap); }
+.has-article-context [data-context-material][hidden] { display: none !important; }
+.has-article-context .article-context-backlink, .scene-rail .article-context-backlink, .article-context-screen .article-context-backlink { display: none; }
+.scene-rail__context .article-context-material, .article-context-screen .article-context-material { margin: 0; padding: 0; border: 0; }
+.scene-rail__context-content > [data-context-material]:not(:has(> h2)) { padding-top: var(--space-12); }
+.scene-rail__context-content > [data-context-material] > h2 { min-height: 32px; margin: 0 0 var(--space-4); padding-top: var(--space-2); overflow: hidden; color: #fff; font: 700 var(--font-size-card-title)/var(--line-height-card-title) var(--font-display); letter-spacing: .02em; text-transform: uppercase; white-space: nowrap; text-overflow: ellipsis; transition: padding-left var(--scene-shell-motion); }
+.scene-rail:not(.is-collapsed):is(.is-hovered, :has(:focus-visible)) .scene-rail__context-content > [data-context-material] > h2 { padding-left: var(--space-10); }
+.scene-rail .story-artwork { display: flex; flex-direction: column; gap: var(--space-4); width: 100%; }
+.scene-rail .story-artwork .story-artwork__title { display: block; flex: none; width: 100%; margin: 0; }
+.scene-rail .story-artwork__cover > :is(a:not(.ct-big-burst), .context-image-trigger) { position: relative; display: block; flex: none; width: 100%; aspect-ratio: 1; overflow: clip; }
+/* Figma's source fill is cropped inside the square cover, without editing it. */
+.scene-rail .story-artwork img { position: absolute; top: 0; left: -.63%; display: block; width: 101.59%; max-width: none; height: 100.325%; aspect-ratio: auto; }
+.scene-rail .story-artwork .context-image-trigger:is(:hover, :focus-visible, :active) { transform: none; filter: none; }
+.scene-rail .story-artwork figcaption { display: flex; flex-direction: column; gap: var(--space-1); margin: 0; color: #fff; }
+.scene-rail .story-artwork__artist { display: block; font: 700 var(--font-size-card-artist)/var(--line-height-card-artist) var(--font-display); letter-spacing: .02em; }
+.scene-rail .story-artwork__name { display: block; font: 400 var(--font-size-caption)/var(--line-height-caption) var(--font-body); }
+.scene-rail .story-artwork__summary { display: block; width: 100%; margin: 0; color: var(--color-on-media); font: 400 var(--font-size-body)/var(--line-height-body) var(--font-body); }
+.scene-rail .story-artwork__description { display: none; }
+.article-context-screen { position: fixed; inset: 0; width: 100%; max-width: none; height: 100%; max-height: none; margin: 0; padding: max(var(--space-5), env(safe-area-inset-top)) var(--space-5) max(var(--space-8), env(safe-area-inset-bottom)); border: 0; background: var(--story-bg, #131313); color: #fff; overflow-y: auto; overscroll-behavior: contain; }
+.article-context-screen::backdrop { background: #131313; }
+.article-context-screen__bar { position: sticky; z-index: 1; top: 0; display: flex; margin-bottom: var(--space-8); padding-block: var(--space-2); background: var(--story-bg, #131313); }
+/* Shared ActionButton, transparent variant (Figma 388:752); the screen sets placement only. */
+.article-context-screen__back { width: auto; }
+.article-context-screen__content { max-width: 680px; margin-inline: auto; }
+.scene-rail :focus-visible, .article-context-screen :focus-visible:not(.action-button) { outline: 2px solid var(--media-accent); outline-offset: 4px; }
+@media (min-width: 1200px) {
+  .has-article-context .article-context-entry { display: block; }
+}
+@media (max-width: 1199px) {
+  .story-footnote-ref::after { width: 44px; height: 44px; }
+  .has-scene-rail[data-media-page="article"] { --scene-rail-width: 0px; }
+  .scene-rail--article { display: none; }
+  .has-scene-rail[data-media-page="article"] .story-club { display: none; }
+}
+@media (max-width: 760px) {
+  [data-media-page="article"] .article-context-material { font-size: var(--font-size-body); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scene-rail { transition: none; }
+}
+
+/* The shell owns its occupied space; its full-size contents never squeeze. */
+.scene-rail__viewport { position: absolute; inset: 0; overflow: clip; }
+.scene-rail.is-collapsed .scene-rail__viewport { pointer-events: none; }
+.scene-rail__surface { position: absolute; inset: 0 auto 0 0; width: var(--scene-rail-full-width); opacity: 1; transform: translateX(0); transition: transform var(--scene-shell-motion), opacity var(--scene-shell-motion); }
+.scene-rail.is-collapsed { transition: transform 480ms cubic-bezier(.22, 1, .36, 1), opacity 360ms ease-out, visibility 0s linear, top 220ms cubic-bezier(.16, 1, .3, 1), width var(--scene-shell-motion); }
+/* Quote scenes and header overlays suspend the rail: it leaves with the shared exit motion
+   (tokens in src/design-tokens.css) and returns with its usual entry transition. Placed after
+   .is-collapsed so a collapsed rail leaves the same way. */
+.scene-rail.is-suspended { opacity: 0; visibility: hidden; pointer-events: none; transition: transform var(--motion-exit) var(--motion-ease-exit), opacity var(--motion-exit) var(--motion-ease-exit), visibility 0s linear var(--motion-exit), top 220ms cubic-bezier(.16, 1, .3, 1), width var(--scene-motion); }
+.scene-rail.is-collapsed .scene-rail__surface { opacity: 0; transform: translateX(var(--scene-rail-peek-width)); }
+.scene-rail.is-collapsed.is-peeking { width: var(--scene-rail-peek-width); }
+.scene-rail.is-collapsed.is-peeking .scene-rail__surface { opacity: .5; transform: translateX(var(--scene-rail-peek-inset)); }
+.has-scene-rail.is-scene-rail-collapsed { --scene-rail-width: var(--scene-rail-collapsed-width); }
+.has-scene-rail.is-scene-rail-switching { --scene-motion: var(--scene-shell-motion); }
+.has-scene-rail.is-scene-rail-switching #media-content { transition: margin-right var(--scene-shell-motion); }
+.has-scene-rail.is-scene-rail-collapsed .story-club { visibility: hidden; pointer-events: none; }
+.scene-rail__toggle { position: absolute; z-index: 3; top: 9px; left: 6px; display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 0; border-radius: 0; background: transparent; color: #fff; cursor: pointer; opacity: 0; pointer-events: none; transition: opacity 140ms ease-out; }
+.scene-rail__toggle img { display: block; flex: none; }
+.scene-rail:is(.is-hovered, :has(:focus-visible)) .scene-rail__toggle { opacity: 1; pointer-events: auto; }
+.scene-rail__toggle:focus-visible { outline: 2px solid var(--media-accent); outline-offset: -4px; }
+.scene-rail.is-collapsed .scene-rail__toggle { inset: 0; width: 100%; height: 100%; opacity: 1; pointer-events: auto; }
+.scene-rail[inert] .scene-rail__toggle { visibility: hidden; }
+.scene-reading-layout { container: editorial / inline-size; }
+@media (min-width: 1200px) {
+  .scene-reading-layout { width: calc(100vw - var(--scene-rail-full-width)); }
+  /* The footer is the page's full-width floor: it runs under the rail's column to the window edge, open or collapsed. */
+  .scene-reading-layout .site-footer { margin-right: calc(-1 * var(--scene-rail-full-width)); }
+}
+@media (max-width: 1199px) {
+  .has-scene-rail, .has-scene-rail.is-scene-rail-collapsed { --scene-rail-width: 0px; }
+  .scene-rail, .has-scene-rail .story-club { display: none; }
+}
+@media (hover: none) {
+  .scene-rail__toggle { opacity: 1; pointer-events: auto; }
+  .scene-rail:not(.is-collapsed) .scene-rail__context-content > [data-context-material] > h2 { padding-left: var(--space-10); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .has-scene-rail { --scene-shell-motion: 0s; }
+  .scene-rail.is-collapsed, .scene-rail.is-suspended, .scene-rail__surface, .scene-rail__toggle, .scene-rail__context-content > [data-context-material] > h2, .has-scene-rail.is-scene-rail-switching #media-content { transition: none; }
+}

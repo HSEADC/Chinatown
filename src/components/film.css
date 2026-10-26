@@ -1,0 +1,8 @@
+/* Film look for 3D generations and covers: a light faded grade only, no grain. */
+:root {
+  --film-grade: contrast(.9) saturate(.82) sepia(.1);
+  /* Cards end in a torn paper edge instead of a straight line. */
+  --torn-edge-mask: linear-gradient(#000 0 0) top / 100% calc(100% - 9px) no-repeat, url('../../assets/textures/torn-edge.svg') bottom / 100% 10px no-repeat;
+}
+.film { position: relative; isolation: isolate; }
+.film > img { z-index: -2; filter: var(--film-grade); }

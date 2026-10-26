@@ -1,0 +1,26 @@
+{
+  "checks": [
+    "The quote does not load video at the top of the article",
+    "The local cut preloads near the scene without playing early",
+    "The 24-second native cut plays silently and loops",
+    "Leaving the quote pauses playback; reverse scrolling resumes it",
+    "Visibility events pause and resume the background",
+    "Navigation releases the video source and removes its element",
+    "The background plays inline on a phone",
+    "Reduced motion keeps the photograph and does not download the quote video",
+    "A failed local download leaves the photograph visible",
+    "No YouTube API, iframe, thumbnail or video requests"
+  ],
+  "errors": [],
+  "externalVideoRequests": [],
+  "exports": {
+    "src": "http://localhost:4173/assets/video/editorial/madk1d-chorus-6e39d25cf629/article.mp4",
+    "muted": true,
+    "loop": true,
+    "playsInline": true,
+    "duration": 24,
+    "width": 640,
+    "height": 360,
+    "currentTime": 0.019762
+  }
+}
